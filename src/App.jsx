@@ -19,8 +19,8 @@ export default function App() {
         <nav className="max-w-7xl mx-auto px-4 flex justify-between items-center">
           <h1 className="text-xl font-bold text-indigo-600">My Portfolio</h1>
           <div className="space-x-6 hidden sm:block">
-            <a href="#about" className="hover:text-indigo-600">About</a>
             <a href="#projects" className="hover:text-indigo-600">Projects</a>
+            <a href="#about" className="hover:text-indigo-600">About</a>
             <a href="#contact" className="hover:text-indigo-600">Contact</a>
           </div>
         </nav>
@@ -44,16 +44,6 @@ export default function App() {
         >
           A Passionate <span className="font-semibold">UI/UX Designer</span>
         </motion.p>
-      </section>
-
-      {/* About */}
-      <section id="about" className="py-16 max-w-5xl mx-auto px-4 text-center">
-        <h2 className="text-3xl font-bold mb-6">About Me</h2>
-        <p className="text-gray-600 leading-relaxed text-lg">
-          I’m a UI/UX Designer who loves crafting clean, modern, and user-friendly designs. 
-          With experience in mobile and web design, I focus on creating intuitive digital 
-          experiences that delight users.
-        </p>
       </section>
 
       {/* Projects */}
@@ -90,6 +80,16 @@ export default function App() {
             ))}
           </div>
         </div>
+      </section>
+
+      {/* About (Now after Projects) */}
+      <section id="about" className="py-16 max-w-5xl mx-auto px-4 text-center">
+        <h2 className="text-3xl font-bold mb-6">About Me</h2>
+        <p className="text-gray-600 leading-relaxed text-lg">
+          I’m a UI/UX Designer who loves crafting clean, modern, and user-friendly designs. 
+          With experience in mobile and web design, I focus on creating intuitive digital 
+          experiences that delight users.
+        </p>
       </section>
 
       {/* Contact */}
