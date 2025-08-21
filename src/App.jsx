@@ -100,7 +100,7 @@ export default function App() {
             transition={{ duration: 0.7 }}
           >
             <img
-              src="/images/profile.jpg"
+              src="/images/profile (2).jpeg."
               alt="Profile"
               className="rounded-2xl shadow-lg w-full max-w-sm mx-auto"
             />
