@@ -1,6 +1,6 @@
 import React from "react";
 import { motion } from "framer-motion";
-import { ReactTyped } from "react-typed";
+import ReactTyped from "react-typed";
 import {
   Mail,
   Download,
@@ -61,6 +61,7 @@ export default function App() {
   backSpeed={50}
   loop
 />
+
 
           <div className="mt-6">
             <a
