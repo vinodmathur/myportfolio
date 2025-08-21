@@ -15,7 +15,7 @@ export default function App() {
     {
       id: 1,
       name: "E-Commerce App Redesign",
-      cover: "https://www.google.com/url?sa=i&url=https%3A%2F%2Fwww.figma.com%2Fcommunity%2Ffile%2F1102179157650176081%2Finstant-pay-mobile-payment-app-ui-design&psig=AOvVaw0689kI5hdg5ATbgEEK5ZHz&ust=1755891482885000&source=images&cd=vfe&opi=89978449&ved=0CBUQjRxqFwoTCKDRwNjTnI8DFQAAAAAdAAAAABAL",
+      cover: "https://www.figma.com/community/resource/ad8c746d-c145-4b2e-9a46-ee1281669059/thumbnail",
       desc: "A sleek redesign of a modern e-commerce mobile app with intuitive UI and seamless checkout flow.",
       type: "Mobile Design",
       link: "https://www.figma.com/design/yVCUmDBrtnwKQf4XcFPwqh/Bankfipay?node-id=0-1&t=DDCZEEVEAzX86iee-1",
