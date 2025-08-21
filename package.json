@@ -16,10 +16,7 @@
     "lucide-react": "^0.540.0",
     "react": "^19.1.1",
     "react-dom": "^19.1.1",
-<<<<<<< HEAD
     "react-typed": "^2.0.12",
-=======
->>>>>>> eadbfe640e26c33ffc4f042c515d01432d50eaac
     "tailwindcss": "^4.1.12"
   },
   "devDependencies": {
