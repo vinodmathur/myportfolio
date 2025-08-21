@@ -1,170 +1,114 @@
-import React, { useState } from "react";
+// App.jsx
+import React from "react";
 import { motion } from "framer-motion";
-import {
-  Mail,
-  Download,
-  ExternalLink,
-  User,
-  Briefcase,
-  Layout,
-  Menu,
-  X,
-} from "lucide-react";
-import { Icon } from "@iconify/react";
+
+const projects = [
+  { title: "Mobile App Redesign", desc: "UI/UX focused redesign of an e-commerce app", img: "/images/ui1.png" },
+  { title: "Dashboard UI", desc: "Analytics dashboard with modern UI components", img: "/images/ui2.png" },
+  { title: "Portfolio Website", desc: "Personal portfolio with clean minimal design", img: "/images/ui3.png" },
+  { title: "Landing Page", desc: "Responsive landing page with creative layout", img: "/images/ui4.png" },
+  { title: "Finance App UI", desc: "Fintech mobile app with smooth navigation", img: "/images/ui5.png" },
+  { title: "Food Delivery App", desc: "UI/UX for hyperlocal food delivery experience", img: "/images/ui6.png" },
+];
 
 export default function App() {
-  const [menuOpen, setMenuOpen] = useState(false);
-
-  const projects = [
-    {
-      id: 1,
-      name: "E-Commerce App Redesign",
-      cover:
-        "https://www.figma.com/community/resource/ad8c746d-c145-4b2e-9a46-ee1281669059/thumbnail",
-      desc: "Sleek redesign of e-commerce mobile app with seamless checkout flow.",
-      type: "Mobile Design",
-      link: "https://www.figma.com/design/yVCUmDBrtnwKQf4XcFPwqh/Bankfipay",
-      icon: "fluent:cart-3d-24-filled",
-    },
-    {
-      id: 2,
-      name: "Dashboard UI Kit",
-      cover: "https://source.unsplash.com/600x400/?dashboard,ui,web",
-      desc: "Professional dashboard design system with reusable components.",
-      type: "Web Design",
-      link: "https://figma.com/file/demo-dashboard",
-      icon: "fluent:board-3d-24-filled",
-    },
-  ];
-
   return (
-    <div className="min-h-screen relative text-white font-[Montserrat] flex flex-col overflow-hidden">
-      {/* Gradient Background */}
-      <div className="absolute inset-0 bg-gradient-to-r from-[#001a33] via-[#003366] to-[#006699] animate-[gradient_15s_ease_infinite] bg-[length:400%_400%] -z-10"></div>
-      <style>{`@keyframes gradient {0%{background-position:0% 50%}50%{background-position:100% 50%}100%{background-position:0% 50%}}`}</style>
-
+    <div className="font-sans bg-gray-50 text-gray-900">
       {/* Navbar */}
-      <nav className="fixed w-full top-0 bg-black/30 backdrop-blur-lg border-b border-white/10 z-50 flex justify-between items-center px-8 py-4">
-        <h1 className="text-2xl font-extrabold text-white drop-shadow-[0_0_10px_#4fffff]">
-          MyPortfolio
-        </h1>
+      <header className="py-4 bg-white shadow-md fixed w-full top-0 z-50">
+        <nav className="max-w-7xl mx-auto px-4 flex justify-between items-center">
+          <h1 className="text-xl font-bold text-indigo-600">My Portfolio</h1>
+          <div className="space-x-6 hidden sm:block">
+            <a href="#about" className="hover:text-indigo-600">About</a>
+            <a href="#projects" className="hover:text-indigo-600">Projects</a>
+            <a href="#contact" className="hover:text-indigo-600">Contact</a>
+          </div>
+        </nav>
+      </header>
 
-        {/* Desktop Menu */}
-        <div className="hidden md:flex space-x-6 items-center">
-          <a href="#projects" className="hover:text-cyan-300 flex items-center gap-1">
-            <Layout size={16} /> Projects
-          </a>
-          <a href="#about" className="hover:text-cyan-300 flex items-center gap-1">
-            <User size={16} /> About
-          </a>
-          <a href="#contact" className="hover:text-cyan-300 flex items-center gap-1">
-            <Mail size={16} /> Contact
-          </a>
-          <a
-            href="#contact"
-            className="bg-cyan-500/20 px-6 py-2 rounded-full border border-cyan-400/40 hover:scale-105 transition"
-          >
-            <Briefcase size={16} className="inline mr-2" /> Hire Me
-          </a>
-        </div>
-
-        {/* Mobile Menu Button */}
-        <button className="md:hidden" onClick={() => setMenuOpen(!menuOpen)}>
-          {menuOpen ? <X size={28} /> : <Menu size={28} />}
-        </button>
-      </nav>
-
-      {/* Mobile Dropdown */}
-      {menuOpen && (
-        <div className="absolute top-16 right-6 bg-black/70 backdrop-blur-lg rounded-xl p-4 flex flex-col space-y-3 md:hidden">
-          <a href="#projects" className="hover:text-cyan-300">Projects</a>
-          <a href="#about" className="hover:text-cyan-300">About</a>
-          <a href="#contact" className="hover:text-cyan-300">Contact</a>
-          <a href="#contact" className="bg-cyan-500/20 px-4 py-2 rounded-md text-center">Hire Me</a>
-        </div>
-      )}
-
-      {/* Hero Section */}
-      <section className="h-screen flex flex-col justify-center items-center text-center px-6">
-        <motion.img
-          src="https://randomuser.me/api/portraits/men/32.jpg"
-          alt="Profile"
-          className="w-40 h-40 rounded-full border-4 border-white shadow-[0_0_20px_#4fffff]"
-          initial={{ opacity: 0, y: -40 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 1 }}
-        />
+      {/* Hero */}
+      <section className="h-screen flex flex-col justify-center items-center text-center px-4 bg-gradient-to-r from-indigo-100 via-white to-indigo-50">
         <motion.h2
-          className="mt-6 text-4xl md:text-5xl font-extrabold"
+          initial={{ opacity: 0, y: 40 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8 }}
+          className="text-4xl sm:text-6xl font-bold mb-4"
+        >
+          Hi, I'm <span className="text-indigo-600">Vinod</span>
+        </motion.h2>
+        <motion.p
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
-          transition={{ delay: 0.5 }}
+          transition={{ delay: 0.6 }}
+          className="text-lg sm:text-2xl text-gray-600"
         >
-          Hi, I'm a UI/UX Designer
-        </motion.h2>
-        <p className="mt-4 max-w-xl text-lg opacity-90">
-          I design sleek and modern user experiences in{" "}
-          <strong>Figma</strong>.
+          A Passionate <span className="font-semibold">UI/UX Designer</span>
+        </motion.p>
+      </section>
+
+      {/* About */}
+      <section id="about" className="py-16 max-w-5xl mx-auto px-4 text-center">
+        <h2 className="text-3xl font-bold mb-6">About Me</h2>
+        <p className="text-gray-600 leading-relaxed text-lg">
+          I’m a UI/UX Designer who loves crafting clean, modern, and user-friendly designs. 
+          With experience in mobile and web design, I focus on creating intuitive digital 
+          experiences that delight users.
         </p>
-        <div className="mt-6 flex space-x-4">
-          <a
-            href="#projects"
-            className="bg-cyan-500/20 px-6 py-3 rounded-full border border-cyan-400/40 hover:scale-105 transition"
-          >
-            View Projects
-          </a>
-          <a
-            href="#contact"
-            className="bg-white/20 px-6 py-3 rounded-full border border-white/30 hover:scale-105 transition"
-          >
-            Contact Me
-          </a>
+      </section>
+
+      {/* Projects */}
+      <section id="projects" className="py-16 bg-gray-100">
+        <div className="max-w-7xl mx-auto px-4">
+          <h2 className="text-3xl font-bold text-center mb-10">UI/UX Projects</h2>
+          <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+            {projects.map((project, index) => (
+              <motion.div
+                key={index}
+                initial={{ opacity: 0, y: 50 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                whileHover={{ scale: 1.05 }}
+                transition={{ duration: 0.4 }}
+                viewport={{ once: true }}
+                className="bg-white rounded-2xl shadow-md overflow-hidden hover:shadow-xl transition"
+              >
+                <img
+                  src={project.img}
+                  alt={project.title}
+                  className="w-full h-40 object-cover"
+                />
+                <div className="p-4">
+                  <h3 className="text-lg font-semibold mb-2">{project.title}</h3>
+                  <p className="text-gray-600 text-sm mb-3">{project.desc}</p>
+                  <a
+                    href="#"
+                    className="text-indigo-600 text-sm font-medium hover:underline"
+                  >
+                    View Case Study →
+                  </a>
+                </div>
+              </motion.div>
+            ))}
+          </div>
         </div>
       </section>
 
-      {/* Projects Section */}
-      <section id="projects" className="py-20 px-6 md:px-12">
-        <h2 className="text-4xl font-extrabold text-center mb-12 drop-shadow-[0_0_10px_#4fffff]">
-          Projects
-        </h2>
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-          {projects.map((project) => (
-            <motion.div
-              key={project.id}
-              whileHover={{ scale: 1.05 }}
-              className="bg-black/40 p-6 rounded-2xl border border-white/10 backdrop-blur-lg hover:shadow-[0_0_20px_#4fffff] transition"
-            >
-              <img
-                src={project.cover}
-                alt={project.name}
-                className="w-full h-40 object-cover rounded-xl mb-4 border border-white/20"
-              />
-              <h3 className="flex items-center gap-2 text-xl font-bold mb-1">
-                <Icon icon={project.icon} width="22" />
-                {project.name}
-              </h3>
-              <p className="text-sm opacity-80 mb-2 italic">{project.type}</p>
-              <p className="opacity-90 mb-4">{project.desc}</p>
-              <a
-                href={project.link}
-                target="_blank"
-                className="inline-block px-4 py-2 rounded-lg bg-cyan-500/20 border border-cyan-400/40 hover:scale-105 transition"
-              >
-                <ExternalLink size={16} className="inline mr-2" /> View
-              </a>
-            </motion.div>
-          ))}
-        </div>
+      {/* Contact */}
+      <section id="contact" className="py-16 max-w-4xl mx-auto px-4 text-center">
+        <h2 className="text-3xl font-bold mb-6">Contact Me</h2>
+        <p className="text-gray-600 mb-6">
+          Interested in working together? Let’s connect!
+        </p>
+        <a
+          href="mailto:vinod@example.com"
+          className="px-6 py-3 bg-indigo-600 text-white rounded-full font-medium shadow hover:bg-indigo-700 transition"
+        >
+          Say Hello
+        </a>
       </section>
 
       {/* Footer */}
-      <footer className="bg-black/40 backdrop-blur-lg border-t border-white/10 py-6 text-center">
-        <p className="text-sm opacity-80">© 2025 MyPortfolio. All rights reserved.</p>
-        <div className="flex justify-center space-x-4 mt-3">
-          <a href="#"><Icon icon="mdi:linkedin" width="22" /></a>
-          <a href="#"><Icon icon="mdi:github" width="22" /></a>
-          <a href="#"><Icon icon="mdi:dribbble" width="22" /></a>
-        </div>
+      <footer className="py-6 text-center bg-white border-t text-gray-600">
+        © {new Date().getFullYear()} Vinod Mathur. All rights reserved.
       </footer>
     </div>
   );
