@@ -1,162 +1,129 @@
 import React from "react";
+import Typed from "react-typed";
 import { motion } from "framer-motion";
-import ReactTyped from "react-typed";
-import {
-  Mail,
-  Download,
-  ExternalLink,
-  User,
-  Briefcase,
-  Layout,
-} from "lucide-react";
-import { Icon } from "@iconify/react";
 
 export default function App() {
-  const projects = [
-    {
-      title: "Project One",
-      description: "A cool project showcasing React and Tailwind.",
-      link: "#",
-    },
-    {
-      title: "Project Two",
-      description: "Another amazing project built with Framer Motion.",
-      link: "#",
-    },
-  ];
-
   return (
     <div className="font-sans bg-white text-gray-900">
-      {/* Navbar */}
-      <nav className="fixed top-0 w-full bg-white shadow z-50">
-        <div className="container mx-auto px-4 py-4 flex justify-between items-center">
-          <div className="font-bold text-xl">MyPortfolio</div>
-          <div className="space-x-6">
-            <a href="#about" className="hover:text-green-500">About</a>
-            <a href="#projects" className="hover:text-green-500">Projects</a>
-            <a href="#contact" className="hover:text-green-500">Contact</a>
-          </div>
-        </div>
-      </nav>
-
       {/* Hero Section */}
-      <section className="h-screen flex items-center justify-center bg-gradient-to-r from-green-400 to-blue-500 text-white">
-        <div className="text-center">
-          <motion.h1
-            className="text-5xl font-bold mb-4"
-            initial={{ y: -50, opacity: 0 }}
-            animate={{ y: 0, opacity: 1 }}
-          >
-            Hi, I’m Vinod Mathur
-          </motion.h1>
-          <Typed
-            strings={[
-              "Frontend Developer",
-              "UI/UX Designer",
-              "React Enthusiast",
-            ]}
-            <ReactTyped
-  strings={["Developer", "Designer", "Creator"]}
-  typeSpeed={40}
-  backSpeed={50}
-  loop
-/>
+      <section className="h-screen flex items-center justify-center bg-gradient-to-br from-green-50 to-white text-center px-4">
+        <div>
+          <h1 className="text-4xl md:text-5xl font-bold text-gray-900 mb-4">
+            <Typed
+              strings={[
+                "Hi, I'm Vinod",
+                "A Passionate UI/UX Designer",
+                "Crafting modern, user-friendly designs",
+              ]}
+              typeSpeed={50}
+              backSpeed={30}
+              loop
+            />
+          </h1>
+          <p className="text-gray-600 max-w-xl mx-auto text-lg">
+            I specialize in designing clean, modern, and engaging interfaces
+            that provide seamless user experiences.
+          </p>
+          <button className="mt-6 px-6 py-3 bg-green-600 text-white rounded-xl shadow hover:bg-green-700 transition">
+            View My Work
+          </button>
+        </div>
+      </section>
 
+      {/* Projects Section */}
+      <section className="py-16 px-6 bg-gray-50" id="projects">
+        <motion.h2
+          initial={{ opacity: 0, y: 40 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6 }}
+          className="text-3xl md:text-4xl font-bold text-center mb-12"
+        >
+          Featured Projects
+        </motion.h2>
 
-          <div className="mt-6">
-            <a
-              href="#contact"
-              className="bg-white text-green-500 px-6 py-3 rounded-full font-medium hover:bg-gray-100"
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 max-w-6xl mx-auto">
+          {Array.from({ length: 6 }).map((_, i) => (
+            <motion.div
+              key={i}
+              initial={{ opacity: 0, y: 40 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.5, delay: i * 0.1 }}
+              className="bg-white shadow-md rounded-2xl p-6 hover:shadow-xl transition flex flex-col justify-between"
             >
-              Get In Touch
-            </a>
-          </div>
+              <h3 className="text-xl font-semibold mb-2">
+                Project {i + 1}
+              </h3>
+              <p className="text-gray-600 mb-4">
+                UI/UX design focused project showcasing modern and user-friendly
+                designs.
+              </p>
+              <button className="px-4 py-2 bg-green-600 text-white rounded-lg hover:bg-green-700 transition">
+                View Case Study
+              </button>
+            </motion.div>
+          ))}
         </div>
       </section>
 
       {/* About Section */}
-      <section id="about" className="py-20 container mx-auto px-4">
-        <h2 className="text-3xl font-bold mb-8 flex items-center gap-2">
-          <User className="w-6 h-6" /> About Me
-        </h2>
-        <p className="text-lg text-gray-700 leading-relaxed">
-          I am a passionate frontend developer with a knack for building
-          beautiful and responsive web applications. Skilled in React, Tailwind,
-          and modern web technologies.
-        </p>
-      </section>
-
-      {/* Projects Section */}
-      <section id="projects" className="py-20 bg-gray-50">
-        <div className="container mx-auto px-4">
-          <h2 className="text-3xl font-bold mb-8 flex items-center gap-2">
-            <Briefcase className="w-6 h-6" /> Projects
-          </h2>
-          <div className="grid md:grid-cols-2 gap-8">
-            {projects.map((project, index) => (
-              <motion.div
-                key={index}
-                className="bg-white shadow rounded-lg p-6"
-                whileHover={{ scale: 1.05 }}
-              >
-                <h3 className="text-xl font-semibold mb-2">{project.title}</h3>
-                <p className="text-gray-600 mb-4">{project.description}</p>
-                <a
-                  href={project.link}
-                  className="inline-flex items-center text-green-500 hover:underline"
-                >
-                  View Project <ExternalLink className="w-4 h-4 ml-2" />
-                </a>
-              </motion.div>
-            ))}
-          </div>
-        </div>
+      <section className="py-16 px-6 bg-white" id="about">
+        <motion.h2
+          initial={{ opacity: 0, y: 40 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.6 }}
+          className="text-3xl md:text-4xl font-bold text-center mb-8"
+        >
+          About Me
+        </motion.h2>
+        <motion.p
+          initial={{ opacity: 0, y: 40 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.7 }}
+          className="text-gray-700 max-w-3xl mx-auto text-center text-lg leading-relaxed"
+        >
+          I’m Vinod, a passionate UI/UX Designer with a strong focus on
+          delivering intuitive, visually appealing, and user-friendly digital
+          experiences. My approach blends creativity with functionality to
+          create impactful designs that connect users and products seamlessly.
+        </motion.p>
       </section>
 
       {/* Contact Section */}
-      <section id="contact" className="py-20 container mx-auto px-4">
-        <h2 className="text-3xl font-bold mb-8 flex items-center gap-2">
-          <Mail className="w-6 h-6" /> Contact
-        </h2>
-        <form className="max-w-lg mx-auto space-y-4">
-          <input
-            type="text"
-            placeholder="Your Name"
-            className="w-full px-4 py-2 border rounded-lg"
-          />
-          <input
-            type="email"
-            placeholder="Your Email"
-            className="w-full px-4 py-2 border rounded-lg"
-          />
-          <textarea
-            placeholder="Your Message"
-            rows="4"
-            className="w-full px-4 py-2 border rounded-lg"
-          ></textarea>
-          <button
-            type="submit"
-            className="bg-green-500 text-white px-6 py-3 rounded-full hover:bg-green-600"
+      <section className="py-16 px-6 bg-gray-50" id="contact">
+        <motion.h2
+          initial={{ opacity: 0, y: 40 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.6 }}
+          className="text-3xl md:text-4xl font-bold text-center mb-8"
+        >
+          Get in Touch
+        </motion.h2>
+        <motion.div
+          initial={{ opacity: 0, y: 40 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.8 }}
+          className="text-center"
+        >
+          <p className="text-gray-600 mb-4">
+            Interested in working together? Let’s connect!
+          </p>
+          <a
+            href="mailto:vinod@example.com"
+            className="px-6 py-3 bg-green-600 text-white rounded-xl shadow hover:bg-green-700 transition"
           >
-            Send Message
-          </button>
-        </form>
+            Say Hello
+          </a>
+        </motion.div>
       </section>
 
       {/* Footer */}
-      <footer className="bg-gray-900 text-white py-6 text-center">
-        <p>© 2025 Vinod Mathur. All rights reserved.</p>
-        <div className="flex justify-center mt-4 space-x-6">
-          <a href="#" className="hover:text-green-400">
-            <Icon icon="mdi:github" width="24" />
-          </a>
-          <a href="#" className="hover:text-green-400">
-            <Icon icon="mdi:linkedin" width="24" />
-          </a>
-          <a href="#" className="hover:text-green-400">
-            <Icon icon="mdi:twitter" width="24" />
-          </a>
-        </div>
+      <footer className="py-6 bg-green-600 text-white text-center">
+        © {new Date().getFullYear()} Vinod | UI/UX Designer
       </footer>
     </div>
   );
