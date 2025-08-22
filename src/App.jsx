@@ -1,5 +1,6 @@
 import React from "react";
 import Typed from "react-typed";
+import { ReactTyped } from "react-typed";
 import { FaGithub, FaLinkedin, FaWhatsapp, FaEnvelope } from "react-icons/fa";
 
 // Expertise Tools Logos
