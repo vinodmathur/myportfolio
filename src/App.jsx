@@ -34,6 +34,12 @@ function App() {
           loop
           className="text-2xl sm:text-4xl text-gray-300"
         />
+        <ReactTyped
+  strings={["Web Developer", "UI/UX Designer", "Freelancer"]}
+  typeSpeed={50}
+  backSpeed={30}
+  loop
+/>
         <div className="mt-6">
           <a
             href="/resume.pdf"
