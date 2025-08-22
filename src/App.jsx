@@ -4,8 +4,8 @@ import { ReactTyped } from "react-typed";
 import { FaGithub, FaLinkedin, FaWhatsapp, FaEnvelope } from "react-icons/fa";
 
 // Expertise Tools Logos
-import figmaLogo from "./assets/figma.png";
-import sketchLogo from "./assets/xd.png";
+import figmaLogo from './assets/figma.png';
+import xdLogo from "./assets/xd.png";
 import adobeLogo from "./assets/adobe.png";
 import sketchLogo from "./assets/sketch.png";
 import illustratorLogo from "./assets/illustrator.png";
@@ -58,7 +58,7 @@ function App() {
           Expertise Tools
         </h3>
         <div className="flex space-x-12 animate-marquee">
-          {[figmaLogo, adobeLogo, sketchLogo, illustratorLogo].map((logo, idx) => (
+          {[figmaLogo, xdLogo, adobeLogo, sketchLogo, illustratorLogo].map((logo, idx) => (
             <img
               key={idx}
               src={logo}
