@@ -1,137 +1,125 @@
-import { useState } from "react";
-import { Mail, Phone, MessageCircle } from "lucide-react";
+import React from "react";
+import Typed from "react-typed";
+import { FaGithub, FaLinkedin, FaWhatsapp, FaEnvelope } from "react-icons/fa";
+
+// Expertise Tools Logos
+import figmaLogo from "./assets/figma.png";
+import adobeLogo from "./assets/adobe.png";
+import sketchLogo from "./assets/sketch.png";
+import illustratorLogo from "./assets/illustrator.png";
 
 function App() {
-  const [count, setCount] = useState(0);
-
   return (
-    <div className="min-h-screen flex flex-col items-center justify-center bg-gray-100">
-      {/* Navbar Transparent */}
-      <header className="w-full py-4 fixed top-0 left-0 z-50 bg-white/30 backdrop-blur-md shadow-sm">
-        <nav className="max-w-6xl mx-auto flex justify-between items-center px-6">
-          <h1 className="text-2xl font-bold">My Portfolio</h1>
-          <ul className="flex gap-6 font-medium">
-            <li><a href="#home" className="hover:text-green-600">Home</a></li>
-            <li><a href="#projects" className="hover:text-green-600">Projects</a></li>
-            <li><a href="#contact" className="hover:text-green-600">Contact</a></li>
-            <li><a href="#about" className="hover:text-green-600">About</a></li>
-          </ul>
+    <div className="bg-gray-900 text-white min-h-screen flex flex-col">
+      {/* Header */}
+      <header className="fixed top-0 left-0 w-full bg-black bg-opacity-40 backdrop-blur-md text-white px-8 py-4 flex justify-between items-center shadow-lg z-50">
+        <h1 className="text-2xl font-bold">MyPortfolio</h1>
+        <nav className="space-x-6">
+          <a href="#projects" className="hover:text-yellow-400">Projects</a>
+          <a href="#tools" className="hover:text-yellow-400">Expertise</a>
+          <a href="#contact" className="hover:text-yellow-400">Contact</a>
         </nav>
       </header>
 
-      {/* Home Section */}
-      <section id="home" className="h-screen flex flex-col items-center justify-center text-center">
-        <h2 className="text-4xl font-bold mb-4">Welcome to My Portfolio 🚀</h2>
-        <p className="text-gray-600 mb-6">I am a Developer & Designer</p>
-        <button
-          onClick={() => setCount(count + 1)}
-          className="bg-green-600 text-white px-6 py-2 rounded-xl shadow-md hover:bg-green-700"
-        >
-          Clicked {count} times
-        </button>
+      {/* Hero Section */}
+      <section className="flex flex-col justify-center items-center text-center h-screen px-4">
+        <h2 className="text-4xl sm:text-6xl font-bold mb-4">
+          Hello, I'm <span className="text-yellow-400">Vinod Mathur</span>
+        </h2>
+        <Typed
+          strings={["UI/UX Designer", "Frontend Developer", "DeFi Enthusiast"]}
+          typeSpeed={70}
+          backSpeed={50}
+          loop
+          className="text-2xl sm:text-4xl text-gray-300"
+        />
+        <div className="mt-6">
+          <a
+            href="/resume.pdf"
+            download
+            className="bg-yellow-400 text-black px-6 py-2 rounded-lg font-semibold hover:bg-yellow-500 transition"
+          >
+            Download Resume
+          </a>
+        </div>
       </section>
 
-      {/* Auto Scroll Line (Logos instead of text) */}
-      <section className="bg-gray-50 py-6 w-full overflow-hidden">
-        <div className="animate-scroll flex gap-16 items-center whitespace-nowrap">
-          <img src="https://cdn.worldvectorlogo.com/logos/figma-1.svg" alt="Figma" className="h-12" />
-          <img src="https://cdn.worldvectorlogo.com/logos/adobe-xd-2.svg" alt="Adobe XD" className="h-12" />
-          <img src="https://cdn.worldvectorlogo.com/logos/sketch-2.svg" alt="Sketch" className="h-12" />
-          <img src="https://cdn.worldvectorlogo.com/logos/adobe-illustrator-cc-icon.svg" alt="Illustrator" className="h-12" />
-          {/* Repeat to make infinite effect smooth */}
-          <img src="https://cdn.worldvectorlogo.com/logos/figma-1.svg" alt="Figma" className="h-12" />
-          <img src="https://cdn.worldvectorlogo.com/logos/adobe-xd-2.svg" alt="Adobe XD" className="h-12" />
-          <img src="https://cdn.worldvectorlogo.com/logos/sketch-2.svg" alt="Sketch" className="h-12" />
-          <img src="https://cdn.worldvectorlogo.com/logos/adobe-illustrator-cc-icon.svg" alt="Illustrator" className="h-12" />
+      {/* Expertise Tools Auto Scroll */}
+      <section id="tools" className="py-12 bg-gray-800 overflow-hidden relative">
+        <h3 className="text-3xl font-bold text-center mb-6 text-yellow-400">
+          Expertise Tools
+        </h3>
+        <div className="flex space-x-12 animate-marquee">
+          {[figmaLogo, adobeLogo, sketchLogo, illustratorLogo].map((logo, idx) => (
+            <img
+              key={idx}
+              src={logo}
+              alt="tool logo"
+              className="w-24 h-24 object-contain"
+            />
+          ))}
         </div>
       </section>
 
       {/* Projects Section */}
-      <section id="projects" className="py-16 px-6 bg-gray-50 w-full text-center">
-        <h2 className="text-3xl font-bold mb-12">Projects</h2>
-
-        {/* Project Grid */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 max-w-6xl mx-auto">
-          {[1, 2, 3, 4, 5, 6].map((num) => (
+      <section id="projects" className="py-16 bg-gray-900 px-6">
+        <h3 className="text-3xl font-bold text-center mb-10 text-yellow-400">Projects</h3>
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
+          {Array.from({ length: 6 }).map((_, idx) => (
             <div
-              key={num}
-              className="bg-white shadow-lg rounded-[2rem] overflow-hidden transform hover:scale-105 transition duration-300"
+              key={idx}
+              className="rounded-3xl bg-gradient-to-br from-gray-700 to-gray-900 p-6 shadow-lg hover:scale-105 transform transition"
             >
-              <div className="h-40 bg-gradient-to-r from-green-400 to-green-600"></div>
-              <div className="p-6">
-                <h3 className="text-xl font-semibold mb-2">Project {num}</h3>
-                <p className="text-gray-600 text-sm">
-                  This is a demo description for Project {num}. Modern UI with curved style.
-                </p>
-              </div>
+              <h4 className="text-xl font-semibold mb-2">Project {idx + 1}</h4>
+              <p className="text-gray-300">This is a demo description for Project {idx + 1}.</p>
+              <a href="#" className="text-yellow-400 hover:underline mt-3 block">
+                View Demo
+              </a>
             </div>
           ))}
         </div>
       </section>
 
-      {/* Contact Section */}
-      <section id="contact" className="py-16 px-6 bg-white w-full">
-        <div className="max-w-3xl mx-auto text-center">
-          <h2 className="text-3xl font-bold mb-6">Contact Me</h2>
-          <p className="text-gray-600 mb-8">
-            Have a project in mind or just want to say hi? Reach out to me!
+      {/* Footer with About Me & Contact */}
+      <footer id="contact" className="bg-black bg-opacity-70 text-center py-10 mt-auto">
+        {/* About Me */}
+        <div className="max-w-3xl mx-auto mb-6">
+          <h3 className="text-2xl font-bold text-yellow-400 mb-4">About Me</h3>
+          <p className="text-gray-300">
+            I am a passionate UI/UX Designer and Frontend Developer with experience
+            in DeFi and Web3 projects. I love building user-friendly interfaces and
+            solving real-world problems.
           </p>
-
-          <div className="flex flex-col sm:flex-row justify-center gap-6">
-            {/* Gmail */}
-            <a
-              href="mailto:yourname@gmail.com"
-              className="flex items-center gap-2 bg-gray-100 shadow-md px-5 py-3 rounded-2xl hover:bg-green-50 transition"
-            >
-              <Mail className="w-5 h-5 text-green-600" />
-              <span>Email</span>
-            </a>
-
-            {/* WhatsApp */}
-            <a
-              href="https://wa.me/919876543210"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="flex items-center gap-2 bg-gray-100 shadow-md px-5 py-3 rounded-2xl hover:bg-green-50 transition"
-            >
-              <MessageCircle className="w-5 h-5 text-green-600" />
-              <span>WhatsApp</span>
-            </a>
-
-            {/* Phone */}
-            <a
-              href="tel:+919876543210"
-              className="flex items-center gap-2 bg-gray-100 shadow-md px-5 py-3 rounded-2xl hover:bg-green-50 transition"
-            >
-              <Phone className="w-5 h-5 text-green-600" />
-              <span>Call</span>
-            </a>
-          </div>
         </div>
-      </section>
 
-      {/* About Section (above Footer) */}
-      <section id="about" className="py-16 px-6 bg-gray-100 w-full text-center">
-        <h2 className="text-3xl font-bold mb-4">About Me</h2>
-        <p className="max-w-2xl mx-auto text-gray-600">
-          Hi, I'm Vinod Mathur, passionate about building beautiful and functional applications.
-        </p>
-      </section>
-
-      {/* Footer */}
-      <footer className="w-full py-6 bg-gray-900 text-white text-center">
-        <p>© {new Date().getFullYear()} Vinod Mathur | All rights reserved</p>
+        {/* Contact Options */}
+        <div className="flex justify-center space-x-6 text-2xl">
+          <a href="https://github.com/vinodmathur" target="_blank" rel="noreferrer">
+            <FaGithub className="hover:text-yellow-400" />
+          </a>
+          <a href="https://linkedin.com/in/vinodmathur" target="_blank" rel="noreferrer">
+            <FaLinkedin className="hover:text-yellow-400" />
+          </a>
+          <a href="https://wa.me/919999999999" target="_blank" rel="noreferrer">
+            <FaWhatsapp className="hover:text-green-400" />
+          </a>
+          <a href="mailto:vinodmathur@gmail.com">
+            <FaEnvelope className="hover:text-red-400" />
+          </a>
+        </div>
+        <p className="text-gray-400 mt-4 text-sm">© 2025 Vinod Mathur. All Rights Reserved.</p>
       </footer>
 
-      {/* Custom CSS for Auto Scroll */}
+      {/* Auto Scroll Animation CSS */}
       <style>{`
-        @keyframes scroll {
+        .animate-marquee {
+          display: flex;
+          width: max-content;
+          animation: marquee 12s linear infinite;
+        }
+        @keyframes marquee {
           0% { transform: translateX(100%); }
           100% { transform: translateX(-100%); }
-        }
-        .animate-scroll {
-          display: inline-flex;
-          animation: scroll 20s linear infinite;
         }
       `}</style>
     </div>
