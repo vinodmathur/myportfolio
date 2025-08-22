@@ -1,6 +1,8 @@
 // App.jsx
 import React from "react";
 import { motion } from "framer-motion";
+import ReactTyped from "react-typed";
+
 
 const projects = [
   { title: "Mobile App Redesign", desc: "UI/UX focused redesign of an e-commerce app", img: "/images/ui1.png" },
@@ -42,6 +44,14 @@ export default function App() {
           transition={{ duration: 0.8 }}
           className="text-4xl sm:text-6xl font-bold mb-6"
         >
+          <ReactTyped
+  strings={["UI/UX Designer", "Frontend Developer", "Creative Thinker"]}
+  typeSpeed={50}
+  backSpeed={30}
+  loop
+  className="text-indigo-600 font-semibold"
+/>
+
           Hi, I'm <span className="text-indigo-600">Vinod</span>
         </motion.h2>
         <motion.p
@@ -100,7 +110,7 @@ export default function App() {
             transition={{ duration: 0.7 }}
           >
             <img
-              src="/images/profile.jpg"
+              src="/images/profile.jpeg"
               alt="Profile"
               className="rounded-2xl shadow-lg w-full max-w-sm mx-auto"
             />
