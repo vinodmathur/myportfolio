@@ -1,182 +1,125 @@
-// App.jsx
-import React from "react";
-import { motion } from "framer-motion";
-import ReactTyped from "react-typed";
+import { useState } from "react";
+import { Mail, Phone, MessageCircle } from "lucide-react";
 
+function App() {
+  const [count, setCount] = useState(0);
 
-const projects = [
-  { title: "Mobile App Redesign", desc: "UI/UX focused redesign of an e-commerce app", img: "/images/ui1.png" },
-  { title: "Dashboard UI", desc: "Analytics dashboard with modern UI components", img: "/images/ui2.png" },
-  { title: "Portfolio Website", desc: "Personal portfolio with clean minimal design", img: "/images/ui3.png" },
-  { title: "Landing Page", desc: "Responsive landing page with creative layout", img: "/images/ui4.png" },
-  { title: "Finance App UI", desc: "Fintech mobile app with smooth navigation", img: "/images/ui5.png" },
-  { title: "Food Delivery App", desc: "UI/UX for hyperlocal food delivery experience", img: "/images/ui6.png" },
-];
-
-// Skills Data
-const skills = [
-  { name: "UI Design", level: 90 },
-  { name: "UX Research", level: 85 },
-  { name: "Wireframing", level: 80 },
-  { name: "Prototyping", level: 75 },
-];
-
-export default function App() {
   return (
-    <div className="font-sans bg-gray-50 text-gray-900">
-      {/* Navbar */}
-      <header className="py-4 bg-white shadow-md fixed w-full top-0 z-50">
-        <nav className="max-w-7xl mx-auto px-6 flex justify-between items-center">
-          <h1 className="text-xl font-bold text-indigo-600">My Portfolio</h1>
-          <div className="space-x-6 hidden sm:block">
-            <a href="#projects" className="hover:text-indigo-600">Projects</a>
-            <a href="#about" className="hover:text-indigo-600">About</a>
-            <a href="#contact" className="hover:text-indigo-600">Contact</a>
-          </div>
+    <div className="min-h-screen flex flex-col items-center justify-center bg-gray-100">
+      {/* Navbar Transparent */}
+      <header className="w-full py-4 fixed top-0 left-0 z-50 bg-white/30 backdrop-blur-md shadow-sm">
+        <nav className="max-w-6xl mx-auto flex justify-between items-center px-6">
+          <h1 className="text-2xl font-bold">My Portfolio</h1>
+          <ul className="flex gap-6 font-medium">
+            <li><a href="#home" className="hover:text-green-600">Home</a></li>
+            <li><a href="#about" className="hover:text-green-600">About</a></li>
+            <li><a href="#projects" className="hover:text-green-600">Projects</a></li>
+            <li><a href="#contact" className="hover:text-green-600">Contact</a></li>
+          </ul>
         </nav>
       </header>
 
-      {/* Hero Section */}
-      <section className="h-screen flex flex-col justify-center items-center text-center px-4 bg-gradient-to-r from-indigo-100 via-white to-indigo-50">
-        <motion.h2
-          initial={{ opacity: 0, y: 40 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8 }}
-          className="text-4xl sm:text-6xl font-bold mb-6"
+      {/* Home Section */}
+      <section id="home" className="h-screen flex flex-col items-center justify-center text-center">
+        <h2 className="text-4xl font-bold mb-4">Welcome to My Portfolio 🚀</h2>
+        <p className="text-gray-600 mb-6">I am a Developer & Designer</p>
+        <button
+          onClick={() => setCount(count + 1)}
+          className="bg-green-600 text-white px-6 py-2 rounded-xl shadow-md hover:bg-green-700"
         >
-          <ReactTyped
-  strings={["UI/UX Designer", "Frontend Developer", "Creative Thinker"]}
-  typeSpeed={50}
-  backSpeed={30}
-  loop
-  className="text-indigo-600 font-semibold"
-/>
+          Clicked {count} times
+        </button>
+      </section>
 
-          Hi, I'm <span className="text-indigo-600">Vinod</span>
-        </motion.h2>
-        <motion.p
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ delay: 0.5 }}
-          className="text-lg sm:text-2xl text-gray-600 max-w-2xl"
-        >
-          A Passionate <span className="font-semibold">UI/UX Designer</span> crafting modern, user-friendly designs
-        </motion.p>
+      {/* About Section */}
+      <section id="about" className="py-16 px-6 bg-white w-full text-center">
+        <h2 className="text-3xl font-bold mb-4">About Me</h2>
+        <p className="max-w-2xl mx-auto text-gray-600">
+          Hi, I'm Vinod Mathur, passionate about building beautiful and functional applications.
+        </p>
+      </section>
+
+      {/* Auto Scroll Line (Skills) */}
+      <section className="bg-gray-50 py-6 w-full overflow-hidden">
+        <div className="animate-scroll flex gap-16 text-xl font-semibold text-gray-700 whitespace-nowrap">
+          <span>🌟 Figma</span>
+          <span>🎨 Adobe XD</span>
+          <span>📐 Sketch</span>
+          <span>🖌 Illustrator</span>
+          <span>🌟 Figma</span>
+          <span>🎨 Adobe XD</span>
+          <span>📐 Sketch</span>
+          <span>🖌 Illustrator</span>
+        </div>
       </section>
 
       {/* Projects Section */}
-      <section id="projects" className="py-20 bg-gray-100">
-        <div className="max-w-7xl mx-auto px-6">
-          <motion.h2
-            initial={{ opacity: 0 }}
-            whileInView={{ opacity: 1 }}
-            transition={{ duration: 0.6 }}
-            className="text-3xl font-bold text-center mb-12"
-          >
-            UI/UX Projects
-          </motion.h2>
-          <div className="grid gap-8 sm:grid-cols-2 lg:grid-cols-3">
-            {projects.map((project, index) => (
-              <motion.div
-                key={index}
-                initial={{ opacity: 0, y: 50 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                whileHover={{ scale: 1.05 }}
-                transition={{ duration: 0.5 }}
-                viewport={{ once: true }}
-                className="bg-white rounded-2xl shadow-lg overflow-hidden hover:shadow-2xl transition"
-              >
-                <img src={project.img} alt={project.title} className="w-full h-44 object-cover" />
-                <div className="p-5">
-                  <h3 className="text-lg font-semibold mb-2">{project.title}</h3>
-                  <p className="text-gray-600 text-sm mb-4">{project.desc}</p>
-                  <a href="#" className="text-indigo-600 text-sm font-medium hover:underline">
-                    View Case Study →
-                  </a>
-                </div>
-              </motion.div>
-            ))}
+      <section id="projects" className="py-16 px-6 bg-gray-50 w-full text-center">
+        <h2 className="text-3xl font-bold mb-4">Projects</h2>
+        <p className="max-w-2xl mx-auto text-gray-600">
+          Here are some of the cool projects I have worked on.
+        </p>
+      </section>
+
+      {/* Contact Section */}
+      <section id="contact" className="py-16 px-6 bg-white w-full">
+        <div className="max-w-3xl mx-auto text-center">
+          <h2 className="text-3xl font-bold mb-6">Contact Me</h2>
+          <p className="text-gray-600 mb-8">
+            Have a project in mind or just want to say hi? Reach out to me!
+          </p>
+
+          <div className="flex flex-col sm:flex-row justify-center gap-6">
+            {/* Gmail */}
+            <a
+              href="mailto:yourname@gmail.com"
+              className="flex items-center gap-2 bg-gray-100 shadow-md px-5 py-3 rounded-2xl hover:bg-green-50 transition"
+            >
+              <Mail className="w-5 h-5 text-green-600" />
+              <span>Email</span>
+            </a>
+
+            {/* WhatsApp */}
+            <a
+              href="https://wa.me/919876543210"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="flex items-center gap-2 bg-gray-100 shadow-md px-5 py-3 rounded-2xl hover:bg-green-50 transition"
+            >
+              <MessageCircle className="w-5 h-5 text-green-600" />
+              <span>WhatsApp</span>
+            </a>
+
+            {/* Phone */}
+            <a
+              href="tel:+919876543210"
+              className="flex items-center gap-2 bg-gray-100 shadow-md px-5 py-3 rounded-2xl hover:bg-green-50 transition"
+            >
+              <Phone className="w-5 h-5 text-green-600" />
+              <span>Call</span>
+            </a>
           </div>
         </div>
       </section>
 
-      {/* About Section */}
-      <section id="about" className="py-20 bg-white">
-        <div className="max-w-6xl mx-auto px-6 grid gap-10 md:grid-cols-2 items-center">
-          {/* Profile Image */}
-          <motion.div
-            initial={{ opacity: 0, x: -50 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            transition={{ duration: 0.7 }}
-          >
-            <img
-              src="/images/profile.jpeg"
-              alt="Profile"
-              className="rounded-2xl shadow-lg w-full max-w-sm mx-auto"
-            />
-          </motion.div>
-
-          {/* About Content */}
-          <motion.div
-            initial={{ opacity: 0, x: 50 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            transition={{ duration: 0.7 }}
-          >
-            <h2 className="text-3xl font-bold mb-6">About Me</h2>
-            <p className="text-gray-600 leading-relaxed mb-6">
-              I’m a UI/UX Designer with a passion for building intuitive and engaging user
-              experiences. I combine research, creativity, and design thinking to bring
-              impactful digital solutions to life.
-            </p>
-
-            {/* Skills Progress Bars */}
-            <div className="space-y-4">
-              {skills.map((skill, index) => (
-                <div key={index}>
-                  <div className="flex justify-between mb-1 text-sm font-medium text-gray-700">
-                    <span>{skill.name}</span>
-                    <span>{skill.level}%</span>
-                  </div>
-                  <div className="w-full bg-gray-200 rounded-full h-2">
-                    <motion.div
-                      className="bg-indigo-600 h-2 rounded-full"
-                      initial={{ width: 0 }}
-                      whileInView={{ width: `${skill.level}%` }}
-                      transition={{ duration: 1 }}
-                    />
-                  </div>
-                </div>
-              ))}
-            </div>
-          </motion.div>
-        </div>
-      </section>
-
-      {/* Contact Section */}
-      <section id="contact" className="py-20 bg-gray-100 text-center">
-        <motion.h2
-          initial={{ opacity: 0 }}
-          whileInView={{ opacity: 1 }}
-          transition={{ duration: 0.6 }}
-          className="text-3xl font-bold mb-6"
-        >
-          Contact Me
-        </motion.h2>
-        <p className="text-gray-600 mb-6 max-w-xl mx-auto">
-          Interested in working together? Let’s connect and create something amazing.
-        </p>
-        <a
-          href="mailto:vinod@example.com"
-          className="px-8 py-3 bg-indigo-600 text-white rounded-full font-medium shadow hover:bg-indigo-700 transition"
-        >
-          Say Hello
-        </a>
-      </section>
-
       {/* Footer */}
-      <footer className="py-6 text-center bg-white border-t text-gray-600">
-        © {new Date().getFullYear()} Vinod Mathur. All rights reserved.
+      <footer className="w-full py-6 bg-gray-900 text-white text-center">
+        <p>© {new Date().getFullYear()} Vinod Mathur | All rights reserved</p>
       </footer>
+
+      {/* Custom CSS for Auto Scroll */}
+      <style>{`
+        @keyframes scroll {
+          0% { transform: translateX(100%); }
+          100% { transform: translateX(-100%); }
+        }
+        .animate-scroll {
+          display: inline-flex;
+          animation: scroll 15s linear infinite;
+        }
+      `}</style>
     </div>
   );
 }
+
+export default App;
