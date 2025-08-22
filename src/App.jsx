@@ -5,6 +5,7 @@ import { FaGithub, FaLinkedin, FaWhatsapp, FaEnvelope } from "react-icons/fa";
 
 // Expertise Tools Logos
 import figmaLogo from "./assets/figma.png";
+import sketchLogo from "./assets/xd.png";
 import adobeLogo from "./assets/adobe.png";
 import sketchLogo from "./assets/sketch.png";
 import illustratorLogo from "./assets/illustrator.png";
