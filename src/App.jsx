@@ -35,9 +35,9 @@ function App() {
           className="text-2xl sm:text-4xl text-gray-300"
         />
         <ReactTyped
-  strings={["Web Developer", "UI/UX Designer", "Freelancer"]}
-  typeSpeed={50}
-  backSpeed={30}
+  strings={["UI/UX Designer", "Frontend Developer", "React Enthusiast"]}
+  typeSpeed={80}
+  backSpeed={50}
   loop
 />
         <div className="mt-6">
