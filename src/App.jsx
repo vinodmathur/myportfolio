@@ -30,7 +30,7 @@ export default function App() {
         </p>
         <div className="mt-6 flex gap-4">
           <a
-            href="https://github.com/vinodmathur/myportfolio/blob/main/resume.pdf"
+            href="main/resume.pdf"
             download
             className="bg-pink-500 px-6 py-3 rounded-xl font-semibold shadow-md hover:bg-pink-600"
           >
