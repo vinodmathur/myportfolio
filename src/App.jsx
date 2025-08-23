@@ -1,185 +1,153 @@
 import React from "react";
-import { FaFigma, FaSketch, FaHtml5, FaCss3Alt } from "react-icons/fa";
-import { SiAdobe } from "react-icons/si";
+import { motion } from "framer-motion";
+import { FaFigma, FaSketch, FaHtml5, FaCss3Alt, FaJs, FaLinkedin, FaGithub, FaEnvelope, FaPhone } from "react-icons/fa";
 
 export default function App() {
   return (
-    <div className="min-h-screen bg-gray-50 text-gray-900">
-      {/* Header */}
-      <header className="bg-white shadow-md p-6 flex justify-between items-center">
-        <h1 className="text-2xl font-bold">Vinod Mathur</h1>
-        <nav className="space-x-6">
-          <a href="#expertise" className="hover:text-blue-600">Expertise</a>
-          <a href="#projects" className="hover:text-blue-600">Projects</a>
-          <a href="#about" className="hover:text-blue-600">About</a>
-        </nav>
+    <div className="min-h-screen bg-gradient-to-br from-purple-600 via-pink-500 to-red-400 text-white">
+      {/* HEADER with ID Card Animation */}
+      <header className="flex flex-col items-center justify-center py-16 relative">
+        <motion.div
+          className="bg-white/10 backdrop-blur-md rounded-2xl shadow-xl p-6 w-80 border border-white/20"
+          initial={{ rotateY: 90, opacity: 0 }}
+          animate={{ rotateY: 0, opacity: 1 }}
+          transition={{ duration: 1, ease: "easeOut" }}
+        >
+          <div className="flex items-center gap-4">
+            <img
+              src="https://i.ibb.co/7yzYbQx/profile.jpg" // replace with your photo
+              alt="Profile"
+              className="w-16 h-16 rounded-full border-2 border-white"
+            />
+            <div>
+              <h1 className="text-xl font-bold">Vinod Mathur</h1>
+              <p className="text-sm text-white/80">UI/UX Designer</p>
+            </div>
+          </div>
+        </motion.div>
+        <p className="mt-6 text-center text-lg max-w-xl">
+          I design clean, modern and user-friendly mobile & web experiences.
+        </p>
+
+        {/* Resume Download Button */}
+        <a
+          href="/resume.pdf" // <- put your resume file in public folder as resume.pdf
+          download
+          className="mt-6 inline-block px-6 py-3 bg-white text-purple-600 font-semibold rounded-xl shadow hover:bg-gray-200 transition"
+        >
+          📄 Download Resume
+        </a>
       </header>
 
-      {/* Hero Section */}
-      <section className="text-center py-20 bg-gradient-to-r from-blue-100 to-blue-200">
-        <h2 className="text-4xl font-extrabold mb-4">UI/UX Designer</h2>
-        <p className="max-w-xl mx-auto text-lg">
-          Crafting intuitive and engaging digital experiences with a focus on usability and creativity.
-        </p>
-      </section>
-
-      {/* Expertise Section */}
-      <section id="expertise" className="py-16 px-6">
+      {/* EXPERTISE */}
+      <section className="px-8 py-12">
         <h2 className="text-3xl font-bold text-center mb-10">My Expertise</h2>
-        <div className="grid grid-cols-2 md:grid-cols-5 gap-8 text-center">
-          <div>
-            <FaFigma className="text-5xl mx-auto text-purple-600" />
-            <p className="mt-2 font-medium">Figma</p>
-          </div>
-          <div>
-            <SiAdobe className="text-5xl mx-auto text-red-500" />
-            <p className="mt-2 font-medium">Adobe XD</p>
-          </div>
-          <div>
-            <FaSketch className="text-5xl mx-auto text-yellow-500" />
-            <p className="mt-2 font-medium">Sketch</p>
-          </div>
-          <div>
-            <FaHtml5 className="text-5xl mx-auto text-orange-600" />
-            <p className="mt-2 font-medium">HTML5</p>
-          </div>
-          <div>
-            <FaCss3Alt className="text-5xl mx-auto text-blue-600" />
-            <p className="mt-2 font-medium">CSS3</p>
-          </div>
+        <div className="grid grid-cols-2 md:grid-cols-5 gap-6 text-center">
+          {[
+            { icon: <FaFigma size={40} />, label: "Figma" },
+            { icon: <FaSketch size={40} />, label: "Sketch" },
+            { icon: <FaHtml5 size={40} />, label: "HTML5" },
+            { icon: <FaCss3Alt size={40} />, label: "CSS3" },
+            { icon: <FaJs size={40} />, label: "JavaScript" },
+          ].map((skill, i) => (
+            <motion.div
+              key={i}
+              className="p-6 bg-white/10 rounded-xl shadow-lg border border-white/20 hover:bg-white/20"
+              whileHover={{ scale: 1.1 }}
+            >
+              {skill.icon}
+              <p className="mt-2 font-medium">{skill.label}</p>
+            </motion.div>
+          ))}
         </div>
       </section>
 
-      {/* Projects Section */}
-      <section id="projects" className="py-16 px-6 bg-gray-100">
-        <h2 className="text-3xl font-bold text-center mb-10">Projects Showcase</h2>
+      {/* PROJECT SHOWCASE */}
+      <section className="px-8 py-12">
+        <h2 className="text-3xl font-bold text-center mb-10">Projects</h2>
         <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-3">
-          {/* Project 1 */}
-          <div className="bg-white shadow-lg rounded-xl overflow-hidden">
-            <img
-              src="https://via.placeholder.com/400x200"
-              alt="Hardin Astro App"
-              className="w-full h-40 object-cover opacity-90"
-            />
-            <div className="p-4">
-              <h3 className="text-xl font-bold">Hardin Astro App</h3>
-              <p className="text-gray-600">This is Daily Astrology App UI</p>
-              <a
-                href="https://www.figma.com/design/36ApeiWxeeGZFEtkD7zbJM/Astro-App-UI?node-id=0-1&t=zsP4TKtAOWejU35x-1"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="mt-3 inline-block px-4 py-2 bg-blue-600 text-white rounded-lg"
-              >
-                View Project
-              </a>
-            </div>
-          </div>
-
-          {/* Project 2 */}
-          <div className="bg-white shadow-lg rounded-xl overflow-hidden">
-            <img
-              src="https://via.placeholder.com/400x200"
-              alt="Bankfipay App"
-              className="w-full h-40 object-cover opacity-90"
-            />
-            <div className="p-4">
-              <h3 className="text-xl font-bold">Bankfipay App</h3>
-              <p className="text-gray-600">This is AEPS Fintech App UI</p>
-              <a
-                href="https://www.figma.com/design/yVCUmDBrtnwKQf4XcFPwqh/Bankfipay?node-id=0-1&t=U0Ao0dPcx37hwHbk-1"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="mt-3 inline-block px-4 py-2 bg-blue-600 text-white rounded-lg"
-              >
-                View Project
-              </a>
-            </div>
-          </div>
-
-          {/* Project 3 */}
-          <div className="bg-white shadow-lg rounded-xl overflow-hidden">
-            <img
-              src="https://via.placeholder.com/400x200"
-              alt="Azzunique Payout App"
-              className="w-full h-40 object-cover opacity-90"
-            />
-            <div className="p-4">
-              <h3 className="text-xl font-bold">Azzunique Payout App</h3>
-              <p className="text-gray-600">This is Fintech Payout Service App UI</p>
-              <a
-                href="https://www.figma.com/design/ywTYrkQEiewjyoefuL0vch/payout-App?node-id=0-1&t=a11MAci8rLUOqTXw-1"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="mt-3 inline-block px-4 py-2 bg-blue-600 text-white rounded-lg"
-              >
-                View Project
-              </a>
-            </div>
-          </div>
-
-          {/* Project 4 */}
-          <div className="bg-white shadow-lg rounded-xl overflow-hidden">
-            <img
-              src="https://via.placeholder.com/400x200"
-              alt="Shoponnow App"
-              className="w-full h-40 object-cover opacity-90"
-            />
-            <div className="p-4">
-              <h3 className="text-xl font-bold">Shoponnow App</h3>
-              <p className="text-gray-600">This is Hyperlocal Quick ECommerce App UI</p>
-              <a
-                href="https://www.figma.com/proto/nz1UzOe1Vb47cA2tUZr60G/Untitled?page-id=54%3A2&node-id=54-3258&t=WrhqCOU1GJCzNwhW-1"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="mt-3 inline-block px-4 py-2 bg-blue-600 text-white rounded-lg"
-              >
-                View Project
-              </a>
-            </div>
-          </div>
-
-          {/* Project 5 */}
-          <div className="bg-white shadow-lg rounded-xl overflow-hidden">
-            <img
-              src="https://via.placeholder.com/400x200"
-              alt="Eatfit Food Delivery Partner App"
-              className="w-full h-40 object-cover opacity-90"
-            />
-            <div className="p-4">
-              <h3 className="text-xl font-bold">Eatfit Food Delivery Partner App</h3>
-              <p className="text-gray-600">This is Eatfit Food Delivery Partners App</p>
-              <a
-                href="https://www.figma.com/design/JgpN50khNEAm072LfABo3y/Food-Delivery-Partner-App--Community-?node-id=0-1&t=9EdfzW0hXWLE9vLO-1"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="mt-3 inline-block px-4 py-2 bg-blue-600 text-white rounded-lg"
-              >
-                View Project
-              </a>
-            </div>
-          </div>
+          {[
+            {
+              title: "Hardin Astro App",
+              desc: "This is Daily Astrology App UI",
+              img: "https://i.ibb.co/xjL07QK/astro.jpg",
+              link: "https://www.figma.com/design/36ApeiWxeeGZFEtkD7zbJM/Astro-App-UI?node-id=0-1",
+            },
+            {
+              title: "Bankfipay App",
+              desc: "This is AEPS Fintech App UI",
+              img: "https://i.ibb.co/fpbfBgp/bank.jpg",
+              link: "https://www.figma.com/design/yVCUmDBrtnwKQf4XcFPwqh/Bankfipay?node-id=0-1",
+            },
+            {
+              title: "Azzunique Payout App",
+              desc: "This is Fintech Payout Service App UI",
+              img: "https://i.ibb.co/TMn8rHw/payout.jpg",
+              link: "https://www.figma.com/design/ywTYrkQEiewjyoefuL0vch/payout-App?node-id=0-1",
+            },
+            {
+              title: "Shoponnow App",
+              desc: "This is Hyperlocal Quick ECommerce App UI",
+              img: "https://i.ibb.co/9bcQW6y/shop.jpg",
+              link: "https://www.figma.com/proto/nz1UzOe1Vb47cA2tUZr60G/Untitled?page-id=54%3A2",
+            },
+            {
+              title: "Eatfit Delivery Partner App",
+              desc: "This is Eatfit Food Delivery Partners App",
+              img: "https://i.ibb.co/2j9DnX0/eatfit.jpg",
+              link: "https://www.figma.com/design/JgpN50khNEAm072LfABo3y/Food-Delivery-Partner-App--Community-?node-id=0-1",
+            },
+          ].map((project, i) => (
+            <motion.div
+              key={i}
+              className="relative bg-white/10 backdrop-blur-md rounded-xl overflow-hidden shadow-lg border border-white/20"
+              whileHover={{ scale: 1.05 }}
+            >
+              <img
+                src={project.img}
+                alt={project.title}
+                className="w-full h-48 object-cover opacity-80"
+              />
+              <div className="p-4">
+                <h3 className="text-xl font-semibold">{project.title}</h3>
+                <p className="text-sm text-white/80">{project.desc}</p>
+                <a
+                  href={project.link}
+                  target="_blank"
+                  rel="noreferrer"
+                  className="inline-block mt-3 px-4 py-2 bg-white text-purple-600 font-medium rounded-lg shadow hover:bg-gray-200 transition"
+                >
+                  View Project
+                </a>
+              </div>
+            </motion.div>
+          ))}
         </div>
       </section>
 
-      {/* About Section */}
-      <section id="about" className="py-16 px-6 text-center">
-        <h2 className="text-3xl font-bold mb-6">About Me</h2>
-        <img
-          src="https://via.placeholder.com/150"
-          alt="Profile"
-          className="mx-auto rounded-full w-32 h-32 mb-4"
-        />
-        <p className="max-w-2xl mx-auto text-lg text-gray-700">
-          Hi, I’m Vinod Mathur, a passionate UI/UX designer with 5+ years of experience in creating
-          user-friendly and visually appealing mobile and web applications. I specialize in design
-          tools like Figma, Adobe XD, and Sketch, bringing ideas to life with clean and intuitive
-          designs.
-        </p>
+      {/* CONTACT ME */}
+      <section className="px-8 py-12 text-center">
+        <h2 className="text-3xl font-bold mb-6">Contact Me</h2>
+        <p className="mb-6">Let’s build something amazing together 🚀</p>
+        <div className="flex flex-col md:flex-row items-center justify-center gap-6">
+          <a href="mailto:vinodmathur@gmail.com" className="flex items-center gap-2 hover:text-yellow-200">
+            <FaEnvelope /> vinodmathur@gmail.com
+          </a>
+          <a href="tel:+919876543210" className="flex items-center gap-2 hover:text-yellow-200">
+            <FaPhone /> +91 98765 43210
+          </a>
+          <a href="https://linkedin.com/in/vinodmathur" target="_blank" rel="noreferrer" className="flex items-center gap-2 hover:text-yellow-200">
+            <FaLinkedin /> LinkedIn
+          </a>
+          <a href="https://github.com/vinodmathur" target="_blank" rel="noreferrer" className="flex items-center gap-2 hover:text-yellow-200">
+            <FaGithub /> GitHub
+          </a>
+        </div>
       </section>
 
-      {/* Footer */}
-      <footer className="bg-gray-800 text-white text-center py-6 mt-10">
-        <p>&copy; {new Date().getFullYear()} Vinod Mathur. All rights reserved.</p>
+      {/* FOOTER */}
+      <footer className="text-center py-6 bg-white/10 backdrop-blur-md mt-10 border-t border-white/20">
+        <p>© {new Date().getFullYear()} Vinod Mathur | All Rights Reserved</p>
       </footer>
     </div>
   );
