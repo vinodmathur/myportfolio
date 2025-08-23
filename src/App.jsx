@@ -146,9 +146,10 @@ export default function App() {
       <section className="p-10 bg-gray-50 text-center">
         <h2 className="text-3xl font-semibold mb-6">About Me</h2>
         <p className="max-w-2xl mx-auto text-gray-700">
-          I’m Vinod Mathur, a passionate UI/UX Designer with expertise in creating user-friendly
-          and visually appealing app designs. Skilled in Figma, Adobe XD, Sketch, HTML, CSS, and
-          SVGs, I focus on designing meaningful experiences that blend creativity and functionality.
+          I’m Vinod Mathur, a passionate UI/UX Designer with expertise in creating
+          user-friendly and visually appealing app designs. Skilled in Figma,
+          Adobe XD, Sketch, HTML, CSS, and SVGs, I focus on designing meaningful
+          experiences that blend creativity and functionality.
         </p>
       </section>
 
