@@ -1,140 +1,161 @@
-// src/App.jsx
-import { FaFigma } from "react-icons/fa";
-import { 
-  SiAdobexd, 
-  SiSketch, 
-  SiAdobephotoshop, 
-  SiHtml5, 
-  SiCss3, 
-  SiSvg 
-} from "react-icons/si";
+import React from "react";
+import { FaFigma, FaAdobe, FaSketch, FaHtml5, FaCss3Alt } from "react-icons/fa";
 
-function App() {
+export default function App() {
   return (
-    <div className="min-h-screen bg-gradient-to-br from-gray-900 via-black to-gray-800 text-white font-sans">
-      {/* Header / Navbar */}
-      <header className="fixed top-0 left-0 w-full bg-black/30 backdrop-blur-md shadow-md z-50">
-        <nav className="container mx-auto flex justify-between items-center py-4 px-6">
-          <h1 className="text-2xl font-bold tracking-wide">Vinod Mathur</h1>
-          <ul className="flex space-x-6 text-sm font-medium">
-            <li><a href="#about" className="hover:text-teal-400 transition">About Me</a></li>
-            <li><a href="#expertise" className="hover:text-teal-400 transition">Expertise</a></li>
-            <li><a href="#projects" className="hover:text-teal-400 transition">Projects</a></li>
-            <li><a href="#contact" className="hover:text-teal-400 transition">Contact Me</a></li>
-            <li>
-              <a 
-                href="/resume.pdf" 
-                download
-                className="px-3 py-1 rounded-lg bg-teal-500 hover:bg-teal-400 text-black font-semibold transition"
-              >
-                Resume
-              </a>
-            </li>
-          </ul>
-        </nav>
+    <div className="bg-gray-100 min-h-screen text-gray-800 font-sans">
+      {/* Header */}
+      <header className="bg-white shadow-md p-6 text-center">
+        <h1 className="text-4xl font-bold text-gray-900">Vinod Mathur</h1>
+        <p className="text-lg text-gray-600">UI/UX Designer</p>
       </header>
 
-      {/* Hero Section */}
-      <section id="hero" className="flex flex-col justify-center items-center text-center h-screen px-6">
-        <h2 className="text-4xl sm:text-5xl md:text-6xl font-bold mb-6 bg-gradient-to-r from-teal-400 to-blue-500 bg-clip-text text-transparent animate-pulse">
-          UI/UX Designer
-        </h2>
-        <p className="text-gray-300 max-w-2xl text-lg">
-          Creating modern, user-friendly, and aesthetic designs with focus on usability and experience.
-        </p>
-      </section>
-
       {/* Expertise Section */}
-      <section id="expertise" className="py-20 bg-gradient-to-t from-gray-800 via-black to-gray-900">
-        <h3 className="text-center text-3xl font-semibold mb-12">My Expertise</h3>
-        <div className="container mx-auto grid md:grid-cols-5 sm:grid-cols-2 gap-8 px-6 text-center">
-          {[
-            "Wireframing & Prototyping",
-            "User Research & Testing",
-            "UI/UX Strategy & Flow Design",
-            "Responsive Web & Mobile Design",
-            "Design Systems & Style Guides",
-          ].map((skill, idx) => (
-            <div key={idx} className="bg-gray-800 rounded-xl p-6 shadow-lg hover:scale-105 transition">
-              <p className="font-semibold">{skill}</p>
-            </div>
-          ))}
-        </div>
-      </section>
-
-      {/* Tools & Expertise Icons */}
-      <section id="tools" className="py-20">
-        <h3 className="text-center text-3xl font-semibold mb-12">Design Tools</h3>
-        <div className="flex justify-center flex-wrap gap-12 text-6xl text-gray-300">
-          <FaFigma className="hover:text-teal-400 transition" title="Figma" />
-          <SiAdobexd className="hover:text-pink-500 transition" title="Adobe XD" />
-          <SiSketch className="hover:text-yellow-400 transition" title="Sketch" />
-          <SiAdobephotoshop className="hover:text-blue-400 transition" title="Photoshop" />
-          <SiHtml5 className="hover:text-orange-500 transition" title="HTML5" />
-          <SiCss3 className="hover:text-blue-500 transition" title="CSS3" />
-          <SiSvg className="hover:text-green-400 transition" title="SVG" />
-        </div>
-      </section>
-
-      {/* Projects Showcase */}
-      <section id="projects" className="py-20 container mx-auto px-6">
-        <h3 className="text-3xl font-semibold text-center mb-12">Projects</h3>
-        <div className="grid md:grid-cols-3 gap-8">
-          {[1, 2, 3, 4, 5, 6].map((project) => (
-            <div
-              key={project}
-              className="bg-gray-800 rounded-3xl shadow-lg overflow-hidden transform hover:scale-105 transition duration-300"
-            >
-              <img
-                src={`https://via.placeholder.com/400x250?text=Project+${project}`}
-                alt={`Project ${project}`}
-                className="w-full h-56 object-cover rounded-b-3xl"
-              />
-              <div className="p-4 text-center">
-                <h4 className="text-xl font-bold mb-2">Project {project}</h4>
-              </div>
-            </div>
-          ))}
-        </div>
-      </section>
-
-      {/* Contact Section */}
-      <section id="contact" className="py-20 text-center">
-        <h3 className="text-3xl font-semibold mb-6">Contact Me</h3>
-        <p className="text-gray-300 mb-4">Let’s collaborate on your next project!</p>
-        <a 
-          href="mailto:vinodmathur@gmail.com"
-          className="px-6 py-2 rounded-lg bg-teal-500 hover:bg-teal-400 text-black font-semibold transition"
-        >
-          Say Hello
-        </a>
-      </section>
-
-      {/* About Me Section */}
-      <section id="about" className="py-20 bg-gradient-to-r from-gray-800 via-black to-gray-900">
-        <div className="container mx-auto flex flex-col md:flex-row items-center gap-10 px-6">
-          <img 
-            src="https://via.placeholder.com/200" 
-            alt="Profile"
-            className="rounded-full w-48 h-48 object-cover border-4 border-teal-500 shadow-lg"
-          />
-          <div className="text-center md:text-left">
-            <h3 className="text-3xl font-semibold mb-4">About Me</h3>
-            <p className="text-gray-300 leading-relaxed max-w-xl">
-              I’m Vinod Mathur, a passionate UI/UX Designer with expertise in creating user-centric designs. 
-              I specialize in crafting intuitive, responsive, and visually engaging web and mobile experiences. 
-              With strong skills in Figma, Adobe XD, Sketch, and Photoshop, I bring concepts to life with usability at the core.
-            </p>
+      <section className="p-10 bg-gradient-to-r from-green-100 to-white">
+        <h2 className="text-3xl font-semibold text-center mb-8">My Expertise</h2>
+        <div className="grid grid-cols-2 md:grid-cols-5 gap-6 text-center">
+          <div className="flex flex-col items-center">
+            <FaFigma className="text-5xl text-purple-600" />
+            <p className="mt-2">Figma</p>
+          </div>
+          <div className="flex flex-col items-center">
+            <FaAdobe className="text-5xl text-red-500" />
+            <p className="mt-2">Adobe XD</p>
+          </div>
+          <div className="flex flex-col items-center">
+            <FaSketch className="text-5xl text-yellow-500" />
+            <p className="mt-2">Sketch</p>
+          </div>
+          <div className="flex flex-col items-center">
+            <FaHtml5 className="text-5xl text-orange-600" />
+            <p className="mt-2">HTML5</p>
+          </div>
+          <div className="flex flex-col items-center">
+            <FaCss3Alt className="text-5xl text-blue-600" />
+            <p className="mt-2">CSS3 & SVG</p>
           </div>
         </div>
       </section>
 
+      {/* Projects Section */}
+      <section className="p-10 bg-white">
+        <h2 className="text-3xl font-semibold text-center mb-8">My Projects</h2>
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+          {/* Project 1 */}
+          <div className="bg-transparent shadow-lg rounded-xl overflow-hidden border p-4 flex flex-col items-center">
+            <img
+              src="https://via.placeholder.com/300x200.png?text=Astro+App"
+              alt="Hardin Astro App"
+              className="rounded-lg mb-4"
+            />
+            <h3 className="text-xl font-bold">Hardin Astro App</h3>
+            <p className="text-gray-600 text-sm mt-2">This is Daily Astrology App UI</p>
+            <a
+              href="https://www.figma.com/design/36ApeiWxeeGZFEtkD7zbJM/Astro-App-UI?node-id=0-1&t=zsP4TKtAOWejU35x-1"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="mt-4 px-4 py-2 bg-green-500 text-white rounded-lg shadow hover:bg-green-600"
+            >
+              View Project
+            </a>
+          </div>
+
+          {/* Project 2 */}
+          <div className="bg-transparent shadow-lg rounded-xl overflow-hidden border p-4 flex flex-col items-center">
+            <img
+              src="https://via.placeholder.com/300x200.png?text=Bankfipay+App"
+              alt="Bankfipay App"
+              className="rounded-lg mb-4"
+            />
+            <h3 className="text-xl font-bold">Bankfipay App</h3>
+            <p className="text-gray-600 text-sm mt-2">This is AEPS Fintech App UI</p>
+            <a
+              href="https://www.figma.com/design/yVCUmDBrtnwKQf4XcFPwqh/Bankfipay?node-id=0-1&t=U0Ao0dPcx37hwHbk-1"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="mt-4 px-4 py-2 bg-green-500 text-white rounded-lg shadow hover:bg-green-600"
+            >
+              View Project
+            </a>
+          </div>
+
+          {/* Project 3 */}
+          <div className="bg-transparent shadow-lg rounded-xl overflow-hidden border p-4 flex flex-col items-center">
+            <img
+              src="https://via.placeholder.com/300x200.png?text=Azzunique+Payout+App"
+              alt="Azzunique Payout App"
+              className="rounded-lg mb-4"
+            />
+            <h3 className="text-xl font-bold">Azzunique Payout App</h3>
+            <p className="text-gray-600 text-sm mt-2">This is Fintech Payout Service App UI</p>
+            <a
+              href="https://www.figma.com/design/ywTYrkQEiewjyoefuL0vch/payout-App?node-id=0-1&t=a11MAci8rLUOqTXw-1"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="mt-4 px-4 py-2 bg-green-500 text-white rounded-lg shadow hover:bg-green-600"
+            >
+              View Project
+            </a>
+          </div>
+
+          {/* Project 4 */}
+          <div className="bg-transparent shadow-lg rounded-xl overflow-hidden border p-4 flex flex-col items-center">
+            <img
+              src="https://via.placeholder.com/300x200.png?text=ShopOnNow+App"
+              alt="ShopOnNow App"
+              className="rounded-lg mb-4"
+            />
+            <h3 className="text-xl font-bold">ShopOnNow App</h3>
+            <p className="text-gray-600 text-sm mt-2">
+              This is Hyperlocal Quick ECommerce App UI
+            </p>
+            <a
+              href="https://www.figma.com/proto/nz1UzOe1Vb47cA2tUZr60G/Untitled?page-id=54%3A2&node-id=54-3258&t=WrhqCOU1GJCzNwhW-1"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="mt-4 px-4 py-2 bg-green-500 text-white rounded-lg shadow hover:bg-green-600"
+            >
+              View Project
+            </a>
+          </div>
+
+          {/* Project 5 */}
+          <div className="bg-transparent shadow-lg rounded-xl overflow-hidden border p-4 flex flex-col items-center">
+            <img
+              src="https://via.placeholder.com/300x200.png?text=Eatfit+Food+Delivery+App"
+              alt="Eatfit Food Delivery Partner App"
+              className="rounded-lg mb-4"
+            />
+            <h3 className="text-xl font-bold">Eatfit Food Delivery Partner App</h3>
+            <p className="text-gray-600 text-sm mt-2">
+              This is Eatfit Food Delivery Partners App
+            </p>
+            <a
+              href="https://www.figma.com/design/JgpN50khNEAm072LfABo3y/Food-Delivery-Partner-App--Community-?node-id=0-1&t=9EdfzW0hXWLE9vLO-1"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="mt-4 px-4 py-2 bg-green-500 text-white rounded-lg shadow hover:bg-green-600"
+            >
+              View Project
+            </a>
+          </div>
+        </div>
+      </section>
+
+      {/* About Me */}
+      <section className="p-10 bg-gray-50 text-center">
+        <h2 className="text-3xl font-semibold mb-6">About Me</h2>
+        <p className="max-w-2xl mx-auto text-gray-700">
+          I’m Vinod Mathur, a passionate UI/UX Designer with expertise in creating user-friendly
+          and visually appealing app designs. Skilled in Figma, Adobe XD, Sketch, HTML, CSS, and
+          SVGs, I focus on designing meaningful experiences that blend creativity and functionality.
+        </p>
+      </section>
+
       {/* Footer */}
-      <footer className="bg-black/40 text-gray-400 text-sm py-4 text-center">
-        © {new Date().getFullYear()} Vinod Mathur | UI/UX Designer
+      <footer className="bg-gray-800 text-white text-center py-6">
+        <p>© 2025 Vinod Mathur | UI/UX Designer Portfolio</p>
       </footer>
     </div>
   );
 }
-
-export default App;
