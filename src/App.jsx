@@ -1,119 +1,162 @@
-// src/App.jsx
 import { motion } from "framer-motion";
 
+// Project data
+const projects = [
+  {
+    title: "E-Commerce UI",
+    desc: "Modern shopping experience with React & Tailwind.",
+    img: "https://source.unsplash.com/600x400/?ecommerce,website",
+  },
+  {
+    title: "Portfolio Website",
+    desc: "Personal brand portfolio with animations & dark mode.",
+    img: "https://source.unsplash.com/600x400/?portfolio,design",
+  },
+  {
+    title: "Mobile Banking App",
+    desc: "Secure and sleek mobile app concept with Figma.",
+    img: "https://source.unsplash.com/600x400/?banking,app",
+  },
+  {
+    title: "Social Media Dashboard",
+    desc: "Analytics dashboard with clean charts & UX focus.",
+    img: "https://source.unsplash.com/600x400/?dashboard,ui",
+  },
+  {
+    title: "Food Delivery UI",
+    desc: "Interactive restaurant ordering UI in React.",
+    img: "https://source.unsplash.com/600x400/?food,delivery",
+  },
+  {
+    title: "Crypto Wallet UI",
+    desc: "Dark futuristic wallet UI design in Figma.",
+    img: "https://source.unsplash.com/600x400/?crypto,finance",
+  },
+];
+
 function App() {
-  const projects = [
-    {
-      title: "Mobile App UI – Figma",
-      desc: "Modern e-commerce UI designed in Figma",
-      img: "https://via.placeholder.com/400x250?text=Figma+UI",
-    },
-    {
-      title: "Web Dashboard – Adobe XD",
-      desc: "Analytics dashboard with dark theme",
-      img: "https://via.placeholder.com/400x250?text=Adobe+XD",
-    },
-    {
-      title: "Portfolio Website – React",
-      desc: "Personal portfolio with animations",
-      img: "https://via.placeholder.com/400x250?text=React+Portfolio",
-    },
-    {
-      title: "Brand Identity – Illustrator",
-      desc: "Creative logo & branding design",
-      img: "https://via.placeholder.com/400x250?text=Illustrator",
-    },
-    {
-      title: "Landing Page – Photoshop",
-      desc: "Marketing landing page with 3D effects",
-      img: "https://via.placeholder.com/400x250?text=Photoshop",
-    },
-    {
-      title: "Wireframes – Sketch",
-      desc: "Low-fidelity prototypes for SaaS app",
-      img: "https://via.placeholder.com/400x250?text=Sketch",
-    },
-  ];
-
   return (
-    <div className="min-h-screen bg-gradient-to-br from-gray-900 via-gray-800 to-black text-white">
-      {/* Top Navigation Bar */}
-      <nav className="flex justify-between items-center px-8 py-4 bg-gradient-to-r from-purple-900 to-gray-900 shadow-lg fixed top-0 w-full z-50">
-        <h1 className="text-2xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-purple-400 to-pink-500">
-          Vinod Mathur
-        </h1>
-        <div className="space-x-6 text-gray-300 text-sm font-medium">
-          <a href="#about" className="hover:text-purple-400 transition">About Me</a>
-          <a href="#projects" className="hover:text-purple-400 transition">Projects</a>
-          <a href="#contact" className="hover:text-purple-400 transition">Contact Me</a>
-          <a href="/resume.pdf" className="hover:text-purple-400 transition">Resume</a>
+    <div className="min-h-screen bg-gradient-to-br from-gray-900 via-black to-gray-800 text-white font-sans">
+      {/* Header / Navbar */}
+      <header className="sticky top-0 z-50 bg-black/70 backdrop-blur-md shadow-md">
+        <div className="max-w-7xl mx-auto flex justify-between items-center px-6 py-4">
+          <h1 className="text-2xl font-bold text-purple-400">Vinod Mathur</h1>
+          <nav className="space-x-6 text-gray-300">
+            <a href="#about" className="hover:text-purple-400 transition">
+              About Me
+            </a>
+            <a href="#projects" className="hover:text-purple-400 transition">
+              Projects
+            </a>
+            <a href="#contact" className="hover:text-purple-400 transition">
+              Contact Me
+            </a>
+            <a
+              href="/resume.pdf"
+              className="hover:text-purple-400 transition font-semibold"
+            >
+              Resume
+            </a>
+          </nav>
         </div>
-      </nav>
+      </header>
 
-      {/* Main Content */}
-      <div className="px-6 py-24 max-w-6xl mx-auto">
-        {/* About Section */}
-        <section id="about" className="text-center mb-20">
-          <h2 className="text-3xl font-bold mb-4">👋 About Me</h2>
-          <p className="text-gray-400 max-w-2xl mx-auto">
-            I am a passionate <span className="text-purple-400">UI/UX Designer</span> and 
-            <span className="text-pink-400"> Frontend Developer</span>, skilled in creating 
-            clean, modern, and user-friendly experiences using tools like Figma, Adobe XD, 
-            Sketch, Illustrator, and Photoshop.
-          </p>
-        </section>
+      {/* Hero / About Me Section */}
+      <section
+        id="about"
+        className="text-center py-24 px-6 max-w-4xl mx-auto"
+      >
+        <h2 className="text-4xl font-bold mb-6 bg-gradient-to-r from-purple-400 to-pink-500 bg-clip-text text-transparent">
+          Frontend Developer & UI/UX Designer
+        </h2>
+        <p className="text-gray-300 text-lg leading-relaxed">
+          I design and build modern, user-friendly web and mobile applications.
+          Skilled in Figma, Adobe XD, Photoshop, and Illustrator with a passion
+          for creating clean and functional UI/UX.
+        </p>
+      </section>
 
-        {/* Auto Scroll Skills */}
-        <div className="overflow-hidden whitespace-nowrap py-4 border-y border-gray-700 mb-20">
-          <motion.div
-            className="inline-block text-lg font-semibold text-gray-300"
-            animate={{ x: ["100%", "-100%"] }}
-            transition={{ repeat: Infinity, duration: 15, ease: "linear" }}
-          >
-            🔥 Figma • Adobe XD • Sketch • Illustrator • Photoshop • React • Tailwind • Firebase •
-            Prototyping • Wireframes • Branding
-          </motion.div>
-        </div>
+      {/* Auto-Scroll Skills */}
+      <section className="overflow-hidden whitespace-nowrap border-y border-gray-700 py-6 bg-gradient-to-r from-purple-600/20 to-pink-600/20">
+        <motion.div
+          className="flex space-x-16 text-xl font-semibold text-gray-200"
+          animate={{ x: ["100%", "-100%"] }}
+          transition={{ repeat: Infinity, duration: 20, ease: "linear" }}
+        >
+          <span>🎨 Figma</span>
+          <span>🖌 Adobe XD</span>
+          <span>📐 Sketch</span>
+          <span>📷 Photoshop</span>
+          <span>🎭 Illustrator</span>
+          <span>⚡ React</span>
+          <span>🌐 HTML & CSS</span>
+          <span>🎨 UI/UX Design</span>
+        </motion.div>
+      </section>
 
-        {/* Projects Showcase */}
-        <section id="projects">
-          <h3 className="text-3xl font-bold mb-10 text-center">🚀 Projects Showcase</h3>
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-10">
-            {projects.map((project, index) => (
-              <motion.div
-                key={index}
-                initial={{ opacity: 0, y: 40 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.8, delay: index * 0.2 }}
-                viewport={{ once: true }}
-                className="bg-gradient-to-br from-gray-800 to-gray-900 rounded-2xl overflow-hidden shadow-lg hover:shadow-[0_0_30px_rgba(168,85,247,0.7)] transition-all duration-300"
-              >
-                <img src={project.img} alt={project.title} className="w-full h-48 object-cover rounded-t-2xl" />
-                <div className="p-5">
-                  <h4 className="text-xl font-semibold text-purple-400">{project.title}</h4>
-                  <p className="text-gray-400 mt-2">{project.desc}</p>
+      {/* Projects Section */}
+      <section id="projects" className="py-20">
+        <h3 className="text-3xl font-bold mb-12 text-center">
+          🚀 Projects Showcase
+        </h3>
+
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-12 max-w-6xl mx-auto px-6">
+          {projects.map((project, index) => (
+            <motion.div
+              key={index}
+              initial={{ opacity: 0, y: 50 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, delay: index * 0.2 }}
+              viewport={{ once: true }}
+              className="group bg-gradient-to-br from-gray-800 to-gray-900 rounded-3xl overflow-hidden shadow-lg hover:shadow-[0_0_40px_rgba(168,85,247,0.5)] transition-all duration-300"
+            >
+              {/* Project Image */}
+              <div className="relative">
+                <img
+                  src={project.img}
+                  alt={project.title}
+                  className="w-full h-56 object-cover rounded-t-3xl group-hover:scale-105 transition-transform duration-500"
+                />
+                {/* Overlay */}
+                <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/30 to-transparent opacity-0 group-hover:opacity-100 transition duration-500 flex items-end p-4">
+                  <button className="px-4 py-2 text-sm rounded-lg bg-purple-600 text-white shadow-lg hover:bg-purple-700 transition">
+                    View Details
+                  </button>
                 </div>
-              </motion.div>
-            ))}
-          </div>
-        </section>
+              </div>
 
-        {/* Contact Section */}
-        <section id="contact" className="mt-24 text-center">
-          <h3 className="text-3xl font-bold mb-4">📩 Contact Me</h3>
-          <p className="text-gray-400 mb-6">Let’s connect and build something amazing together.</p>
-          <a
-            href="mailto:vinodmathur@gmail.com"
-            className="px-6 py-3 rounded-lg bg-gradient-to-r from-purple-500 to-pink-500 text-white font-semibold shadow-lg hover:opacity-90 transition"
-          >
-            Say Hello
-          </a>
-        </section>
-      </div>
+              {/* Project Content */}
+              <div className="p-6">
+                <h4 className="text-xl font-semibold text-purple-400">
+                  {project.title}
+                </h4>
+                <p className="text-gray-400 mt-2 text-sm">{project.desc}</p>
+              </div>
+            </motion.div>
+          ))}
+        </div>
+      </section>
+
+      {/* Contact Section */}
+      <section
+        id="contact"
+        className="text-center py-20 bg-gradient-to-t from-gray-900 to-black"
+      >
+        <h3 className="text-3xl font-bold mb-6">📩 Get in Touch</h3>
+        <p className="text-gray-400 mb-6">
+          Let’s collaborate and create something amazing together!
+        </p>
+        <a
+          href="mailto:vinod@example.com"
+          className="px-6 py-3 rounded-lg bg-purple-600 text-white shadow-lg hover:bg-purple-700 transition"
+        >
+          Contact Me
+        </a>
+      </section>
 
       {/* Footer */}
-      <footer className="bg-gradient-to-r from-gray-900 to-gray-800 py-4 mt-20 text-center text-gray-500 text-sm border-t border-gray-700">
-        <p>© {new Date().getFullYear()} Vinod Mathur • UI/UX Designer & Developer</p>
+      <footer className="bg-black/80 text-gray-500 text-center py-4 text-sm">
+        © {new Date().getFullYear()} Vinod Mathur · Designed with ❤️
       </footer>
     </div>
   );
