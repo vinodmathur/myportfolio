@@ -1,162 +1,126 @@
-import { motion } from "framer-motion";
-
-// Project data
-const projects = [
-  {
-    title: "E-Commerce UI",
-    desc: "Modern shopping experience with React & Tailwind.",
-    img: "https://source.unsplash.com/600x400/?ecommerce,website",
-  },
-  {
-    title: "Portfolio Website",
-    desc: "Personal brand portfolio with animations & dark mode.",
-    img: "https://source.unsplash.com/600x400/?portfolio,design",
-  },
-  {
-    title: "Mobile Banking App",
-    desc: "Secure and sleek mobile app concept with Figma.",
-    img: "https://source.unsplash.com/600x400/?banking,app",
-  },
-  {
-    title: "Social Media Dashboard",
-    desc: "Analytics dashboard with clean charts & UX focus.",
-    img: "https://source.unsplash.com/600x400/?dashboard,ui",
-  },
-  {
-    title: "Food Delivery UI",
-    desc: "Interactive restaurant ordering UI in React.",
-    img: "https://source.unsplash.com/600x400/?food,delivery",
-  },
-  {
-    title: "Crypto Wallet UI",
-    desc: "Dark futuristic wallet UI design in Figma.",
-    img: "https://source.unsplash.com/600x400/?crypto,finance",
-  },
-];
+// src/App.jsx
+import { useState } from "react";
+import {
+  FaFigma,
+  FaAdobe,
+  FaSketch,
+  FaHtml5,
+  FaCss3Alt,
+} from "react-icons/fa";
 
 function App() {
+  const [active, setActive] = useState("about");
+
   return (
-    <div className="min-h-screen bg-gradient-to-br from-gray-900 via-black to-gray-800 text-white font-sans">
+    <div className="bg-gradient-to-br from-gray-900 via-gray-800 to-black text-white font-sans min-h-screen">
       {/* Header / Navbar */}
-      <header className="sticky top-0 z-50 bg-black/70 backdrop-blur-md shadow-md">
-        <div className="max-w-7xl mx-auto flex justify-between items-center px-6 py-4">
-          <h1 className="text-2xl font-bold text-purple-400">Vinod Mathur</h1>
-          <nav className="space-x-6 text-gray-300">
-            <a href="#about" className="hover:text-purple-400 transition">
-              About Me
-            </a>
-            <a href="#projects" className="hover:text-purple-400 transition">
-              Projects
-            </a>
-            <a href="#contact" className="hover:text-purple-400 transition">
-              Contact Me
-            </a>
-            <a
-              href="/resume.pdf"
-              className="hover:text-purple-400 transition font-semibold"
-            >
-              Resume
-            </a>
-          </nav>
-        </div>
+      <header className="fixed top-0 left-0 w-full z-50 bg-black/40 backdrop-blur-md shadow-md">
+        <nav className="flex justify-between items-center px-8 py-4">
+          <h1 className="text-2xl font-bold">Vinod Mathur</h1>
+          <ul className="flex space-x-6 text-sm font-medium">
+            {["About Me", "Expertise", "Projects", "Contact Me", "Resume"].map(
+              (item) => (
+                <li
+                  key={item}
+                  className={`cursor-pointer hover:text-teal-400 transition ${
+                    active === item.toLowerCase().replace(" ", "")
+                      ? "text-teal-400"
+                      : ""
+                  }`}
+                  onClick={() =>
+                    setActive(item.toLowerCase().replace(" ", ""))
+                  }
+                >
+                  {item}
+                </li>
+              )
+            )}
+          </ul>
+        </nav>
       </header>
 
-      {/* Hero / About Me Section */}
-      <section
-        id="about"
-        className="text-center py-24 px-6 max-w-4xl mx-auto"
-      >
-        <h2 className="text-4xl font-bold mb-6 bg-gradient-to-r from-purple-400 to-pink-500 bg-clip-text text-transparent">
-          Frontend Developer & UI/UX Designer
+      {/* Hero Section */}
+      <section className="flex flex-col justify-center items-center h-screen text-center px-6">
+        <h2 className="text-5xl font-extrabold mb-4 animate-fade-in">
+          UI/UX Designer
         </h2>
-        <p className="text-gray-300 text-lg leading-relaxed">
-          I design and build modern, user-friendly web and mobile applications.
-          Skilled in Figma, Adobe XD, Photoshop, and Illustrator with a passion
-          for creating clean and functional UI/UX.
+        <p className="text-lg text-gray-300 max-w-2xl">
+          Designing engaging digital experiences with a focus on usability,
+          creativity, and modern aesthetics.
         </p>
       </section>
 
-      {/* Auto-Scroll Skills */}
-      <section className="overflow-hidden whitespace-nowrap border-y border-gray-700 py-6 bg-gradient-to-r from-purple-600/20 to-pink-600/20">
-        <motion.div
-          className="flex space-x-16 text-xl font-semibold text-gray-200"
-          animate={{ x: ["100%", "-100%"] }}
-          transition={{ repeat: Infinity, duration: 20, ease: "linear" }}
-        >
-          <span>🎨 Figma</span>
-          <span>🖌 Adobe XD</span>
-          <span>📐 Sketch</span>
-          <span>📷 Photoshop</span>
-          <span>🎭 Illustrator</span>
-          <span>⚡ React</span>
-          <span>🌐 HTML & CSS</span>
-          <span>🎨 UI/UX Design</span>
-        </motion.div>
+      {/* Expertise Section */}
+      <section id="expertise" className="py-20 px-8 bg-gradient-to-t from-black via-gray-900 to-gray-800">
+        <h3 className="text-3xl font-bold text-center mb-12">My Expertise</h3>
+        <div className="grid grid-cols-2 md:grid-cols-5 gap-8 text-center">
+          <div className="flex flex-col items-center">
+            <FaFigma className="text-5xl text-teal-400 mb-4" />
+            <p>Figma</p>
+          </div>
+          <div className="flex flex-col items-center">
+            <FaAdobe className="text-5xl text-pink-500 mb-4" />
+            <p>Adobe XD</p>
+          </div>
+          <div className="flex flex-col items-center">
+            <FaSketch className="text-5xl text-yellow-400 mb-4" />
+            <p>Sketch</p>
+          </div>
+          <div className="flex flex-col items-center">
+            <FaHtml5 className="text-5xl text-orange-500 mb-4" />
+            <p>HTML5</p>
+          </div>
+          <div className="flex flex-col items-center">
+            <FaCss3Alt className="text-5xl text-blue-500 mb-4" />
+            <p>CSS3</p>
+          </div>
+        </div>
       </section>
 
-      {/* Projects Section */}
-      <section id="projects" className="py-20">
-        <h3 className="text-3xl font-bold mb-12 text-center">
-          🚀 Projects Showcase
-        </h3>
-
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-12 max-w-6xl mx-auto px-6">
-          {projects.map((project, index) => (
-            <motion.div
-              key={index}
-              initial={{ opacity: 0, y: 50 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6, delay: index * 0.2 }}
-              viewport={{ once: true }}
-              className="group bg-gradient-to-br from-gray-800 to-gray-900 rounded-3xl overflow-hidden shadow-lg hover:shadow-[0_0_40px_rgba(168,85,247,0.5)] transition-all duration-300"
+      {/* Projects Showcase */}
+      <section id="projects" className="py-20 px-8">
+        <h3 className="text-3xl font-bold text-center mb-12">Projects</h3>
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-10">
+          {[1, 2, 3, 4, 5, 6].map((project) => (
+            <div
+              key={project}
+              className="rounded-2xl overflow-hidden shadow-lg hover:scale-105 transition transform"
             >
-              {/* Project Image */}
-              <div className="relative">
-                <img
-                  src={project.img}
-                  alt={project.title}
-                  className="w-full h-56 object-cover rounded-t-3xl group-hover:scale-105 transition-transform duration-500"
-                />
-                {/* Overlay */}
-                <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/30 to-transparent opacity-0 group-hover:opacity-100 transition duration-500 flex items-end p-4">
-                  <button className="px-4 py-2 text-sm rounded-lg bg-purple-600 text-white shadow-lg hover:bg-purple-700 transition">
-                    View Details
-                  </button>
-                </div>
-              </div>
-
-              {/* Project Content */}
-              <div className="p-6">
-                <h4 className="text-xl font-semibold text-purple-400">
-                  {project.title}
-                </h4>
-                <p className="text-gray-400 mt-2 text-sm">{project.desc}</p>
-              </div>
-            </motion.div>
+              <img
+                src={`https://via.placeholder.com/400x250?text=Project+${project}`}
+                alt={`Project ${project}`}
+                className="w-full h-60 object-cover rounded-2xl"
+              />
+            </div>
           ))}
         </div>
       </section>
 
-      {/* Contact Section */}
+      {/* About Me Section */}
       <section
-        id="contact"
-        className="text-center py-20 bg-gradient-to-t from-gray-900 to-black"
+        id="about"
+        className="py-20 px-8 bg-gradient-to-t from-gray-800 to-black"
       >
-        <h3 className="text-3xl font-bold mb-6">📩 Get in Touch</h3>
-        <p className="text-gray-400 mb-6">
-          Let’s collaborate and create something amazing together!
-        </p>
-        <a
-          href="mailto:vinod@example.com"
-          className="px-6 py-3 rounded-lg bg-purple-600 text-white shadow-lg hover:bg-purple-700 transition"
-        >
-          Contact Me
-        </a>
+        <h3 className="text-3xl font-bold text-center mb-12">About Me</h3>
+        <div className="max-w-3xl mx-auto text-center">
+          <p className="text-gray-300 mb-6">
+            I’m <span className="font-bold">Vinod Mathur</span>, a passionate
+            UI/UX Designer with expertise in crafting user-centered designs,
+            prototyping, and building seamless digital experiences.
+          </p>
+          <div className="flex justify-center">
+            <img
+              src="https://via.placeholder.com/150"
+              alt="Vinod Mathur"
+              className="rounded-full border-4 border-teal-400 shadow-lg"
+            />
+          </div>
+        </div>
       </section>
 
       {/* Footer */}
-      <footer className="bg-black/80 text-gray-500 text-center py-4 text-sm">
-        © {new Date().getFullYear()} Vinod Mathur · Designed with ❤️
+      <footer className="py-6 text-center text-sm text-gray-400 bg-black">
+        © {new Date().getFullYear()} Vinod Mathur. All Rights Reserved.
       </footer>
     </div>
   );
