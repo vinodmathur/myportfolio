@@ -4,160 +4,142 @@ import {
   FaSketch,
   FaHtml5,
   FaCss3Alt,
-  FaGithub,
-  FaLinkedin,
+  FaAdobe,
 } from "react-icons/fa";
+import { SiAdobephotoshop, SiCanva } from "react-icons/si";
 
 export default function App() {
+  const projects = [
+    {
+      title: "Hardin Astro App",
+      desc: "This is Daily Astrology App UI",
+      img: "/images/astro.png",
+      link: "https://www.figma.com/design/36ApeiWxeeGZFEtkD7zbJM/Astro-App-UI?node-id=0-1&t=zsP4TKtAOWejU35x-1",
+    },
+    {
+      title: "Bankfipay App",
+      desc: "This is AEPS Fintech App UI",
+      img: "/images/bankfi.png",
+      link: "https://www.figma.com/design/yVCUmDBrtnwKQf4XcFPwqh/Bankfipay?node-id=0-1&t=U0Ao0dPcx37hwHbk-1",
+    },
+    {
+      title: "Azzunique Payout App",
+      desc: "This is Fintech Payout Service App UI",
+      img: "/images/azzunique.png",
+      link: "https://www.figma.com/design/ywTYrkQEiewjyoefuL0vch/payout-App?node-id=0-1&t=a11MAci8rLUOqTXw-1",
+    },
+    {
+      title: "Shoponnow App",
+      desc: "This is Hyperlocal Quick E-Commerce App UI",
+      img: "/images/shopon.png",
+      link: "https://www.figma.com/proto/nz1UzOe1Vb47cA2tUZr60G/Untitled?page-id=54%3A2&node-id=54-3258&t=WrhqCOU1GJCzNwhW-1",
+    },
+    {
+      title: "Eatfit Partner App",
+      desc: "This is Eatfit Food Delivery Partners App",
+      img: "/images/eatfit.png",
+      link: "https://www.figma.com/design/JgpN50khNEAm072LfABo3y/Food-Delivery-Partner-App--Community-?node-id=0-1&t=9EdfzW0hXWLE9vLO-1",
+    },
+  ];
+
   return (
-    <div className="min-h-screen bg-gradient-to-br from-gray-900 via-gray-800 to-black text-white font-sans">
-      {/* Transparent Header */}
-      <header className="fixed top-0 left-0 w-full bg-black/30 backdrop-blur-md shadow-md z-50">
-        <nav className="max-w-6xl mx-auto flex justify-between items-center px-6 py-4">
+    <div className="min-h-screen bg-gradient-to-br from-gray-900 via-black to-gray-800 text-white font-sans">
+      {/* Header */}
+      <header className="fixed top-0 w-full z-50 backdrop-blur-md bg-black/30 border-b border-white/10">
+        <div className="max-w-6xl mx-auto flex justify-between items-center p-4">
           <h1 className="text-2xl font-bold tracking-wide">Vinod Mathur</h1>
-          <ul className="flex space-x-6 text-lg">
-            <li><a href="#about" className="hover:text-gray-300">About</a></li>
-            <li><a href="#projects" className="hover:text-gray-300">Projects</a></li>
-            <li><a href="#contact" className="hover:text-gray-300">Contact</a></li>
-          </ul>
-        </nav>
+          <nav className="space-x-6">
+            <a href="#expertise" className="hover:text-blue-400">Expertise</a>
+            <a href="#projects" className="hover:text-blue-400">Projects</a>
+            <a href="#about" className="hover:text-blue-400">About</a>
+            <a href="#contact" className="hover:text-blue-400">Contact</a>
+          </nav>
+        </div>
       </header>
 
-      {/* Hero / Intro */}
-      <section
-        id="about"
-        className="flex flex-col items-center justify-center text-center pt-40 pb-20 px-6"
-      >
-        <h2 className="text-4xl md:text-6xl font-extrabold mb-4">
-          Hi, I’m <span className="text-blue-400">Vinod Mathur</span>
-        </h2>
-        <p className="text-lg md:text-xl max-w-3xl text-gray-300">
-          A passionate <span className="text-blue-300">UI/UX Designer</span> and
-          <span className="text-blue-300"> Community Builder</span> with 5+ years
-          of experience in crafting intuitive mobile apps, websites, and fintech
-          platforms. I specialize in design systems, wireframing, prototyping,
-          and delivering user-first digital experiences.
+      {/* Hero / Summary */}
+      <section className="pt-32 pb-16 text-center max-w-3xl mx-auto">
+        <h2 className="text-4xl font-bold">UI/UX Designer</h2>
+        <p className="mt-6 text-lg text-gray-300">
+          I’m a passionate UI/UX Designer with 2+ years of experience creating
+          modern, user-friendly designs for mobile and web. Skilled in design
+          systems, wireframing, prototyping, and crafting visually engaging
+          interfaces. I focus on usability, aesthetics, and delivering seamless
+          digital experiences.
         </p>
-        <p className="mt-4 text-md md:text-lg max-w-2xl text-gray-400">
-          I’ve worked across industries from fintech to ecommerce, creating
-          scalable design solutions, building communities, and collaborating with
-          cross-functional teams. My goal is to design digital products that feel
-          effortless, elegant, and impactful.
-        </p>
-        {/* Resume Button */}
         <a
           href="/resume.pdf"
           download
-          className="mt-8 px-6 py-3 bg-gradient-to-r from-blue-500 to-purple-600 text-white rounded-lg shadow-lg hover:opacity-90 transition"
+          className="mt-6 inline-block bg-blue-600 hover:bg-blue-700 px-6 py-2 rounded-lg font-semibold"
         >
-          📄 Download Resume
+          Download Resume
         </a>
       </section>
 
       {/* Expertise */}
-      <section className="py-16 px-6 max-w-6xl mx-auto text-center">
-        <h3 className="text-3xl font-semibold mb-10">Expertise</h3>
-        <div className="flex flex-wrap justify-center gap-10">
-          <div className="flex flex-col items-center">
-            <FaFigma className="text-5xl text-pink-400" />
-            <span className="mt-2">Figma</span>
-          </div>
-          <div className="flex flex-col items-center">
-            <FaSketch className="text-5xl text-yellow-400" />
-            <span className="mt-2">Sketch</span>
-          </div>
-          <div className="flex flex-col items-center">
-            <FaHtml5 className="text-5xl text-orange-500" />
-            <span className="mt-2">HTML5</span>
-          </div>
-          <div className="flex flex-col items-center">
-            <FaCss3Alt className="text-5xl text-blue-500" />
-            <span className="mt-2">CSS3</span>
-          </div>
+      <section id="expertise" className="py-16 bg-black/30">
+        <h3 className="text-3xl font-bold text-center mb-10">My Expertise</h3>
+        <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-8 max-w-5xl mx-auto text-center">
+          <div><FaFigma size={50} className="mx-auto text-pink-400"/><p>Figma</p></div>
+          <div><FaAdobe size={50} className="mx-auto text-red-500"/><p>Adobe XD</p></div>
+          <div><SiAdobephotoshop size={50} className="mx-auto text-blue-400"/><p>Photoshop</p></div>
+          <div><SiCanva size={50} className="mx-auto text-cyan-400"/><p>Canva</p></div>
+          <div><FaSketch size={50} className="mx-auto text-yellow-400"/><p>Sketch</p></div>
+          <div><FaHtml5 size={50} className="mx-auto text-orange-500"/><p>HTML/CSS</p></div>
         </div>
       </section>
 
       {/* Projects */}
-      <section id="projects" className="py-16 px-6 max-w-6xl mx-auto">
-        <h3 className="text-3xl font-semibold text-center mb-10">Projects</h3>
-        <div className="grid md:grid-cols-2 gap-8">
-          {[
-            {
-              title: "Hardin Astro App",
-              desc: "Daily Astrology App UI",
-              link: "https://www.figma.com/design/36ApeiWxeeGZFEtkD7zbJM/Astro-App-UI?node-id=0-1&t=zsP4TKtAOWejU35x-1",
-            },
-            {
-              title: "Bankfipay App",
-              desc: "AEPS Fintech App UI",
-              link: "https://www.figma.com/design/yVCUmDBrtnwKQf4XcFPwqh/Bankfipay?node-id=0-1&t=U0Ao0dPcx37hwHbk-1",
-            },
-            {
-              title: "Azzunique Payout App",
-              desc: "Fintech Payout Service App UI",
-              link: "https://www.figma.com/design/ywTYrkQEiewjyoefuL0vch/payout-App?node-id=0-1&t=a11MAci8rLUOqTXw-1",
-            },
-            {
-              title: "Shoponnow App",
-              desc: "Hyperlocal Quick ECommerce App UI",
-              link: "https://www.figma.com/proto/nz1UzOe1Vb47cA2tUZr60G/Untitled?page-id=54%3A2&node-id=54-3258&t=WrhqCOU1GJCzNwhW-1",
-            },
-            {
-              title: "Eatfit Delivery Partner App",
-              desc: "Food Delivery Partners App UI",
-              link: "https://www.figma.com/design/JgpN50khNEAm072LfABo3y/Food-Delivery-Partner-App--Community-?node-id=0-1&t=9EdfzW0hXWLE9vLO-1",
-            },
-          ].map((project, i) => (
+      <section id="projects" className="py-16">
+        <h3 className="text-3xl font-bold text-center mb-10">Projects Showcase</h3>
+        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-6xl mx-auto">
+          {projects.map((p, i) => (
             <div
               key={i}
-              className="bg-white/5 p-6 rounded-xl shadow-lg hover:scale-105 hover:bg-white/10 transition"
+              className="bg-white/5 rounded-2xl p-4 backdrop-blur-md border border-white/10 hover:scale-105 transition"
             >
-              <h4 className="text-xl font-bold mb-2">{project.title}</h4>
-              <p className="text-gray-300 mb-4">{project.desc}</p>
+              <img src={p.img} alt={p.title} className="rounded-xl mb-4"/>
+              <h4 className="text-xl font-semibold">{p.title}</h4>
+              <p className="text-gray-300 mt-2">{p.desc}</p>
               <a
-                href={project.link}
+                href={p.link}
                 target="_blank"
-                rel="noreferrer"
-                className="inline-block px-4 py-2 bg-gradient-to-r from-blue-500 to-purple-600 rounded-lg hover:opacity-90 transition"
+                rel="noopener noreferrer"
+                className="mt-4 inline-block bg-blue-600 hover:bg-blue-700 px-4 py-2 rounded-lg"
               >
-                🔗 View on Figma
+                View Project
               </a>
             </div>
           ))}
         </div>
       </section>
 
-      {/* Contact */}
-      <section
-        id="contact"
-        className="py-16 px-6 max-w-6xl mx-auto text-center"
-      >
-        <h3 className="text-3xl font-semibold mb-6">Contact Me</h3>
-        <p className="text-gray-300">📧 vinodmathur@example.com</p>
-        <p className="text-gray-300">📱 +91-9876543210</p>
-        <div className="flex justify-center gap-6 mt-6">
-          <a
-            href="https://github.com/vinodmathur"
-            target="_blank"
-            rel="noreferrer"
-            className="text-3xl hover:text-gray-400"
-          >
-            <FaGithub />
-          </a>
-          <a
-            href="https://linkedin.com/in/vinodmathur"
-            target="_blank"
-            rel="noreferrer"
-            className="text-3xl hover:text-gray-400"
-          >
-            <FaLinkedin />
-          </a>
-        </div>
+      {/* About Me */}
+      <section id="about" className="py-16 bg-black/40 text-center">
+        <img
+          src="/images/profile.png"
+          alt="Profile"
+          className="w-32 h-32 rounded-full mx-auto mb-6 border-4 border-blue-600"
+        />
+        <h3 className="text-3xl font-bold mb-4">About Me</h3>
+        <p className="max-w-3xl mx-auto text-gray-300">
+          I am Vinod Mathur, a creative UI/UX Designer dedicated to blending
+          functionality with aesthetics. Over the years, I have worked on
+          multiple fintech, e-commerce, and lifestyle apps, delivering engaging
+          and intuitive experiences. My goal is to design interfaces that users
+          not only use but also love.
+        </p>
       </section>
 
-      {/* Footer */}
-      <footer className="py-6 text-center text-gray-500 text-sm border-t border-gray-700">
-        © {new Date().getFullYear()} Vinod Mathur | All Rights Reserved
+      {/* Contact */}
+      <section id="contact" className="py-12 text-center">
+        <h3 className="text-2xl font-bold mb-4">Contact Me</h3>
+        <p>Email: <a href="mailto:vinodmathur@example.com" className="text-blue-400">Vikymathur532@gmail.com</a></p>
+        <p className="mt-2">Phone: <span className="text-gray-300">+91 7976680554</span></p>
+      </section>
+
+      <footer className="text-center py-6 text-gray-500 border-t border-white/10">
+        © 2025 Vinod Mathur. All Rights Reserved.
       </footer>
     </div>
   );
