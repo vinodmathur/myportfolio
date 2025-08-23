@@ -101,7 +101,7 @@ export default function App() {
       <section id="about" className="py-20 bg-black/30">
         <div className="max-w-4xl mx-auto px-6 text-center">
           <img
-            src="blob/main/images/profile.jpeg"
+            src="images/profile.jpeg"
             alt="Profile"
             className="mx-auto rounded-full w-40 h-40 border-4 border-pink-400 shadow-lg"
           />
@@ -118,8 +118,8 @@ export default function App() {
       {/* Contact Section */}
       <footer id="contact" className="py-10 text-center bg-black/50">
         <h3 className="text-2xl font-bold mb-4">Contact Me</h3>
-        <p>Email: <a href="mailto:vinod@example.com" className="text-pink-400">vinod@example.com</a></p>
-        <p>Phone: <span className="text-pink-400">+91 9876543210</span></p>
+        <p>Email: <a href="mailto:vinod@example.com" className="text-pink-400">Vikymathur532@gmail.com</a></p>
+        <p>Phone: <span className="text-pink-400">+91 7976680554</span></p>
         <p className="mt-6 text-gray-400 text-sm">© 2025 Vinod Mathur. All Rights Reserved.</p>
       </footer>
     </div>
