@@ -64,7 +64,7 @@ export default function App() {
         </p>
         <div className="mt-6 flex gap-4">
           <a
-            href="https://drive.google.com/file/d/1uXAeurJPvfTjXKwYcZejUqJaGT3aMVdi/view?usp=sharing"
+            href="/resume.pdf"
             download
             className="bg-pink-500 px-6 py-3 rounded-xl font-semibold shadow-md hover:bg-pink-600"
           >
