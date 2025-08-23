@@ -1,7 +1,7 @@
 // src/App.jsx
 import { FaFigma } from "react-icons/fa";
 import { 
-  SiAdobeXd, 
+  SiAdobexd, 
   SiSketch, 
   SiAdobephotoshop, 
   SiHtml5, 
@@ -67,7 +67,7 @@ function App() {
         <h3 className="text-center text-3xl font-semibold mb-12">Design Tools</h3>
         <div className="flex justify-center flex-wrap gap-12 text-6xl text-gray-300">
           <FaFigma className="hover:text-teal-400 transition" title="Figma" />
-          <SiAdobeXd className="hover:text-pink-500 transition" title="Adobe XD" />
+          <SiAdobexd className="hover:text-pink-500 transition" title="Adobe XD" />
           <SiSketch className="hover:text-yellow-400 transition" title="Sketch" />
           <SiAdobephotoshop className="hover:text-blue-400 transition" title="Photoshop" />
           <SiHtml5 className="hover:text-orange-500 transition" title="HTML5" />
