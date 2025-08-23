@@ -134,7 +134,9 @@ export default function App() {
       {/* Contact */}
       <section id="contact" className="py-12 text-center">
         <h3 className="text-2xl font-bold mb-4">Contact Me</h3>
-        <p>Email: <a href="mailto:vinodmathur@example.com" className="text-blue-400">Vikymathur532@gmail.com</a></p>
+        <p>
+          Email: <a href="mailto:Vikymathur532@gmail.com" className="text-blue-400">Vikymathur532@gmail.com</a>
+        </p>
         <p className="mt-2">Phone: <span className="text-gray-300">+91 7976680554</span></p>
       </section>
 
