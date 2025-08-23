@@ -4,11 +4,12 @@ import { SiAdobexd, SiAdobephotoshop, SiCanva } from "react-icons/si";
 
 export default function App() {
   const projects = [
-    { id: 1, title: "Fashion App UI", img: "https://via.placeholder.com/400x250?text=Fashion+UI", link: "https://www.figma.com/" },
-    { id: 2, title: "E-Commerce Dashboard", img: "https://via.placeholder.com/400x250?text=E-Commerce+UI", link: "https://www.figma.com/" },
-    { id: 3, title: "Portfolio Website", img: "https://via.placeholder.com/400x250?text=Portfolio+UI", link: "https://www.figma.com/" },
-    { id: 4, title: "Mobile Banking App", img: "https://via.placeholder.com/400x250?text=Banking+UI", link: "https://www.figma.com/" },
-    { id: 5, title: "Landing Page Design", img: "https://via.placeholder.com/400x250?text=Landing+Page", link: "https://www.figma.com/" },
+    { id: 1, title: "Hardin Astro App", img: "https://s.tmimgcdn.com/scr/1200x627/415900/astroscope-astrology-mobile-app-figma-template_415907-original.png", link: "https://www.figma.com/design/36ApeiWxeeGZFEtkD7zbJM/Astro-App-UI?node-id=0-1&t=zsP4TKtAOWejU35x-1
+" },
+    { id: 2, title: "Bankfipay App", img: "https://s3-alpha.figma.com/hub/file/5497869694/4fa7e9eb-5b21-434e-9e8d-4562cac10c87-cover.png", link: "https://www.figma.com/design/yVCUmDBrtnwKQf4XcFPwqh/Bankfipay?node-id=0-1&t=U0Ao0dPcx37hwHbk-1" },
+    { id: 3, title: "Azzunique Payout App", img: "https://www.figma.com/community/resource/370d4109-0547-46a2-be7a-8ba228f860a3/thumbnail", link: "https://www.figma.com/design/ywTYrkQEiewjyoefuL0vch/payout-App?node-id=0-1&t=a11MAci8rLUOqTXw-1" },
+    { id: 4, title: "Shoponnow App", img: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ3dBMh2FkO3nGdiK02bLyq9EVWYaY5n9czbQ&s", link: "https://www.figma.com/proto/nz1UzOe1Vb47cA2tUZr60G/Untitled?page-id=54%3A2&node-id=54-3258&t=WrhqCOU1GJCzNwhW-1" },
+    { id: 5, title: "Eatfit Food Delivery Partner App", img: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSL6eRByyrum7NXdhH-RCfkZ6YwZY3oJBoGtQ&s", link: "https://www.figma.com/design/JgpN50khNEAm072LfABo3y/Food-Delivery-Partner-App--Community-?node-id=0-1&t=9EdfzW0hXWLE9vLO-1" },
   ];
 
   return (
@@ -39,7 +40,7 @@ export default function App() {
         </p>
         <div className="mt-6 flex gap-4">
           <a
-            href="/resume.pdf"
+            href="main/resume.pdf"
             download
             className="bg-pink-500 px-6 py-3 rounded-xl font-semibold shadow-md hover:bg-pink-600"
           >
@@ -110,7 +111,7 @@ export default function App() {
       <section id="about" className="py-20 bg-black/30">
         <div className="max-w-4xl mx-auto px-6 text-center">
           <img
-            src="images/profile.jpeg"
+            src="main/images/profile.jpeg"
             alt="Profile"
             className="mx-auto rounded-full w-40 h-40 border-4 border-pink-400 shadow-lg"
           />
