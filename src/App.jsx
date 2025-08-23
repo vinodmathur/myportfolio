@@ -3,7 +3,6 @@ import {
   FaFigma,
   FaSketch,
   FaHtml5,
-  FaCss3Alt,
   FaAdobe,
 } from "react-icons/fa";
 import { SiAdobephotoshop, SiCanva } from "react-icons/si";
