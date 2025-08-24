@@ -6,7 +6,7 @@ import { SiAdobexd, SiAdobephotoshop, SiCanva } from "react-icons/si";
 
 export default function App() {
   const particlesInit = async (main) => {
-    await loadFull(main); // needed for tsparticles
+    await loadFull(main);
   };
 
   const projects = [
@@ -44,8 +44,8 @@ export default function App() {
 
   return (
     <div className="relative min-h-screen text-white font-sans overflow-hidden">
+      {/* Particle Background */}
       <Particles
-        id="tsparticles"
         init={particlesInit}
         className="absolute inset-0 -z-10"
         options={{
@@ -66,6 +66,7 @@ export default function App() {
       />
 
       <div className="min-h-screen bg-black/50">
+        {/* Header */}
         <header className="fixed top-0 left-0 w-full bg-black/30 backdrop-blur-md z-50 shadow-lg">
           <div className="max-w-6xl mx-auto px-6 py-4 flex justify-between items-center">
             <h1 className="text-2xl font-bold">Vinod Mathur</h1>
@@ -78,6 +79,7 @@ export default function App() {
           </div>
         </header>
 
+        {/* Hero Section */}
         <section className="flex flex-col items-center justify-center text-center min-h-screen px-6">
           <h2 className="text-5xl font-extrabold bg-gradient-to-r from-pink-400 to-purple-500 bg-clip-text text-transparent">
             UI/UX Designer
@@ -103,7 +105,9 @@ export default function App() {
           </div>
         </section>
 
-        {/* Expertise, Projects, About, Contact sections same as before */}
+        {/* Expertise, Projects, About, Contact Sections */}
+        {/* Add same as your previous code */}
+
       </div>
     </div>
   );
