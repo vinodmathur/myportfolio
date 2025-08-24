@@ -105,7 +105,7 @@ export default function App() {
         {/* Hero Section */}
         <section className="relative flex flex-col items-center justify-center text-center min-h-screen px-6 pt-24">
           <h2 className="text-5xl font-extrabold bg-gradient-to-r from-pink-400 to-purple-500 bg-clip-text text-transparent relative z-10">
-            ✦I'm UI/UX Designer✦
+            I'm UI/UX Designer
           </h2>
 
           {/* Floating Vector Image centered below heading */}
@@ -135,7 +135,7 @@ export default function App() {
         <section id="expertise" className="py-20 bg-black/30 text-center">
           <h3 className="text-3xl font-bold mb-10">My Expertise</h3>
           <p className="max-w-3xl mx-auto mb-10 text-gray-300">
-            Over the years, I’ve honed my skills across multiple design platforms and tools.  
+            Over the 2 years, I’ve honed my skills across multiple design platforms and tools.  
             My expertise lies in creating intuitive, user-friendly, and visually engaging interfaces 
             for both mobile and web applications.
           </p>
