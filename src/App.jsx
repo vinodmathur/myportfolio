@@ -1,12 +1,11 @@
 // App.jsx
-import React from "react";
-import dynamic from "next/dynamic";
+import React, { Suspense } from "react";
 import { loadFull } from "tsparticles";
 import { FaFigma, FaSketch, FaHtml5, FaCss3Alt } from "react-icons/fa";
 import { SiAdobexd, SiAdobephotoshop, SiCanva } from "react-icons/si";
 
-// Dynamic import to prevent SSR issues
-const Particles = dynamic(() => import("react-tsparticles"), { ssr: false });
+// Use React.lazy instead of next/dynamic
+const Particles = React.lazy(() => import("react-tsparticles"));
 
 export default function App() {
   const particlesInit = async (main) => {
@@ -49,9 +48,10 @@ export default function App() {
   return (
     <div className="relative min-h-screen text-white font-sans overflow-hidden">
       {/* Particle Background */}
-      <div className="absolute inset-0 -z-10 h-screen w-full">
+      <Suspense fallback={null}>
         <Particles
           init={particlesInit}
+          className="absolute inset-0 -z-10"
           options={{
             background: { color: "#0f172a" },
             fpsLimit: 60,
@@ -68,7 +68,7 @@ export default function App() {
             detectRetina: true,
           }}
         />
-      </div>
+      </Suspense>
 
       <div className="min-h-screen bg-black/50">
         {/* Header */}
