@@ -38,7 +38,7 @@ export default function App() {
   ];
 
   return (
-    <div className="relative min-h-screen text-white font-sans">
+    <div className="relative min-h-screen text-white font-sans overflow-hidden">
       {/* Particle Background */}
       <Particles
         className="absolute inset-0 -z-10"
@@ -47,13 +47,7 @@ export default function App() {
           fpsLimit: 60,
           particles: {
             color: { value: "#ffffff" },
-            links: {
-              color: "#ffffff",
-              distance: 150,
-              enable: true,
-              opacity: 0.2,
-              width: 1,
-            },
+            links: { color: "#ffffff", distance: 150, enable: true, opacity: 0.2, width: 1 },
             collisions: { enable: false },
             move: { enable: true, speed: 1, direction: "none", outModes: { default: "bounce" } },
             number: { value: 80 },
@@ -141,7 +135,7 @@ export default function App() {
                   <div className="p-6">
                     <h4 className="text-xl font-semibold mb-2">{project.title}</h4>
                     <p className="text-gray-300 mb-4">
-                      A modern UI/UX design project with unique layouts, vibrant colors, and smooth user experience.
+                      Modern UI/UX project with fluid colors, smooth interactions, and creative layouts.
                     </p>
                     <a
                       href={project.link}
