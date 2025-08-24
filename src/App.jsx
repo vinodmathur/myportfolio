@@ -2,11 +2,12 @@
 import React, { useState } from "react";
 import Particles from "react-tsparticles";
 import { loadFull } from "tsparticles";
-import { FaFigma, FaSketch, FaHtml5, FaCss3Alt } from "react-icons/fa";
+import { FaFigma, FaSketch, FaHtml5, FaCss3Alt, FaBars } from "react-icons/fa";
 import { SiAdobexd, SiAdobephotoshop, SiCanva } from "react-icons/si";
 
 export default function App() {
   const [showMore, setShowMore] = useState(false);
+  const [menuOpen, setMenuOpen] = useState(false);
 
   const particlesInit = async (main) => {
     await loadFull(main);
@@ -17,31 +18,31 @@ export default function App() {
       id: 1,
       title: "Hardin Astro App",
       img: "https://s.tmimgcdn.com/scr/1200x627/415900/astroscope-astrology-mobile-app-figma-template_415907-original.png",
-      link: "https://www.figma.com/design/36ApeiWxeeGZFEtkD7zbJM/Astro-App-UI?node-id=0-1&t=zsP4TKtAOWejU35x-1",
+      link: "https://www.figma.com/design/36ApeiWxeeGZFEtkD7zbJM/Astro-App-UI?node-id=0-1",
     },
     {
       id: 2,
       title: "Bankfipay App",
       img: "https://s3-alpha.figma.com/hub/file/5497869694/4fa7e9eb-5b21-434e-9e8d-4562cac10c87-cover.png",
-      link: "https://www.figma.com/design/yVCUmDBrtnwKQf4XcFPwqh/Bankfipay?node-id=0-1&t=U0Ao0dPcx37hwHbk-1",
+      link: "https://www.figma.com/design/yVCUmDBrtnwKQf4XcFPwqh/Bankfipay?node-id=0-1",
     },
     {
       id: 3,
       title: "Azzunique Payout App",
       img: "https://www.figma.com/community/resource/370d4109-0547-46a2-be7a-8ba228f860a3/thumbnail",
-      link: "https://www.figma.com/design/ywTYrkQEiewjyoefuL0vch/payout-App?node-id=0-1&t=a11MAci8rLUOqTXw-1",
+      link: "https://www.figma.com/design/ywTYrkQEiewjyoefuL0vch/payout-App?node-id=0-1",
     },
     {
       id: 4,
       title: "Shoponnow App",
       img: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ3dBMh2FkO3nGdiK02bLyq9EVWYaY5n9czbQ&s",
-      link: "https://www.figma.com/proto/nz1UzOe1Vb47cA2tUZr60G/Untitled?page-id=54%3A2&node-id=54-3258&t=WrhqCOU1GJCzNwhW-1",
+      link: "https://www.figma.com/proto/nz1UzOe1Vb47cA2tUZr60G/Untitled?page-id=54%3A2&node-id=54-3258",
     },
     {
       id: 5,
       title: "Eatfit Food Delivery Partner App",
       img: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSL6eRByyrum7NXdhH-RCfkZ6YwZY3oJBoGtQ&s",
-      link: "https://www.figma.com/design/JgpN50khNEAm072LfABo3y/Food-Delivery-Partner-App--Community-?node-id=0-1&t=9EdfzW0hXWLE9vLO-1",
+      link: "https://www.figma.com/design/JgpN50khNEAm072LfABo3y/Food-Delivery-Partner-App--Community-?node-id=0-1",
     },
     // Demo extra projects
     {
@@ -98,15 +99,39 @@ export default function App() {
         <header className="fixed top-0 left-0 w-full bg-black/30 backdrop-blur-md z-50 shadow-lg">
           <div className="max-w-6xl mx-auto px-6 py-4 flex justify-between items-center">
             <h1 className="text-2xl font-bold">Vinod Mathur</h1>
-            <nav className="space-x-6">
+            {/* Desktop Menu */}
+            <nav className="hidden md:flex space-x-6">
               <a href="#expertise" className="hover:text-pink-400">Expertise</a>
               <a href="#projects" className="hover:text-pink-400">Projects</a>
               <a href="#process" className="hover:text-pink-400">Process</a>
               <a href="#about" className="hover:text-pink-400">About</a>
               <a href="#contact" className="hover:text-pink-400">Contact</a>
             </nav>
+            {/* Mobile Menu Icon */}
+            <button className="md:hidden text-xl" onClick={() => setMenuOpen(!menuOpen)}>
+              <FaBars />
+            </button>
           </div>
+          {/* Mobile Dropdown */}
+          {menuOpen && (
+            <div className="md:hidden bg-black/90 text-center py-4 space-y-4">
+              <a href="#expertise" className="block hover:text-pink-400">Expertise</a>
+              <a href="#projects" className="block hover:text-pink-400">Projects</a>
+              <a href="#process" className="block hover:text-pink-400">Process</a>
+              <a href="#about" className="block hover:text-pink-400">About</a>
+              <a href="#contact" className="block hover:text-pink-400">Contact</a>
+            </div>
+          )}
         </header>
+
+        {/* Full-width Vector Image */}
+        <div className="relative w-full">
+          <img
+            src="/vector-full.png"
+            alt="Full Width Vector"
+            className="w-full h-56 md:h-80 object-cover opacity-90"
+          />
+        </div>
 
         {/* Hero Section */}
         <section className="relative flex flex-col items-center justify-center text-center min-h-screen px-6 pt-24">
