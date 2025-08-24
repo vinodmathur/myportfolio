@@ -1,162 +1,179 @@
-// App.jsx
 import React, { useState } from "react";
 import Particles from "react-tsparticles";
 import { loadFull } from "tsparticles";
-import { FaFigma, FaSketch, FaHtml5, FaCss3Alt } from "react-icons/fa";
-import { SiAdobexd, SiAdobephotoshop, SiCanva } from "react-icons/si";
 
 export default function App() {
-  const [showMore, setShowMore] = useState(false);
+  const [menuOpen, setMenuOpen] = useState(false);
 
   const particlesInit = async (main) => {
     await loadFull(main);
   };
 
-  const projects = [
-    {
-      id: 1,
-      title: "Hardin Astro App",
-      img: "https://s.tmimgcdn.com/scr/1200x627/415900/astroscope-astrology-mobile-app-figma-template_415907-original.png",
-      link: "https://www.figma.com/design/36ApeiWxeeGZFEtkD7zbJM/Astro-App-UI?node-id=0-1&t=zsP4TKtAOWejU35x-1",
-    },
-    {
-      id: 2,
-      title: "Bankfipay App",
-      img: "https://s3-alpha.figma.com/hub/file/5497869694/4fa7e9eb-5b21-434e-9e8d-4562cac10c87-cover.png",
-      link: "https://www.figma.com/design/yVCUmDBrtnwKQf4XcFPwqh/Bankfipay?node-id=0-1&t=U0Ao0dPcx37hwHbk-1",
-    },
-    {
-      id: 3,
-      title: "Azzunique Payout App",
-      img: "https://www.figma.com/community/resource/370d4109-0547-46a2-be7a-8ba228f860a3/thumbnail",
-      link: "https://www.figma.com/design/ywTYrkQEiewjyoefuL0vch/payout-App?node-id=0-1&t=a11MAci8rLUOqTXw-1",
-    },
-    {
-      id: 4,
-      title: "Shoponnow App",
-      img: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ3dBMh2FkO3nGdiK02bLyq9EVWYaY5n9czbQ&s",
-      link: "https://www.figma.com/proto/nz1UzOe1Vb47cA2tUZr60G/Untitled?page-id=54%3A2&node-id=54-3258&t=WrhqCOU1GJCzNwhW-1",
-    },
-    {
-      id: 5,
-      title: "Eatfit Food Delivery Partner App",
-      img: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSL6eRByyrum7NXdhH-RCfkZ6YwZY3oJBoGtQ&s",
-      link: "https://www.figma.com/design/JgpN50khNEAm072LfABo3y/Food-Delivery-Partner-App--Community-?node-id=0-1&t=9EdfzW0hXWLE9vLO-1",
-    },
-    // Demo extra projects
-    {
-      id: 6,
-      title: "TravelMate App",
-      img: "https://via.placeholder.com/400x300.png?text=TravelMate+App",
-      link: "#",
-    },
-    {
-      id: 7,
-      title: "FitBuddy Health App",
-      img: "https://via.placeholder.com/400x300.png?text=FitBuddy+App",
-      link: "#",
-    },
-    {
-      id: 8,
-      title: "EduLearn Online Platform",
-      img: "https://via.placeholder.com/400x300.png?text=EduLearn+Platform",
-      link: "#",
-    },
-    {
-      id: 9,
-      title: "ShopEase E-commerce App",
-      img: "https://via.placeholder.com/400x300.png?text=ShopEase+App",
-      link: "#",
-    },
-  ];
-
   return (
-    <div className="relative min-h-screen text-white font-sans overflow-hidden">
+    <div className="relative min-h-screen text-white font-sans overflow-x-hidden">
       {/* Particle Background */}
       <Particles
+        id="tsparticles"
         init={particlesInit}
-        className="absolute inset-0 -z-10"
         options={{
-          background: { color: "#0f172a" },
+          background: { color: "#0f0f0f" },
           fpsLimit: 60,
+          interactivity: {
+            events: { onHover: { enable: true, mode: "repulse" }, resize: true },
+            modes: { repulse: { distance: 100, duration: 0.4 } },
+          },
           particles: {
             color: { value: "#ffffff" },
-            links: { color: "#ffffff", distance: 150, enable: true, opacity: 0.2, width: 1 },
-            collisions: { enable: false },
-            move: { enable: true, speed: 1, direction: "none", outModes: { default: "bounce" } },
-            number: { value: 80 },
+            links: { color: "#ffffff", distance: 150, enable: true, opacity: 0.4, width: 1 },
+            move: { enable: true, speed: 2 },
+            number: { value: 70 },
             opacity: { value: 0.5 },
             shape: { type: "circle" },
-            size: { value: { min: 1, max: 3 } },
+            size: { value: { min: 1, max: 5 } },
           },
-          detectRetina: true,
         }}
+        className="absolute inset-0 -z-10"
       />
 
-      <div className="min-h-screen bg-black/50">
-        {/* Header */}
-        <header className="fixed top-0 left-0 w-full bg-black/30 backdrop-blur-md z-50 shadow-lg">
-          <div className="max-w-6xl mx-auto px-6 py-4 flex justify-between items-center">
-            <h1 className="text-2xl font-bold">Vinod Mathur</h1>
-            <nav className="space-x-6">
-              <a href="#expertise" className="hover:text-pink-400">Expertise</a>
-              <a href="#projects" className="hover:text-pink-400">Projects</a>
-              <a href="#process" className="hover:text-pink-400">Process</a>
-              <a href="#about" className="hover:text-pink-400">About</a>
-              <a href="#contact" className="hover:text-pink-400">Contact</a>
-            </nav>
-          </div>
-        </header>
+      {/* Header */}
+      <header className="fixed top-0 left-0 w-full bg-black bg-opacity-40 backdrop-blur-md shadow-md z-50">
+        <div className="max-w-6xl mx-auto px-4 py-3 flex justify-between items-center">
+          <h1 className="text-2xl font-bold">MyPortfolio</h1>
 
-        {/* Full-width Vector Image */}
-        <div className="relative w-full">
-          <img
-            src="/vector-full.png"
-            alt="Full Width Vector"
-            className="w-full h-56 md:h-80 object-cover opacity-90"
-          />
+          {/* Desktop Menu */}
+          <nav className="hidden md:flex space-x-6">
+            <a href="#about" className="hover:text-green-400">About</a>
+            <a href="#expertise" className="hover:text-green-400">Expertise</a>
+            <a href="#projects" className="hover:text-green-400">Projects</a>
+            <a href="#process" className="hover:text-green-400">Process</a>
+            <a href="#contact" className="hover:text-green-400">Contact</a>
+          </nav>
+
+          {/* Mobile Menu Button */}
+          <button
+            onClick={() => setMenuOpen(!menuOpen)}
+            className="md:hidden text-white focus:outline-none"
+          >
+            ☰
+          </button>
         </div>
 
-        {/* Hero Section */}
-        <section className="relative flex flex-col items-center justify-center text-center min-h-screen px-6 pt-24">
-          {/* Floating vector image */}
-          <img
-            src="/vector1.png"
-            alt="Floating Vector"
-            className="absolute top-28 right-10 w-40 animate-bounce-slow opacity-80"
-          />
-          <h2 className="text-5xl font-extrabold bg-gradient-to-r from-pink-400 to-purple-500 bg-clip-text text-transparent">
-            UI/UX Designer
-          </h2>
-          <p className="mt-6 text-lg max-w-2xl text-gray-300">
-            Creative UI/UX Designer with a passion for designing seamless digital experiences. 
-            Specialized in Figma, Adobe XD, Photoshop, Canva, HTML & CSS. 
-            I blend creativity and functionality to craft designs that truly connect with users.
-          </p>
-          <div className="mt-6 flex gap-4">
-            <a href="/resume.pdf" download className="bg-pink-500 px-6 py-3 rounded-xl font-semibold shadow-md hover:bg-pink-600">
-              Download Resume
-            </a>
-            <a href="#contact" className="bg-purple-500 px-6 py-3 rounded-xl font-semibold shadow-md hover:bg-purple-600">
-              Contact Me
-            </a>
+        {/* Dropdown Mobile Menu */}
+        {menuOpen && (
+          <div className="md:hidden bg-black bg-opacity-80 px-6 py-4 space-y-4">
+            <a href="#about" className="block hover:text-green-400">About</a>
+            <a href="#expertise" className="block hover:text-green-400">Expertise</a>
+            <a href="#projects" className="block hover:text-green-400">Projects</a>
+            <a href="#process" className="block hover:text-green-400">Process</a>
+            <a href="#contact" className="block hover:text-green-400">Contact</a>
           </div>
-        </section>
+        )}
+      </header>
 
-        {/* ... rest of your sections unchanged ... */}
+      {/* Floating Vector */}
+      <img
+        src="/vector1.png"
+        alt="Floating Vector"
+        className="absolute top-20 right-10 w-40 animate-bounce"
+      />
 
-        {/* Custom floating animation */}
-        <style>{`
-          @keyframes float {
-            0% { transform: translateY(0px); }
-            50% { transform: translateY(-20px); }
-            100% { transform: translateY(0px); }
-          }
-          .animate-bounce-slow {
-            animation: float 6s ease-in-out infinite;
-          }
-        `}</style>
-      </div>
+      {/* Hero Section */}
+      <section className="pt-32 text-center px-4">
+        <h2 className="text-4xl md:text-5xl font-bold">Hi, I’m Vinod 👋</h2>
+        <p className="mt-4 max-w-2xl mx-auto text-lg text-gray-300">
+          UI/UX Designer & Frontend Developer with expertise in creating intuitive,
+          user-centered designs and delivering seamless digital experiences.  
+        </p>
+        <a
+          href="/resume.pdf"
+          download
+          className="mt-6 inline-block bg-green-500 text-black px-6 py-2 rounded-full font-semibold hover:bg-green-400"
+        >
+          Download Resume
+        </a>
+      </section>
+
+      {/* About Section */}
+      <section id="about" className="max-w-5xl mx-auto px-6 py-20 text-center">
+        <img
+          src="/images/profile.jpeg"
+          alt="Profile"
+          className="w-40 h-40 rounded-full mx-auto border-4 border-green-500"
+        />
+        <h3 className="text-3xl font-bold mt-6">About Me</h3>
+        <p className="mt-4 text-gray-300 leading-relaxed">
+          With over 5 years of experience in UI/UX design and frontend development, 
+          I specialize in crafting human-centered designs that focus on both aesthetics 
+          and functionality. My journey blends creativity, technical skills, 
+          and a deep understanding of user psychology.
+        </p>
+      </section>
+
+      {/* Expertise Section */}
+      <section id="expertise" className="max-w-6xl mx-auto px-6 py-20">
+        <h3 className="text-3xl font-bold text-center">My Expertise</h3>
+        <div className="grid grid-cols-2 md:grid-cols-4 gap-6 mt-10 text-center">
+          {["Figma", "Adobe XD", "Photoshop", "Canva"].map((tool) => (
+            <div key={tool} className="bg-black bg-opacity-50 rounded-lg p-6 shadow-md hover:scale-105 transition">
+              <p className="font-semibold">{tool}</p>
+            </div>
+          ))}
+        </div>
+      </section>
+
+      {/* Projects Section */}
+      <section id="projects" className="max-w-6xl mx-auto px-6 py-20">
+        <h3 className="text-3xl font-bold text-center">Projects</h3>
+        <div className="grid md:grid-cols-2 gap-8 mt-10">
+          {[
+            { img: "/images/project1.png", title: "E-commerce App", desc: "A modern shopping app with intuitive UX and secure payments." },
+            { img: "/images/project2.png", title: "Finance Dashboard", desc: "An analytics dashboard with real-time financial insights." },
+            { img: "/images/project3.png", title: "Portfolio Website", desc: "A responsive personal portfolio with animations and clean UI." },
+            { img: "/images/project4.png", title: "Food Delivery App", desc: "A hyperlocal delivery app with engaging user experience." },
+          ].map((p, i) => (
+            <div key={i} className="bg-black bg-opacity-50 rounded-xl overflow-hidden shadow-lg hover:scale-105 transition">
+              <img src={p.img} alt={p.title} className="w-full h-48 object-cover" />
+              <div className="p-6">
+                <h4 className="text-xl font-semibold">{p.title}</h4>
+                <p className="mt-2 text-gray-300">{p.desc}</p>
+                <a
+                  href="https://www.figma.com"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="mt-4 inline-block bg-green-500 text-black px-4 py-2 rounded-full hover:bg-green-400"
+                >
+                  View Project
+                </a>
+              </div>
+            </div>
+          ))}
+        </div>
+      </section>
+
+      {/* Process of Work */}
+      <section id="process" className="max-w-6xl mx-auto px-6 py-20">
+        <h3 className="text-3xl font-bold text-center">My Work Process</h3>
+        <div className="mt-10 grid md:grid-cols-4 gap-6 text-center">
+          {[
+            { step: "Research", desc: "Understanding users, competitors, and business goals." },
+            { step: "Wireframing", desc: "Structuring user flows and creating low-fidelity wireframes." },
+            { step: "Design", desc: "Crafting high-fidelity UI designs with focus on usability." },
+            { step: "Testing", desc: "Validating designs through usability testing & iteration." },
+          ].map((p, i) => (
+            <div key={i} className="bg-black bg-opacity-50 rounded-lg p-6 shadow-md">
+              <h4 className="text-xl font-semibold">{p.step}</h4>
+              <p className="mt-2 text-gray-300">{p.desc}</p>
+            </div>
+          ))}
+        </div>
+      </section>
+
+      {/* Contact Section */}
+      <section id="contact" className="bg-black bg-opacity-60 py-20 text-center">
+        <h3 className="text-3xl font-bold">Contact Me</h3>
+        <p className="mt-4 text-gray-300">Let’s collaborate and create something amazing together.</p>
+        <p className="mt-2">📧 vinod@example.com | 📞 +91-9876543210</p>
+      </section>
     </div>
   );
 }
