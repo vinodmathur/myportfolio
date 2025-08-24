@@ -1,10 +1,9 @@
+// App.jsx
 import React from "react";
-import dynamic from "next/dynamic";
+import Particles from "react-tsparticles";
 import { loadFull } from "tsparticles";
 import { FaFigma, FaSketch, FaHtml5, FaCss3Alt } from "react-icons/fa";
 import { SiAdobexd, SiAdobephotoshop, SiCanva } from "react-icons/si";
-
-const Particles = dynamic(() => import("react-tsparticles"), { ssr: false });
 
 export default function App() {
   const particlesInit = async (main) => {
@@ -21,6 +20,7 @@ export default function App() {
 
   return (
     <div className="relative min-h-screen text-white font-sans overflow-hidden">
+      {/* Particle Background */}
       <Particles
         init={particlesInit}
         className="absolute inset-0 -z-10"
@@ -58,14 +58,61 @@ export default function App() {
         {/* Hero Section */}
         <section className="flex flex-col items-center justify-center text-center min-h-screen px-6">
           <h2 className="text-5xl font-extrabold bg-gradient-to-r from-pink-400 to-purple-500 bg-clip-text text-transparent">UI/UX Designer</h2>
-          <p className="mt-6 text-lg max-w-2xl text-gray-300">Creative UI/UX Designer with expertise in Figma, Adobe XD, Photoshop, Canva, HTML & CSS.</p>
+          <p className="mt-6 text-lg max-w-2xl text-gray-300">
+            Creative UI/UX Designer with expertise in Figma, Adobe XD, Photoshop, Canva, HTML & CSS.
+          </p>
           <div className="mt-6 flex gap-4">
             <a href="/resume.pdf" download className="bg-pink-500 px-6 py-3 rounded-xl font-semibold shadow-md hover:bg-pink-600">Download Resume</a>
             <a href="#contact" className="bg-purple-500 px-6 py-3 rounded-xl font-semibold shadow-md hover:bg-purple-600">Contact Me</a>
           </div>
         </section>
 
-        {/* Rest of your sections remain same */}
+        {/* Expertise Section */}
+        <section id="expertise" className="py-20 bg-black/30 text-center">
+          <h3 className="text-3xl font-bold mb-10">My Expertise</h3>
+          <div className="flex flex-wrap justify-center gap-10 text-6xl">
+            <FaFigma className="hover:text-pink-400" />
+            <SiAdobexd className="hover:text-pink-400" />
+            <SiAdobephotoshop className="hover:text-pink-400" />
+            <FaSketch className="hover:text-pink-400" />
+            <SiCanva className="hover:text-pink-400" />
+            <FaHtml5 className="hover:text-pink-400" />
+            <FaCss3Alt className="hover:text-pink-400" />
+          </div>
+        </section>
+
+        {/* Projects Section */}
+        <section id="projects" className="py-20 text-center">
+          <h3 className="text-3xl font-bold mb-12">Project Showcase</h3>
+          <div className="max-w-6xl mx-auto grid md:grid-cols-2 lg:grid-cols-3 gap-10 px-6">
+            {projects.map((p) => (
+              <div key={p.id} className="bg-white/10 rounded-3xl overflow-hidden shadow-lg transform hover:scale-105 hover:shadow-[0_0_20px_#ff00ff] transition-all duration-300">
+                <img src={p.img} alt={p.title} className="w-full h-56 object-cover rounded-t-3xl" />
+                <div className="p-6">
+                  <h4 className="text-xl font-semibold mb-2">{p.title}</h4>
+                  <a href={p.link} target="_blank" rel="noopener noreferrer" className="inline-block bg-pink-500 px-4 py-2 rounded-lg hover:bg-pink-600">View Project</a>
+                </div>
+              </div>
+            ))}
+          </div>
+        </section>
+
+        {/* About Section */}
+        <section id="about" className="py-20 bg-black/30 text-center">
+          <img src="/images/profile.jpeg" alt="Profile" className="mx-auto rounded-full w-40 h-40 border-4 border-pink-400 shadow-lg" />
+          <h3 className="text-3xl font-bold mt-6">About Me</h3>
+          <p className="mt-4 text-lg text-gray-300">
+            I’m Vinod Mathur, a passionate UI/UX Designer crafting web and mobile interfaces.
+          </p>
+        </section>
+
+        {/* Contact Section */}
+        <footer id="contact" className="py-10 text-center bg-black/50">
+          <h3 className="text-2xl font-bold mb-4">Contact Me</h3>
+          <p>Email: <a href="mailto:Vikymathur532@gmail.com" className="text-pink-400">Vikymathur532@gmail.com</a></p>
+          <p>Phone: <span className="text-pink-400">+91 7976680554</span></p>
+          <p className="mt-6 text-gray-400 text-sm">© 2025 Vinod Mathur. All Rights Reserved.</p>
+        </footer>
       </div>
     </div>
   );
