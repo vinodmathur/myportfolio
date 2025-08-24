@@ -1,193 +1,190 @@
+// App.jsx
 import React, { useState } from "react";
 import Particles from "react-tsparticles";
 import { loadFull } from "tsparticles";
+import { FaFigma, FaSketch, FaHtml5, FaCss3Alt } from "react-icons/fa";
+import { SiAdobexd, SiAdobephotoshop, SiCanva } from "react-icons/si";
 
-function App() {
+export default function App() {
   const [showMore, setShowMore] = useState(false);
-
-  const projects = [
-    {
-      title: "Portfolio Website",
-      description: "A personal portfolio website showcasing UI/UX designs.",
-      image: "/images/project1.jpg",
-      link: "https://figma.com",
-    },
-    {
-      title: "E-commerce App",
-      description: "Mobile-first shopping UI with smooth checkout flow.",
-      image: "/images/project2.jpg",
-      link: "https://figma.com",
-    },
-    {
-      title: "Dashboard Design",
-      description: "Analytics dashboard with dark theme and interactive charts.",
-      image: "/images/project3.jpg",
-      link: "https://figma.com",
-    },
-    {
-      title: "Social Media App",
-      description: "UI for a modern social media app with reels & stories.",
-      image: "/images/project4.jpg",
-      link: "https://figma.com",
-    },
-    {
-      title: "Landing Page UI",
-      description: "Marketing landing page for startups with responsive design.",
-      image: "/images/project5.jpg",
-      link: "https://figma.com",
-    },
-    {
-      title: "Banking App",
-      description: "Fintech mobile app UI with smooth money transfer flow.",
-      image: "/images/project6.jpg",
-      link: "https://figma.com",
-    },
-    {
-      title: "Food Delivery UI",
-      description: "UI for food ordering with maps & real-time tracking.",
-      image: "/images/project7.jpg",
-      link: "https://figma.com",
-    },
-    {
-      title: "Travel Booking App",
-      description: "Modern travel booking platform with destination highlights.",
-      image: "/images/project8.jpg",
-      link: "https://figma.com",
-    },
-  ];
 
   const particlesInit = async (main) => {
     await loadFull(main);
   };
 
+  const projects = [
+    // First 5 projects
+    {
+      id: 1,
+      title: "Hardin Astro App",
+      img: "https://s.tmimgcdn.com/scr/1200x627/415900/astroscope-astrology-mobile-app-figma-template_415907-original.png",
+      link: "https://www.figma.com/design/36ApeiWxeeGZFEtkD7zbJM/Astro-App-UI?node-id=0-1&t=zsP4TKtAOWejU35x-1",
+    },
+    {
+      id: 2,
+      title: "Bankfipay App",
+      img: "https://s3-alpha.figma.com/hub/file/5497869694/4fa7e9eb-5b21-434e-9e8d-4562cac10c87-cover.png",
+      link: "https://www.figma.com/design/yVCUmDBrtnwKQf4XcFPwqh/Bankfipay?node-id=0-1&t=U0Ao0dPcx37hwHbk-1",
+    },
+    {
+      id: 3,
+      title: "Azzunique Payout App",
+      img: "https://www.figma.com/community/resource/370d4109-0547-46a2-be7a-8ba228f860a3/thumbnail",
+      link: "https://www.figma.com/design/ywTYrkQEiewjyoefuL0vch/payout-App?node-id=0-1&t=a11MAci8rLUOqTXw-1",
+    },
+    {
+      id: 4,
+      title: "Shoponnow App",
+      img: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ3dBMh2FkO3nGdiK02bLyq9EVWYaY5n9czbQ&s",
+      link: "https://www.figma.com/proto/nz1UzOe1Vb47cA2tUZr60G/Untitled?page-id=54%3A2&node-id=54-3258&t=WrhqCOU1GJCzNwhW-1",
+    },
+    {
+      id: 5,
+      title: "Eatfit Food Delivery Partner App",
+      img: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSL6eRByyrum7NXdhH-RCfkZ6YwZY3oJBoGtQ&s",
+      link: "https://www.figma.com/design/JgpN50khNEAm072LfABo3y/Food-Delivery-Partner-App--Community-?node-id=0-1&t=9EdfzW0hXWLE9vLO-1",
+    },
+    // Additional demo projects for View More
+    {
+      id: 6,
+      title: "TravelMate App",
+      img: "https://via.placeholder.com/400x300.png?text=TravelMate+App",
+      link: "#",
+    },
+    {
+      id: 7,
+      title: "FitBuddy Health App",
+      img: "https://via.placeholder.com/400x300.png?text=FitBuddy+App",
+      link: "#",
+    },
+    {
+      id: 8,
+      title: "EduLearn Online Platform",
+      img: "https://via.placeholder.com/400x300.png?text=EduLearn+Platform",
+      link: "#",
+    },
+    {
+      id: 9,
+      title: "ShopEase E-commerce App",
+      img: "https://via.placeholder.com/400x300.png?text=ShopEase+App",
+      link: "#",
+    },
+  ];
+
   return (
-    <div className="relative min-h-screen text-white bg-black overflow-hidden">
+    <div className="relative min-h-screen text-white font-sans overflow-hidden">
       {/* Particle Background */}
       <Particles
-        id="tsparticles"
         init={particlesInit}
-        options={{
-          background: { color: "#000000" },
-          particles: {
-            number: { value: 60 },
-            size: { value: 3 },
-            move: { enable: true, speed: 1 },
-            links: { enable: true, color: "#ffffff" },
-          },
-        }}
         className="absolute inset-0 -z-10"
+        options={{
+          background: { color: "#0f172a" },
+          fpsLimit: 60,
+          particles: {
+            color: { value: "#ffffff" },
+            links: { color: "#ffffff", distance: 150, enable: true, opacity: 0.2, width: 1 },
+            collisions: { enable: false },
+            move: { enable: true, speed: 1, direction: "none", outModes: { default: "bounce" } },
+            number: { value: 80 },
+            opacity: { value: 0.5 },
+            shape: { type: "circle" },
+            size: { value: { min: 1, max: 3 } },
+          },
+          detectRetina: true,
+        }}
       />
 
-      {/* Floating Vector Image */}
-      <img
-        src="/vector1.png"
-        alt="Floating Vector"
-        className="absolute top-10 right-10 w-40 animate-bounce"
-      />
+      <div className="min-h-screen bg-black/50">
+        {/* Header */}
+        <header className="fixed top-0 left-0 w-full bg-black/30 backdrop-blur-md z-50 shadow-lg">
+          <div className="max-w-6xl mx-auto px-6 py-4 flex justify-between items-center">
+            <h1 className="text-2xl font-bold">Vinod Mathur</h1>
+            <nav className="space-x-6">
+              <a href="#expertise" className="hover:text-pink-400">Expertise</a>
+              <a href="#projects" className="hover:text-pink-400">Projects</a>
+              <a href="#about" className="hover:text-pink-400">About</a>
+              <a href="#contact" className="hover:text-pink-400">Contact</a>
+            </nav>
+          </div>
+        </header>
 
-      {/* Header */}
-      <header className="fixed top-0 left-0 w-full bg-black/40 backdrop-blur-md p-4 flex justify-between items-center z-10">
-        <h1 className="text-xl font-bold">Vinod Mathur</h1>
-        <nav className="space-x-6">
-          <a href="#expertise" className="hover:text-gray-300">Expertise</a>
-          <a href="#projects" className="hover:text-gray-300">Projects</a>
-          <a href="#about" className="hover:text-gray-300">About</a>
-          <a href="#contact" className="hover:text-gray-300">Contact</a>
-        </nav>
-      </header>
+        {/* Hero Section */}
+        <section className="flex flex-col items-center justify-center text-center min-h-screen px-6 pt-24">
+          <h2 className="text-5xl font-extrabold bg-gradient-to-r from-pink-400 to-purple-500 bg-clip-text text-transparent">
+            UI/UX Designer
+          </h2>
+          <p className="mt-6 text-lg max-w-2xl text-gray-300">
+            Creative UI/UX Designer with expertise in Figma, Adobe XD, Photoshop, Canva, HTML & CSS.
+          </p>
+          <div className="mt-6 flex gap-4">
+            <a href="/resume.pdf" download className="bg-pink-500 px-6 py-3 rounded-xl font-semibold shadow-md hover:bg-pink-600">
+              Download Resume
+            </a>
+            <a href="#contact" className="bg-purple-500 px-6 py-3 rounded-xl font-semibold shadow-md hover:bg-purple-600">
+              Contact Me
+            </a>
+          </div>
+        </section>
 
-      {/* Hero Section */}
-      <section className="flex flex-col items-center justify-center text-center h-screen">
-        <h2 className="text-5xl font-bold mb-4 bg-gradient-to-r from-purple-400 to-pink-600 bg-clip-text text-transparent">
-          UI/UX Designer & Developer
-        </h2>
-        <p className="max-w-xl text-lg">
-          Crafting beautiful, user-friendly, and engaging digital experiences with design thinking and innovation.
-        </p>
-        <a
-          href="/resume.pdf"
-          download
-          className="mt-6 px-6 py-3 bg-gradient-to-r from-purple-600 to-pink-600 rounded-lg shadow-lg hover:scale-105 transition"
-        >
-          Download Resume
-        </a>
-      </section>
+        {/* Expertise Section */}
+        <section id="expertise" className="py-20 bg-black/30 text-center">
+          <h3 className="text-3xl font-bold mb-10">My Expertise</h3>
+          <div className="flex flex-wrap justify-center gap-10 text-6xl">
+            <FaFigma className="hover:text-pink-400" />
+            <SiAdobexd className="hover:text-pink-400" />
+            <SiAdobephotoshop className="hover:text-pink-400" />
+            <FaSketch className="hover:text-pink-400" />
+            <SiCanva className="hover:text-pink-400" />
+            <FaHtml5 className="hover:text-pink-400" />
+            <FaCss3Alt className="hover:text-pink-400" />
+          </div>
+        </section>
 
-      {/* Expertise Section */}
-      <section id="expertise" className="py-16 px-8 text-center">
-        <h3 className="text-4xl font-semibold mb-10">My Expertise</h3>
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
-          {["Figma", "Adobe XD", "Photoshop", "Canva", "UI Design", "Prototyping", "Wireframing", "Responsive Design"].map((skill, i) => (
-            <div
-              key={i}
-              className="p-6 bg-gray-800/60 rounded-xl shadow-md hover:scale-105 transition"
-            >
-              <img src="/images/icon.png" alt={skill} className="mx-auto mb-3 w-10 h-10" />
-              <p>{skill}</p>
-            </div>
-          ))}
-        </div>
-      </section>
-
-      {/* Projects Section */}
-      <section id="projects" className="py-16 px-8">
-        <h3 className="text-4xl font-semibold text-center mb-10">Projects</h3>
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-          {(showMore ? projects : projects.slice(0, 4)).map((project, i) => (
-            <div
-              key={i}
-              className="bg-gray-800/60 rounded-2xl overflow-hidden shadow-lg hover:scale-105 transition"
-            >
-              <img src={project.image} alt={project.title} className="w-full h-40 object-cover rounded-t-2xl" />
-              <div className="p-4">
-                <h4 className="text-xl font-bold">{project.title}</h4>
-                <p className="text-sm mt-2">{project.description}</p>
-                <a
-                  href={project.link}
-                  target="_blank"
-                  rel="noreferrer"
-                  className="mt-4 inline-block px-4 py-2 bg-purple-600 rounded-lg shadow hover:bg-purple-700"
-                >
-                  View Project
-                </a>
+        {/* Projects Section */}
+        <section id="projects" className="py-20 text-center">
+          <h3 className="text-3xl font-bold mb-12">Project Showcase</h3>
+          <div className="max-w-6xl mx-auto grid md:grid-cols-2 lg:grid-cols-3 gap-10 px-6">
+            {projects.slice(0, showMore ? projects.length : 5).map((p) => (
+              <div key={p.id} className="bg-white/10 rounded-3xl overflow-hidden shadow-lg transform hover:scale-105 hover:shadow-[0_0_20px_#ff00ff] transition-all duration-300">
+                <img src={p.img} alt={p.title} className="w-full h-56 object-cover rounded-t-3xl" />
+                <div className="p-6">
+                  <h4 className="text-xl font-semibold mb-2">{p.title}</h4>
+                  <a href={p.link} target="_blank" rel="noopener noreferrer" className="inline-block bg-pink-500 px-4 py-2 rounded-lg hover:bg-pink-600">
+                    View Project
+                  </a>
+                </div>
               </div>
-            </div>
-          ))}
-        </div>
-        {!showMore && (
-          <div className="flex justify-center mt-8">
+            ))}
+          </div>
+
+          {/* View More Button */}
+          {!showMore && (
             <button
               onClick={() => setShowMore(true)}
-              className="px-6 py-3 bg-gradient-to-r from-pink-600 to-purple-600 rounded-lg shadow hover:scale-105 transition"
+              className="mt-10 bg-purple-500 px-6 py-3 rounded-xl font-semibold shadow-md hover:bg-purple-600 transition"
             >
               View More
             </button>
-          </div>
-        )}
-      </section>
+          )}
+        </section>
 
-      {/* About Me */}
-      <section id="about" className="py-16 px-8 text-center">
-        <h3 className="text-4xl font-semibold mb-6">About Me</h3>
-        <img
-          src="/images/profile.jpeg"
-          alt="Profile"
-          className="w-40 h-40 rounded-full mx-auto mb-6 shadow-lg"
-        />
-        <p className="max-w-2xl mx-auto text-lg">
-          I am Vinod Mathur, a passionate UI/UX designer with expertise in Figma, Adobe XD, Photoshop, and Canva.  
-          I specialize in creating intuitive designs and seamless user journeys for websites and apps.
-        </p>
-      </section>
+        {/* About Section */}
+        <section id="about" className="py-20 bg-black/30 text-center">
+          <img src="/images/profile.jpeg" alt="Profile" className="mx-auto rounded-full w-40 h-40 border-4 border-pink-400 shadow-lg" />
+          <h3 className="text-3xl font-bold mt-6">About Me</h3>
+          <p className="mt-4 text-lg text-gray-300">
+            I’m Vinod Mathur, a passionate UI/UX Designer crafting web and mobile interfaces.
+          </p>
+        </section>
 
-      {/* Contact */}
-      <section id="contact" className="py-16 px-8 text-center bg-gray-900/70">
-        <h3 className="text-3xl font-semibold mb-4">Contact Me</h3>
-        <p>Email: <a href="mailto:vinod@example.com" className="text-purple-400">vinod@example.com</a></p>
-        <p>Phone: +91-9876543210</p>
-      </section>
+        {/* Contact Section */}
+        <footer id="contact" className="py-10 text-center bg-black/50">
+          <h3 className="text-2xl font-bold mb-4">Contact Me</h3>
+          <p>Email: <a href="mailto:Vikymathur532@gmail.com" className="text-pink-400">Vikymathur532@gmail.com</a></p>
+          <p>Phone: <span className="text-pink-400">+91 7976680554</span></p>
+          <p className="mt-6 text-gray-400 text-sm">© 2025 Vinod Mathur. All Rights Reserved.</p>
+        </footer>
+      </div>
     </div>
   );
 }
-
-export default App;
