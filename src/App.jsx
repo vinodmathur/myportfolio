@@ -5,7 +5,6 @@ import { loadFull } from "tsparticles";
 import { FaFigma, FaSketch, FaHtml5, FaCss3Alt, FaBars } from "react-icons/fa";
 import { SiAdobexd, SiAdobephotoshop, SiCanva } from "react-icons/si";
 import Typed from "react-typed";
-import { ReactTyped } from "react-typed";
 
 export default function App() {
   const [showMore, setShowMore] = useState(false);
@@ -46,11 +45,10 @@ export default function App() {
       img: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSL6eRByyrum7NXdhH-RCfkZ6YwZY3oJBoGtQ&s",
       link: "https://www.figma.com/design/JgpN50khNEAm072LfABo3y/Food-Delivery-Partner-App--Community-?node-id=0-1",
     },
-    // Demo extra projects
     { id: 6, title: "TravelMate App", img: "https://via.placeholder.com/400x300.png?text=TravelMate+App", link: "#" },
     { id: 7, title: "FitBuddy Health App", img: "https://via.placeholder.com/400x300.png?text=FitBuddy+App", link: "#" },
-    { id: 8, title: "EduLearn Online Platform", img: "https://via.placeholder.com/400x300.png?text=EduLearn+Platform", link: "#" },
-    { id: 9, title: "ShopEase E-commerce App", img: "https://via.placeholder.com/400x300.png?text=ShopEase+App", link: "#" },
+    { id: 8, title: "EduLearn Platform", img: "https://via.placeholder.com/400x300.png?text=EduLearn+Platform", link: "#" },
+    { id: 9, title: "ShopEase App", img: "https://via.placeholder.com/400x300.png?text=ShopEase+App", link: "#" },
   ];
 
   return (
@@ -66,8 +64,8 @@ export default function App() {
             color: { value: "#ffffff" },
             links: { color: "#ffffff", distance: 150, enable: true, opacity: 0.2, width: 1 },
             move: { enable: true, speed: 1 },
-            number: { value: 80 },
-            opacity: { value: 0.5 },
+            number: { value: 90 },
+            opacity: { value: 0.6 },
             shape: { type: "circle" },
             size: { value: { min: 1, max: 3 } },
           },
@@ -80,7 +78,6 @@ export default function App() {
         <header className="fixed top-0 left-0 w-full bg-black/30 backdrop-blur-md z-50 shadow-lg">
           <div className="max-w-6xl mx-auto px-6 py-4 flex justify-between items-center">
             <h1 className="text-2xl font-bold">Vinod Mathur</h1>
-            {/* Desktop Menu */}
             <nav className="hidden md:flex space-x-6">
               <a href="#expertise" className="hover:text-pink-400">Expertise</a>
               <a href="#projects" className="hover:text-pink-400">Projects</a>
@@ -88,7 +85,6 @@ export default function App() {
               <a href="#about" className="hover:text-pink-400">About</a>
               <a href="#contact" className="hover:text-pink-400">Contact</a>
             </nav>
-            {/* Mobile Menu */}
             <button className="md:hidden text-xl" onClick={() => setMenuOpen(!menuOpen)}>
               <FaBars />
             </button>
@@ -111,7 +107,7 @@ export default function App() {
               strings={[
                 "I'm UI/UX Designer",
                 "I Design Beautiful Interfaces",
-                "I Create User-Friendly Experiences",
+                "I Create Human-Centered Experiences",
               ]}
               typeSpeed={60}
               backSpeed={40}
@@ -119,18 +115,18 @@ export default function App() {
             />
           </h2>
 
-          {/* Floating Vector Image centered below heading */}
           <img
             src="/vector1.png"
             alt="Floating Vector"
             className="mt-8 w-[600px] max-w-full animate-bounce-slow opacity-90"
           />
 
-          <p className="mt-6 text-lg max-w-2xl text-gray-300 relative z-10">
-            Creative UI/UX Designer with a deep passion for designing seamless digital experiences.  
-            Specialized in Figma, Adobe XD, Photoshop, Canva, HTML & CSS.  
-            I blend creativity and functionality to craft designs that delight users and drive results.
+          <p className="mt-6 text-lg max-w-3xl text-gray-300 relative z-10">
+            I’m a passionate UI/UX Designer who thrives on crafting meaningful digital experiences.  
+            With a background in design thinking and usability testing, I specialize in blending aesthetics with functionality.  
+            My focus is on building products that are intuitive, engaging, and impactful for real-world users.
           </p>
+
           <div className="mt-6 flex gap-4 relative z-10">
             <a href="/resume.pdf" download className="bg-pink-500 px-6 py-3 rounded-xl font-semibold shadow-md hover:bg-pink-600">
               Download Resume
@@ -141,15 +137,12 @@ export default function App() {
           </div>
         </section>
 
-        {/* === Other Sections remain unchanged (Expertise, Projects, Process, About, Contact) === */}
-
         {/* Expertise */}
         <section id="expertise" className="py-20 bg-black/30 text-center">
           <h3 className="text-3xl font-bold mb-10">My Expertise</h3>
           <p className="max-w-3xl mx-auto mb-10 text-gray-300">
-            Over the years, I’ve honed my skills across multiple design platforms and tools.  
-            My expertise lies in creating intuitive, user-friendly, and visually engaging interfaces 
-            for both mobile and web applications.
+            Skilled in modern design tools and technologies, I bring ideas to life with clarity and precision.  
+            My expertise spans across mobile app design, web platforms, and brand-driven UI systems.
           </p>
           <div className="flex flex-wrap justify-center gap-10 text-6xl">
             <FaFigma className="hover:text-pink-400" />
@@ -167,7 +160,7 @@ export default function App() {
           <h3 className="text-3xl font-bold mb-12">Project Showcase</h3>
           <div className="max-w-6xl mx-auto grid md:grid-cols-2 lg:grid-cols-3 gap-10 px-6">
             {projects.slice(0, showMore ? projects.length : 5).map((p) => (
-              <div key={p.id} className="bg-white/10 rounded-3xl overflow-hidden shadow-lg transform hover:scale-105 hover:shadow-[0_0_20px_#ff00ff] transition-all duration-300">
+              <div key={p.id} className="bg-white/10 rounded-3xl overflow-hidden shadow-lg transform hover:scale-105 transition-all duration-300">
                 <img src={p.img} alt={p.title} className="w-full h-56 object-cover rounded-t-3xl" />
                 <div className="p-6">
                   <h4 className="text-xl font-semibold mb-2">{p.title}</h4>
@@ -192,20 +185,21 @@ export default function App() {
         <section id="process" className="py-20 bg-black/30 text-center">
           <h3 className="text-3xl font-bold mb-10">My Work Process</h3>
           <p className="max-w-3xl mx-auto mb-12 text-gray-300">
-            I follow a structured design workflow that ensures every project is user-centered, functional, and visually compelling.
+            My approach is rooted in design thinking and user-centered design.  
+            I ensure every step from research to delivery is focused on creating value for users and businesses alike.
           </p>
           <div className="max-w-5xl mx-auto grid md:grid-cols-3 gap-8 px-6">
             <div className="bg-white/10 p-6 rounded-2xl shadow-lg hover:shadow-pink-500/30">
               <h4 className="text-xl font-semibold mb-3">1. Research & Discovery</h4>
-              <p className="text-gray-300">Understand business goals, target users, and competitors to set a strong foundation.</p>
+              <p className="text-gray-300">I analyze user needs, study competitors, and align design goals with business strategy.</p>
             </div>
             <div className="bg-white/10 p-6 rounded-2xl shadow-lg hover:shadow-pink-500/30">
               <h4 className="text-xl font-semibold mb-3">2. Wireframing & Prototyping</h4>
-              <p className="text-gray-300">Create low to high-fidelity wireframes and interactive prototypes to map user journeys.</p>
+              <p className="text-gray-300">Sketching flows, wireframing layouts, and building interactive prototypes for testing.</p>
             </div>
             <div className="bg-white/10 p-6 rounded-2xl shadow-lg hover:shadow-pink-500/30">
               <h4 className="text-xl font-semibold mb-3">3. Visual Design & Testing</h4>
-              <p className="text-gray-300">Apply modern UI trends, ensure accessibility, and conduct usability testing for perfection.</p>
+              <p className="text-gray-300">Refining with modern UI trends, accessibility, and usability tests for a polished product.</p>
             </div>
           </div>
         </section>
@@ -215,9 +209,9 @@ export default function App() {
           <img src="/images/profile.jpeg" alt="Profile" className="mx-auto rounded-full w-40 h-40 border-4 border-pink-400 shadow-lg" />
           <h3 className="text-3xl font-bold mt-6">About Me</h3>
           <p className="mt-4 max-w-3xl mx-auto text-lg text-gray-300">
-            I’m Vinod Mathur, a passionate UI/UX Designer who loves turning complex problems into elegant design solutions.  
-            With 2 years of experience in crafting intuitive digital interfaces, I focus on creating meaningful user experiences 
-            that blend usability, aesthetics, and innovation.
+            Hi, I’m Vinod Mathur 👋 — a UI/UX Designer who believes in creating experiences that solve problems and bring joy.  
+            With over 2 years in the design industry, I’ve worked on fintech apps, e-commerce platforms, and creative tools.  
+            My philosophy is simple: **design with empathy, innovate with purpose, and deliver with precision.**
           </p>
         </section>
 
