@@ -38,8 +38,9 @@ export default function App() {
 
   return (
     <div className="relative min-h-screen bg-gray-900 text-white font-sans overflow-hidden">
+      
       {/* 🌌 Fluid Animated Background */}
-      <div className="absolute inset-0 -z-10 overflow-hidden">
+      <div className="absolute inset-0 -z-20 overflow-hidden">
         <svg className="absolute w-[150%] h-[150%] animate-[float_25s_ease-in-out_infinite] opacity-40" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 800">
           <g transform="translate(400,400)">
             <path d="M160,-230C210,-190,260,-150,280,-90C300,-30,290,40,250,90C210,140,140,170,70,200C0,230,-70,260,-140,240C-210,220,-280,160,-300,90C-320,20,-280,-50,-230,-110C-180,-170,-120,-220,-50,-250C20,-280,90,-270,160,-230Z" fill="url(#fluidGrad)" />
@@ -54,12 +55,32 @@ export default function App() {
             </linearGradient>
           </defs>
         </svg>
+
+        {/* Floating Human/UI Vectors */}
+        <svg className="absolute top-10 left-10 w-32 h-32 animate-[float2_20s_ease-in-out_infinite]" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" fill="none">
+          <circle cx="32" cy="32" r="32" fill="#06b6d4" opacity="0.3" />
+          <path d="M32 10a10 10 0 100 20 10 10 0 000-20z" fill="#fff" />
+        </svg>
+
+        <svg className="absolute bottom-20 right-10 w-28 h-28 animate-[float3_18s_ease-in-out_infinite]" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" fill="none">
+          <circle cx="32" cy="32" r="32" fill="#f472b6" opacity="0.25" />
+          <path d="M32 12a8 8 0 100 16 8 8 0 000-16z" fill="#fff" />
+        </svg>
+
       </div>
 
       <style>{`
         @keyframes float {
           0%, 100% { transform: translate(-10%, -10%) scale(1); }
           50% { transform: translate(10%, 10%) scale(1.05); }
+        }
+        @keyframes float2 {
+          0%, 100% { transform: translateY(0) translateX(0) scale(1); }
+          50% { transform: translateY(-20px) translateX(10px) scale(1.05); }
+        }
+        @keyframes float3 {
+          0%, 100% { transform: translateY(0) translateX(0) scale(1); }
+          50% { transform: translateY(15px) translateX(-15px) scale(1.05); }
         }
       `}</style>
 
@@ -155,26 +176,4 @@ export default function App() {
 
       {/* About Me */}
       <section id="about" className="py-20 bg-black/30">
-        <div className="max-w-4xl mx-auto px-6 text-center">
-          <img
-            src="/images/profile.jpeg"
-            alt="Profile"
-            className="mx-auto rounded-full w-40 h-40 border-4 border-teal-400 shadow-lg"
-          />
-          <h3 className="text-3xl font-bold mt-6">About Me</h3>
-          <p className="mt-4 text-lg text-gray-300">
-            I’m Vinod Mathur, a passionate UI/UX Designer creating intuitive, engaging interfaces. Skilled in Figma, Adobe XD, Photoshop, Canva, HTML & CSS.
-          </p>
-        </div>
-      </section>
-
-      {/* Contact */}
-      <footer id="contact" className="py-10 text-center bg-black/50">
-        <h3 className="text-2xl font-bold mb-4">Contact Me</h3>
-        <p>Email: <a href="mailto:Vikymathur532@gmail.com" className="text-teal-400">Vikymathur532@gmail.com</a></p>
-        <p>Phone: <span className="text-teal-400">+91 7976680554</span></p>
-        <p className="mt-6 text-gray-400 text-sm">© 2025 Vinod Mathur. All Rights Reserved.</p>
-      </footer>
-    </div>
-  );
-}
+        <div className="max-w-4xl mx-auto px-6
