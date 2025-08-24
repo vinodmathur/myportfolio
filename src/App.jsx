@@ -3,6 +3,9 @@ import Particles from "react-tsparticles";
 import { loadFull } from "tsparticles";
 import { FaFigma, FaSketch, FaHtml5, FaCss3Alt } from "react-icons/fa";
 import { SiAdobexd, SiAdobephotoshop, SiCanva } from "react-icons/si";
+import dynamic from "next/dynamic";
+
+const Particles = dynamic(() => import("react-tsparticles"), { ssr: false });
 
 export default function App() {
   const particlesInit = async (main) => {
@@ -63,7 +66,7 @@ export default function App() {
             Creative UI/UX Designer with expertise in Figma, Adobe XD, Photoshop, Canva, HTML & CSS.
           </p>
           <div className="mt-6 flex gap-4">
-            <a href="/resume.pdf" download className="bg-pink-500 px-6 py-3 rounded-xl font-semibold shadow-md hover:bg-pink-600">Download Resume</a>
+            <a href="/public/resume.pdf" download className="bg-pink-500 px-6 py-3 rounded-xl font-semibold shadow-md hover:bg-pink-600">Download Resume</a>
             <a href="#contact" className="bg-purple-500 px-6 py-3 rounded-xl font-semibold shadow-md hover:bg-purple-600">Contact Me</a>
           </div>
         </section>
@@ -104,7 +107,7 @@ export default function App() {
 
         {/* About Section */}
         <section id="about" className="py-20 bg-black/30 text-center">
-          <img src="/images/profile.jpeg" alt="Profile" className="mx-auto rounded-full w-40 h-40 border-4 border-pink-400 shadow-lg" />
+          <img src="/public/images/profile.jpeg" alt="Profile" className="mx-auto rounded-full w-40 h-40 border-4 border-pink-400 shadow-lg" />
           <h3 className="text-3xl font-bold mt-6">About Me</h3>
           <p className="mt-4 text-lg text-gray-300">
             I’m Vinod Mathur, a passionate UI/UX Designer crafting web and mobile interfaces.
