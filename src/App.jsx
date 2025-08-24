@@ -4,7 +4,7 @@ import Particles from "react-tsparticles";
 import { loadFull } from "tsparticles";
 import { FaFigma, FaSketch, FaHtml5, FaCss3Alt, FaBars } from "react-icons/fa";
 import { SiAdobexd, SiAdobephotoshop, SiCanva } from "react-icons/si";
-import { Typed } from "react-typed";
+import Typed from "react-typed";
 
 export default function App() {
   const [showMore, setShowMore] = useState(false);
