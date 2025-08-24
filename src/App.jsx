@@ -5,7 +5,7 @@ import { loadFull } from "tsparticles";
 import { FaFigma, FaSketch, FaHtml5, FaCss3Alt } from "react-icons/fa";
 import { SiAdobexd, SiAdobephotoshop, SiCanva } from "react-icons/si";
 
-// Dynamic import for Next.js (SSR-safe)
+// Dynamic import to prevent SSR errors
 const Particles = dynamic(() => import("react-tsparticles"), { ssr: false });
 
 export default function App() {
@@ -49,25 +49,26 @@ export default function App() {
   return (
     <div className="relative min-h-screen text-white font-sans overflow-hidden">
       {/* Particle Background */}
-      <Particles
-        init={particlesInit}
-        className="absolute inset-0 -z-10"
-        options={{
-          background: { color: "#0f172a" },
-          fpsLimit: 60,
-          particles: {
-            color: { value: "#ffffff" },
-            links: { color: "#ffffff", distance: 150, enable: true, opacity: 0.2, width: 1 },
-            collisions: { enable: false },
-            move: { enable: true, speed: 1, direction: "none", outModes: { default: "bounce" } },
-            number: { value: 80 },
-            opacity: { value: 0.5 },
-            shape: { type: "circle" },
-            size: { value: { min: 1, max: 3 } },
-          },
-          detectRetina: true,
-        }}
-      />
+      <div className="absolute inset-0 -z-10 h-screen w-full">
+        <Particles
+          init={particlesInit}
+          options={{
+            background: { color: "#0f172a" },
+            fpsLimit: 60,
+            particles: {
+              color: { value: "#ffffff" },
+              links: { color: "#ffffff", distance: 150, enable: true, opacity: 0.2, width: 1 },
+              collisions: { enable: false },
+              move: { enable: true, speed: 1, direction: "none", outModes: { default: "bounce" } },
+              number: { value: 80 },
+              opacity: { value: 0.5 },
+              shape: { type: "circle" },
+              size: { value: { min: 1, max: 3 } },
+            },
+            detectRetina: true,
+          }}
+        />
+      </div>
 
       <div className="min-h-screen bg-black/50">
         {/* Header */}
@@ -84,7 +85,7 @@ export default function App() {
         </header>
 
         {/* Hero Section */}
-        <section className="flex flex-col items-center justify-center text-center min-h-screen px-6">
+        <section className="flex flex-col items-center justify-center text-center min-h-screen px-6 pt-24">
           <h2 className="text-5xl font-extrabold bg-gradient-to-r from-pink-400 to-purple-500 bg-clip-text text-transparent">UI/UX Designer</h2>
           <p className="mt-6 text-lg max-w-2xl text-gray-300">
             Creative UI/UX Designer with expertise in Figma, Adobe XD, Photoshop, Canva, HTML & CSS.
