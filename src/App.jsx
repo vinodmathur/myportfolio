@@ -37,26 +37,37 @@ export default function App() {
   ];
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-gray-900 via-black to-gray-800 text-white font-sans">
+    <div className="min-h-screen relative text-white font-sans overflow-hidden">
+      {/* 🔹 Fluid Gradient Background */}
+      <div className="absolute inset-0 bg-gradient-to-br from-purple-700 via-pink-600 to-indigo-700 animate-gradient"></div>
+
+      {/* 🔹 Floating UI/UX Icons */}
+      <div className="absolute inset-0 pointer-events-none">
+        <FaFigma className="text-pink-400 text-5xl animate-float absolute top-20 left-10" />
+        <SiAdobexd className="text-purple-400 text-5xl animate-float-slow absolute top-40 right-12" />
+        <SiAdobephotoshop className="text-blue-400 text-5xl animate-float absolute bottom-24 left-16" />
+        <SiCanva className="text-cyan-400 text-5xl animate-float absolute bottom-32 right-20" />
+      </div>
+
       {/* Header */}
       <header className="fixed top-0 left-0 w-full bg-black/30 backdrop-blur-md z-50 shadow-lg">
         <div className="max-w-6xl mx-auto px-6 py-4 flex justify-between items-center">
           <h1 className="text-2xl font-bold">Vinod Mathur</h1>
           <nav className="space-x-6">
-            <a href="#expertise" className="hover:text-pink-400">Expertise</a>
-            <a href="#projects" className="hover:text-pink-400">Projects</a>
-            <a href="#about" className="hover:text-pink-400">About</a>
-            <a href="#contact" className="hover:text-pink-400">Contact</a>
+            <a href="#expertise" className="hover:text-pink-300">Expertise</a>
+            <a href="#projects" className="hover:text-pink-300">Projects</a>
+            <a href="#about" className="hover:text-pink-300">About</a>
+            <a href="#contact" className="hover:text-pink-300">Contact</a>
           </nav>
         </div>
       </header>
 
       {/* Hero Section */}
-      <section className="flex flex-col items-center justify-center text-center min-h-screen px-6">
-        <h2 className="text-5xl font-extrabold bg-gradient-to-r from-pink-400 to-purple-500 bg-clip-text text-transparent">
+      <section className="flex flex-col items-center justify-center text-center min-h-screen px-6 relative z-10">
+        <h2 className="text-5xl font-extrabold bg-gradient-to-r from-pink-300 to-purple-400 bg-clip-text text-transparent">
           UI/UX Designer
         </h2>
-        <p className="mt-6 text-lg max-w-2xl text-gray-300">
+        <p className="mt-6 text-lg max-w-2xl text-gray-200">
           Creative UI/UX Designer with expertise in Figma, Adobe XD, Photoshop, 
           Canva, HTML & CSS. I design user-friendly, aesthetic, and functional 
           products that balance creativity with usability. My goal is to create 
@@ -80,7 +91,7 @@ export default function App() {
       </section>
 
       {/* Expertise Section */}
-      <section id="expertise" className="py-20 bg-black/30">
+      <section id="expertise" className="py-20 bg-black/30 relative z-10">
         <div className="max-w-6xl mx-auto px-6 text-center">
           <h3 className="text-3xl font-bold mb-10">My Expertise</h3>
           <div className="flex flex-wrap justify-center gap-10 text-6xl">
@@ -96,14 +107,14 @@ export default function App() {
       </section>
 
       {/* Projects Section */}
-      <section id="projects" className="py-20">
+      <section id="projects" className="py-20 relative z-10">
         <div className="max-w-6xl mx-auto px-6 text-center">
           <h3 className="text-3xl font-bold mb-12">Project Showcase</h3>
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-10">
             {projects.map((project) => (
               <div
                 key={project.id}
-                className="bg-white/10 rounded-3xl overflow-hidden shadow-lg transform hover:scale-105 hover:shadow-[0_0_20px_#ff00ff] transition-all duration-300"
+                className="bg-white/10 rounded-3xl overflow-hidden shadow-lg transform hover:scale-105 hover:shadow-[0_0_25px_#ff00ff] transition-all duration-300"
               >
                 <img
                   src={project.img}
@@ -132,7 +143,7 @@ export default function App() {
       </section>
 
       {/* About Me Section */}
-      <section id="about" className="py-20 bg-black/30">
+      <section id="about" className="py-20 bg-black/30 relative z-10">
         <div className="max-w-4xl mx-auto px-6 text-center">
           <img
             src="/images/profile.jpeg"
@@ -140,7 +151,7 @@ export default function App() {
             className="mx-auto rounded-full w-40 h-40 border-4 border-pink-400 shadow-lg"
           />
           <h3 className="text-3xl font-bold mt-6">About Me</h3>
-          <p className="mt-4 text-lg text-gray-300">
+          <p className="mt-4 text-lg text-gray-200">
             I’m Vinod Mathur, a passionate UI/UX Designer with hands-on experience 
             in crafting web and mobile interfaces. With skills in Figma, Adobe XD, 
             Photoshop, Canva, HTML, and CSS, I merge creativity with technical 
@@ -151,12 +162,35 @@ export default function App() {
       </section>
 
       {/* Contact Section */}
-      <footer id="contact" className="py-10 text-center bg-black/50">
+      <footer id="contact" className="py-10 text-center bg-black/50 relative z-10">
         <h3 className="text-2xl font-bold mb-4">Contact Me</h3>
         <p>Email: <a href="mailto:Vikymathur532@gmail.com" className="text-pink-400">Vikymathur532@gmail.com</a></p>
         <p>Phone: <span className="text-pink-400">+91 7976680554</span></p>
         <p className="mt-6 text-gray-400 text-sm">© 2025 Vinod Mathur. All Rights Reserved.</p>
       </footer>
+
+      {/* 🔹 Custom Animations */}
+      <style jsx>{`
+        .animate-gradient {
+          background-size: 400% 400%;
+          animation: gradientShift 12s ease infinite;
+        }
+        @keyframes gradientShift {
+          0% { background-position: 0% 50%; }
+          50% { background-position: 100% 50%; }
+          100% { background-position: 0% 50%; }
+        }
+        .animate-float {
+          animation: float 6s ease-in-out infinite;
+        }
+        .animate-float-slow {
+          animation: float 10s ease-in-out infinite;
+        }
+        @keyframes float {
+          0%, 100% { transform: translateY(0); }
+          50% { transform: translateY(-20px); }
+        }
+      `}</style>
     </div>
   );
 }
