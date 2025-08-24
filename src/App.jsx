@@ -139,7 +139,7 @@ export default function App() {
           <img
             src="/vector1.png"
             alt="Floating Vector"
-            className="absolute top-20 left-1/2 -translate-x-1/2 w-[200px] animate-bounce-slow opacity-80"
+            className="absolute top-18 left-1/2 -translate-x-1/2 w-[100px] animate-bounce-slow opacity-80"
           />
           <h2 className="text-5xl font-extrabold bg-gradient-to-r from-pink-400 to-purple-500 bg-clip-text text-transparent relative z-10">
             UI/UX Designer
