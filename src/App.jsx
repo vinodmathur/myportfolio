@@ -5,7 +5,7 @@ import { loadFull } from "tsparticles";
 import { FaFigma, FaSketch, FaHtml5, FaCss3Alt } from "react-icons/fa";
 import { SiAdobexd, SiAdobephotoshop, SiCanva } from "react-icons/si";
 
-// Dynamic import to prevent SSR errors
+// Dynamic import to prevent SSR issues
 const Particles = dynamic(() => import("react-tsparticles"), { ssr: false });
 
 export default function App() {
