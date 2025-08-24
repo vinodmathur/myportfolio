@@ -110,7 +110,7 @@ export default function App() {
 
           {/* Floating Vector Image centered below heading */}
           <img
-            src="/vector1.png"
+            src="/vector2.png"
             alt="Floating Vector"
             className="mt-8 w-[600px] max-w-full animate-bounce-slow opacity-90"
           />
