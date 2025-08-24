@@ -135,21 +135,21 @@ export default function App() {
 
         {/* Hero Section */}
         <section className="relative flex flex-col items-center justify-center text-center min-h-screen px-6 pt-24">
-          {/* Floating vector image */}
+          {/* Floating vector image (centered, 600px) */}
           <img
             src="/vector1.png"
             alt="Floating Vector"
-            className="absolute top-28 right-10 w-40 animate-bounce-slow opacity-80"
+            className="absolute top-28 left-1/2 -translate-x-1/2 w-[600px] animate-bounce-slow opacity-80"
           />
-          <h2 className="text-5xl font-extrabold bg-gradient-to-r from-pink-400 to-purple-500 bg-clip-text text-transparent">
+          <h2 className="text-5xl font-extrabold bg-gradient-to-r from-pink-400 to-purple-500 bg-clip-text text-transparent relative z-10">
             UI/UX Designer
           </h2>
-          <p className="mt-6 text-lg max-w-2xl text-gray-300">
-            Creative UI/UX Designer with a passion for designing seamless digital experiences. 
-            Specialized in Figma, Adobe XD, Photoshop, Canva, HTML & CSS. 
-            I blend creativity and functionality to craft designs that truly connect with users.
+          <p className="mt-6 text-lg max-w-2xl text-gray-300 relative z-10">
+            Creative UI/UX Designer with a deep passion for designing seamless digital experiences.  
+            Specialized in Figma, Adobe XD, Photoshop, Canva, HTML & CSS.  
+            I blend creativity and functionality to craft designs that delight users and drive results.
           </p>
-          <div className="mt-6 flex gap-4">
+          <div className="mt-6 flex gap-4 relative z-10">
             <a href="/resume.pdf" download className="bg-pink-500 px-6 py-3 rounded-xl font-semibold shadow-md hover:bg-pink-600">
               Download Resume
             </a>
@@ -163,7 +163,7 @@ export default function App() {
         <section id="expertise" className="py-20 bg-black/30 text-center">
           <h3 className="text-3xl font-bold mb-10">My Expertise</h3>
           <p className="max-w-3xl mx-auto mb-10 text-gray-300">
-            Over the years, I’ve honed my skills across multiple design platforms and tools. 
+            Over the years, I’ve honed my skills across multiple design platforms and tools.  
             My expertise lies in creating intuitive, user-friendly, and visually engaging interfaces 
             for both mobile and web applications.
           </p>
@@ -209,8 +209,7 @@ export default function App() {
         <section id="process" className="py-20 bg-black/30 text-center">
           <h3 className="text-3xl font-bold mb-10">My Work Process</h3>
           <p className="max-w-3xl mx-auto mb-12 text-gray-300">
-            I follow a structured design workflow that ensures every project is user-centered, 
-            functional, and visually compelling.
+            I follow a structured design workflow that ensures every project is user-centered, functional, and visually compelling.
           </p>
           <div className="max-w-5xl mx-auto grid md:grid-cols-3 gap-8 px-6">
             <div className="bg-white/10 p-6 rounded-2xl shadow-lg hover:shadow-pink-500/30">
@@ -239,9 +238,9 @@ export default function App() {
           <img src="/images/profile.jpeg" alt="Profile" className="mx-auto rounded-full w-40 h-40 border-4 border-pink-400 shadow-lg" />
           <h3 className="text-3xl font-bold mt-6">About Me</h3>
           <p className="mt-4 max-w-3xl mx-auto text-lg text-gray-300">
-            I’m Vinod Mathur, a passionate UI/UX Designer who loves turning complex problems into 
-            elegant design solutions. With years of experience in crafting intuitive digital interfaces, 
-            I focus on creating meaningful user experiences that blend usability, aesthetics, and innovation. 
+            I’m Vinod Mathur, a passionate UI/UX Designer who loves turning complex problems into elegant design solutions.  
+            With years of experience in crafting intuitive digital interfaces, I focus on creating meaningful user experiences 
+            that blend usability, aesthetics, and innovation.  
           </p>
         </section>
 
