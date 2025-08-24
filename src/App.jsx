@@ -105,7 +105,7 @@ export default function App() {
         {/* Hero Section */}
         <section className="relative flex flex-col items-center justify-center text-center min-h-screen px-6 pt-24">
           <h2 className="text-5xl font-extrabold bg-gradient-to-r from-pink-400 to-purple-500 bg-clip-text text-transparent relative z-10">
-            UI/UX Designer
+            I'm UI/UX Designer
           </h2>
 
           {/* Floating Vector Image centered below heading */}
