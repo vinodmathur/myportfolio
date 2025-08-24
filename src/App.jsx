@@ -52,7 +52,7 @@ export default function App() {
   ];
 
   return (
-    <div className="relative min-h-screen text-white font-sans overflow-hidden">
+    <div className="relative min-h-screen text-white font-sans overflow-hidden scroll-smooth">
       {/* Particle Background */}
       <Particles
         init={particlesInit}
@@ -90,12 +90,12 @@ export default function App() {
             </button>
           </div>
           {menuOpen && (
-            <div className="md:hidden bg-black/90 text-center py-4 space-y-4">
-              <a href="#expertise" className="block hover:text-pink-400">Expertise</a>
-              <a href="#projects" className="block hover:text-pink-400">Projects</a>
-              <a href="#process" className="block hover:text-pink-400">Process</a>
-              <a href="#about" className="block hover:text-pink-400">About</a>
-              <a href="#contact" className="block hover:text-pink-400">Contact</a>
+            <div className="md:hidden bg-black/90 text-center py-4 space-y-4 animate-fadeIn">
+              <a href="#expertise" onClick={() => setMenuOpen(false)} className="block hover:text-pink-400">Expertise</a>
+              <a href="#projects" onClick={() => setMenuOpen(false)} className="block hover:text-pink-400">Projects</a>
+              <a href="#process" onClick={() => setMenuOpen(false)} className="block hover:text-pink-400">Process</a>
+              <a href="#about" onClick={() => setMenuOpen(false)} className="block hover:text-pink-400">About</a>
+              <a href="#contact" onClick={() => setMenuOpen(false)} className="block hover:text-pink-400">Contact</a>
             </div>
           )}
         </header>
@@ -105,7 +105,7 @@ export default function App() {
           <h2 className="text-5xl font-extrabold bg-gradient-to-r from-pink-400 to-purple-500 bg-clip-text text-transparent relative z-10">
             <Typed
               strings={[
-                "I'm UI/UX Designer",
+                "I'm a UI/UX Designer",
                 "I Design Beautiful Interfaces",
                 "I Create Human-Centered Experiences",
               ]}
@@ -123,8 +123,8 @@ export default function App() {
 
           <p className="mt-6 text-lg max-w-3xl text-gray-300 relative z-10">
             I’m a passionate UI/UX Designer who thrives on crafting meaningful digital experiences.  
-            With a background in design thinking and usability testing, I specialize in blending aesthetics with functionality.  
-            My focus is on building products that are intuitive, engaging, and impactful for real-world users.
+            With expertise in design thinking, usability testing, and visual design, I blend **aesthetics with functionality**.  
+            My goal is to deliver intuitive, accessible, and impactful solutions for real-world users.
           </p>
 
           <div className="mt-6 flex gap-4 relative z-10">
@@ -185,8 +185,8 @@ export default function App() {
         <section id="process" className="py-20 bg-black/30 text-center">
           <h3 className="text-3xl font-bold mb-10">My Work Process</h3>
           <p className="max-w-3xl mx-auto mb-12 text-gray-300">
-            My approach is rooted in design thinking and user-centered design.  
-            I ensure every step from research to delivery is focused on creating value for users and businesses alike.
+            My approach is rooted in **Design Thinking** and **User-Centered Design**.  
+            From discovery to final delivery, every step is focused on **usability, creativity, and impact**.
           </p>
           <div className="max-w-5xl mx-auto grid md:grid-cols-3 gap-8 px-6">
             <div className="bg-white/10 p-6 rounded-2xl shadow-lg hover:shadow-pink-500/30">
@@ -195,11 +195,11 @@ export default function App() {
             </div>
             <div className="bg-white/10 p-6 rounded-2xl shadow-lg hover:shadow-pink-500/30">
               <h4 className="text-xl font-semibold mb-3">2. Wireframing & Prototyping</h4>
-              <p className="text-gray-300">Sketching flows, wireframing layouts, and building interactive prototypes for testing.</p>
+              <p className="text-gray-300">Sketching flows, wireframing layouts, and building interactive prototypes for testing & feedback.</p>
             </div>
             <div className="bg-white/10 p-6 rounded-2xl shadow-lg hover:shadow-pink-500/30">
               <h4 className="text-xl font-semibold mb-3">3. Visual Design & Testing</h4>
-              <p className="text-gray-300">Refining with modern UI trends, accessibility, and usability tests for a polished product.</p>
+              <p className="text-gray-300">Refining with modern UI trends, ensuring accessibility, and conducting usability tests for a polished product.</p>
             </div>
           </div>
         </section>
@@ -209,9 +209,9 @@ export default function App() {
           <img src="/images/profile.jpeg" alt="Profile" className="mx-auto rounded-full w-40 h-40 border-4 border-pink-400 shadow-lg" />
           <h3 className="text-3xl font-bold mt-6">About Me</h3>
           <p className="mt-4 max-w-3xl mx-auto text-lg text-gray-300">
-            Hi, I’m Vinod Mathur 👋 — a UI/UX Designer who believes in creating experiences that solve problems and bring joy.  
-            With over 2 years in the design industry, I’ve worked on fintech apps, e-commerce platforms, and creative tools.  
-            My philosophy is simple: **design with empathy, innovate with purpose, and deliver with precision.**
+            Hi, I’m <span className="text-pink-400 font-semibold">Vinod Mathur</span> 👋 — a UI/UX Designer passionate about creating digital products that solve problems and spark delight.  
+            With over 2 years in the design industry, I’ve worked on fintech apps, e-commerce platforms, and creative SaaS tools.  
+            My philosophy: **design with empathy, innovate with purpose, and deliver with precision.**
           </p>
         </section>
 
@@ -224,7 +224,7 @@ export default function App() {
         </footer>
       </div>
 
-      {/* Floating animation */}
+      {/* Floating + Fade animations */}
       <style>{`
         @keyframes float {
           0% { transform: translateY(0px); }
@@ -233,6 +233,13 @@ export default function App() {
         }
         .animate-bounce-slow {
           animation: float 6s ease-in-out infinite;
+        }
+        @keyframes fadeIn {
+          from { opacity: 0; transform: translateY(-10px); }
+          to { opacity: 1; transform: translateY(0); }
+        }
+        .animate-fadeIn {
+          animation: fadeIn 0.3s ease-out forwards;
         }
       `}</style>
     </div>
