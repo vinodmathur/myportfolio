@@ -1,11 +1,9 @@
 // App.jsx
-import React, { Suspense } from "react";
+import React from "react";
+import Particles from "react-tsparticles";
 import { loadFull } from "tsparticles";
 import { FaFigma, FaSketch, FaHtml5, FaCss3Alt } from "react-icons/fa";
 import { SiAdobexd, SiAdobephotoshop, SiCanva } from "react-icons/si";
-
-// Use React.lazy instead of next/dynamic
-const Particles = React.lazy(() => import("react-tsparticles"));
 
 export default function App() {
   const particlesInit = async (main) => {
@@ -48,27 +46,25 @@ export default function App() {
   return (
     <div className="relative min-h-screen text-white font-sans overflow-hidden">
       {/* Particle Background */}
-      <Suspense fallback={null}>
-        <Particles
-          init={particlesInit}
-          className="absolute inset-0 -z-10"
-          options={{
-            background: { color: "#0f172a" },
-            fpsLimit: 60,
-            particles: {
-              color: { value: "#ffffff" },
-              links: { color: "#ffffff", distance: 150, enable: true, opacity: 0.2, width: 1 },
-              collisions: { enable: false },
-              move: { enable: true, speed: 1, direction: "none", outModes: { default: "bounce" } },
-              number: { value: 80 },
-              opacity: { value: 0.5 },
-              shape: { type: "circle" },
-              size: { value: { min: 1, max: 3 } },
-            },
-            detectRetina: true,
-          }}
-        />
-      </Suspense>
+      <Particles
+        init={particlesInit}
+        className="absolute inset-0 -z-10"
+        options={{
+          background: { color: "#0f172a" },
+          fpsLimit: 60,
+          particles: {
+            color: { value: "#ffffff" },
+            links: { color: "#ffffff", distance: 150, enable: true, opacity: 0.2, width: 1 },
+            collisions: { enable: false },
+            move: { enable: true, speed: 1, direction: "none", outModes: { default: "bounce" } },
+            number: { value: 80 },
+            opacity: { value: 0.5 },
+            shape: { type: "circle" },
+            size: { value: { min: 1, max: 3 } },
+          },
+          detectRetina: true,
+        }}
+      />
 
       <div className="min-h-screen bg-black/50">
         {/* Header */}
@@ -86,13 +82,19 @@ export default function App() {
 
         {/* Hero Section */}
         <section className="flex flex-col items-center justify-center text-center min-h-screen px-6 pt-24">
-          <h2 className="text-5xl font-extrabold bg-gradient-to-r from-pink-400 to-purple-500 bg-clip-text text-transparent">UI/UX Designer</h2>
+          <h2 className="text-5xl font-extrabold bg-gradient-to-r from-pink-400 to-purple-500 bg-clip-text text-transparent">
+            UI/UX Designer
+          </h2>
           <p className="mt-6 text-lg max-w-2xl text-gray-300">
             Creative UI/UX Designer with expertise in Figma, Adobe XD, Photoshop, Canva, HTML & CSS.
           </p>
           <div className="mt-6 flex gap-4">
-            <a href="/resume.pdf" download className="bg-pink-500 px-6 py-3 rounded-xl font-semibold shadow-md hover:bg-pink-600">Download Resume</a>
-            <a href="#contact" className="bg-purple-500 px-6 py-3 rounded-xl font-semibold shadow-md hover:bg-purple-600">Contact Me</a>
+            <a href="/resume.pdf" download className="bg-pink-500 px-6 py-3 rounded-xl font-semibold shadow-md hover:bg-pink-600">
+              Download Resume
+            </a>
+            <a href="#contact" className="bg-purple-500 px-6 py-3 rounded-xl font-semibold shadow-md hover:bg-purple-600">
+              Contact Me
+            </a>
           </div>
         </section>
 
@@ -119,7 +121,9 @@ export default function App() {
                 <img src={p.img} alt={p.title} className="w-full h-56 object-cover rounded-t-3xl" />
                 <div className="p-6">
                   <h4 className="text-xl font-semibold mb-2">{p.title}</h4>
-                  <a href={p.link} target="_blank" rel="noopener noreferrer" className="inline-block bg-pink-500 px-4 py-2 rounded-lg hover:bg-pink-600">View Project</a>
+                  <a href={p.link} target="_blank" rel="noopener noreferrer" className="inline-block bg-pink-500 px-4 py-2 rounded-lg hover:bg-pink-600">
+                    View Project
+                  </a>
                 </div>
               </div>
             ))}
