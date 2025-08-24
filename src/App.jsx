@@ -204,7 +204,7 @@ export default function App() {
           <h3 className="text-3xl font-bold mt-6">About Me</h3>
           <p className="mt-4 max-w-3xl mx-auto text-lg text-gray-300">
             I’m Vinod Mathur, a passionate UI/UX Designer who loves turning complex problems into elegant design solutions.  
-            With years of experience in crafting intuitive digital interfaces, I focus on creating meaningful user experiences 
+            With 2 years of experience in crafting intuitive digital interfaces, I focus on creating meaningful user experiences 
             that blend usability, aesthetics, and innovation.
           </p>
         </section>
