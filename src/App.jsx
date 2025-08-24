@@ -1,4 +1,5 @@
 import React from "react";
+import Particles from "react-tsparticles";
 import { FaFigma, FaSketch, FaHtml5, FaCss3Alt } from "react-icons/fa";
 import { SiAdobexd, SiAdobephotoshop, SiCanva } from "react-icons/si";
 
@@ -37,13 +38,36 @@ export default function App() {
   ];
 
   return (
-    <div
-      className="min-h-screen text-white font-sans bg-cover bg-center bg-no-repeat"
-      style={{ backgroundImage: "url('https://media1.giphy.com/media/v1.Y2lkPTc5MGI3NjExZHN0M200YmhzcHV4OWN6ejFweGQ1M2F6aGRxZHpuaTNkNHEyNjBvYiZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/26BRGoqbUQvk8nwTC/giphy.gif')" }}
-    >
-      {/* Overlay for readability */}
-      <div className="min-h-screen bg-black/60">
-        
+    <div className="relative min-h-screen text-white font-sans">
+      {/* Particle Background */}
+      <Particles
+        className="absolute inset-0 -z-10"
+        options={{
+          background: { color: "#0f172a" },
+          fpsLimit: 60,
+          particles: {
+            color: { value: "#ffffff" },
+            links: {
+              color: "#ffffff",
+              distance: 150,
+              enable: true,
+              opacity: 0.2,
+              width: 1,
+            },
+            collisions: { enable: false },
+            move: { enable: true, speed: 1, direction: "none", outModes: { default: "bounce" } },
+            number: { value: 80 },
+            opacity: { value: 0.5 },
+            shape: { type: "circle" },
+            size: { value: { min: 1, max: 3 } },
+          },
+          detectRetina: true,
+        }}
+      />
+
+      {/* Overlay */}
+      <div className="min-h-screen bg-black/50">
+
         {/* Header */}
         <header className="fixed top-0 left-0 w-full bg-black/30 backdrop-blur-md z-50 shadow-lg">
           <div className="max-w-6xl mx-auto px-6 py-4 flex justify-between items-center">
@@ -64,8 +88,7 @@ export default function App() {
           </h2>
           <p className="mt-6 text-lg max-w-2xl text-gray-300">
             Creative UI/UX Designer with expertise in Figma, Adobe XD, Photoshop, 
-            Canva, HTML & CSS. I design user-friendly, aesthetic, and functional 
-            products that balance creativity with usability.
+            Canva, HTML & CSS. I design modern, fluid, and intuitive experiences.
           </p>
           <div className="mt-6 flex gap-4">
             <a
@@ -118,8 +141,7 @@ export default function App() {
                   <div className="p-6">
                     <h4 className="text-xl font-semibold mb-2">{project.title}</h4>
                     <p className="text-gray-300 mb-4">
-                      A modern UI/UX design project with unique layouts, vibrant
-                      colors, and smooth user experience.
+                      A modern UI/UX design project with unique layouts, vibrant colors, and smooth user experience.
                     </p>
                     <a
                       href={project.link}
@@ -160,6 +182,7 @@ export default function App() {
           <p>Phone: <span className="text-pink-400">+91 7976680554</span></p>
           <p className="mt-6 text-gray-400 text-sm">© 2025 Vinod Mathur. All Rights Reserved.</p>
         </footer>
+
       </div>
     </div>
   );
