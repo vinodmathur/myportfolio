@@ -1,16 +1,19 @@
 // App.jsx
-import React from "react";
+import React, { useState } from "react";
 import Particles from "react-tsparticles";
 import { loadFull } from "tsparticles";
 import { FaFigma, FaSketch, FaHtml5, FaCss3Alt } from "react-icons/fa";
 import { SiAdobexd, SiAdobephotoshop, SiCanva } from "react-icons/si";
 
 export default function App() {
+  const [showMore, setShowMore] = useState(false);
+
   const particlesInit = async (main) => {
     await loadFull(main);
   };
 
   const projects = [
+    // First 5 projects
     {
       id: 1,
       title: "Hardin Astro App",
@@ -40,6 +43,31 @@ export default function App() {
       title: "Eatfit Food Delivery Partner App",
       img: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSL6eRByyrum7NXdhH-RCfkZ6YwZY3oJBoGtQ&s",
       link: "https://www.figma.com/design/JgpN50khNEAm072LfABo3y/Food-Delivery-Partner-App--Community-?node-id=0-1&t=9EdfzW0hXWLE9vLO-1",
+    },
+    // Additional 4 projects for View More
+    {
+      id: 6,
+      title: "Project 6",
+      img: "https://via.placeholder.com/400x300?text=Project+6",
+      link: "#",
+    },
+    {
+      id: 7,
+      title: "Project 7",
+      img: "https://via.placeholder.com/400x300?text=Project+7",
+      link: "#",
+    },
+    {
+      id: 8,
+      title: "Project 8",
+      img: "https://via.placeholder.com/400x300?text=Project+8",
+      link: "#",
+    },
+    {
+      id: 9,
+      title: "Project 9",
+      img: "https://via.placeholder.com/400x300?text=Project+9",
+      link: "#",
     },
   ];
 
@@ -116,7 +144,7 @@ export default function App() {
         <section id="projects" className="py-20 text-center">
           <h3 className="text-3xl font-bold mb-12">Project Showcase</h3>
           <div className="max-w-6xl mx-auto grid md:grid-cols-2 lg:grid-cols-3 gap-10 px-6">
-            {projects.map((p) => (
+            {projects.slice(0, showMore ? projects.length : 5).map((p) => (
               <div key={p.id} className="bg-white/10 rounded-3xl overflow-hidden shadow-lg transform hover:scale-105 hover:shadow-[0_0_20px_#ff00ff] transition-all duration-300">
                 <img src={p.img} alt={p.title} className="w-full h-56 object-cover rounded-t-3xl" />
                 <div className="p-6">
@@ -128,6 +156,16 @@ export default function App() {
               </div>
             ))}
           </div>
+
+          {/* View More Button */}
+          {!showMore && (
+            <button
+              onClick={() => setShowMore(true)}
+              className="mt-10 bg-purple-500 px-6 py-3 rounded-xl font-semibold shadow-md hover:bg-purple-600 transition"
+            >
+              View More
+            </button>
+          )}
         </section>
 
         {/* About Section */}
