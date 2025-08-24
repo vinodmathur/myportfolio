@@ -39,7 +39,7 @@ export default function App() {
   return (
     <div
       className="min-h-screen text-white font-sans bg-cover bg-center bg-no-repeat"
-      style={{ backgroundImage: "url('https://img.freepik.com/free-vector/gradient-technological-background_23-2148884155.jpg?semt=ais_hybrid&w=740')" }}
+      style={{ backgroundImage: "url('https://media1.giphy.com/media/v1.Y2lkPTc5MGI3NjExZHN0M200YmhzcHV4OWN6ejFweGQ1M2F6aGRxZHpuaTNkNHEyNjBvYiZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/26BRGoqbUQvk8nwTC/giphy.gif')" }}
     >
       {/* Overlay for readability */}
       <div className="min-h-screen bg-black/60">
