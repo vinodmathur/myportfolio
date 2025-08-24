@@ -4,6 +4,7 @@ import Particles from "react-tsparticles";
 import { loadFull } from "tsparticles";
 import { FaFigma, FaSketch, FaHtml5, FaCss3Alt, FaBars } from "react-icons/fa";
 import { SiAdobexd, SiAdobephotoshop, SiCanva } from "react-icons/si";
+import Typed from "react-typed";
 
 export default function App() {
   const [showMore, setShowMore] = useState(false);
@@ -105,7 +106,16 @@ export default function App() {
         {/* Hero Section */}
         <section className="relative flex flex-col items-center justify-center text-center min-h-screen px-6 pt-24">
           <h2 className="text-5xl font-extrabold bg-gradient-to-r from-pink-400 to-purple-500 bg-clip-text text-transparent relative z-10">
-            I'm UI/UX Designer
+            <Typed
+              strings={[
+                "I'm UI/UX Designer",
+                "I Design Beautiful Interfaces",
+                "I Create User-Friendly Experiences",
+              ]}
+              typeSpeed={60}
+              backSpeed={40}
+              loop
+            />
           </h2>
 
           {/* Floating Vector Image centered below heading */}
@@ -130,7 +140,8 @@ export default function App() {
           </div>
         </section>
 
-        {/* === Other Sections (Expertise, Projects, Process, About, Contact) stay same === */}
+        {/* === Other Sections remain unchanged (Expertise, Projects, Process, About, Contact) === */}
+
         {/* Expertise */}
         <section id="expertise" className="py-20 bg-black/30 text-center">
           <h3 className="text-3xl font-bold mb-10">My Expertise</h3>
