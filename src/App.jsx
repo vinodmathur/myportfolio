@@ -1,8 +1,11 @@
+// App.jsx
 import React, { useState } from "react";
 import Particles from "react-tsparticles";
 import { loadFull } from "tsparticles";
+import { FaFigma, FaSketch, FaHtml5, FaCss3Alt } from "react-icons/fa";
+import { SiAdobexd, SiAdobephotoshop, SiCanva } from "react-icons/si";
 
-function App() {
+export default function App() {
   const [showMore, setShowMore] = useState(false);
 
   const particlesInit = async (main) => {
@@ -10,156 +13,233 @@ function App() {
   };
 
   const projects = [
-    { id: 1, title: "Fashion Delivery App", img: "/images/project1.png", desc: "A 10-min hyperlocal fashion delivery app." },
-    { id: 2, title: "DeFi Dashboard", img: "/images/project2.png", desc: "Crypto portfolio tracker with AI insights." },
-    { id: 3, title: "E-learning Platform", img: "/images/project3.png", desc: "Interactive courses with gamified UI." },
-    { id: 4, title: "Travel Planner", img: "/images/project4.png", desc: "Plan trips with AI suggestions & maps." },
-    { id: 5, title: "ShopOn Website", img: "/images/project5.png", desc: "Landing page for hyperlocal delivery startup." },
-    { id: 6, title: "NFT Marketplace", img: "/images/project6.png", desc: "Buy, sell, and mint NFTs seamlessly." },
-    { id: 7, title: "UI Kit Library", img: "/images/project7.png", desc: "Reusable UI components & design system." },
-    { id: 8, title: "Portfolio Website", img: "/images/project8.png", desc: "Minimalistic portfolio built with React." },
+    {
+      id: 1,
+      title: "Hardin Astro App",
+      img: "https://s.tmimgcdn.com/scr/1200x627/415900/astroscope-astrology-mobile-app-figma-template_415907-original.png",
+      link: "https://www.figma.com/design/36ApeiWxeeGZFEtkD7zbJM/Astro-App-UI?node-id=0-1&t=zsP4TKtAOWejU35x-1",
+    },
+    {
+      id: 2,
+      title: "Bankfipay App",
+      img: "https://s3-alpha.figma.com/hub/file/5497869694/4fa7e9eb-5b21-434e-9e8d-4562cac10c87-cover.png",
+      link: "https://www.figma.com/design/yVCUmDBrtnwKQf4XcFPwqh/Bankfipay?node-id=0-1&t=U0Ao0dPcx37hwHbk-1",
+    },
+    {
+      id: 3,
+      title: "Azzunique Payout App",
+      img: "https://www.figma.com/community/resource/370d4109-0547-46a2-be7a-8ba228f860a3/thumbnail",
+      link: "https://www.figma.com/design/ywTYrkQEiewjyoefuL0vch/payout-App?node-id=0-1&t=a11MAci8rLUOqTXw-1",
+    },
+    {
+      id: 4,
+      title: "Shoponnow App",
+      img: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ3dBMh2FkO3nGdiK02bLyq9EVWYaY5n9czbQ&s",
+      link: "https://www.figma.com/proto/nz1UzOe1Vb47cA2tUZr60G/Untitled?page-id=54%3A2&node-id=54-3258&t=WrhqCOU1GJCzNwhW-1",
+    },
+    {
+      id: 5,
+      title: "Eatfit Food Delivery Partner App",
+      img: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSL6eRByyrum7NXdhH-RCfkZ6YwZY3oJBoGtQ&s",
+      link: "https://www.figma.com/design/JgpN50khNEAm072LfABo3y/Food-Delivery-Partner-App--Community-?node-id=0-1&t=9EdfzW0hXWLE9vLO-1",
+    },
+    // Demo extra projects
+    {
+      id: 6,
+      title: "TravelMate App",
+      img: "https://via.placeholder.com/400x300.png?text=TravelMate+App",
+      link: "#",
+    },
+    {
+      id: 7,
+      title: "FitBuddy Health App",
+      img: "https://via.placeholder.com/400x300.png?text=FitBuddy+App",
+      link: "#",
+    },
+    {
+      id: 8,
+      title: "EduLearn Online Platform",
+      img: "https://via.placeholder.com/400x300.png?text=EduLearn+Platform",
+      link: "#",
+    },
+    {
+      id: 9,
+      title: "ShopEase E-commerce App",
+      img: "https://via.placeholder.com/400x300.png?text=ShopEase+App",
+      link: "#",
+    },
   ];
 
   return (
-    <div className="relative min-h-screen text-white overflow-x-hidden">
+    <div className="relative min-h-screen text-white font-sans overflow-hidden">
       {/* Particle Background */}
       <Particles
-        id="tsparticles"
         init={particlesInit}
+        className="absolute inset-0 -z-10"
         options={{
-          background: { color: "transparent" },
+          background: { color: "#0f172a" },
           fpsLimit: 60,
-          interactivity: { events: { onClick: { enable: true, mode: "push" }, onHover: { enable: true, mode: "repulse" } } },
           particles: {
             color: { value: "#ffffff" },
-            links: { enable: true, color: "#888", distance: 120 },
-            move: { enable: true, speed: 2 },
-            number: { value: 60 },
+            links: { color: "#ffffff", distance: 150, enable: true, opacity: 0.2, width: 1 },
+            collisions: { enable: false },
+            move: { enable: true, speed: 1, direction: "none", outModes: { default: "bounce" } },
+            number: { value: 80 },
             opacity: { value: 0.5 },
-            size: { value: 3 },
+            shape: { type: "circle" },
+            size: { value: { min: 1, max: 3 } },
           },
+          detectRetina: true,
         }}
       />
 
-      {/* Header */}
-      <header className="fixed top-0 left-0 w-full bg-black/50 backdrop-blur-lg shadow-lg z-50">
-        <nav className="flex justify-between items-center px-6 py-4">
-          <h1 className="text-2xl font-bold">Vinod Mathur</h1>
-          <div className="space-x-6">
-            <a href="#about" className="hover:text-blue-400">About</a>
-            <a href="#projects" className="hover:text-blue-400">Projects</a>
-            <a href="#process" className="hover:text-blue-400">Process</a>
-            <a href="#contact" className="hover:text-blue-400">Contact</a>
+      <div className="min-h-screen bg-black/50">
+        {/* Header */}
+        <header className="fixed top-0 left-0 w-full bg-black/30 backdrop-blur-md z-50 shadow-lg">
+          <div className="max-w-6xl mx-auto px-6 py-4 flex justify-between items-center">
+            <h1 className="text-2xl font-bold">Vinod Mathur</h1>
+            <nav className="space-x-6">
+              <a href="#expertise" className="hover:text-pink-400">Expertise</a>
+              <a href="#projects" className="hover:text-pink-400">Projects</a>
+              <a href="#process" className="hover:text-pink-400">Process</a>
+              <a href="#about" className="hover:text-pink-400">About</a>
+              <a href="#contact" className="hover:text-pink-400">Contact</a>
+            </nav>
           </div>
-        </nav>
-      </header>
+        </header>
 
-      {/* Hero Section */}
-      <section className="relative flex flex-col items-center justify-center text-center pt-32 pb-20">
-        <img
-          src="/vector1.png"
-          alt="Floating vector"
-          className="absolute top-20 right-10 w-40 animate-bounce"
-        />
-        <h2 className="text-5xl font-bold bg-gradient-to-r from-blue-400 to-purple-500 bg-clip-text text-transparent">
-          UI/UX Designer & Frontend Developer
-        </h2>
-        <p className="mt-6 max-w-2xl text-lg text-gray-300">
-          I specialize in crafting modern, responsive, and user-centered designs.  
-          With 5+ years in DeFi & Web3 plus a strong background in app design,  
-          I blend creativity with strategy to deliver seamless digital experiences.
-        </p>
-        <a
-          href="/resume.pdf"
-          download
-          className="mt-6 px-6 py-3 bg-gradient-to-r from-purple-600 to-blue-600 rounded-full font-semibold shadow-lg hover:scale-105 transition"
-        >
-          📄 Download Resume
-        </a>
-      </section>
+        {/* Hero Section */}
+        <section className="relative flex flex-col items-center justify-center text-center min-h-screen px-6 pt-24">
+          {/* Floating vector image */}
+          <img
+            src="/vector1.png"
+            alt="Floating Vector"
+            className="absolute top-28 right-10 w-40 animate-bounce-slow opacity-80"
+          />
+          <h2 className="text-5xl font-extrabold bg-gradient-to-r from-pink-400 to-purple-500 bg-clip-text text-transparent">
+            UI/UX Designer
+          </h2>
+          <p className="mt-6 text-lg max-w-2xl text-gray-300">
+            Creative UI/UX Designer with a passion for designing seamless digital experiences. 
+            Specialized in Figma, Adobe XD, Photoshop, Canva, HTML & CSS. 
+            I blend creativity and functionality to craft designs that truly connect with users.
+          </p>
+          <div className="mt-6 flex gap-4">
+            <a href="/resume.pdf" download className="bg-pink-500 px-6 py-3 rounded-xl font-semibold shadow-md hover:bg-pink-600">
+              Download Resume
+            </a>
+            <a href="#contact" className="bg-purple-500 px-6 py-3 rounded-xl font-semibold shadow-md hover:bg-purple-600">
+              Contact Me
+            </a>
+          </div>
+        </section>
 
-      {/* Expertise */}
-      <section className="px-8 py-16 text-center">
-        <h3 className="text-3xl font-bold mb-8">Expertise</h3>
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-8 text-lg font-medium">
-          <div>🎨 Figma</div>
-          <div>🖌️ Adobe XD</div>
-          <div>🖼️ Photoshop</div>
-          <div>📐 Canva</div>
-          <div>⚛️ React</div>
-          <div>🌐 HTML/CSS/JS</div>
-          <div>🔥 Firebase</div>
-          <div>🔗 Web3 / DeFi</div>
-        </div>
-      </section>
+        {/* Expertise Section */}
+        <section id="expertise" className="py-20 bg-black/30 text-center">
+          <h3 className="text-3xl font-bold mb-10">My Expertise</h3>
+          <p className="max-w-3xl mx-auto mb-10 text-gray-300">
+            Over the years, I’ve honed my skills across multiple design platforms and tools. 
+            My expertise lies in creating intuitive, user-friendly, and visually engaging interfaces 
+            for both mobile and web applications.
+          </p>
+          <div className="flex flex-wrap justify-center gap-10 text-6xl">
+            <FaFigma className="hover:text-pink-400" />
+            <SiAdobexd className="hover:text-pink-400" />
+            <SiAdobephotoshop className="hover:text-pink-400" />
+            <FaSketch className="hover:text-pink-400" />
+            <SiCanva className="hover:text-pink-400" />
+            <FaHtml5 className="hover:text-pink-400" />
+            <FaCss3Alt className="hover:text-pink-400" />
+          </div>
+        </section>
 
-      {/* Projects */}
-      <section id="projects" className="px-8 py-16 bg-gradient-to-b from-gray-900 to-black text-center">
-        <h3 className="text-3xl font-bold mb-8">Projects</h3>
-        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8">
-          {(showMore ? projects : projects.slice(0, 4)).map((proj) => (
-            <div key={proj.id} className="bg-white/10 rounded-2xl p-4 shadow-lg backdrop-blur-md">
-              <img src={proj.img} alt={proj.title} className="w-full h-40 object-cover rounded-xl mb-4" />
-              <h4 className="text-xl font-semibold">{proj.title}</h4>
-              <p className="text-gray-300 text-sm mt-2">{proj.desc}</p>
-              <a
-                href="https://www.figma.com"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="mt-3 inline-block px-4 py-2 bg-gradient-to-r from-blue-600 to-purple-600 rounded-full text-sm hover:scale-105 transition"
-              >
-                🔗 View Project
-              </a>
+        {/* Projects Section */}
+        <section id="projects" className="py-20 text-center">
+          <h3 className="text-3xl font-bold mb-12">Project Showcase</h3>
+          <div className="max-w-6xl mx-auto grid md:grid-cols-2 lg:grid-cols-3 gap-10 px-6">
+            {projects.slice(0, showMore ? projects.length : 5).map((p) => (
+              <div key={p.id} className="bg-white/10 rounded-3xl overflow-hidden shadow-lg transform hover:scale-105 hover:shadow-[0_0_20px_#ff00ff] transition-all duration-300">
+                <img src={p.img} alt={p.title} className="w-full h-56 object-cover rounded-t-3xl" />
+                <div className="p-6">
+                  <h4 className="text-xl font-semibold mb-2">{p.title}</h4>
+                  <a href={p.link} target="_blank" rel="noopener noreferrer" className="inline-block bg-pink-500 px-4 py-2 rounded-lg hover:bg-pink-600">
+                    View Project
+                  </a>
+                </div>
+              </div>
+            ))}
+          </div>
+
+          {!showMore && (
+            <button
+              onClick={() => setShowMore(true)}
+              className="mt-10 bg-purple-500 px-6 py-3 rounded-xl font-semibold shadow-md hover:bg-purple-600 transition"
+            >
+              View More
+            </button>
+          )}
+        </section>
+
+        {/* Work Process Section */}
+        <section id="process" className="py-20 bg-black/30 text-center">
+          <h3 className="text-3xl font-bold mb-10">My Work Process</h3>
+          <p className="max-w-3xl mx-auto mb-12 text-gray-300">
+            I follow a structured design workflow that ensures every project is user-centered, 
+            functional, and visually compelling.
+          </p>
+          <div className="max-w-5xl mx-auto grid md:grid-cols-3 gap-8 px-6">
+            <div className="bg-white/10 p-6 rounded-2xl shadow-lg hover:shadow-pink-500/30">
+              <h4 className="text-xl font-semibold mb-3">1. Research & Discovery</h4>
+              <p className="text-gray-300">
+                Understand business goals, target users, and competitors to set a strong foundation.
+              </p>
             </div>
-          ))}
-        </div>
-        {!showMore && (
-          <button
-            onClick={() => setShowMore(true)}
-            className="mt-8 px-6 py-3 bg-gradient-to-r from-purple-600 to-blue-600 rounded-full font-semibold hover:scale-105 transition"
-          >
-            View More
-          </button>
-        )}
-      </section>
+            <div className="bg-white/10 p-6 rounded-2xl shadow-lg hover:shadow-pink-500/30">
+              <h4 className="text-xl font-semibold mb-3">2. Wireframing & Prototyping</h4>
+              <p className="text-gray-300">
+                Create low to high-fidelity wireframes and interactive prototypes to map user journeys.
+              </p>
+            </div>
+            <div className="bg-white/10 p-6 rounded-2xl shadow-lg hover:shadow-pink-500/30">
+              <h4 className="text-xl font-semibold mb-3">3. Visual Design & Testing</h4>
+              <p className="text-gray-300">
+                Apply modern UI trends, ensure accessibility, and conduct usability testing for perfection.
+              </p>
+            </div>
+          </div>
+        </section>
 
-      {/* Process of Work */}
-      <section id="process" className="px-8 py-16 text-center">
-        <h3 className="text-3xl font-bold mb-8">My UI/UX Process</h3>
-        <div className="max-w-4xl mx-auto text-gray-300 space-y-6 text-lg">
-          <p>✔️ <b>Research & Discovery</b> – Understand user needs, business goals, and competitors.</p>
-          <p>✔️ <b>Wireframing</b> – Quick low-fidelity wireframes to visualize layout & flow.</p>
-          <p>✔️ <b>Prototyping</b> – Interactive prototypes in Figma for real user testing.</p>
-          <p>✔️ <b>Visual Design</b> – Apply brand guidelines, typography, and modern UI trends.</p>
-          <p>✔️ <b>Usability Testing</b> – Iterating designs based on feedback to refine experience.</p>
-          <p>✔️ <b>Development Handoff</b> – Provide pixel-perfect assets and documentation for devs.</p>
-        </div>
-      </section>
+        {/* About Section */}
+        <section id="about" className="py-20 bg-black/30 text-center">
+          <img src="/images/profile.jpeg" alt="Profile" className="mx-auto rounded-full w-40 h-40 border-4 border-pink-400 shadow-lg" />
+          <h3 className="text-3xl font-bold mt-6">About Me</h3>
+          <p className="mt-4 max-w-3xl mx-auto text-lg text-gray-300">
+            I’m Vinod Mathur, a passionate UI/UX Designer who loves turning complex problems into 
+            elegant design solutions. With years of experience in crafting intuitive digital interfaces, 
+            I focus on creating meaningful user experiences that blend usability, aesthetics, and innovation. 
+          </p>
+        </section>
 
-      {/* About Me */}
-      <section id="about" className="px-8 py-16 bg-gradient-to-b from-black to-gray-900 text-center">
-        <h3 className="text-3xl font-bold mb-6">About Me</h3>
-        <img
-          src="/images/profile.jpeg"
-          alt="Profile"
-          className="mx-auto w-32 h-32 rounded-full border-4 border-purple-500 shadow-lg mb-6"
-        />
-        <p className="max-w-3xl mx-auto text-lg text-gray-300">
-          I’m Vinod Mathur, a passionate UI/UX Designer and Frontend Developer with 5+ years of experience in design and Web3.  
-          I thrive in blending aesthetics with functionality, ensuring every product I work on is not only visually appealing but also user-friendly.  
-          My persistence, adaptability, and creativity help me deliver unique digital solutions.
-        </p>
-      </section>
+        {/* Contact Section */}
+        <footer id="contact" className="py-10 text-center bg-black/50">
+          <h3 className="text-2xl font-bold mb-4">Contact Me</h3>
+          <p>Email: <a href="mailto:Vikymathur532@gmail.com" className="text-pink-400">Vikymathur532@gmail.com</a></p>
+          <p>Phone: <span className="text-pink-400">+91 7976680554</span></p>
+          <p className="mt-6 text-gray-400 text-sm">© 2025 Vinod Mathur. All Rights Reserved.</p>
+        </footer>
+      </div>
 
-      {/* Contact */}
-      <section id="contact" className="px-8 py-16 text-center">
-        <h3 className="text-3xl font-bold mb-8">Contact Me</h3>
-        <p>Email: <a href="mailto:vinod@example.com" className="text-blue-400">vinod@example.com</a></p>
-        <p>LinkedIn: <a href="https://linkedin.com/in/vinodmathur" className="text-blue-400">linkedin.com/in/vinodmathur</a></p>
-        <p>Twitter: <a href="https://twitter.com/vinod" className="text-blue-400">@vinod</a></p>
-      </section>
+      {/* Custom floating animation */}
+      <style>{`
+        @keyframes float {
+          0% { transform: translateY(0px); }
+          50% { transform: translateY(-20px); }
+          100% { transform: translateY(0px); }
+        }
+        .animate-bounce-slow {
+          animation: float 6s ease-in-out infinite;
+        }
+      `}</style>
     </div>
   );
 }
-
-export default App;
