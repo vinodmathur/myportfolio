@@ -4,8 +4,6 @@ import Particles from "react-tsparticles";
 import { loadFull } from "tsparticles";
 import { FaFigma, FaSketch, FaHtml5, FaCss3Alt, FaBars } from "react-icons/fa";
 import { SiAdobexd, SiAdobephotoshop, SiCanva } from "react-icons/si";
-import { FaLinkedin, FaInstagram } from "react-icons/fa";
-import { SiBehance, SiDribbble } from "react-icons/si";
 
 export default function App() {
   const [showMore, setShowMore] = useState(false);
@@ -212,62 +210,13 @@ export default function App() {
         </section>
 
         {/* Contact */}
-<footer id="contact" className="py-10 text-center bg-black/50">
-  <h3 className="text-2xl font-bold mb-4">Contact Me</h3>
-  
-  <p>
-    Email:{" "}
-    <a href="mailto:Vikymathur532@gmail.com" className="text-pink-400">
-      Vikymathur532@gmail.com
-    </a>
-  </p>
-  <p>
-    Phone:{" "}
-    <span className="text-pink-400">+91 7976680554</span>
-  </p>
-
-  {/* ✅ Social Media Icons */}
-  <div className="flex justify-center space-x-6 mt-6">
-    <a
-      href="https://linkedin.com/in/yourprofile"
-      target="_blank"
-      rel="noopener noreferrer"
-      className="text-gray-400 hover:text-pink-400 text-2xl transition-colors"
-    >
-      <FaLinkedin />
-    </a>
-    <a
-      href="https://instagram.com/yourinstagram"
-      target="_blank"
-      rel="noopener noreferrer"
-      className="text-gray-400 hover:text-pink-400 text-2xl transition-colors"
-    >
-      <FaInstagram />
-    </a>
-    <a
-      href="https://behance.net/yourbehance"
-      target="_blank"
-      rel="noopener noreferrer"
-      className="text-gray-400 hover:text-pink-400 text-2xl transition-colors"
-    >
-      <SiBehance />
-    </a>
-    <a
-      href="https://dribbble.com/yourdribbble"
-      target="_blank"
-      rel="noopener noreferrer"
-      className="text-gray-400 hover:text-pink-400 text-2xl transition-colors"
-    >
-      <SiDribbble />
-    </a>
-  </div>
-
-  <p className="mt-6 text-gray-400 text-sm">
-    © 2025 Vinod Mathur. All Rights Reserved.
-  </p>
-</footer>
-
-      </footer>
+        <footer id="contact" className="py-10 text-center bg-black/50">
+          <h3 className="text-2xl font-bold mb-4">Contact Me</h3>
+          <p>Email: <a href="mailto:Vikymathur532@gmail.com" className="text-pink-400">Vikymathur532@gmail.com</a></p>
+          <p>Phone: <span className="text-pink-400">+91 7976680554</span></p>
+          <p className="mt-6 text-gray-400 text-sm">© 2025 Vinod Mathur. All Rights Reserved.</p>
+        </footer>
+      </div>
 
       {/* Floating animation */}
       <style>{`
@@ -280,5 +229,6 @@ export default function App() {
           animation: float 6s ease-in-out infinite;
         }
       `}</style>
+    </div>
   );
 }
