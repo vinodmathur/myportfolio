@@ -209,14 +209,59 @@ export default function App() {
           </p>
         </section>
 
-        {/* Contact */}
+                {/* Contact */}
         <footer id="contact" className="py-10 text-center bg-black/50">
           <h3 className="text-2xl font-bold mb-4">Contact Me</h3>
-          <p>Email: <a href="mailto:Vikymathur532@gmail.com" className="text-pink-400">Vikymathur532@gmail.com</a></p>
-          <p>Phone: <span className="text-pink-400">+91 7976680554</span></p>
-          <p className="mt-6 text-gray-400 text-sm">© 2025 Vinod Mathur. All Rights Reserved.</p>
+          <p>
+            Email:{" "}
+            <a href="mailto:Vikymathur532@gmail.com" className="text-pink-400">
+              Vikymathur532@gmail.com
+            </a>
+          </p>
+          <p>
+            Phone: <span className="text-pink-400">+91 7976680554</span>
+          </p>
+
+          {/* Social Media Icons */}
+          <div className="flex justify-center gap-6 mt-6 text-2xl">
+            <a
+              href="https://linkedin.com/in/your-username"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="hover:text-pink-400 transition"
+            >
+              <FaLinkedin />
+            </a>
+            <a
+              href="https://instagram.com/your-username"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="hover:text-pink-400 transition"
+            >
+              <FaInstagram />
+            </a>
+            <a
+              href="https://www.behance.net/your-username"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="hover:text-pink-400 transition"
+            >
+              <FaBehance />
+            </a>
+            <a
+              href="https://dribbble.com/your-username"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="hover:text-pink-400 transition"
+            >
+              <FaDribbble />
+            </a>
+          </div>
+
+          <p className="mt-6 text-gray-400 text-sm">
+            © 2025 Vinod Mathur. All Rights Reserved.
+          </p>
         </footer>
-      </div>
 
       {/* Floating animation */}
       <style>{`
