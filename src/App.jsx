@@ -267,6 +267,8 @@ export default function App() {
   </p>
 </footer>
 
+      </footer>
+
       {/* Floating animation */}
       <style>{`
         @keyframes float {
