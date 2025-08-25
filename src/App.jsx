@@ -45,10 +45,10 @@ export default function App() {
       link: "https://www.figma.com/design/JgpN50khNEAm072LfABo3y/Food-Delivery-Partner-App--Community-?node-id=0-1",
     },
     // Demo extra projects
-    { id: 6, title: "TravelMate App", img: "https://via.placeholder.com/400x300.png?text=TravelMate+App", link: "#" },
-    { id: 7, title: "FitBuddy Health App", img: "https://via.placeholder.com/400x300.png?text=FitBuddy+App", link: "#" },
-    { id: 8, title: "EduLearn Online Platform", img: "https://via.placeholder.com/400x300.png?text=EduLearn+Platform", link: "#" },
-    { id: 9, title: "ShopEase E-commerce App", img: "https://via.placeholder.com/400x300.png?text=ShopEase+App", link: "#" },
+    { id: 6, title: "TravelMate App", img: "https://s3-alpha.figma.com/hub/file/5551975764/45488a29-99f3-4c64-9549-629255337435-cover.png", link: "#" },
+    { id: 7, title: "FitBuddy Health App", img: "https://cdn.dribbble.com/userupload/11887446/file/original-f34f4fd38dfe7aa5e9397dcafd7e536c.png?resize=400x300", link: "#" },
+    { id: 8, title: "EduLearn Online Platform", img: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRgNC2pw_5af9rM78056DxA5dXf00n7QzY2mw&s", link: "#" },
+    { id: 9, title: "ShopEase E-commerce App", img: "https://www.figma.com/community/resource/a2938e41-93fa-4836-a3ee-b3c3dc5f861a/thumbnail", link: "#" },
   ];
 
   return (
