@@ -278,6 +278,5 @@ export default function App() {
           animation: float 6s ease-in-out infinite;
         }
       `}</style>
-    </div>
   );
 }
