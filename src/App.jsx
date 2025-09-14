@@ -2,8 +2,6 @@
 import React, { useState, useEffect } from "react";
 import Particles from "react-tsparticles";
 import { loadFull } from "tsparticles";
-import { FaFigma, FaSketch, FaHtml5, FaCss3Alt, FaBars } from "react-icons/fa";
-import { SiAdobexd, SiAdobephotoshop, SiCanva } from "react-icons/si";
 
 export default function App() {
   const [showMore, setShowMore] = useState(false);
@@ -83,7 +81,7 @@ export default function App() {
               <a href="#contact" className="hover:text-pink-400">Contact</a>
             </nav>
             <button className="md:hidden text-xl" onClick={() => setMenuOpen(!menuOpen)}>
-              <FaBars />
+              ☰
             </button>
           </div>
           {menuOpen && (
@@ -103,7 +101,6 @@ export default function App() {
           <h2 className="text-5xl font-extrabold bg-gradient-to-r from-pink-400 to-purple-500 bg-clip-text text-transparent relative z-10">
             I'm UI/UX Designer
           </h2>
-          <img src="/vector1.png" alt="Floating Vector" className="mt-8 w-[600px] max-w-full animate-bounce-slow opacity-90" />
           <p className="mt-6 text-lg max-w-2xl text-gray-300 relative z-10">
             Creative UI/UX Designer with a deep passion for designing seamless digital experiences.  
             Specialized in Figma, Adobe XD, Photoshop, Canva, HTML & CSS.  
@@ -127,14 +124,14 @@ export default function App() {
             My expertise lies in creating intuitive, user-friendly, and visually engaging interfaces 
             for both mobile and web applications.
           </p>
-          <div className="flex flex-wrap justify-center gap-10 text-6xl">
-            <FaFigma className="hover:text-pink-400" />
-            <SiAdobexd className="hover:text-pink-400" />
-            <SiAdobephotoshop className="hover:text-pink-400" />
-            <FaSketch className="hover:text-pink-400" />
-            <SiCanva className="hover:text-pink-400" />
-            <FaHtml5 className="hover:text-pink-400" />
-            <FaCss3Alt className="hover:text-pink-400" />
+          <div className="flex flex-wrap justify-center gap-10 text-lg font-semibold">
+            <span className="hover:text-pink-400">Figma</span>
+            <span className="hover:text-pink-400">Adobe XD</span>
+            <span className="hover:text-pink-400">Photoshop</span>
+            <span className="hover:text-pink-400">Sketch</span>
+            <span className="hover:text-pink-400">Canva</span>
+            <span className="hover:text-pink-400">HTML5</span>
+            <span className="hover:text-pink-400">CSS3</span>
           </div>
         </section>
 
@@ -185,7 +182,6 @@ export default function App() {
 
         {/* About */}
         <section id="about" className="py-20 bg-black/30 text-center">
-          <img src="/images/profile (2).jpeg" alt="Profile" className="mx-auto rounded-full w-40 h-40 border-4 border-pink-400 shadow-lg" />
           <h3 className="text-3xl font-bold mt-6">About Me</h3>
           <p className="mt-4 max-w-3xl mx-auto text-lg text-gray-300">
             I’m Vinod Mathur, a passionate UI/UX Designer who loves turning complex problems into elegant design solutions.  
@@ -222,18 +218,6 @@ export default function App() {
           <p className="mt-6 text-gray-400 text-sm">© 2025 Vinod Mathur. All Rights Reserved.</p>
         </footer>
       </div>
-
-      {/* Floating animation */}
-      <style>{`
-        @keyframes float {
-          0% { transform: translateY(0px); }
-          50% { transform: translateY(-20px); }
-          100% { transform: translateY(0px); }
-        }
-        .animate-bounce-slow {
-          animation: float 6s ease-in-out infinite;
-        }
-      `}</style>
     </div>
   );
 }
