@@ -185,7 +185,7 @@ export default function App() {
 
         {/* About */}
         <section id="about" className="py-20 bg-black/30 text-center">
-          <img src="/images/profile.jpeg" alt="Profile" className="mx-auto rounded-full w-40 h-40 border-4 border-pink-400 shadow-lg" />
+          <img src="/images/profile (2).jpeg" alt="Profile" className="mx-auto rounded-full w-40 h-40 border-4 border-pink-400 shadow-lg" />
           <h3 className="text-3xl font-bold mt-6">About Me</h3>
           <p className="mt-4 max-w-3xl mx-auto text-lg text-gray-300">
             I’m Vinod Mathur, a passionate UI/UX Designer who loves turning complex problems into elegant design solutions.  
