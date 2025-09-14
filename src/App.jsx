@@ -5,8 +5,6 @@ import { loadFull } from "tsparticles";
 import { FaFigma, FaSketch, FaHtml5, FaCss3Alt, FaBars } from "react-icons/fa";
 import { SiAdobexd, SiAdobephotoshop, SiCanva } from "react-icons/si";
 
-export default ParticlesBackground;
-
 export default function App() {
   const [showMore, setShowMore] = useState(false);
   const [menuOpen, setMenuOpen] = useState(false);
