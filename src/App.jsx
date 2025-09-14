@@ -196,7 +196,7 @@ export default function App() {
 
         {/* Feedback Section */}
         <section id="feedback" className="py-20 text-center bg-black/40">
-          <h3 className="text-3xl font-bold mb-10">What Clients Say</h3>
+          <h3 className="text-3xl font-bold mb-10">Quick Feedbacks</h3>
           <div className="max-w-2xl mx-auto bg-white/10 p-8 rounded-2xl shadow-lg transition-all duration-500">
             <p className="text-lg italic text-gray-200">"{feedbacks[currentFeedback].text}"</p>
             <h4 className="mt-4 font-semibold text-pink-400">{feedbacks[currentFeedback].name}</h4>
