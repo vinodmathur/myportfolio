@@ -1,6 +1,4 @@
 import React, { useEffect, useState } from "react";
-import Particles, { initParticlesEngine } from "@tsparticles/react";
-import { loadSlim } from "@tsparticles/slim";
 import Particles from "@tsparticles/react";
 import { loadFull } from "tsparticles";
 import { motion } from "framer-motion";
