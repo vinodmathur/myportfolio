@@ -5,6 +5,7 @@ import { loadFull } from "tsparticles";
 import { FaFigma, FaSketch, FaHtml5, FaCss3Alt, FaBars } from "react-icons/fa";
 import { SiAdobexd, SiAdobephotoshop, SiCanva } from "react-icons/si";
 import { motion } from "framer-motion";
+import Tilt from "react-parallax-tilt";
 
 export default function App() {
   const [showMore, setShowMore] = useState(false);
@@ -48,8 +49,8 @@ export default function App() {
   }, [feedbacks.length]);
 
   return (
-    <div className="relative min-h-screen font-sans text-white overflow-hidden bg-black">
-      {/* Particle Background */}
+    <div className="relative min-h-screen font-sans text-white overflow-x-hidden">
+      {/* Particles Background */}
       <Particles
         init={particlesInit}
         className="absolute inset-0 -z-10"
@@ -93,7 +94,7 @@ export default function App() {
 
       {/* Hero Section */}
       <section className="relative flex flex-col items-center justify-center text-center min-h-screen px-6 pt-28">
-        {/* Animated Employee ID Card */}
+        {/* Animated Employee ID */}
         <motion.div
           initial={{ y: -200, rotate: -10 }}
           animate={{ y: 0, rotate: 0 }}
@@ -153,20 +154,53 @@ export default function App() {
         </motion.div>
       </section>
 
-      {/* Expertise, Projects, Process, About, Feedback, Client Logos, Contact Sections */}
-      {/* Each section wrapped in motion.div with scroll fade-in and subtle tilt effect */}
-      {/* This pattern applies throughout for ultra professional UI/UX experience */}
+      {/* Expertise Section */}
+      <motion.section id="expertise" className="py-20 bg-black/30 text-center" initial={{ opacity: 0 }} whileInView={{ opacity: 1 }} transition={{ duration: 1 }}>
+        <h3 className="text-3xl font-bold mb-10">My Expertise</h3>
+        <p className="max-w-3xl mx-auto mb-10 text-gray-300">
+          Over the 2 years, I’ve honed my skills across multiple design platforms and tools.  
+          My expertise lies in creating intuitive, user-friendly, and visually engaging interfaces 
+          for both mobile and web applications.
+        </p>
+        <div className="flex flex-wrap justify-center gap-10 text-6xl">
+          <FaFigma className="hover:text-pink-400 transition" />
+          <SiAdobexd className="hover:text-pink-400 transition" />
+          <SiAdobephotoshop className="hover:text-pink-400 transition" />
+          <FaSketch className="hover:text-pink-400 transition" />
+          <SiCanva className="hover:text-pink-400 transition" />
+          <FaHtml5 className="hover:text-pink-400 transition" />
+          <FaCss3Alt className="hover:text-pink-400 transition" />
+        </div>
+      </motion.section>
 
-      <style>{`
-        @keyframes float {
-          0% { transform: translateY(0px); }
-          50% { transform: translateY(-20px); }
-          100% { transform: translateY(0px); }
-        }
-        .animate-bounce-slow {
-          animation: float 6s ease-in-out infinite;
-        }
-      `}</style>
+      {/* Projects Section */}
+      <motion.section id="projects" className="py-20 text-center" initial={{ opacity: 0 }} whileInView={{ opacity: 1 }} transition={{ duration: 1 }}>
+        <h3 className="text-3xl font-bold mb-12">Project Showcase</h3>
+        <div className="max-w-6xl mx-auto grid md:grid-cols-2 lg:grid-cols-3 gap-10 px-6">
+          {projects.slice(0, showMore ? projects.length : 5).map((p) => (
+            <Tilt key={p.id} glareEnable={true} glareMaxOpacity={0.2} scale={1.05} className="rounded-3xl shadow-lg">
+              <motion.div whileHover={{ scale: 1.05 }} className="bg-white/10 rounded-3xl overflow-hidden shadow-lg transition-all duration-300">
+                <img src={p.img} alt={p.title} className="w-full h-56 object-cover rounded-t-3xl" />
+                <div className="p-6">
+                  <h4 className="text-xl font-semibold mb-2">{p.title}</h4>
+                  <a href={p.link} target="_blank" rel="noopener noreferrer" className="inline-block bg-pink-500 px-4 py-2 rounded-lg hover:bg-pink-600">
+                    View Project
+                  </a>
+                </div>
+              </motion.div>
+            </Tilt>
+          ))}
+        </div>
+        {!showMore && (
+          <button onClick={() => setShowMore(true)} className="mt-10 bg-purple-500 px-6 py-3 rounded-xl font-semibold shadow-md hover:bg-purple-600 transition">
+            View More
+          </button>
+        )}
+      </motion.section>
+
+      {/* Process, About, Feedback, Client Logos, Contact Sections... */}
+      {/* Due to character limits, remaining sections continue with same framer-motion + tilt + responsive logic */}
+      {/* Can provide full code including Process, About, Feedback, Client Logos, Contact if you want next */}
     </div>
   );
 }
