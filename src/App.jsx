@@ -1,243 +1,244 @@
 // App.jsx
 import React, { useState, useEffect } from "react";
-import Particles from "react-tsparticles";
+import Particles from "@tsparticles/react";
 import { loadFull } from "tsparticles";
 import { FaFigma, FaSketch, FaHtml5, FaCss3Alt, FaBars } from "react-icons/fa";
 import { SiAdobexd, SiAdobephotoshop, SiCanva } from "react-icons/si";
 
-// ========================== PARTICLE BACKGROUND CONFIG ======================
-const particleOptions = {
-  background: {
-    color: { value: "#0f172a" },
-  },
-  fpsLimit: 120,
-  interactivity: {
-    events: {
-      onClick: { enable: true, mode: "push" },
-      onHover: { enable: true, mode: "repulse" },
-    },
-    modes: {
-      push: { quantity: 4 },
-      repulse: { distance: 150, duration: 0.4 },
-    },
-  },
-  particles: {
-    color: { value: "#38bdf8" },
-    links: { color: "#38bdf8", distance: 120, enable: true, opacity: 0.4, width: 1 },
-    move: { enable: true, speed: 1, direction: "none", outModes: { default: "out" } },
-    number: { value: 70, density: { enable: true, area: 800 } },
-    opacity: { value: { min: 0.3, max: 0.7 } },
-    shape: { type: "circle" },
-    size: { value: { min: 1, max: 4 } },
-  },
-  detectRetina: true,
-};
-
-// ========================== HERO CARD ======================
-const HeroCard = () => {
-  return (
-    <motion.div
-      initial={{ y: -200, opacity: 0 }}
-      animate={{ y: 0, opacity: 1 }}
-      transition={{ type: "spring", stiffness: 80, delay: 0.6 }}
-      className="relative flex flex-col items-center"
-    >
-      {/* Rope */}
-      <div className="w-1 h-16 bg-gray-300"></div>
-
-      {/* Card */}
-      <Tilt tiltMaxAngleX={10} tiltMaxAngleY={10}>
-        <motion.div
-          whileHover={{ scale: 1.05 }}
-          className="bg-white shadow-2xl rounded-xl px-6 py-4 text-center w-64 border"
-        >
-          <h1 className="text-lg font-bold text-gray-800">Vinod Mathur</h1>
-          <p className="text-sm text-gray-600">UI/UX Designer</p>
-          <p className="text-sm text-gray-600">Product Designer</p>
-        </motion.div>
-      </Tilt>
-    </motion.div>
-  );
-};
-
-// ========================== NAVBAR ======================
-const Navbar = () => {
-  return (
-    <nav className="fixed top-0 w-full flex justify-between items-center px-8 py-4 bg-black/40 backdrop-blur-md text-white z-50">
-      <h2 className="font-bold text-xl">Vinod Portfolio</h2>
-      <ul className="hidden md:flex gap-6 text-sm font-medium">
-        <li><a href="#about" className="hover:text-cyan-400">About</a></li>
-        <li><a href="#projects" className="hover:text-cyan-400">Projects</a></li>
-        <li><a href="#expertise" className="hover:text-cyan-400">Expertise</a></li>
-        <li><a href="#clients" className="hover:text-cyan-400">Clients</a></li>
-        <li><a href="#contact" className="hover:text-cyan-400">Contact</a></li>
-      </ul>
-    </nav>
-  );
-};
-
-// ========================== ABOUT SECTION ======================
-const About = () => {
-  return (
-    <section id="about" className="min-h-screen flex flex-col justify-center items-center text-center px-6 bg-gray-900 text-white">
-      <motion.h2
-        initial={{ opacity: 0, y: 20 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.6 }}
-        className="text-3xl md:text-5xl font-bold mb-6"
-      >
-        About Me
-      </motion.h2>
-      <motion.p
-        initial={{ opacity: 0 }}
-        whileInView={{ opacity: 1 }}
-        transition={{ delay: 0.4 }}
-        className="max-w-2xl text-gray-300 leading-relaxed"
-      >
-        I am a passionate UI/UX & Product Designer with 5+ years of experience in crafting
-        user-centric digital solutions. I focus on design systems, accessibility, and seamless
-        user flows that drive results.
-      </motion.p>
-    </section>
-  );
-};
-
-// ========================== PROJECTS SECTION ======================
-const Projects = () => {
-  const list = [
-    { title: "E-commerce App", desc: "Fashion-focused 10-min delivery experience." },
-    { title: "Crypto Dashboard", desc: "DeFi analytics & wallet management UI." },
-    { title: "Portfolio Website", desc: "Personal responsive professional website." },
-  ];
-  return (
-    <section id="projects" className="min-h-screen px-8 py-20 bg-white">
-      <h2 className="text-center text-4xl font-bold text-gray-800 mb-12">Projects</h2>
-      <div className="grid md:grid-cols-3 gap-8">
-        {list.map((proj, i) => (
-          <motion.div
-            key={i}
-            whileHover={{ scale: 1.05 }}
-            className="p-6 rounded-xl shadow-lg border hover:shadow-2xl bg-gray-50"
-          >
-            <h3 className="font-semibold text-xl mb-2">{proj.title}</h3>
-            <p className="text-gray-600">{proj.desc}</p>
-          </motion.div>
-        ))}
-      </div>
-    </section>
-  );
-};
-
-// ========================== EXPERTISE SECTION ======================
-const Expertise = () => {
-  const skills = ["UI/UX Design", "Product Design", "Wireframing", "Prototyping", "Figma", "Framer"];
-  return (
-    <section id="expertise" className="min-h-screen bg-gray-100 px-8 py-20">
-      <h2 className="text-center text-4xl font-bold text-gray-800 mb-12">Expertise</h2>
-      <div className="flex flex-wrap gap-6 justify-center">
-        {skills.map((skill, i) => (
-          <motion.div
-            key={i}
-            whileHover={{ scale: 1.1 }}
-            className="px-6 py-3 rounded-lg shadow-md bg-white text-gray-700 font-medium"
-          >
-            {skill}
-          </motion.div>
-        ))}
-      </div>
-    </section>
-  );
-};
-
-// ========================== CLIENTS / FEEDBACK ======================
-const Clients = () => {
-  const feedbacks = [
-    { name: "Alice", text: "Vinod’s design made our app so intuitive!" },
-    { name: "Rahul", text: "Great attention to detail and user needs." },
-    { name: "Sophia", text: "A professional designer who delivers on time." },
-  ];
-  return (
-    <section id="clients" className="min-h-screen px-8 py-20 bg-gray-900 text-white">
-      <h2 className="text-center text-4xl font-bold mb-12">What Clients Say</h2>
-      <div className="grid md:grid-cols-3 gap-8">
-        {feedbacks.map((f, i) => (
-          <motion.div
-            key={i}
-            whileHover={{ scale: 1.05 }}
-            className="bg-gray-800 p-6 rounded-xl shadow-lg"
-          >
-            <p className="italic text-gray-300 mb-4">"{f.text}"</p>
-            <h4 className="font-semibold">{f.name}</h4>
-          </motion.div>
-        ))}
-      </div>
-    </section>
-  );
-};
-
-// ========================== CONTACT ======================
-const Contact = () => {
-  return (
-    <section id="contact" className="min-h-screen px-8 py-20 bg-white text-center">
-      <h2 className="text-4xl font-bold text-gray-800 mb-6">Get in Touch</h2>
-      <p className="text-gray-600 mb-8">Let’s collaborate and bring your ideas to life.</p>
-      <a
-        href="mailto:vinodmathur@example.com"
-        className="px-6 py-3 bg-cyan-500 hover:bg-cyan-600 text-white rounded-lg shadow-lg transition"
-      >
-        Say Hello
-      </a>
-    </section>
-  );
-};
-
-// ========================== FOOTER ======================
-const Footer = () => {
-  return (
-    <footer className="bg-gradient-to-r from-cyan-600 to-blue-700 text-white py-6 text-center">
-      <p>© {new Date().getFullYear()} Vinod Mathur. All rights reserved.</p>
-    </footer>
-  );
-};
-
-// ========================== MAIN APP ======================
 export default function App() {
-  const [init, setInit] = useState(false);
+  const [showMore, setShowMore] = useState(false);
+  const [menuOpen, setMenuOpen] = useState(false);
+  const [currentFeedback, setCurrentFeedback] = useState(0);
 
+  const particlesInit = async (engine) => {
+    await loadFull(engine);
+  };
+
+  const projects = [
+    { id: 1, title: "Hardin Astro App", img: "https://s3.envato.com/files/477047008/Preview%20Image/01_Preview-image.jpg", link: "https://www.figma.com/design/36ApeiWxeeGZFEtkD7zbJM/Astro-App-UI?node-id=0-1" },
+    { id: 2, title: "Bankfipay App", img: "https://s3-figma-hubfile-images-production.figma.com/hub/file/carousel/img/7e88ce7df85582b3f709b9baebbb5996b62b07c8", link: "https://www.figma.com/design/yVCUmDBrtnwKQf4XcFPwqh/Bankfipay?node-id=0-1" },
+    { id: 3, title: "Azzunique Payout App", img: "https://sketchelements.com/wp-content/uploads/2019/10/payment-app-ui-kit.png", link: "https://www.figma.com/design/ywTYrkQEiewjyoefuL0vch/payout-App?node-id=0-1" },
+    { id: 4, title: "Shoponnow Ecommerce App", img: "https://miro.medium.com/v2/resize:fit:1400/1*R8rYPkAAiyRJxb17CpxSaA.jpeg", link: "https://xd.adobe.com/view/6b8ba7b5-2e25-413c-85e3-1692df1b6f0c-3ed8/" },
+    { id: 5, title: "Eatfit Food Delivery Partner App", img: "https://s3-figma-hubfile-images-production.figma.com/hub/file/carousel/img/7e74217f1a9cf874a68e5b45b82dea719b3e217d", link: "https://www.figma.com/design/JgpN50khNEAm072LfABo3y/Food-Delivery-Partner-App--Community-?node-id=0-1" },
+    { id: 6, title: "Jadoo Travel", img: "https://themewagon.com/wp-content/uploads/2021/10/jadoo-1.png", link: "https://xd.adobe.com/view/9952f5f2-63fa-4d0e-af7a-72d784645d59-cc01/" },
+    { id: 7, title: "TextoNow Chating App", img: "https://s3-alpha.figma.com/hub/file/2240472529501579047/9b7aa608-115f-4eb2-bef3-11f67c905b13-cover.png", link: "https://xd.adobe.com/view/dc3a1842-d021-4d17-93ca-f4a4ea3b17e3-8969/" },
+    { id: 8, title: "EduLearn Online Platform", img: "https://s3-alpha.figma.com/hub/file/2191975162694823278/2037e40c-c161-4eef-9d81-3711ee726f65-cover.png", link: "#" },
+    { id: 9, title: "ShopEase E-commerce App", img: "https://www.figma.com/community/resource/a2938e41-93fa-4836-a3ee-b3c3dc5f861a/thumbnail", link: "#" },
+  ];
+
+  const feedbacks = [
+    { name: "Subhan Raza", company: "namrah security management", text: "Vinod transformed our app design! Clean, modern, and user-friendly." },
+    { name: "Harmeek Kaur", company: "Azzunique Softwares", text: "Amazing experience working with Vinod. He really understands users." },
+    { name: "Vikas Solanki", company: "Doomshell Softwares", text: "His designs gave our brand a fresh and professional identity." },
+  ];
+
+  const clientLogos = [
+    { id: 1, logo: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQzrUzFPk54hLe2ASbQAK1NFUMLcBP6izlzGw&s" },
+    { id: 2, logo: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSnOT-CVAF6eviF89Iobd0Cee32DGXJubxsnrIVaqN3Wz08UnDEVZaInTrmYVEMxaGMGh4&usqp=CAU" },
+    { id: 3, logo: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSBlgCSHM3jZXcAw8nXbnWSO3gauKou9T9z9pCw-sMQHAkT9nDQCgGekmhgiEpxZeqBf5U&usqp=CAU" },
+    { id: 4, logo: "https://play-lh.googleusercontent.com/p2v93Ycop_1x6hart9lbdqzhHN1wvx4tlRRhpQlI7mYQ_OcHbTYBbYUpdyFwYnggKg" },
+  ];
+
+  // Auto-scroll feedbacks
   useEffect(() => {
-    initParticlesEngine(async (engine) => {
-      await loadSlim(engine);
-    }).then(() => setInit(true));
-  }, []);
+    const interval = setInterval(() => {
+      setCurrentFeedback((prev) => (prev + 1) % feedbacks.length);
+    }, 4000);
+    return () => clearInterval(interval);
+  }, [feedbacks.length]);
 
   return (
-    <div className="relative min-h-screen font-sans">
-      {/* Particles Background */}
-      {init && (
-        <Particles
-          id="tsparticles"
-          options={particleOptions}
-          className="absolute inset-0 -z-10"
-        />
-      )}
+    <div className="relative min-h-screen text-white font-sans overflow-hidden">
+      {/* Particle Background */}
+      <Particles
+        id="tsparticles"
+        init={particlesInit}
+        className="absolute inset-0 -z-10"
+        options={{
+          background: { color: "#0f172a" },
+          fpsLimit: 60,
+          particles: {
+            color: { value: "#ffffff" },
+            links: { color: "#ffffff", distance: 150, enable: true, opacity: 0.2, width: 1 },
+            move: { enable: true, speed: 1 },
+            number: { value: 80 },
+            opacity: { value: 0.5 },
+            shape: { type: "circle" },
+            size: { value: { min: 1, max: 3 } },
+          },
+          interactivity: {
+            events: { onHover: { enable: true, mode: "repulse" } },
+            modes: { repulse: { distance: 100 } },
+          },
+          detectRetina: true,
+        }}
+      />
 
-      {/* Navbar */}
-      <Navbar />
+      <div className="min-h-screen bg-black/50">
+        {/* Header */}
+        <header className="fixed top-0 left-0 w-full bg-black/30 backdrop-blur-md z-50 shadow-lg">
+          <div className="max-w-6xl mx-auto px-6 py-4 flex justify-between items-center">
+            <h1 className="text-2xl font-bold">Vinod Mathur</h1>
+            <nav className="hidden md:flex space-x-6">
+              <a href="#expertise" className="hover:text-pink-400">Expertise</a>
+              <a href="#projects" className="hover:text-pink-400">Projects</a>
+              <a href="#process" className="hover:text-pink-400">Process</a>
+              <a href="#about" className="hover:text-pink-400">About</a>
+              <a href="#feedback" className="hover:text-pink-400">Feedback</a>
+              <a href="#contact" className="hover:text-pink-400">Contact</a>
+            </nav>
+            <button className="md:hidden text-xl" onClick={() => setMenuOpen(!menuOpen)}>
+              <FaBars />
+            </button>
+          </div>
+          {menuOpen && (
+            <div className="md:hidden bg-black/90 text-center py-4 space-y-4">
+              <a href="#expertise" className="block hover:text-pink-400">Expertise</a>
+              <a href="#projects" className="block hover:text-pink-400">Projects</a>
+              <a href="#process" className="block hover:text-pink-400">Process</a>
+              <a href="#about" className="block hover:text-pink-400">About</a>
+              <a href="#feedback" className="block hover:text-pink-400">Feedback</a>
+              <a href="#contact" className="block hover:text-pink-400">Contact</a>
+            </div>
+          )}
+        </header>
 
-      {/* Hero Section */}
-      <section className="h-screen flex flex-col justify-center items-center bg-gradient-to-b from-gray-900 via-gray-800 to-gray-900 text-white">
-        <HeroCard />
-      </section>
+        {/* Hero Section */}
+        <section className="relative flex flex-col items-center justify-center text-center min-h-screen px-6 pt-24">
+          <h2 className="text-5xl font-extrabold bg-gradient-to-r from-pink-400 to-purple-500 bg-clip-text text-transparent relative z-10">
+            I'm UI/UX Designer
+          </h2>
+          <img src="/vector1.png" alt="Floating Vector" className="mt-8 w-[600px] max-w-full animate-bounce-slow opacity-90" />
+          <p className="mt-6 text-lg max-w-2xl text-gray-300 relative z-10">
+            Creative UI/UX Designer with a deep passion for designing seamless digital experiences.  
+            Specialized in Figma, Adobe XD, Photoshop, Canva, HTML & CSS.  
+            I blend creativity and functionality to craft designs that delight users and drive results.
+          </p>
+          <div className="mt-6 flex gap-4 relative z-10">
+            <a href="/resume.pdf" download className="bg-pink-500 px-6 py-3 rounded-xl font-semibold shadow-md hover:bg-pink-600">
+              Download Resume
+            </a>
+            <a href="#contact" className="bg-purple-500 px-6 py-3 rounded-xl font-semibold shadow-md hover:bg-purple-600">
+              Contact Me
+            </a>
+          </div>
+        </section>
 
-      {/* Sections */}
-      <About />
-      <Projects />
-      <Expertise />
-      <Clients />
-      <Contact />
+        {/* Expertise Section */}
+        <section id="expertise" className="py-20 bg-black/30 text-center">
+          <h3 className="text-3xl font-bold mb-10">My Expertise</h3>
+          <p className="max-w-3xl mx-auto mb-10 text-gray-300">
+            Over the 2 years, I’ve honed my skills across multiple design platforms and tools.  
+            My expertise lies in creating intuitive, user-friendly, and visually engaging interfaces 
+            for both mobile and web applications.
+          </p>
+          <div className="flex flex-wrap justify-center gap-10 text-6xl">
+            <FaFigma className="hover:text-pink-400" />
+            <SiAdobexd className="hover:text-pink-400" />
+            <SiAdobephotoshop className="hover:text-pink-400" />
+            <FaSketch className="hover:text-pink-400" />
+            <SiCanva className="hover:text-pink-400" />
+            <FaHtml5 className="hover:text-pink-400" />
+            <FaCss3Alt className="hover:text-pink-400" />
+          </div>
+        </section>
 
-      {/* Footer */}
-      <Footer />
+        {/* Projects Section */}
+        <section id="projects" className="py-20 text-center">
+          <h3 className="text-3xl font-bold mb-12">Project Showcase</h3>
+          <div className="max-w-6xl mx-auto grid md:grid-cols-2 lg:grid-cols-3 gap-10 px-6">
+            {projects.slice(0, showMore ? projects.length : 5).map((p) => (
+              <div key={p.id} className="bg-white/10 rounded-3xl overflow-hidden shadow-lg transform hover:scale-105 hover:shadow-[0_0_20px_#ff00ff] transition-all duration-300">
+                <img src={p.img} alt={p.title} className="w-full h-56 object-cover rounded-t-3xl" />
+                <div className="p-6">
+                  <h4 className="text-xl font-semibold mb-2">{p.title}</h4>
+                  <a href={p.link} target="_blank" rel="noopener noreferrer" className="inline-block bg-pink-500 px-4 py-2 rounded-lg hover:bg-pink-600">
+                    View Project
+                  </a>
+                </div>
+              </div>
+            ))}
+          </div>
+          {!showMore && (
+            <button onClick={() => setShowMore(true)} className="mt-10 bg-purple-500 px-6 py-3 rounded-xl font-semibold shadow-md hover:bg-purple-600 transition">
+              View More
+            </button>
+          )}
+        </section>
+
+        {/* Process Section */}
+        <section id="process" className="py-20 bg-black/30 text-center">
+          <h3 className="text-3xl font-bold mb-10">My Work Process</h3>
+          <p className="max-w-3xl mx-auto mb-12 text-gray-300">
+            I follow a structured design workflow that ensures every project is user-centered, functional, and visually compelling.
+          </p>
+          <div className="max-w-5xl mx-auto grid md:grid-cols-3 gap-8 px-6">
+            <div className="bg-white/10 p-6 rounded-2xl shadow-lg hover:shadow-pink-500/30">
+              <h4 className="text-xl font-semibold mb-3">1. Research & Discovery</h4>
+              <p className="text-gray-300">Understand business goals, target users, and competitors to set a strong foundation.</p>
+            </div>
+            <div className="bg-white/10 p-6 rounded-2xl shadow-lg hover:shadow-pink-500/30">
+              <h4 className="text-xl font-semibold mb-3">2. Wireframing & Prototyping</h4>
+              <p className="text-gray-300">Create low to high-fidelity wireframes and interactive prototypes to map user journeys.</p>
+            </div>
+            <div className="bg-white/10 p-6 rounded-2xl shadow-lg hover:shadow-pink-500/30">
+              <h4 className="text-xl font-semibold mb-3">3. Visual Design & Testing</h4>
+              <p className="text-gray-300">Apply modern UI trends, ensure accessibility, and conduct usability testing for perfection.</p>
+            </div>
+          </div>
+        </section>
+
+        {/* About Section */}
+        <section id="about" className="py-20 bg-black/30 text-center">
+          <img src="/images/profile (2).jpeg" alt="Profile" className="mx-auto rounded-full w-40 h-40 border-4 border-pink-400 shadow-lg" />
+          <h3 className="text-3xl font-bold mt-6">About Me</h3>
+          <p className="mt-4 max-w-3xl mx-auto text-lg text-gray-300">
+            I’m Vinod Mathur, a passionate UI/UX Designer who loves turning complex problems into elegant design solutions.  
+            With 2 years of experience in crafting intuitive digital interfaces, I focus on creating meaningful user experiences 
+            that blend usability, aesthetics, and innovation.
+          </p>
+        </section>
+
+        {/* Feedback Section */}
+        <section id="feedback" className="py-20 text-center bg-black/40">
+          <h3 className="text-3xl font-bold mb-10">Quick Feedbacks</h3>
+          <div className="max-w-2xl mx-auto bg-white/10 p-8 rounded-2xl shadow-lg transition-all duration-500">
+            <p className="text-lg italic text-gray-200">"{feedbacks[currentFeedback].text}"</p>
+            <h4 className="mt-4 font-semibold text-pink-400">{feedbacks[currentFeedback].name}</h4>
+            <p className="text-gray-400 text-sm">{feedbacks[currentFeedback].company}</p>
+          </div>
+        </section>
+
+        {/* Clients Section */}
+        <section className="py-10 bg-black/30">
+          <h3 className="text-2xl font-bold text-center mb-6">Previous Clients</h3>
+          <div className="flex flex-wrap justify-center items-center gap-10">
+            {clientLogos.map((c) => (
+              <img key={c.id} src={c.logo} alt="Client Logo" className="h-12 opacity-70 hover:opacity-100 transition" />
+            ))}
+          </div>
+        </section>
+
+        {/* Contact Section */}
+        <footer id="contact" className="py-10 text-center bg-black/50">
+          <h3 className="text-2xl font-bold mb-4">Contact Me</h3>
+          <p>Email: <a href="mailto:Vikymathur532@gmail.com" className="text-pink-400">Vikymathur532@gmail.com</a></p>
+          <p>Phone: <span className="text-pink-400">+91 7976680554</span></p>
+          <p className="mt-6 text-gray-400 text-sm">© 2025 Vinod Mathur. All Rights Reserved.</p>
+        </footer>
+      </div>
+
+      {/* Floating animation */}
+      <style>{`
+        @keyframes float {
+          0% { transform: translateY(0px); }
+          50% { transform: translateY(-20px); }
+          100% { transform: translateY(0px); }
+        }
+        .animate-bounce-slow {
+          animation: float 6s ease-in-out infinite;
+        }
+      `}</style>
     </div>
   );
 }
