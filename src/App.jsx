@@ -2,6 +2,9 @@
 import React, { useEffect, useState } from "react";
 import Particles from "react-tsparticles";
 import { loadFull } from "tsparticles";
+import Particles, { initParticlesEngine } from "@tsparticles/react";
+import { useEffect, useState } from "react";
+import { loadSlim } from "@tsparticles/slim";
 import { motion } from "framer-motion";
 import { FaFigma, FaSketch, FaHtml5, FaCss3Alt, FaBars } from "react-icons/fa";
 import { SiAdobexd, SiAdobephotoshop, SiCanva } from "react-icons/si";
@@ -20,9 +23,16 @@ export default function App() {
   const [currentFeedback, setCurrentFeedback] = useState(0);
 
   // --- particles init
-  const particlesInit = async (main) => {
-    await loadFull(main);
-  };
+  const [init, setInit] = useState(false);
+
+useEffect(() => {
+  initParticlesEngine(async (engine) => {
+    await loadSlim(engine);
+  }).then(() => {
+    setInit(true);
+  });
+}, []);
+
 
   // --- content (unchanged)
   const projects = [
