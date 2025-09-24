@@ -66,25 +66,67 @@ export default function App() {
 
   return (
     <div className="relative min-h-screen font-sans text-white bg-black overflow-x-hidden">
-      {/* ---------- Particles Background ---------- */}
-      <Particles
-        init={particlesInit}
-        className="absolute inset-0 -z-10"
-        options={{
-          background: { color: "#0f172a" },
-          fpsLimit: 60,
-          particles: {
-            color: { value: ["#ffffff", "#A4E3B9"] },
-            links: { color: "#9CA3AF", distance: 120, enable: true, opacity: 0.08, width: 1 },
-            move: { enable: true, speed: 0.8 },
-            number: { value: 60 },
-            opacity: { value: { min: 0.05, max: 0.6 }, random: true, animation: { enable: true, speed: 0.8 } },
-            shape: { type: "circle" },
-            size: { value: { min: 1, max: 3 } },
-          },
-          detectRetina: true,
-        }}
-      />
+     {/* ---------- Particles Background ---------- */}
+<Particles
+  id="tsparticles"
+  init={particlesInit}
+  className="absolute inset-0 -z-10"
+  options={{
+    background: {
+      color: "#0f172a", // dark navy bg
+    },
+    fpsLimit: 60,
+    interactivity: {
+      events: {
+        onHover: { enable: true, mode: "repulse" },
+        onClick: { enable: true, mode: "push" },
+        resize: true,
+      },
+      modes: {
+        repulse: { distance: 80, duration: 0.4 },
+        push: { quantity: 3 },
+      },
+    },
+    particles: {
+      number: {
+        value: 80,
+        density: { enable: true, area: 800 },
+      },
+      color: {
+        value: ["#ffffff", "#A4E3B9", "#f472b6"], // white + mint + pink
+      },
+      links: {
+        enable: true,
+        distance: 130,
+        color: "#ffffff",
+        opacity: 0.15,
+        width: 1,
+      },
+      move: {
+        enable: true,
+        speed: 1.2,
+        direction: "none",
+        outModes: { default: "out" },
+      },
+      opacity: {
+        value: 0.8,
+        random: { enable: true, minimumValue: 0.3 },
+        animation: {
+          enable: true,
+          speed: 1,
+          minimumValue: 0.2,
+          sync: false,
+        },
+      },
+      size: {
+        value: { min: 1, max: 3 },
+        animation: { enable: true, speed: 2, minimumValue: 0.3, sync: false },
+      },
+      shape: { type: "circle" },
+    },
+    detectRetina: true,
+  }}
+/>
 
       {/* ---------- Header ---------- */}
       <header className="fixed top-0 left-0 w-full z-50 bg-black/30 backdrop-blur-md shadow">
