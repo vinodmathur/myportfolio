@@ -94,7 +94,6 @@ export default function App() {
 
       {/* Hero Section */}
       <section className="relative flex flex-col items-center justify-center text-center min-h-screen px-6 pt-28">
-        {/* Animated Employee ID */}
         <motion.div
           initial={{ y: -200, rotate: -10 }}
           animate={{ y: 0, rotate: 0 }}
@@ -198,9 +197,77 @@ export default function App() {
         )}
       </motion.section>
 
-      {/* Process, About, Feedback, Client Logos, Contact Sections... */}
-      {/* Due to character limits, remaining sections continue with same framer-motion + tilt + responsive logic */}
-      {/* Can provide full code including Process, About, Feedback, Client Logos, Contact if you want next */}
+      {/* Process Section */}
+      <motion.section id="process" className="py-20 bg-black/30 text-center" initial={{ opacity: 0 }} whileInView={{ opacity: 1 }} transition={{ duration: 1 }}>
+        <h3 className="text-3xl font-bold mb-10">My Work Process</h3>
+        <p className="max-w-3xl mx-auto mb-12 text-gray-300">
+          I follow a structured design workflow that ensures every project is user-centered, functional, and visually compelling.
+        </p>
+        <div className="max-w-5xl mx-auto grid md:grid-cols-3 gap-8 px-6">
+          {[
+            { title: "Research & Discovery", desc: "Understand business goals, target users, and competitors to set a strong foundation." },
+            { title: "Wireframing & Prototyping", desc: "Create low to high-fidelity wireframes and interactive prototypes to map user journeys." },
+            { title: "Visual Design & Testing", desc: "Apply modern UI trends, ensure accessibility, and conduct usability testing for perfection." },
+          ].map((step, i) => (
+            <motion.div key={i} className="bg-white/10 p-6 rounded-2xl shadow-lg hover:shadow-pink-500/30 transition"
+              whileHover={{ scale: 1.05, rotateY: 5 }}>
+              <h4 className="text-xl font-semibold mb-3">{i + 1}. {step.title}</h4>
+              <p className="text-gray-300">{step.desc}</p>
+            </motion.div>
+          ))}
+        </div>
+      </motion.section>
+
+      {/* About Section */}
+      <motion.section id="about" className="py-20 bg-black/30 text-center" initial={{ opacity: 0 }} whileInView={{ opacity: 1 }} transition={{ duration: 1 }}>
+        <motion.img src="/images/profile (2).jpeg" alt="Profile" className="mx-auto rounded-full w-40 h-40 border-4 border-pink-400 shadow-lg"
+          initial={{ scale: 0 }}
+          animate={{ scale: 1 }}
+          transition={{ duration: 1 }}
+        />
+        <h3 className="text-3xl font-bold mt-6">About Me</h3>
+        <p className="mt-4 max-w-3xl mx-auto text-lg text-gray-300">
+          I’m Vinod Mathur, a passionate UI/UX Designer who loves turning complex problems into elegant design solutions.  
+          With 2 years of experience in crafting intuitive digital interfaces, I focus on creating meaningful user experiences 
+          that blend usability, aesthetics, and innovation.
+        </p>
+      </motion.section>
+
+      {/* Feedback Section */}
+      <motion.section id="feedback" className="py-20 text-center bg-black/40" initial={{ opacity: 0 }} whileInView={{ opacity: 1 }} transition={{ duration: 1 }}>
+        <h3 className="text-3xl font-bold mb-10">Quick Feedbacks</h3>
+        <motion.div key={currentFeedback} className="max-w-2xl mx-auto bg-white/10 p-8 rounded-2xl shadow-lg transition-all duration-500"
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          exit={{ opacity: 0, y: -20 }}
+        >
+          <p className="text-lg text-gray-300 mb-4">"{feedbacks[currentFeedback].text}"</p>
+          <p className="font-semibold">{feedbacks[currentFeedback].name}</p>
+          <p className="text-gray-400 text-sm">{feedbacks[currentFeedback].company}</p>
+        </motion.div>
+      </motion.section>
+
+      {/* Client Logos */}
+      <motion.section className="py-20 bg-black/30 text-center" initial={{ opacity: 0 }} whileInView={{ opacity: 1 }} transition={{ duration: 1 }}>
+        <h3 className="text-3xl font-bold mb-10">Clients & Partners</h3>
+        <div className="flex flex-wrap justify-center items-center gap-12 px-6">
+          {clientLogos.map(c => (
+            <motion.img key={c.id} src={c.logo} alt="Client Logo" className="h-16 opacity-70 hover:opacity-100 transition"
+              whileHover={{ scale: 1.1 }} />
+          ))}
+        </div>
+      </motion.section>
+
+      {/* Contact Section */}
+      <motion.section id="contact" className="py-20 bg-black/40 text-center" initial={{ opacity: 0 }} whileInView={{ opacity: 1 }} transition={{ duration: 1 }}>
+        <h3 className="text-3xl font-bold mb-10">Get in Touch</h3>
+        <p className="max-w-2xl mx-auto text-gray-300 mb-8">Feel free to reach out for collaborations or just a friendly chat!</p>
+        <a href="mailto:vinod@example.com" className="bg-pink-500 px-6 py-3 rounded-xl font-semibold shadow-md hover:bg-pink-600 transition inline-block">Say Hello</a>
+      </motion.section>
+
+      <footer className="py-6 text-center text-gray-400">
+        © 2025 Vinod Mathur. All rights reserved.
+      </footer>
     </div>
   );
 }
