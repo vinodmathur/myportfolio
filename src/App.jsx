@@ -1,8 +1,9 @@
-import React, { useEffect, useState } from "react";
-import Particles from "@tsparticles/react";
+// App.jsx
+import React, { useState, useEffect } from "react";
+import Particles from "react-tsparticles";
 import { loadFull } from "tsparticles";
-import { motion } from "framer-motion";
-import Tilt from "react-parallax-tilt";
+import { FaFigma, FaSketch, FaHtml5, FaCss3Alt, FaBars } from "react-icons/fa";
+import { SiAdobexd, SiAdobephotoshop, SiCanva } from "react-icons/si";
 
 // ========================== PARTICLE BACKGROUND CONFIG ======================
 const particleOptions = {
