@@ -1,10 +1,8 @@
 // App.jsx
 import React, { useEffect, useState } from "react";
-import Particles from "react-tsparticles";
-import { loadFull } from "tsparticles";
 import Particles, { initParticlesEngine } from "@tsparticles/react";
-import { useEffect, useState } from "react";
 import { loadSlim } from "@tsparticles/slim";
+import { useEffect, useState } from "react";
 import { motion } from "framer-motion";
 import { FaFigma, FaSketch, FaHtml5, FaCss3Alt, FaBars } from "react-icons/fa";
 import { SiAdobexd, SiAdobephotoshop, SiCanva } from "react-icons/si";
