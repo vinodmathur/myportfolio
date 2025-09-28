@@ -2,8 +2,18 @@
 import React, { useState, useEffect } from "react";
 import Particles from "react-tsparticles";
 import { loadFull } from "tsparticles";
-import { FaFigma, FaSketch, FaHtml5, FaCss3Alt, FaBars } from "react-icons/fa";
-import { SiAdobexd, SiAdobephotoshop, SiCanva } from "react-icons/si";
+import {
+  FaFigma,
+  FaSketch,
+  FaHtml5,
+  FaCss3Alt,
+  FaBars,
+} from "react-icons/fa";
+import {
+  SiAdobexd,
+  SiAdobephotoshop,
+  SiCanva,
+} from "react-icons/si";
 
 export default function App() {
   const [showMore, setShowMore] = useState(false);
@@ -39,7 +49,6 @@ export default function App() {
     { id: 4, logo: "https://play-lh.googleusercontent.com/p2v93Ycop_1x6hart9lbdqzhHN1wvx4tlRRhpQlI7mYQ_OcHbTYBbYUpdyFwYnggKg" },
   ];
 
-  // Auto-scroll feedbacks
   useEffect(() => {
     const interval = setInterval(() => {
       setCurrentFeedback((prev) => (prev + 1) % feedbacks.length);
@@ -49,48 +58,47 @@ export default function App() {
 
   return (
     <div className="relative min-h-screen text-white font-sans overflow-hidden bg-black">
-
-      {/* Enhanced Particle Background */}
+      {/* Particle Background */}
       <Particles
         init={particlesInit}
         className="absolute inset-0 -z-10"
         options={{
           background: { color: "#0f172a" },
-          fpsLimit: 60,
+          fpsLimit: 120,
           interactivity: {
             events: {
-              onHover: { enable: true, mode: "repulse" },
+              onHover: { enable: true, mode: "grab" },
               onClick: { enable: true, mode: "push" },
             },
-            modes: { repulse: { distance: 100, duration: 0.4 }, push: { quantity: 4 } },
+            modes: {
+              grab: { distance: 200, links: { opacity: 0.5 } },
+              push: { quantity: 4 },
+            },
           },
           particles: {
-            color: { value: ["#ff0080", "#7928ca", "#ff00ff", "#00ffff"] },
-            links: { color: "#ffffff", distance: 150, enable: true, opacity: 0.2, width: 1 },
-            move: { enable: true, speed: 1.2, direction: "none", outModes: { default: "bounce" } },
-            number: { value: 100, density: { enable: true, area: 800 } },
-            opacity: { value: 0.6 },
+            color: { value: ["#ff0080", "#7928ca", "#00e0ff"] },
+            links: { color: "#fff", distance: 150, enable: true, opacity: 0.2, width: 1 },
+            move: { enable: true, speed: 1.5, direction: "none", outModes: { default: "bounce" } },
+            number: { value: 90, density: { enable: true, area: 800 } },
+            opacity: { value: 0.7 },
             shape: { type: ["circle", "triangle", "star"] },
-            size: { value: { min: 1, max: 4 } },
-            rotate: { value: 0, direction: "random", animation: { enable: true, speed: 5 } },
+            size: { value: { min: 1, max: 5 } },
           },
           detectRetina: true,
         }}
       />
 
-      <div className="min-h-screen bg-black/50 backdrop-blur-sm">
-
+      <div className="min-h-screen bg-black/60 backdrop-blur-md">
         {/* Header */}
-        <header className="fixed top-0 left-0 w-full bg-black/40 backdrop-blur-md z-50 shadow-lg">
+        <header className="fixed top-0 left-0 w-full bg-black/30 backdrop-blur-md z-50 shadow-lg animate-fadeIn">
           <div className="max-w-6xl mx-auto px-6 py-4 flex justify-between items-center">
             <h1 className="text-2xl font-bold tracking-wider">Vinod Mathur</h1>
             <nav className="hidden md:flex space-x-6">
-              <a href="#expertise" className="hover:text-pink-400 transition-colors">Expertise</a>
-              <a href="#projects" className="hover:text-pink-400 transition-colors">Projects</a>
-              <a href="#process" className="hover:text-pink-400 transition-colors">Process</a>
-              <a href="#about" className="hover:text-pink-400 transition-colors">About</a>
-              <a href="#feedback" className="hover:text-pink-400 transition-colors">Feedback</a>
-              <a href="#contact" className="hover:text-pink-400 transition-colors">Contact</a>
+              {["expertise","projects","process","about","feedback","contact"].map((link) => (
+                <a key={link} href={`#${link}`} className="hover:text-pink-400 transition-colors">
+                  {link.charAt(0).toUpperCase()+link.slice(1)}
+                </a>
+              ))}
             </nav>
             <button className="md:hidden text-xl" onClick={() => setMenuOpen(!menuOpen)}>
               <FaBars />
@@ -99,14 +107,16 @@ export default function App() {
           {menuOpen && (
             <div className="md:hidden bg-black/90 text-center py-4 space-y-4">
               {["expertise","projects","process","about","feedback","contact"].map((link) => (
-                <a key={link} href={`#${link}`} className="block hover:text-pink-400">{link.charAt(0).toUpperCase()+link.slice(1)}</a>
+                <a key={link} href={`#${link}`} className="block hover:text-pink-400">
+                  {link.charAt(0).toUpperCase()+link.slice(1)}
+                </a>
               ))}
             </div>
           )}
         </header>
 
         {/* Hero Section */}
-        <section className="relative flex flex-col items-center justify-center text-center min-h-screen px-6 pt-24">
+        <section className="relative flex flex-col items-center justify-center text-center min-h-screen px-6 pt-24 animate-fadeUp">
           <h2 className="text-5xl md:text-6xl font-extrabold bg-gradient-to-r from-pink-400 to-purple-500 bg-clip-text text-transparent relative z-10">
             UI/UX Designer
           </h2>
@@ -126,33 +136,29 @@ export default function App() {
           </div>
         </section>
 
-        {/* Expertise Section */}
-        <section id="expertise" className="py-20 text-center">
+        {/* Expertise */}
+        <section id="expertise" className="py-20 text-center animate-fadeUp">
           <h3 className="text-3xl md:text-4xl font-bold mb-10">My Expertise</h3>
           <p className="max-w-3xl mx-auto mb-10 text-gray-300 text-lg md:text-xl">
             I craft intuitive and visually engaging interfaces across multiple design platforms.
           </p>
           <div className="flex flex-wrap justify-center gap-10 text-6xl">
-            <FaFigma className="hover:text-pink-400 transition" />
-            <SiAdobexd className="hover:text-pink-400 transition" />
-            <SiAdobephotoshop className="hover:text-pink-400 transition" />
-            <FaSketch className="hover:text-pink-400 transition" />
-            <SiCanva className="hover:text-pink-400 transition" />
-            <FaHtml5 className="hover:text-pink-400 transition" />
-            <FaCss3Alt className="hover:text-pink-400 transition" />
+            {[FaFigma,SiAdobexd,SiAdobephotoshop,FaSketch,SiCanva,FaHtml5,FaCss3Alt].map((Icon,i)=>(
+              <Icon key={i} className="hover:text-pink-400 transition transform hover:scale-110" />
+            ))}
           </div>
         </section>
 
-        {/* Projects Section */}
-        <section id="projects" className="py-20 text-center">
+        {/* Projects */}
+        <section id="projects" className="py-20 text-center animate-fadeUp">
           <h3 className="text-3xl md:text-4xl font-bold mb-12">Project Showcase</h3>
           <div className="max-w-6xl mx-auto grid md:grid-cols-2 lg:grid-cols-3 gap-10 px-6">
             {projects.slice(0, showMore ? projects.length : 5).map((p) => (
-              <div key={p.id} className="bg-white/10 rounded-3xl overflow-hidden shadow-lg hover:shadow-[0_0_20px_#ff00ff] transform hover:scale-105 transition-all duration-300">
-                <img src={p.img} alt={p.title} className="w-full h-56 object-cover rounded-t-3xl" />
+              <div key={p.id} className="group bg-white/10 rounded-3xl overflow-hidden shadow-lg hover:shadow-[0_0_25px_#ff00ff] transform hover:-translate-y-2 transition-all duration-500">
+                <img src={p.img} alt={p.title} className="w-full h-56 object-cover rounded-t-3xl group-hover:scale-110 transition-transform duration-500" />
                 <div className="p-6">
                   <h4 className="text-xl font-semibold mb-2">{p.title}</h4>
-                  <a href={p.link} target="_blank" rel="noopener noreferrer" className="inline-block bg-pink-500 px-4 py-2 rounded-lg hover:bg-pink-600 transition">
+                  <a href={p.link} target="_blank" rel="noopener noreferrer" className="inline-block bg-gradient-to-r from-pink-500 to-purple-500 px-4 py-2 rounded-lg hover:scale-105 transition-transform">
                     View Project
                   </a>
                 </div>
@@ -166,69 +172,64 @@ export default function App() {
           )}
         </section>
 
-        {/* Process Section */}
-        <section id="process" className="py-20 bg-black/30 text-center">
+        {/* Process */}
+        <section id="process" className="py-20 bg-black/30 text-center animate-fadeUp">
           <h3 className="text-3xl md:text-4xl font-bold mb-10">My Work Process</h3>
           <p className="max-w-3xl mx-auto mb-12 text-gray-300 text-lg md:text-xl">
             Structured workflow ensuring user-centered, functional & visually compelling designs.
           </p>
           <div className="max-w-5xl mx-auto grid md:grid-cols-3 gap-8 px-6">
-            <div className="bg-white/10 p-6 rounded-2xl shadow-lg hover:shadow-pink-500/30 transition">
-              <h4 className="text-xl font-semibold mb-3">1. Research & Discovery</h4>
-              <p className="text-gray-300">Understand business goals, target users, and competitors.</p>
-            </div>
-            <div className="bg-white/10 p-6 rounded-2xl shadow-lg hover:shadow-pink-500/30 transition">
-              <h4 className="text-xl font-semibold mb-3">2. Wireframing & Prototyping</h4>
-              <p className="text-gray-300">Low to high-fidelity prototypes to map user flow and UI.</p>
-            </div>
-            <div className="bg-white/10 p-6 rounded-2xl shadow-lg hover:shadow-pink-500/30 transition">
-              <h4 className="text-xl font-semibold mb-3">3. Design & Handoff</h4>
-              <p className="text-gray-300">Final polished UI with developer-friendly assets.</p>
-            </div>
+            {[
+              {title:"1. Research & Discovery",desc:"Understand business goals, target users, and competitors."},
+              {title:"2. Wireframing & Prototyping",desc:"Low to high-fidelity prototypes to map user flow and UI."},
+              {title:"3. Design & Handoff",desc:"Final polished UI with developer-friendly assets."},
+            ].map((step,i)=>(
+              <div key={i} className="bg-white/10 p-6 rounded-2xl shadow-lg hover:shadow-pink-500/30 transition transform hover:-translate-y-2 duration-500">
+                <h4 className="text-xl font-semibold mb-3">{step.title}</h4>
+                <p className="text-gray-300">{step.desc}</p>
+              </div>
+            ))}
           </div>
         </section>
 
-        {/* Feedback Section */}
-        <section id="feedback" className="py-20 text-center bg-black/40">
+        {/* Feedback */}
+        <section id="feedback" className="py-20 text-center bg-black/40 animate-fadeUp">
           <h3 className="text-3xl md:text-4xl font-bold mb-10">Client Feedback</h3>
-          <div className="max-w-3xl mx-auto bg-white/10 p-8 rounded-3xl shadow-lg hover:shadow-pink-500/30 transition">
+          <div className="max-w-3xl mx-auto bg-white/10 p-8 rounded-3xl shadow-lg hover:shadow-pink-500/30 transition transform hover:scale-105 duration-500">
             <p className="text-gray-300 text-lg mb-4">"{feedbacks[currentFeedback].text}"</p>
             <h4 className="text-xl font-semibold">{feedbacks[currentFeedback].name}</h4>
             <p className="text-gray-400">{feedbacks[currentFeedback].company}</p>
           </div>
         </section>
 
-        {/* Clients Section */}
-        <section id="clients" className="py-20 text-center">
+        {/* Clients */}
+        <section id="clients" className="py-20 text-center animate-fadeUp">
           <h3 className="text-3xl md:text-4xl font-bold mb-10">My Clients</h3>
           <div className="flex flex-wrap justify-center gap-10 items-center">
             {clientLogos.map((logo) => (
-              <img key={logo.id} src={logo.logo} alt="Client Logo" className="w-32 h-32 object-contain filter grayscale hover:grayscale-0 transition" />
+              <img key={logo.id} src={logo.logo} alt="Client Logo" className="w-32 h-32 object-contain filter grayscale hover:grayscale-0 transition duration-500" />
             ))}
           </div>
         </section>
 
-        {/* Contact Section */}
-        <section id="contact" className="py-20 text-center bg-black/30">
+        {/* Contact */}
+        <section id="contact" className="py-20 text-center bg-black/30 animate-fadeUp">
           <h3 className="text-3xl md:text-4xl font-bold mb-10">Get In Touch</h3>
           <p className="text-gray-300 mb-6">Feel free to reach out for collaborations or projects.</p>
-          <a href="mailto:vinod@example.com" className="bg-gradient-to-r from-pink-500 to-purple-500 px-8 py-4 rounded-xl font-semibold shadow-lg hover:scale-105 transition-transform">
+          <a href="mailto:vinod@example.com" className="bg-gradient-to-r from-pink-500 to-purple-500 px-8 py-4 rounded-xl font-semibold shadow-lg hover:scale-110 transition-transform">
             Email Me
           </a>
         </section>
-
       </div>
 
-      {/* Floating animation */}
+      {/* Animations */}
       <style>{`
-        @keyframes float {
-          0% { transform: translateY(0px); }
-          50% { transform: translateY(-20px); }
-          100% { transform: translateY(0px); }
-        }
-        .animate-bounce-slow {
-          animation: float 6s ease-in-out infinite;
-        }
+        @keyframes float {0%{transform:translateY(0)}50%{transform:translateY(-20px)}100%{transform:translateY(0)}}
+        .animate-bounce-slow {animation: float 6s ease-in-out infinite;}
+        @keyframes fadeUp {from{opacity:0;transform:translateY(40px)}to{opacity:1;transform:translateY(0)}}
+        .animate-fadeUp {animation: fadeUp 1s ease-out;}
+        @keyframes fadeIn {from{opacity:0;}to{opacity:1;}}
+        .animate-fadeIn {animation: fadeIn 1.5s ease-out;}
       `}</style>
     </div>
   );
