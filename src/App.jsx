@@ -144,48 +144,114 @@ export default function App() {
       <div className="pointer-events-none absolute inset-0 -z-10 bg-[radial-gradient(ellipse_at_center,rgba(255,255,255,0.02),transparent_35%)]" />
 
       {/* Header */}
-      <header className="fixed top-4 left-0 right-0 z-40">
-        <div className="max-w-6xl mx-auto px-6 flex items-center justify-between">
-          <a href="#" className="inline-flex items-center gap-3" aria-label="Vinod Mathur home">
-            <div className="w-10 h-10 rounded-lg bg-gradient-to-br from-pink-500 to-purple-500 flex items-center justify-center shadow-lg">
-              <span className="font-bold tracking-tight text-sm">VM</span>
-            </div>
-            <span className="text-lg font-semibold">Welcome to Portfolio</span>
-          </a>
+<header className="fixed top-0 left-0 right-0 z-50">
+  <div className="max-w-7xl mx-auto px-6 lg:px-10 flex items-center justify-between h-16 rounded-xl bg-black/30 backdrop-blur-md border border-white/10 shadow-lg">
+    {/* Logo */}
+    <a
+      href="#"
+      className="inline-flex items-center gap-3"
+      aria-label="Vinod Mathur home"
+    >
+      <div className="w-10 h-10 rounded-lg bg-gradient-to-br from-pink-500 to-purple-500 flex items-center justify-center shadow-lg">
+        <span className="font-bold tracking-tight text-sm">VM</span>
+      </div>
+      <span className="text-lg font-semibold hidden sm:inline">
+        Portfolio
+      </span>
+    </a>
 
-          <nav className="hidden md:flex items-center gap-8 text-sm text-gray-200">
-            <a href="#expertise" className="hover:text-pink-400 transition">Expertise</a>
-            <a href="#projects" className="hover:text-pink-400 transition">Projects</a>
-            <a href="#process" className="hover:text-pink-400 transition">Process</a>
-            <a href="#about" className="hover:text-pink-400 transition">About</a>
-            <a href="#feedback" className="hover:text-pink-400 transition">Feedback</a>
-            <a href="#contact" className="hover:text-pink-400 transition">Contact</a>
-            <a href="/Resume4.pdf" download className="ml-4 inline-block px-4 py-2 rounded-lg bg-gradient-to-r from-pink-500 to-purple-500 text-black font-medium shadow">Resume</a>
-          </nav>
+    {/* Desktop Nav */}
+    <nav className="hidden md:flex items-center gap-8 text-sm font-medium">
+      {[
+        ["Expertise", "#expertise"],
+        ["Projects", "#projects"],
+        ["Process", "#process"],
+        ["About", "#about"],
+        ["Feedback", "#feedback"],
+        ["Contact", "#contact"],
+      ].map(([label, link]) => (
+        <a
+          key={label}
+          href={link}
+          className="relative text-gray-200 hover:text-white transition group"
+        >
+          {label}
+          <span className="absolute left-0 -bottom-1 w-0 h-[2px] bg-gradient-to-r from-pink-500 to-purple-500 transition-all group-hover:w-full"></span>
+        </a>
+      ))}
+      <a
+        href="/Resume4.pdf"
+        download
+        className="ml-4 inline-block px-4 py-2 rounded-lg bg-gradient-to-r from-pink-500 to-purple-500 text-black font-medium shadow hover:scale-105 transition"
+      >
+        Resume
+      </a>
+    </nav>
 
-          <button
-            className="md:hidden p-2 rounded-md bg-white/6 hover:bg-white/8"
-            aria-label="Open menu"
-            onClick={() => setMenuOpen((s) => !s)}
-          >
-            <FaBars />
-          </button>
-        </div>
+    {/* Mobile Button */}
+    <button
+      className="md:hidden p-2 rounded-md bg-white/10 hover:bg-white/20 transition"
+      aria-label="Toggle menu"
+      onClick={() => setMenuOpen((s) => !s)}
+    >
+      {menuOpen ? (
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          className="h-6 w-6"
+          fill="none"
+          viewBox="0 0 24 24"
+          stroke="currentColor"
+        >
+          <path
+            strokeLinecap="round"
+            strokeLinejoin="round"
+            strokeWidth={2}
+            d="M6 18L18 6M6 6l12 12"
+          />
+        </svg>
+      ) : (
+        <FaBars />
+      )}
+    </button>
+  </div>
 
-        {/* Mobile menu */}
-        {menuOpen && (
-          <div className="md:hidden mt-3 max-w-3xl mx-auto px-6 bg-black/60 backdrop-blur rounded-lg py-4 shadow-lg">
-            <div className="flex flex-col gap-3 text-center">
-              <a href="#expertise" onClick={() => setMenuOpen(false)} className="py-2">Expertise</a>
-              <a href="#projects" onClick={() => setMenuOpen(false)} className="py-2">Projects</a>
-              <a href="#process" onClick={() => setMenuOpen(false)} className="py-2">Process</a>
-              <a href="#about" onClick={() => setMenuOpen(false)} className="py-2">About</a>
-              <a href="#feedback" onClick={() => setMenuOpen(false)} className="py-2">Feedback</a>
-              <a href="#contact" onClick={() => setMenuOpen(false)} className="py-2">Contact</a>
-            </div>
-          </div>
-        )}
-      </header>
+  {/* Mobile Menu */}
+  <div
+    className={`md:hidden transition-all duration-300 ${
+      menuOpen
+        ? "max-h-[400px] opacity-100 mt-3"
+        : "max-h-0 opacity-0 overflow-hidden"
+    }`}
+  >
+    <div className="mx-4 bg-black/70 backdrop-blur-md rounded-lg py-4 shadow-lg text-center flex flex-col gap-3">
+      {[
+        ["Expertise", "#expertise"],
+        ["Projects", "#projects"],
+        ["Process", "#process"],
+        ["About", "#about"],
+        ["Feedback", "#feedback"],
+        ["Contact", "#contact"],
+      ].map(([label, link]) => (
+        <a
+          key={label}
+          href={link}
+          onClick={() => setMenuOpen(false)}
+          className="py-2 text-gray-200 hover:text-pink-400 transition"
+        >
+          {label}
+        </a>
+      ))}
+      <a
+        href="/Resume4.pdf"
+        download
+        onClick={() => setMenuOpen(false)}
+        className="inline-block mt-3 px-4 py-2 rounded-lg bg-gradient-to-r from-pink-500 to-purple-500 text-black font-medium shadow"
+      >
+        Resume
+      </a>
+    </div>
+  </div>
+</header>
 
       {/* Main content */}
       <main className="relative z-10">
