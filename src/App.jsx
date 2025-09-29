@@ -227,7 +227,7 @@ export default function App() {
             <div className="md:col-span-5 flex items-center justify-center relative">
               {/* floating vector behind */}
               <div className="absolute -top-8 right-0 opacity-60 w-72 md:w-96 pointer-events-none">
-                <img src="/vector1.png" alt="decorative vector" className="w-full h-auto animate-breath" />
+                <img src="/vector4.png" alt="decorative vector" className="w-full h-auto animate-breath" />
               </div>
 
              
