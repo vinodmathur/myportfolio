@@ -150,7 +150,7 @@ export default function App() {
             <div className="w-10 h-10 rounded-lg bg-gradient-to-br from-pink-500 to-purple-500 flex items-center justify-center shadow-lg">
               <span className="font-bold tracking-tight text-sm">VM</span>
             </div>
-            <span className="text-lg font-semibold">Vinod Mathur</span>
+            <span className="text-lg font-semibold">Welcome to Portfolio</span>
           </a>
 
           <nav className="hidden md:flex items-center gap-8 text-sm text-gray-200">
@@ -160,7 +160,7 @@ export default function App() {
             <a href="#about" className="hover:text-pink-400 transition">About</a>
             <a href="#feedback" className="hover:text-pink-400 transition">Feedback</a>
             <a href="#contact" className="hover:text-pink-400 transition">Contact</a>
-            <a href="/resume.pdf" download className="ml-4 inline-block px-4 py-2 rounded-lg bg-gradient-to-r from-pink-500 to-purple-500 text-black font-medium shadow">Resume</a>
+            <a href="/Resume4.pdf" download className="ml-4 inline-block px-4 py-2 rounded-lg bg-gradient-to-r from-pink-500 to-purple-500 text-black font-medium shadow">Resume</a>
           </nav>
 
           <button
@@ -205,7 +205,7 @@ export default function App() {
               </p>
 
               <div className="mt-8 flex flex-wrap gap-4">
-                <a href="/resume.pdf" download className="inline-flex items-center gap-3 px-5 py-3 rounded-full bg-gradient-to-r from-pink-500 to-purple-500 text-black font-semibold shadow-lg hover:scale-[1.03] transition-transform">
+                <a href="/Resume4.pdf" download className="inline-flex items-center gap-3 px-5 py-3 rounded-full bg-gradient-to-r from-pink-500 to-purple-500 text-black font-semibold shadow-lg hover:scale-[1.03] transition-transform">
                   Download Resume
                 </a>
                 <a href="#contact" className="inline-flex items-center gap-3 px-5 py-3 rounded-full border border-white/10 text-white hover:bg-white/5 transition">
