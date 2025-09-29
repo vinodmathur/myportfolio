@@ -5,30 +5,14 @@ import { loadFull } from "tsparticles";
 import { FaFigma, FaSketch, FaHtml5, FaCss3Alt, FaBars } from "react-icons/fa";
 import { SiAdobexd, SiAdobephotoshop, SiCanva } from "react-icons/si";
 
-/**
- * Ultra-Professional Portfolio — keeps all content exactly the same.
- * - No external animation libraries required (uses CSS + IntersectionObserver).
- * - Uses react-tsparticles for background particles.
- *
- * Replace your existing App.jsx with this file.
- */
-
 export default function App() {
-  // UI state
   const [showMore, setShowMore] = useState(false);
   const [menuOpen, setMenuOpen] = useState(false);
   const [currentFeedback, setCurrentFeedback] = useState(0);
 
-  // refs for reveal animations
   const revealRefs = useRef([]);
   revealRefs.current = [];
 
-  // particles init
-  const particlesInit = async (main) => {
-    await loadFull(main);
-  };
-
-  // ---- content (EXACT same text/content as you provided) ----
   const projects = [
     { id: 1, title: "Hardin Astro App", img: "https://s3.envato.com/files/477047008/Preview%20Image/01_Preview-image.jpg", link: "https://www.figma.com/design/36ApeiWxeeGZFEtkD7zbJM/Astro-App-UI?node-id=0-1" },
     { id: 2, title: "Bankfipay App", img: "https://s3-figma-hubfile-images-production.figma.com/hub/file/carousel/img/7e88ce7df85582b3f709b9baebbb5996b62b07c8", link: "https://www.figma.com/design/yVCUmDBrtnwKQf4XcFPwqh/Bankfipay?node-id=0-1" },
@@ -54,7 +38,6 @@ export default function App() {
     { id: 4, logo: "https://play-lh.googleusercontent.com/p2v93Ycop_1x6hart9lbdqzhHN1wvx4tlRRhpQlI7mYQ_OcHbTYBbYUpdyFwYnggKg" },
   ];
 
-  // auto-advance feedbacks
   useEffect(() => {
     const id = setInterval(() => {
       setCurrentFeedback((p) => (p + 1) % feedbacks.length);
@@ -62,7 +45,6 @@ export default function App() {
     return () => clearInterval(id);
   }, [feedbacks.length]);
 
-  // reveal on scroll (no external lib)
   useEffect(() => {
     const observer = new IntersectionObserver(
       (entries) => {
@@ -84,9 +66,12 @@ export default function App() {
     if (el && !revealRefs.current.includes(el)) revealRefs.current.push(el);
   };
 
-  // ---- Particles options tuned for professional look ----
+  const particlesInit = async (main) => {
+    await loadFull(main);
+  };
+
   const particleOptions = {
-    background: { color: "#071025" }, // deep navy
+    background: { color: "#071025" },
     fpsLimit: 60,
     interactivity: {
       events: {
@@ -100,7 +85,7 @@ export default function App() {
     },
     particles: {
       number: { value: 70, density: { enable: true, area: 900 } },
-      color: { value: ["#ffd6e8", "#c084fc", "#60a5fa"] }, // soft pink, violet, sky
+      color: { value: ["#ffd6e8", "#c084fc", "#60a5fa"] },
       shape: { type: ["circle", "triangle"] },
       opacity: {
         value: 0.65,
@@ -125,22 +110,10 @@ export default function App() {
     detectRetina: true,
   };
 
-  // ---- small util for accessible focus ring (for keyboard users) ----
-  useEffect(() => {
-    const handleTab = (e) => {
-      if (e.key === "Tab") document.documentElement.classList.add("user-is-tabbing");
-    };
-    window.addEventListener("keydown", handleTab);
-    return () => window.removeEventListener("keydown", handleTab);
-  }, []);
-
-  // ---- Render ----
   return (
     <div className="relative min-h-screen font-sans text-white bg-gradient-to-b from-[#071025] to-[#020617] overflow-x-hidden">
-      {/* Particles background */}
       <Particles className="absolute inset-0 -z-20" init={particlesInit} options={particleOptions} />
 
-      {/* subtle radial vignette */}
       <div className="pointer-events-none absolute inset-0 -z-10 bg-[radial-gradient(ellipse_at_center,rgba(255,255,255,0.02),transparent_35%)]" />
 
       {/* Header */}
@@ -158,352 +131,103 @@ export default function App() {
             <a href="#projects" className="hover:text-pink-400 transition">Projects</a>
             <a href="#process" className="hover:text-pink-400 transition">Process</a>
             <a href="#about" className="hover:text-pink-400 transition">About</a>
-            <a href="#feedback" className="hover:text-pink-400 transition">Feedback</a>
-            <a href="#contact" className="hover:text-pink-400 transition">Contact</a>
-            <a href="/resume.pdf" download className="ml-4 inline-block px-4 py-2 rounded-lg bg-gradient-to-r from-pink-500 to-purple-500 text-black font-medium shadow">Resume</a>
+            <a href="#contact" className="hover:text-pink-400 transition neon-btn">Contact</a>
           </nav>
 
-          <button
-            className="md:hidden p-2 rounded-md bg-white/6 hover:bg-white/8"
-            aria-label="Open menu"
-            onClick={() => setMenuOpen((s) => !s)}
-          >
-            <FaBars />
+          <button className="md:hidden" onClick={() => setMenuOpen(!menuOpen)}>
+            <FaBars size={24} />
           </button>
         </div>
-
-        {/* Mobile menu */}
-        {menuOpen && (
-          <div className="md:hidden mt-3 max-w-3xl mx-auto px-6 bg-black/60 backdrop-blur rounded-lg py-4 shadow-lg">
-            <div className="flex flex-col gap-3 text-center">
-              <a href="#expertise" onClick={() => setMenuOpen(false)} className="py-2">Expertise</a>
-              <a href="#projects" onClick={() => setMenuOpen(false)} className="py-2">Projects</a>
-              <a href="#process" onClick={() => setMenuOpen(false)} className="py-2">Process</a>
-              <a href="#about" onClick={() => setMenuOpen(false)} className="py-2">About</a>
-              <a href="#feedback" onClick={() => setMenuOpen(false)} className="py-2">Feedback</a>
-              <a href="#contact" onClick={() => setMenuOpen(false)} className="py-2">Contact</a>
-            </div>
-          </div>
-        )}
       </header>
 
-      {/* Main content */}
-      <main className="relative z-10">
-        {/* Hero */}
-        <section className="min-h-screen flex flex-col items-center justify-center text-center px-6 pt-24 pb-12">
-          <div className="max-w-5xl mx-auto grid grid-cols-1 md:grid-cols-12 gap-8 items-center">
-            {/* Left: hero text */}
-            <div className="md:col-span-7 text-left md:text-left">
-              <div className="mb-4 inline-block px-3 py-1 rounded-full bg-white/6 backdrop-blur text-sm font-medium text-pink-200">UI / PRODUCT DESIGNER</div>
-              <h1 className="text-4xl md:text-5xl lg:text-6xl font-extrabold leading-tight tracking-tight text-white drop-shadow-lg">
-                I design meaningful digital products — beautiful, usable & measurable.
-              </h1>
-              <p className="mt-6 text-lg text-gray-300 max-w-2xl">
-                Creative UI/UX Designer with a deep passion for designing seamless digital experiences.  
-                Specialized in Figma, Adobe XD, Photoshop, Canva, HTML & CSS.  
-                I blend creativity and functionality to craft designs that delight users and drive results.
-              </p>
+      {/* Hero Section */}
+      <section className="h-screen flex flex-col justify-center items-center text-center px-6">
+        <h1 className="text-4xl md:text-6xl font-bold mb-4">Hi, I'm Vinod Mathur</h1>
+        <p className="text-xl md:text-2xl max-w-2xl mb-6">UI/UX Designer & DeFi Community Manager with 5+ years of experience in crafting digital experiences.</p>
+        <a href="#contact" className="neon-btn px-8 py-3 rounded-full font-bold text-lg">Let’s Work Together</a>
+      </section>
 
-              <div className="mt-8 flex flex-wrap gap-4">
-                <a href="/resume.pdf" download className="inline-flex items-center gap-3 px-5 py-3 rounded-full bg-gradient-to-r from-pink-500 to-purple-500 text-black font-semibold shadow-lg hover:scale-[1.03] transition-transform">
-                  Download Resume
-                </a>
-                <a href="#contact" className="inline-flex items-center gap-3 px-5 py-3 rounded-full border border-white/10 text-white hover:bg-white/5 transition">
-                  Contact Me
-                </a>
-              </div>
-
-              {/* Key skills badges */}
-              <div className="mt-8 flex flex-wrap gap-3">
-                <span className="px-3 py-1 rounded bg-white/6 text-sm">Figma</span>
-                <span className="px-3 py-1 rounded bg-white/6 text-sm">Adobe XD</span>
-                <span className="px-3 py-1 rounded bg-white/6 text-sm">Photoshop</span>
-                <span className="px-3 py-1 rounded bg-white/6 text-sm">Canva</span>
-                <span className="px-3 py-1 rounded bg-white/6 text-sm">HTML & CSS</span>
-              </div>
+      {/* Expertise Section */}
+      <section id="expertise" className="py-20 max-w-6xl mx-auto px-6">
+        <h2 className="text-3xl font-bold mb-10 text-center">Expertise</h2>
+        <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
+          {[FaFigma, FaSketch, FaHtml5, FaCss3Alt, SiAdobexd, SiAdobephotoshop, SiCanva].map((Icon, i) => (
+            <div key={i} className="flex flex-col items-center gap-2 p-4 border border-gray-700 rounded-lg hover:border-pink-400 transition neon-btn">
+              <Icon size={40} />
+              <span className="text-sm">Skill {i + 1}</span>
             </div>
+          ))}
+        </div>
+      </section>
 
-            {/* Right: ID card + floating vector */}
-            <div className="md:col-span-5 flex items-center justify-center relative">
-              {/* floating vector behind */}
-              <div className="absolute -top-8 right-0 opacity-60 w-72 md:w-96 pointer-events-none">
-                <img src="/vector1.png" alt="decorative vector" className="w-full h-auto animate-breath" />
-              </div>
+      {/* Projects Section */}
+      <section id="projects" className="py-20 max-w-6xl mx-auto px-6">
+        <h2 className="text-3xl font-bold mb-10 text-center">Projects</h2>
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+          {projects.map((project) => (
+            <a key={project.id} href={project.link} target="_blank" rel="noopener noreferrer" className="group border border-gray-700 rounded-lg overflow-hidden hover:border-pink-400 transition neon-btn">
+              <img src={project.img} alt={project.title} className="w-full h-48 object-cover group-hover:scale-105 transition" />
+              <div className="p-4 text-center font-semibold">{project.title}</div>
+            </a>
+          ))}
+        </div>
+      </section>
 
-              {/* Hanging ID card */}
-              <div className="relative z-20">
-                <div className="flex justify-center">
-                  {/* rope */}
-                  <div className="w-px h-16 bg-gradient-to-b from-white/40 to-transparent mx-auto" />
-                </div>
+      {/* Feedback Carousel */}
+      <section className="py-20 max-w-4xl mx-auto px-6 text-center">
+        <h2 className="text-3xl font-bold mb-10">Client Feedback</h2>
+        <div className="p-8 border border-gray-700 rounded-lg neon-btn transition">
+          <p className="text-lg">"{feedbacks[currentFeedback].text}"</p>
+          <p className="mt-4 font-semibold">- {feedbacks[currentFeedback].name}, {feedbacks[currentFeedback].company}</p>
+        </div>
+      </section>
 
-                <div className="mx-auto mt-2 transform origin-top transition-transform duration-700 animate-swing">
-                  <div className="w-72 bg-gradient-to-t from-white/6 to-white/4 backdrop-blur rounded-xl py-4 px-5 shadow-2xl border border-white/6">
-                    <div className="flex items-center gap-3">
-                      <div className="w-14 h-14 rounded-md bg-gradient-to-br from-pink-500 to-purple-500 flex items-center justify-center text-black font-bold">VM</div>
-                      <div>
-                        <div className="text-white font-semibold">Vinod Mathur</div>
-                        <div className="text-xs text-gray-300">UI UX Designer / Product Designer</div>
-                      </div>
-                    </div>
-                    <div className="mt-3 text-sm text-gray-300">
-                      Portfolio • Product Design • UX Research
-                    </div>
-                    <div className="mt-4 flex justify-between items-center">
-                      <div className="text-xs text-gray-400">ID: VM-UI-2025</div>
-                      <a href="#contact" className="text-xs text-pink-300 underline">Contact</a>
-                    </div>
-                  </div>
-                </div>
-              </div>
-              {/* end Hanging ID */}
-            </div>
-          </div>
-        </section>
+      {/* Clients */}
+      <section className="py-20 max-w-6xl mx-auto px-6">
+        <h2 className="text-3xl font-bold mb-10 text-center">Clients</h2>
+        <div className="flex justify-center flex-wrap gap-10">
+          {clientLogos.map((client) => (
+            <img key={client.id} src={client.logo} alt={`Client ${client.id}`} className="h-16 object-contain" />
+          ))}
+        </div>
+      </section>
 
-        {/* Expertise */}
-        <section id="expertise" className="py-20">
-          <div className="max-w-6xl mx-auto px-6" ref={addToRefs}>
-            <h2 className="text-3xl md:text-4xl font-bold mb-3">My Expertise</h2>
-            <p className="text-gray-300 max-w-3xl mb-8">
-              Over the 2 years, I’ve honed my skills across multiple design platforms and tools.
-              My expertise lies in creating intuitive, user-friendly, and visually engaging interfaces for both mobile and web applications.
-            </p>
+      {/* Footer */}
+      <footer className="py-10 text-center border-t border-gray-700 neon-btn">
+        <p>&copy; 2025 Vinod Mathur. All Rights Reserved.</p>
+      </footer>
 
-            <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-6">
-              <div className="glass-card">
-                <div className="text-2xl mb-2"><FaFigma /></div>
-                <div className="font-semibold">Figma</div>
-                <div className="text-sm text-gray-300 mt-2">Design systems & prototypes</div>
-              </div>
-              <div className="glass-card">
-                <div className="text-2xl mb-2"><SiAdobexd /></div>
-                <div className="font-semibold">Adobe XD</div>
-                <div className="text-sm text-gray-300 mt-2">Interactive prototypes</div>
-              </div>
-              <div className="glass-card">
-                <div className="text-2xl mb-2"><SiAdobephotoshop /></div>
-                <div className="font-semibold">Photoshop</div>
-                <div className="text-sm text-gray-300 mt-2">Visual assets & editing</div>
-              </div>
-              <div className="glass-card">
-                <div className="text-2xl mb-2"><FaSketch /></div>
-                <div className="font-semibold">Sketch</div>
-                <div className="text-sm text-gray-300 mt-2">UI patterns</div>
-              </div>
-              <div className="glass-card">
-                <div className="text-2xl mb-2"><SiCanva /></div>
-                <div className="font-semibold">Canva</div>
-                <div className="text-sm text-gray-300 mt-2">Marketing visuals</div>
-              </div>
-              <div className="glass-card">
-                <div className="text-2xl mb-2"><FaHtml5 /></div>
-                <div className="font-semibold">HTML</div>
-                <div className="text-sm text-gray-300 mt-2">Responsive markup</div>
-              </div>
-              <div className="glass-card">
-                <div className="text-2xl mb-2"><FaCss3Alt /></div>
-                <div className="font-semibold">CSS</div>
-                <div className="text-sm text-gray-300 mt-2">Animations & layout</div>
-              </div>
-            </div>
-          </div>
-        </section>
-
-        {/* Projects */}
-        <section id="projects" className="py-20 bg-gradient-to-b from-transparent to-white/2">
-          <div className="max-w-6xl mx-auto px-6" ref={addToRefs}>
-            <div className="flex items-center justify-between mb-6">
-              <h2 className="text-3xl md:text-4xl font-bold">Project Showcase</h2>
-              <p className="text-sm text-gray-300">Selected case studies & prototypes</p>
-            </div>
-
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-              {projects.slice(0, showMore ? projects.length : 6).map((p) => (
-                <article key={p.id} className="project-card" aria-labelledby={`proj-${p.id}`}>
-                  <div className="project-media" role="img" aria-label={p.title}>
-                    <img src={p.img} alt={p.title} className="w-full h-full object-cover rounded-t-lg" />
-                  </div>
-                  <div className="p-5">
-                    <h3 id={`proj-${p.id}`} className="text-lg font-semibold mb-2">{p.title}</h3>
-                    <p className="text-sm text-gray-300 mb-4">Interactive app design & UX flows.</p>
-                    <div className="flex items-center gap-3">
-                      <a href={p.link} target="_blank" rel="noopener noreferrer" className="text-sm inline-flex items-center gap-2 px-3 py-2 rounded-md bg-gradient-to-r from-pink-500 to-purple-500 text-black font-medium shadow-sm">View Project</a>
-                      <span className="text-xs text-gray-400">Prototype</span>
-                    </div>
-                  </div>
-                </article>
-              ))}
-            </div>
-
-            {!showMore && (
-              <div className="mt-8 text-center">
-                <button onClick={() => setShowMore(true)} className="px-6 py-3 rounded-full bg-gradient-to-r from-purple-600 to-pink-500 font-semibold shadow-lg hover:scale-105 transition-transform">
-                  View More Projects
-                </button>
-              </div>
-            )}
-          </div>
-        </section>
-
-        {/* Process */}
-        <section id="process" className="py-20">
-          <div className="max-w-6xl mx-auto px-6" ref={addToRefs}>
-            <h2 className="text-3xl md:text-4xl font-bold mb-6">My Work Process</h2>
-            <p className="text-gray-300 mb-8 max-w-3xl">
-              I follow a structured design workflow that ensures every project is user-centered, functional, and visually compelling.
-            </p>
-
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-              <div className="glass-process">
-                <div className="text-lg font-semibold mb-2">Research & Discovery</div>
-                <div className="text-sm text-gray-300">Understand business goals, target users, and competitors to set a strong foundation.</div>
-              </div>
-              <div className="glass-process">
-                <div className="text-lg font-semibold mb-2">Wireframing & Prototyping</div>
-                <div className="text-sm text-gray-300">Create low to high-fidelity wireframes and interactive prototypes to map user journeys.</div>
-              </div>
-              <div className="glass-process">
-                <div className="text-lg font-semibold mb-2">Visual Design & Testing</div>
-                <div className="text-sm text-gray-300">Apply modern UI trends, ensure accessibility, and conduct usability testing for perfection.</div>
-              </div>
-            </div>
-          </div>
-        </section>
-
-        {/* About */}
-        <section id="about" className="py-20 bg-black/10">
-          <div className="max-w-4xl mx-auto px-6 text-center" ref={addToRefs}>
-            <img src="/images/profile (2).jpeg" alt="Profile" className="mx-auto rounded-full w-40 h-40 border-4 border-pink-400 shadow-lg mb-6" />
-            <h2 className="text-3xl font-bold mb-3">About Me</h2>
-            <p className="text-gray-300 text-lg">
-              I’m Vinod Mathur, a passionate UI/UX Designer who loves turning complex problems into elegant design solutions.
-              With 2 years of experience in crafting intuitive digital interfaces, I focus on creating meaningful user experiences that blend usability, aesthetics, and innovation.
-            </p>
-          </div>
-        </section>
-
-        {/* Feedback */}
-        <section id="feedback" className="py-20">
-          <div className="max-w-4xl mx-auto px-6 text-center" ref={addToRefs}>
-            <h2 className="text-3xl font-bold mb-6">Quick Feedbacks</h2>
-
-            <div className="relative">
-              {feedbacks.map((f, i) => (
-                <div key={i} className={`feedback-card absolute inset-0 mx-auto transition-opacity duration-700 ${i === currentFeedback ? "opacity-100 z-10" : "opacity-0 z-0 pointer-events-none"}`}>
-                  <div className="bg-white/6 p-8 rounded-2xl shadow-lg">
-                    <p className="italic text-gray-200 text-lg">"{f.text}"</p>
-                    <h4 className="mt-4 font-semibold text-pink-300">{f.name}</h4>
-                    <p className="text-gray-400 text-sm">{f.company}</p>
-                  </div>
-                </div>
-              ))}
-            </div>
-
-          </div>
-        </section>
-
-        {/* Clients */}
-        <section id="clients" className="py-12 bg-black/8">
-          <div className="max-w-6xl mx-auto px-6 text-center" ref={addToRefs}>
-            <h2 className="text-3xl font-bold mb-6">Previous Clients</h2>
-            <div className="flex flex-wrap justify-center gap-8 items-center">
-              {clientLogos.map((c) => (
-                <img key={c.id} src={c.logo} alt="Client Logo" className="h-12 opacity-70 hover:opacity-100 transition" />
-              ))}
-            </div>
-          </div>
-        </section>
-
-        {/* Contact / Footer */}
-        <footer id="contact" className="py-12">
-          <div className="max-w-4xl mx-auto px-6 text-center">
-            <h2 className="text-2xl font-bold mb-3">Contact Me</h2>
-            <p className="text-gray-300 mb-4">Email: <a href="mailto:Vikymathur532@gmail.com" className="text-pink-300">Vikymathur532@gmail.com</a></p>
-            <p className="text-gray-300 mb-6">Phone: <span className="text-pink-300">+91 7976680554</span></p>
-
-            <div className="text-sm text-gray-400">© 2025 Vinod Mathur. All Rights Reserved.</div>
-          </div>
-        </footer>
-      </main>
-
-      {/* ---- Styles: glassmorphism, cards, animations ---- */}
+      {/* Neon Button CSS */}
       <style>{`
-        /* root tweaks */
-        :root {
-          --glass-bg: rgba(255,255,255,0.04);
-          --glass-border: rgba(255,255,255,0.06);
-          --accent1: #ff77b6;
-          --accent2: #8b5cf6;
+        .neon-btn {
+          display: inline-block;
+          position: relative;
+          color: #fff;
+          border-radius: 50px;
+          border: 2px solid transparent;
+          padding: 0.75rem 2rem;
+          font-weight: bold;
+          transition: 0.3s ease-in-out;
+          background: black;
         }
-
-        /* general glass card */
-        .glass-card {
-          background: linear-gradient(180deg, rgba(255,255,255,0.03), rgba(255,255,255,0.02));
-          border: 1px solid var(--glass-border);
-          padding: 18px;
-          border-radius: 10px;
-          box-shadow: 0 6px 18px rgba(2,6,23,0.6);
-          display: flex;
-          flex-direction: column;
-          align-items: flex-start;
-          gap: 6px;
-          transition: transform 0.35s ease, box-shadow 0.35s ease;
+        .neon-btn::before {
+          content: '';
+          position: absolute;
+          inset: -4px;
+          border-radius: 60px;
+          background: linear-gradient(90deg, #ff00ff, #7928ca, #00ffff);
+          z-index: -1;
+          animation: neon-border 3s linear infinite;
+          background-size: 300% 300%;
         }
-        .glass-card:hover { transform: translateY(-6px); box-shadow: 0 18px 40px rgba(139,92,246,0.12); }
-
-        .glass-process {
-          background: linear-gradient(180deg, rgba(255,255,255,0.03), rgba(255,255,255,0.02));
-          border: 1px solid var(--glass-border);
-          padding: 20px;
-          border-radius: 12px;
-          box-shadow: 0 8px 24px rgba(2,6,23,0.6);
-          transition: transform 0.4s ease, box-shadow 0.4s ease;
+        .neon-btn:hover {
+          color: #ff00ff;
+          box-shadow: 0 0 20px #ff00ff, 0 0 40px #7928ca, 0 0 60px #00ffff;
         }
-        .glass-process:hover { transform: translateY(-8px); box-shadow: 0 22px 48px rgba(255,119,182,0.08); }
-
-        .project-card {
-          background: linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.015));
-          border-radius: 12px;
-          overflow: hidden;
-          border: 1px solid rgba(255,255,255,0.04);
-          transform-style: preserve-3d;
-          transition: transform 0.45s cubic-bezier(.2,.9,.2,1), box-shadow 0.35s ease;
-        }
-        .project-card:hover { transform: translateY(-10px) rotateX(1deg); box-shadow: 0 20px 60px rgba(139,92,246,0.08); }
-        .project-media { height: 220px; overflow: hidden; display:flex; align-items:center; justify-content:center; }
-
-        /* feedback cards layering handled inline via opacity classes */
-
-        /* ID card swing & subtle breathing for vector */
-        @keyframes swing {
-          0% { transform: rotate(-4deg); }
-          25% { transform: rotate(6deg); }
-          50% { transform: rotate(-6deg); }
-          75% { transform: rotate(4deg); }
-          100% { transform: rotate(-4deg); }
-        }
-        .animate-swing { animation: swing 6.4s ease-in-out infinite; transform-origin: top center; }
-
-        @keyframes breath {
-          0% { transform: translateY(0) scale(1); opacity: 0.95; }
-          50% { transform: translateY(-8px) scale(1.02); opacity: 1; }
-          100% { transform: translateY(0) scale(1); opacity: 0.95; }
-        }
-        .animate-breath { animation: breath 8s ease-in-out infinite; }
-
-        /* reveal (IntersectionObserver toggles reveal-visible) */
-        [ref] { opacity: 0; transform: translateY(18px); transition: opacity .9s ease, transform .9s ease; }
-        .reveal-visible { opacity: 1 !important; transform: translateY(0) !important; }
-
-        /* subtle utility */
-        .feedback-card { width: 100%; max-width: 680px; margin: 0 auto; }
-        .user-is-tabbing :focus { outline: 3px solid rgba(139,92,246,0.28); outline-offset: 3px; border-radius: 8px; }
-
-        /* responsiveness */
-        @media (max-width: 768px) {
-          .project-media { height: 180px; }
-          .project-card:hover { transform: none; box-shadow: 0 10px 30px rgba(0,0,0,0.5); }
+        @keyframes neon-border {
+          0% { background-position: 0% 50%; }
+          50% { background-position: 100% 50%; }
+          100% { background-position: 0% 50%; }
         }
       `}</style>
     </div>
