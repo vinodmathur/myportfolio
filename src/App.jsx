@@ -230,32 +230,7 @@ export default function App() {
                 <img src="/vector1.png" alt="decorative vector" className="w-full h-auto animate-breath" />
               </div>
 
-              {/* Hanging ID card */}
-              <div className="relative z-20">
-                <div className="flex justify-center">
-                  {/* rope */}
-                  <div className="w-px h-16 bg-gradient-to-b from-white/40 to-transparent mx-auto" />
-                </div>
-
-                <div className="mx-auto mt-2 transform origin-top transition-transform duration-700 animate-swing">
-                  <div className="w-72 bg-gradient-to-t from-white/6 to-white/4 backdrop-blur rounded-xl py-4 px-5 shadow-2xl border border-white/6">
-                    <div className="flex items-center gap-3">
-                      <div className="w-14 h-14 rounded-md bg-gradient-to-br from-pink-500 to-purple-500 flex items-center justify-center text-black font-bold">VM</div>
-                      <div>
-                        <div className="text-white font-semibold">Vinod Mathur</div>
-                        <div className="text-xs text-gray-300">UI UX Designer / Product Designer</div>
-                      </div>
-                    </div>
-                    <div className="mt-3 text-sm text-gray-300">
-                      Portfolio • Product Design • UX Research
-                    </div>
-                    <div className="mt-4 flex justify-between items-center">
-                      <div className="text-xs text-gray-400">ID: VM-UI-2025</div>
-                      <a href="#contact" className="text-xs text-pink-300 underline">Contact</a>
-                    </div>
-                  </div>
-                </div>
-              </div>
+             
               {/* end Hanging ID */}
             </div>
           </div>
