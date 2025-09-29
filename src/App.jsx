@@ -194,7 +194,7 @@ export default function App() {
           <div className="max-w-5xl mx-auto grid grid-cols-1 md:grid-cols-12 gap-8 items-center">
             {/* Left: hero text */}
             <div className="md:col-span-7 text-left md:text-left">
-              <div className="mb-4 inline-block px-3 py-1 rounded-full bg-white/6 backdrop-blur text-sm font-medium text-pink-200">UI / PRODUCT DESIGNER</div>
+              <div className="mb-4 inline-block px-3 py-1 rounded-full bg-white/6 backdrop-blur text-sm font-medium text-pink-200">UI/UX / PRODUCT DESIGNER</div>
               <h1 className="text-4xl md:text-5xl lg:text-6xl font-extrabold leading-tight tracking-tight text-white drop-shadow-lg">
                 I design meaningful digital products — beautiful, usable & measurable.
               </h1>
