@@ -1,18 +1,14 @@
 // App.jsx
-import React, { useEffect, useRef, useState, useCallback } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import Particles from "react-tsparticles";
 import { loadFull } from "tsparticles";
-import { FaFigma, FaSketch, FaHtml5, FaCss3Alt, FaBars, FaEnvelope, FaPhone, FaTimes } from "react-icons/fa";
+import { FaFigma, FaSketch, FaHtml5, FaCss3Alt, FaBars } from "react-icons/fa";
 import { SiAdobexd, SiAdobephotoshop, SiCanva } from "react-icons/si";
 
 /**
- * Ultra-Professional Portfolio — Complete file
- * - Responsive header
- * - Animated particles background (fixed)
- * - Intro at top
- * - Freelancer & Contract card above Quick Feedbacks
- * - Floating rounded contact icon opens sticky scrollable contact form
- * - Reveal animations using IntersectionObserver
+ * Ultra-Professional Portfolio — keeps all content exactly the same.
+ * - No external animation libraries required (uses CSS + IntersectionObserver).
+ * - Uses react-tsparticles for background particles.
  *
  * Replace your existing App.jsx with this file.
  */
@@ -22,16 +18,15 @@ export default function App() {
   const [showMore, setShowMore] = useState(false);
   const [menuOpen, setMenuOpen] = useState(false);
   const [currentFeedback, setCurrentFeedback] = useState(0);
-  const [contactOpen, setContactOpen] = useState(false);
 
   // refs for reveal animations
   const revealRefs = useRef([]);
   revealRefs.current = [];
 
   // particles init
-  const particlesInit = useCallback(async (main) => {
+  const particlesInit = async (main) => {
     await loadFull(main);
-  }, []);
+  };
 
   // ---- content (EXACT same text/content as you provided) ----
   const projects = [
@@ -63,7 +58,7 @@ export default function App() {
   useEffect(() => {
     const id = setInterval(() => {
       setCurrentFeedback((p) => (p + 1) % feedbacks.length);
-    }, 4200);
+    }, 4000);
     return () => clearInterval(id);
   }, [feedbacks.length]);
 
@@ -91,7 +86,7 @@ export default function App() {
 
   // ---- Particles options tuned for professional look ----
   const particleOptions = {
-    background: { color: "transparent" },
+    background: { color: "#071025" }, // deep navy
     fpsLimit: 60,
     interactivity: {
       events: {
@@ -99,33 +94,32 @@ export default function App() {
         onClick: { enable: true, mode: "push" },
       },
       modes: {
-        repulse: { distance: 120, duration: 0.6 },
+        repulse: { distance: 120, duration: 0.4 },
         push: { quantity: 3 },
       },
     },
     particles: {
-      number: { value: 55, density: { enable: true, area: 1000 } },
-      color: { value: ["#ffd6e8", "#c084fc", "#60a5fa", "#ffffff"] },
-      shape: { type: ["circle"] },
+      number: { value: 70, density: { enable: true, area: 900 } },
+      color: { value: ["#ffd6e8", "#c084fc", "#60a5fa"] }, // soft pink, violet, sky
+      shape: { type: ["circle", "triangle"] },
       opacity: {
-        value: 0.7,
-        random: { enable: true, minimumValue: 0.25 },
-        animation: { enable: true, speed: 0.6, minimumValue: 0.2 },
+        value: 0.65,
+        random: { enable: true, minimumValue: 0.3 },
+        animation: { enable: true, speed: 0.8, minimumValue: 0.2 },
       },
-      size: { value: { min: 0.8, max: 3 }, random: true },
+      size: { value: { min: 1, max: 4 }, random: true },
       links: {
         enable: true,
-        distance: 130,
+        distance: 140,
         color: "#9ca3af",
-        opacity: 0.12,
+        opacity: 0.08,
         width: 1,
       },
       move: {
         enable: true,
-        speed: 0.6,
+        speed: 0.9,
         direction: "none",
         outModes: { default: "out" },
-        random: false,
       },
     },
     detectRetina: true,
@@ -140,134 +134,152 @@ export default function App() {
     return () => window.removeEventListener("keydown", handleTab);
   }, []);
 
-  // Contact form state
-  const [contactForm, setContactForm] = useState({ name: "", email: "", message: "" });
-  const [sending, setSending] = useState(false);
-  const handleContactChange = (e) => setContactForm({ ...contactForm, [e.target.name]: e.target.value });
-
-  const handleContactSubmit = async (e) => {
-    e.preventDefault();
-    setSending(true);
-    // TODO: integrate with email service (EmailJS / Netlify Functions / API)
-    setTimeout(() => {
-      setSending(false);
-      setContactForm({ name: "", email: "", message: "" });
-      alert("Thank you! Message sent (demo).");
-      setContactOpen(false);
-    }, 900);
-  };
-
   // ---- Render ----
   return (
     <div className="relative min-h-screen font-sans text-white bg-gradient-to-b from-[#071025] to-[#020617] overflow-x-hidden">
-      {/* Particles background (fixed full-screen) */}
-      <Particles
-        id="tsparticles"
-        className="absolute inset-0 -z-10"
-        init={particlesInit}
-        options={particleOptions}
-      />
+      {/* Particles background */}
+      <Particles className="absolute inset-0 -z-20" init={particlesInit} options={particleOptions} />
 
       {/* subtle radial vignette */}
-      <div className="pointer-events-none absolute inset-0 -z-5 bg-[radial-gradient(ellipse_at_center,rgba(255,255,255,0.02),transparent_35%)]" />
+      <div className="pointer-events-none absolute inset-0 -z-10 bg-[radial-gradient(ellipse_at_center,rgba(255,255,255,0.02),transparent_35%)]" />
 
       {/* Header */}
-      <header className="fixed top-4 left-4 right-4 z-40">
-        <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 flex items-center justify-between h-14 rounded-2xl bg-black/30 backdrop-blur-md border border-white/6 shadow-md">
-          {/* Logo */}
-          <a href="#" className="inline-flex items-center gap-3" aria-label="Vinod Mathur home">
-            <div className="w-10 h-10 rounded-lg bg-gradient-to-br from-pink-500 to-purple-500 flex items-center justify-center shadow-lg">
-              <span className="font-bold tracking-tight text-sm">VM</span>
-            </div>
-            <span className="text-sm font-semibold hidden sm:inline">Vinod Mathur</span>
-          </a>
+<header className="fixed top-0 left-0 right-0 z-50">
+  <div className="max-w-7xl mx-auto px-6 lg:px-10 flex items-center justify-between h-16 rounded-xl bg-black/30 backdrop-blur-md border border-white/10 shadow-lg">
+    {/* Logo */}
+    <a
+      href="#"
+      className="inline-flex items-center gap-3"
+      aria-label="Vinod Mathur home"
+    >
+      <div className="w-10 h-10 rounded-lg bg-gradient-to-br from-pink-500 to-purple-500 flex items-center justify-center shadow-lg">
+        <span className="font-bold tracking-tight text-sm">VM</span>
+      </div>
+      <span className="text-lg font-semibold hidden sm:inline">
+        Portfolio
+      </span>
+    </a>
 
-          {/* Desktop Nav */}
-          <nav className="hidden md:flex items-center gap-6 text-sm font-medium">
-            {[
-              ["Introduction", "#introduction"],
-              ["Expertise", "#expertise"],
-              ["Projects", "#projects"],
-              ["Process", "#process"],
-              ["About", "#about"],
-              ["Feedback", "#feedback"],
-              ["Contact", "#contact"],
-            ].map(([label, link]) => (
-              <a key={label} href={link} className="relative text-gray-200 hover:text-white transition group">
-                {label}
-                <span className="absolute left-0 -bottom-1 w-0 h-[2px] bg-gradient-to-r from-pink-500 to-purple-500 transition-all group-hover:w-full"></span>
-              </a>
-            ))}
-            <a href="/Resume4.pdf" download className="ml-2 inline-block px-3 py-1 rounded-md bg-gradient-to-r from-pink-500 to-purple-500 text-black font-medium shadow">
-              Resume
-            </a>
-          </nav>
+    {/* Desktop Nav */}
+    <nav className="hidden md:flex items-center gap-8 text-sm font-medium">
+      {[
+        ["Expertise", "#expertise"],
+        ["Projects", "#projects"],
+        ["Process", "#process"],
+        ["About", "#about"],
+        ["Feedback", "#feedback"],
+        ["Contact", "#contact"],
+      ].map(([label, link]) => (
+        <a
+          key={label}
+          href={link}
+          className="relative text-gray-200 hover:text-white transition group"
+        >
+          {label}
+          <span className="absolute left-0 -bottom-1 w-0 h-[2px] bg-gradient-to-r from-pink-500 to-purple-500 transition-all group-hover:w-full"></span>
+        </a>
+      ))}
+      <a
+        href="/Resume4.pdf"
+        download
+        className="ml-4 inline-block px-4 py-2 rounded-lg bg-gradient-to-r from-pink-500 to-purple-500 text-black font-medium shadow hover:scale-105 transition"
+      >
+        Resume
+      </a>
+    </nav>
 
-          {/* Mobile button */}
-          <div className="md:hidden flex items-center gap-2">
-            <button
-              className="p-2 rounded-md bg-white/8 hover:bg-white/12 transition"
-              aria-label="Toggle menu"
-              onClick={() => setMenuOpen((s) => !s)}
-            >
-              {menuOpen ? (
-                <FaTimes />
-              ) : (
-                <FaBars />
-              )}
-            </button>
-          </div>
-        </div>
+    {/* Mobile Button */}
+    <button
+      className="md:hidden p-2 rounded-md bg-white/10 hover:bg-white/20 transition"
+      aria-label="Toggle menu"
+      onClick={() => setMenuOpen((s) => !s)}
+    >
+      {menuOpen ? (
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          className="h-6 w-6"
+          fill="none"
+          viewBox="0 0 24 24"
+          stroke="currentColor"
+        >
+          <path
+            strokeLinecap="round"
+            strokeLinejoin="round"
+            strokeWidth={2}
+            d="M6 18L18 6M6 6l12 12"
+          />
+        </svg>
+      ) : (
+        <FaBars />
+      )}
+    </button>
+  </div>
 
-        {/* Mobile Menu */}
-        {menuOpen && (
-          <div className="md:hidden mt-3 max-w-3xl mx-auto px-4 bg-black/60 backdrop-blur rounded-xl py-4 shadow-lg">
-            <div className="flex flex-col gap-3 text-center">
-              {[
-                ["Introduction", "#introduction"],
-                ["Expertise", "#expertise"],
-                ["Projects", "#projects"],
-                ["Process", "#process"],
-                ["About", "#about"],
-                ["Feedback", "#feedback"],
-                ["Contact", "#contact"],
-              ].map(([label, link]) => (
-                <a key={label} href={link} onClick={() => setMenuOpen(false)} className="py-2 text-gray-200 hover:text-pink-300 transition">
-                  {label}
-                </a>
-              ))}
-            </div>
-          </div>
-        )}
-      </header>
+  {/* Mobile Menu */}
+  <div
+    className={`md:hidden transition-all duration-300 ${
+      menuOpen
+        ? "max-h-[400px] opacity-100 mt-3"
+        : "max-h-0 opacity-0 overflow-hidden"
+    }`}
+  >
+    <div className="mx-4 bg-black/70 backdrop-blur-md rounded-lg py-4 shadow-lg text-center flex flex-col gap-3">
+      {[
+        ["Expertise", "#expertise"],
+        ["Projects", "#projects"],
+        ["Process", "#process"],
+        ["About", "#about"],
+        ["Feedback", "#feedback"],
+        ["Contact", "#contact"],
+      ].map(([label, link]) => (
+        <a
+          key={label}
+          href={link}
+          onClick={() => setMenuOpen(false)}
+          className="py-2 text-gray-200 hover:text-pink-400 transition"
+        >
+          {label}
+        </a>
+      ))}
+      <a
+        href="/Resume4.pdf"
+        download
+        onClick={() => setMenuOpen(false)}
+        className="inline-block mt-3 px-4 py-2 rounded-lg bg-gradient-to-r from-pink-500 to-purple-500 text-black font-medium shadow"
+      >
+        Resume
+      </a>
+    </div>
+  </div>
+</header>
 
       {/* Main content */}
       <main className="relative z-10">
-        {/* Introduction (top) */}
-        <section id="introduction" className="min-h-screen flex items-center py-32 px-6 sm:px-8">
-          <div className="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-12 gap-8 items-center">
-            {/* Left: intro text */}
-            <div className="md:col-span-7" ref={addToRefs}>
+        {/* Hero */}
+        <section className="min-h-screen flex flex-col items-center justify-center text-center px-6 pt-24 pb-12">
+          <div className="max-w-5xl mx-auto grid grid-cols-1 md:grid-cols-12 gap-8 items-center">
+            {/* Left: hero text */}
+            <div className="md:col-span-7 text-left md:text-left">
               <div className="mb-4 inline-block px-3 py-1 rounded-full bg-white/6 backdrop-blur text-sm font-medium text-pink-200">UI/UX / PRODUCT DESIGNER</div>
-              <h1 className="text-4xl md:text-5xl lg:text-6xl font-extrabold leading-tight tracking-tight text-white drop-shadow-lg mb-4 reveal">
+              <h1 className="text-4xl md:text-5xl lg:text-6xl font-extrabold leading-tight tracking-tight text-white drop-shadow-lg">
                 I design meaningful digital products — beautiful, usable & measurable.
               </h1>
-              <p className="text-lg text-gray-300 max-w-2xl mb-6 reveal">
-                Creative UI/UX Designer with 4+ years of experience crafting modern, intuitive interfaces.
-                I specialize in Figma, Adobe XD, Photoshop, and front-end markup (HTML & CSS). I blend design thinking with practical execution to deliver results.
+              <p className="mt-6 text-lg text-gray-300 max-w-2xl">
+                Creative UI/UX Designer with a deep passion for designing seamless digital experiences.  
+                Specialized in Figma, Adobe XD, Photoshop, Canva, HTML & CSS.  
+                I blend creativity and functionality to craft designs that delight users and drive results.
               </p>
 
-              <div className="flex flex-wrap gap-4 reveal">
+              <div className="mt-8 flex flex-wrap gap-4">
                 <a href="/Resume4.pdf" download className="inline-flex items-center gap-3 px-5 py-3 rounded-full bg-gradient-to-r from-pink-500 to-purple-500 text-black font-semibold shadow-lg hover:scale-[1.03] transition-transform">
                   Download Resume
                 </a>
-                <button onClick={() => setContactOpen(true)} className="inline-flex items-center gap-3 px-5 py-3 rounded-full border border-white/12 text-white hover:bg-white/4 transition">
+                <a href="#contact" className="inline-flex items-center gap-3 px-5 py-3 rounded-full border border-white/10 text-white hover:bg-white/5 transition">
                   Contact Me
-                </button>
+                </a>
               </div>
-
-              {/* Key skills badges */}
-              <div className="mt-8 flex flex-wrap gap-3 reveal">
+            {/* Key skills badges */}
+              <div className="mt-8 flex flex-wrap gap-3">
                 <span className="px-3 py-1 rounded bg-white/6 text-sm">Figma</span>
                 <span className="px-3 py-1 rounded bg-white/6 text-sm">Adobe XD</span>
                 <span className="px-3 py-1 rounded bg-white/6 text-sm">Photoshop</span>
@@ -275,67 +287,61 @@ export default function App() {
                 <span className="px-3 py-1 rounded bg-white/6 text-sm">HTML & CSS</span>
               </div>
             </div>
-
-            {/* Right: profile card */}
-            <div className="md:col-span-5 flex items-center justify-center relative" ref={addToRefs}>
-              <div className="w-full max-w-sm rounded-2xl bg-white/5 border border-white/6 p-6 shadow-xl backdrop-blur reveal">
-                <div className="flex items-center gap-4">
-                  <img src="/images/profile (2).jpeg" alt="Profile" className="w-20 h-20 rounded-full border-2 border-pink-400 object-cover" />
-                  <div>
-                    <div className="text-lg font-semibold">Vinod Mathur</div>
-                    <div className="text-xs text-gray-300">UI/UX Designer • Product Designer</div>
-                  </div>
-                </div>
-                <div className="mt-4 text-sm text-gray-300">
-                  Available for freelance & contract work. Quick turnaround, collaborative process, and clear communication.
-                </div>
-                <div className="mt-4 flex gap-3">
-                  <a href="#contact" onClick={() => setContactOpen(true)} className="px-3 py-2 rounded-md bg-pink-500/90 text-black text-sm font-medium">Hire Me</a>
-                  <a href="/Resume4.pdf" download className="px-3 py-2 rounded-md border border-white/10 text-sm">Resume</a>
-                </div>
+            
+            {/* Right: ID card + floating vector */}
+            <div className="md:col-span-5 flex items-center justify-center relative">
+              {/* floating vector behind */}
+              <div className="absolute -top-8 right-0 opacity-60 w-72 md:w-96 pointer-events-none">
+                <img src="/vector4.png" alt="decorative vector" className="w-full h-auto animate-breath" />
               </div>
+
+             
+              {/* end Hanging ID */}
             </div>
           </div>
         </section>
 
         {/* Expertise */}
-        <section id="expertise" className="py-16 px-6">
-          <div className="max-w-6xl mx-auto" ref={addToRefs}>
-            <h2 className="text-3xl md:text-4xl font-bold mb-3 reveal">My Expertise</h2>
-            <p className="text-gray-300 max-w-3xl mb-8 reveal">I've honed my skills across multiple design platforms and tools. I create intuitive, user-friendly, and visually engaging interfaces for mobile and web.</p>
+        <section id="expertise" className="py-20">
+          <div className="max-w-6xl mx-auto px-6" ref={addToRefs}>
+            <h2 className="text-3xl md:text-4xl font-bold mb-3">My Expertise</h2>
+            <p className="text-gray-300 max-w-3xl mb-8">
+              Over the 4+ years, I’ve honed my skills across multiple design platforms and tools.
+              My expertise lies in creating intuitive, user-friendly, and visually engaging interfaces for both mobile and web applications.
+            </p>
 
             <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-6">
-              <div className="glass-card reveal">
+              <div className="glass-card">
                 <div className="text-2xl mb-2"><FaFigma /></div>
                 <div className="font-semibold">Figma</div>
                 <div className="text-sm text-gray-300 mt-2">Design systems & prototypes</div>
               </div>
-              <div className="glass-card reveal">
+              <div className="glass-card">
                 <div className="text-2xl mb-2"><SiAdobexd /></div>
                 <div className="font-semibold">Adobe XD</div>
                 <div className="text-sm text-gray-300 mt-2">Interactive prototypes</div>
               </div>
-              <div className="glass-card reveal">
+              <div className="glass-card">
                 <div className="text-2xl mb-2"><SiAdobephotoshop /></div>
                 <div className="font-semibold">Photoshop</div>
                 <div className="text-sm text-gray-300 mt-2">Visual assets & editing</div>
               </div>
-              <div className="glass-card reveal">
+              <div className="glass-card">
                 <div className="text-2xl mb-2"><FaSketch /></div>
                 <div className="font-semibold">Sketch</div>
                 <div className="text-sm text-gray-300 mt-2">UI patterns</div>
               </div>
-              <div className="glass-card reveal">
+              <div className="glass-card">
                 <div className="text-2xl mb-2"><SiCanva /></div>
                 <div className="font-semibold">Canva</div>
                 <div className="text-sm text-gray-300 mt-2">Marketing visuals</div>
               </div>
-              <div className="glass-card reveal">
+              <div className="glass-card">
                 <div className="text-2xl mb-2"><FaHtml5 /></div>
                 <div className="font-semibold">HTML</div>
                 <div className="text-sm text-gray-300 mt-2">Responsive markup</div>
               </div>
-              <div className="glass-card reveal">
+              <div className="glass-card">
                 <div className="text-2xl mb-2"><FaCss3Alt /></div>
                 <div className="font-semibold">CSS</div>
                 <div className="text-sm text-gray-300 mt-2">Animations & layout</div>
@@ -345,16 +351,16 @@ export default function App() {
         </section>
 
         {/* Projects */}
-        <section id="projects" className="py-16 px-6 bg-gradient-to-b from-transparent to-white/2">
-          <div className="max-w-6xl mx-auto" ref={addToRefs}>
+        <section id="projects" className="py-20 bg-gradient-to-b from-transparent to-white/2">
+          <div className="max-w-6xl mx-auto px-6" ref={addToRefs}>
             <div className="flex items-center justify-between mb-6">
-              <h2 className="text-3xl md:text-4xl font-bold reveal">Project Showcase</h2>
-              <p className="text-sm text-gray-300 reveal">Selected case studies & prototypes</p>
+              <h2 className="text-3xl md:text-4xl font-bold">Project Showcase</h2>
+              <p className="text-sm text-gray-300">Selected case studies & prototypes</p>
             </div>
 
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
               {projects.slice(0, showMore ? projects.length : 6).map((p) => (
-                <article key={p.id} className="project-card reveal" aria-labelledby={`proj-${p.id}`}>
+                <article key={p.id} className="project-card" aria-labelledby={`proj-${p.id}`}>
                   <div className="project-media" role="img" aria-label={p.title}>
                     <img src={p.img} alt={p.title} className="w-full h-full object-cover rounded-t-lg" />
                   </div>
@@ -381,23 +387,23 @@ export default function App() {
         </section>
 
         {/* Process */}
-        <section id="process" className="py-16 px-6">
-          <div className="max-w-6xl mx-auto" ref={addToRefs}>
-            <h2 className="text-3xl md:text-4xl font-bold mb-6 reveal">My Work Process</h2>
-            <p className="text-gray-300 mb-8 max-w-3xl reveal">
+        <section id="process" className="py-20">
+          <div className="max-w-6xl mx-auto px-6" ref={addToRefs}>
+            <h2 className="text-3xl md:text-4xl font-bold mb-6">My Work Process</h2>
+            <p className="text-gray-300 mb-8 max-w-3xl">
               I follow a structured design workflow that ensures every project is user-centered, functional, and visually compelling.
             </p>
 
             <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-              <div className="glass-process reveal">
+              <div className="glass-process">
                 <div className="text-lg font-semibold mb-2">Research & Discovery</div>
                 <div className="text-sm text-gray-300">Understand business goals, target users, and competitors to set a strong foundation.</div>
               </div>
-              <div className="glass-process reveal">
+              <div className="glass-process">
                 <div className="text-lg font-semibold mb-2">Wireframing & Prototyping</div>
                 <div className="text-sm text-gray-300">Create low to high-fidelity wireframes and interactive prototypes to map user journeys.</div>
               </div>
-              <div className="glass-process reveal">
+              <div className="glass-process">
                 <div className="text-lg font-semibold mb-2">Visual Design & Testing</div>
                 <div className="text-sm text-gray-300">Apply modern UI trends, ensure accessibility, and conduct usability testing for perfection.</div>
               </div>
@@ -406,45 +412,23 @@ export default function App() {
         </section>
 
         {/* About */}
-        <section id="about" className="py-16 px-6 bg-black/10">
-          <div className="max-w-4xl mx-auto text-center" ref={addToRefs}>
-            <img src="/images/profile (2).jpeg" alt="Profile" className="mx-auto rounded-full w-36 h-36 border-4 border-pink-400 shadow-lg mb-6 reveal" />
-            <h2 className="text-3xl font-bold mb-3 reveal">About Me</h2>
-            <p className="text-gray-300 text-lg reveal">
+        <section id="about" className="py-20 bg-black/10">
+          <div className="max-w-4xl mx-auto px-6 text-center" ref={addToRefs}>
+            <img src="/images/profile (2).jpeg" alt="Profile" className="mx-auto rounded-full w-40 h-40 border-4 border-pink-400 shadow-lg mb-6" />
+            <h2 className="text-3xl font-bold mb-3">About Me</h2>
+            <p className="text-gray-300 text-lg">
               I’m Vinod Mathur, a passionate UI/UX Designer who loves turning complex problems into elegant design solutions.
               With 4+ years of experience in crafting intuitive digital interfaces, I focus on creating meaningful user experiences that blend usability, aesthetics, and innovation.
             </p>
           </div>
         </section>
 
-        {/* Freelancer & Contract Card (above feedbacks) */}
-        <section id="freelance" className="py-10 px-6">
-          <div className="max-w-6xl mx-auto" ref={addToRefs}>
-            <div className="bg-gradient-to-r from-[#0b1220]/60 to-[#071025]/60 border border-white/6 rounded-2xl p-6 shadow-lg flex flex-col md:flex-row items-start gap-6 reveal">
-              <div className="flex-1">
-                <h3 className="text-xl font-semibold">Freelance & Contract Work</h3>
-                <p className="text-gray-300 mt-2">Open for short-term contracts and freelance projects. I specialize in UI/UX for consumer apps, e-commerce, and fintech interfaces. Competitive rates, fast delivery, and ongoing support.</p>
-                <ul className="mt-4 text-sm text-gray-300 space-y-2">
-                  <li>• Rapid prototyping in Figma / Adobe XD</li>
-                  <li>• End-to-end UI flows & developer handoff</li>
-                  <li>• Mobile-first responsive design</li>
-                </ul>
-              </div>
-              <div className="w-full md:w-auto flex-shrink-0">
-                <a onClick={() => setContactOpen(true)} className="inline-flex items-center gap-3 px-4 py-2 rounded-lg bg-gradient-to-r from-pink-500 to-purple-600 text-black font-medium shadow cursor-pointer">
-                  <FaEnvelope /> Contact for Work
-                </a>
-              </div>
-            </div>
-          </div>
-        </section>
+        {/* Feedback */}
+        <section id="feedback" className="py-20">
+          <div className="max-w-4xl mx-auto px-6 text-center" ref={addToRefs}>
+            <h2 className="text-3xl font-bold mb-6">Quick Feedbacks</h2>
 
-        {/* Feedback (Quick Feedbacks) */}
-        <section id="feedback" className="py-12 px-6">
-          <div className="max-w-4xl mx-auto text-center" ref={addToRefs}>
-            <h2 className="text-3xl font-bold mb-6 reveal">Quick Feedbacks</h2>
-
-            <div className="relative h-48">
+            <div className="relative">
               {feedbacks.map((f, i) => (
                 <div key={i} className={`feedback-card absolute inset-0 mx-auto transition-opacity duration-700 ${i === currentFeedback ? "opacity-100 z-10" : "opacity-0 z-0 pointer-events-none"}`}>
                   <div className="bg-white/6 p-8 rounded-2xl shadow-lg">
@@ -460,10 +444,10 @@ export default function App() {
         </section>
 
         {/* Clients */}
-        <section id="clients" className="py-12 bg-black/8 px-6">
-          <div className="max-w-6xl mx-auto text-center" ref={addToRefs}>
-            <h2 className="text-3xl font-bold mb-6 reveal">Previous Clients</h2>
-            <div className="flex flex-wrap justify-center gap-8 items-center reveal">
+        <section id="clients" className="py-12 bg-black/8">
+          <div className="max-w-6xl mx-auto px-6 text-center" ref={addToRefs}>
+            <h2 className="text-3xl font-bold mb-6">Previous Clients</h2>
+            <div className="flex flex-wrap justify-center gap-8 items-center">
               {clientLogos.map((c) => (
                 <img key={c.id} src={c.logo} alt="Client Logo" className="h-12 opacity-70 hover:opacity-100 transition" />
               ))}
@@ -472,8 +456,8 @@ export default function App() {
         </section>
 
         {/* Contact / Footer */}
-        <footer id="contact" className="py-12 px-6">
-          <div className="max-w-4xl mx-auto text-center">
+        <footer id="contact" className="py-12">
+          <div className="max-w-4xl mx-auto px-6 text-center">
             <h2 className="text-2xl font-bold mb-3">Contact Me</h2>
             <p className="text-gray-300 mb-4">Email: <a href="mailto:Vikymathur532@gmail.com" className="text-pink-300">Vikymathur532@gmail.com</a></p>
             <p className="text-gray-300 mb-6">Phone: <span className="text-pink-300">+91 7976680554</span></p>
@@ -483,75 +467,14 @@ export default function App() {
         </footer>
       </main>
 
-      {/* Floating contact icon (right-bottom) */}
-      <div className="fixed right-6 bottom-6 z-50">
-        <button
-          onClick={() => setContactOpen(true)}
-          aria-label="Open contact form"
-          className="w-14 h-14 rounded-full bg-gradient-to-br from-pink-500 to-purple-500 shadow-lg flex items-center justify-center text-black text-xl transform hover:scale-105 transition"
-        >
-          <FaEnvelope />
-        </button>
-      </div>
-
-      {/* Contact Form Slide-in Panel (rounded right corner) */}
-      <div className={`fixed right-4 top-1/6 z-50 transition-transform duration-300 ${contactOpen ? "translate-x-0" : "translate-x-[420px]"} max-w-md w-full`}>
-        <div className="w-[380px] max-w-full bg-black/90 border border-white/8 rounded-l-2xl shadow-xl backdrop-blur-md overflow-hidden">
-          <div className="flex items-center justify-between px-4 py-3 border-b border-white/6">
-            <div className="flex items-center gap-3">
-              <div className="w-10 h-10 rounded-lg bg-gradient-to-br from-pink-500 to-purple-500 flex items-center justify-center text-black font-semibold">VM</div>
-              <div>
-                <div className="font-semibold">Let's Talk</div>
-                <div className="text-xs text-gray-300">Freelance & Contract Enquiries</div>
-              </div>
-            </div>
-            <div className="flex items-center gap-2">
-              <button onClick={() => { setContactOpen(false); }} className="p-2 rounded-md hover:bg-white/6 transition" aria-label="Close contact form">
-                <FaTimes />
-              </button>
-            </div>
-          </div>
-
-          <div className="p-4 max-h-[60vh] overflow-y-auto">
-            <form onSubmit={handleContactSubmit} className="space-y-3">
-              <label className="block text-sm text-gray-300">Name</label>
-              <input required name="name" value={contactForm.name} onChange={handleContactChange} className="w-full px-3 py-2 rounded-md bg-white/6 border border-white/6 text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-pink-400" placeholder="Your name" />
-
-              <label className="block text-sm text-gray-300">Email</label>
-              <input required name="email" type="email" value={contactForm.email} onChange={handleContactChange} className="w-full px-3 py-2 rounded-md bg-white/6 border border-white/6 text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-pink-400" placeholder="you@example.com" />
-
-              <label className="block text-sm text-gray-300">Message</label>
-              <textarea required name="message" rows="5" value={contactForm.message} onChange={handleContactChange} className="w-full px-3 py-2 rounded-md bg-white/6 border border-white/6 text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-pink-400" placeholder="Tell me about your project..."></textarea>
-
-              <div className="flex items-center justify-between gap-3">
-                <button type="submit" disabled={sending} className="px-4 py-2 rounded-md bg-gradient-to-r from-pink-500 to-purple-600 text-black font-medium shadow disabled:opacity-60">
-                  {sending ? "Sending..." : "Send Message"}
-                </button>
-                <div className="text-xs text-gray-400">Or call: <span className="text-pink-300">+91 7976680554</span></div>
-              </div>
-            </form>
-
-            <div className="mt-4 text-xs text-gray-400">
-              By contacting you agree to share project details. I will respond within 24-48 hours (typical).
-            </div>
-          </div>
-        </div>
-      </div>
-
-      {/* ---- Styles: glassmorphism, cards, animations, particles canvas fix ---- */}
+      {/* ---- Styles: glassmorphism, cards, animations ---- */}
       <style>{`
+        /* root tweaks */
         :root {
           --glass-bg: rgba(255,255,255,0.04);
           --glass-border: rgba(255,255,255,0.06);
-        }
-
-        /* canvas fix to ensure particles cover full screen */
-        #tsparticles {
-          position: absolute !important;
-          top: 0;
-          left: 0;
-          width: 100% !important;
-          height: 100% !important;
+          --accent1: #ff77b6;
+          --accent2: #8b5cf6;
         }
 
         /* general glass card */
@@ -590,7 +513,18 @@ export default function App() {
         .project-card:hover { transform: translateY(-10px) rotateX(1deg); box-shadow: 0 20px 60px rgba(139,92,246,0.08); }
         .project-media { height: 220px; overflow: hidden; display:flex; align-items:center; justify-content:center; }
 
-        /* animations */
+        /* feedback cards layering handled inline via opacity classes */
+
+        /* ID card swing & subtle breathing for vector */
+        @keyframes swing {
+          0% { transform: rotate(-4deg); }
+          25% { transform: rotate(6deg); }
+          50% { transform: rotate(-6deg); }
+          75% { transform: rotate(4deg); }
+          100% { transform: rotate(-4deg); }
+        }
+        .animate-swing { animation: swing 6.4s ease-in-out infinite; transform-origin: top center; }
+
         @keyframes breath {
           0% { transform: translateY(0) scale(1); opacity: 0.95; }
           50% { transform: translateY(-8px) scale(1.02); opacity: 1; }
@@ -598,30 +532,19 @@ export default function App() {
         }
         .animate-breath { animation: breath 8s ease-in-out infinite; }
 
-        /* reveal animations */
-        .reveal { opacity: 0; transform: translateY(18px); transition: opacity .9s ease, transform .9s ease; }
+        /* reveal (IntersectionObserver toggles reveal-visible) */
+        [ref] { opacity: 0; transform: translateY(18px); transition: opacity .9s ease, transform .9s ease; }
         .reveal-visible { opacity: 1 !important; transform: translateY(0) !important; }
 
-        /* feedback card */
+        /* subtle utility */
         .feedback-card { width: 100%; max-width: 680px; margin: 0 auto; }
-
-        /* contact slide panel transitions */
-        .translate-x-[420px] { transform: translateX(420px); } /* fallback for older tailwind */
-        .translate-x-0 { transform: translateX(0); }
-
-        /* small devices */
-        @media (max-width: 768px) {
-          header { left: 1rem; right: 1rem; top: 1rem; }
-          .project-media { height: 160px; }
-          .fixed.right-4.top-1\\/6 { right: 0.5rem; } /* panel placement tweak */
-          .fixed.right-6.bottom-6 { right: 0.75rem; bottom: 0.75rem; } /* floating icon tweak */
-          /* slide-in should be full width on small screens */
-          .fixed.right-4.top-1\\/6 > div { width: calc(100vw - 2rem) !important; border-radius: 12px 0 0 12px; }
-          .translate-x-[420px] { transform: translateX(calc(100vw)) !important; }
-        }
-
-        /* keyboard focus visible */
         .user-is-tabbing :focus { outline: 3px solid rgba(139,92,246,0.28); outline-offset: 3px; border-radius: 8px; }
+
+        /* responsiveness */
+        @media (max-width: 768px) {
+          .project-media { height: 180px; }
+          .project-card:hover { transform: none; box-shadow: 0 10px 30px rgba(0,0,0,0.5); }
+        }
       `}</style>
     </div>
   );
