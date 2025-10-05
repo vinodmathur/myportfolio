@@ -306,7 +306,7 @@ export default function App() {
           <div className="max-w-6xl mx-auto px-6" ref={addToRefs}>
             <h2 className="text-3xl md:text-4xl font-bold mb-3">My Expertise</h2>
             <p className="text-gray-300 max-w-3xl mb-8">
-              Over the 2 years, I’ve honed my skills across multiple design platforms and tools.
+              Over the 4+ years, I’ve honed my skills across multiple design platforms and tools.
               My expertise lies in creating intuitive, user-friendly, and visually engaging interfaces for both mobile and web applications.
             </p>
 
@@ -418,7 +418,7 @@ export default function App() {
             <h2 className="text-3xl font-bold mb-3">About Me</h2>
             <p className="text-gray-300 text-lg">
               I’m Vinod Mathur, a passionate UI/UX Designer who loves turning complex problems into elegant design solutions.
-              With 2 years of experience in crafting intuitive digital interfaces, I focus on creating meaningful user experiences that blend usability, aesthetics, and innovation.
+              With 4+ years of experience in crafting intuitive digital interfaces, I focus on creating meaningful user experiences that blend usability, aesthetics, and innovation.
             </p>
           </div>
         </section>
