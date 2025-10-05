@@ -2,55 +2,16 @@
 @tailwind components;
 @tailwind utilities;
 
-/* Smooth scroll behavior for the whole page */
+/* Global smooth scroll */
 html {
   scroll-behavior: smooth;
 }
 
-/* Body font & background fallback */
+/* Custom font smoothing */
 body {
-  font-family: 'Inter', sans-serif;
-  background-color: #f9fafb; /* light gray background */
-  color: #1f2937; /* Tailwind gray-800 */
-  margin: 0;
-  padding: 0;
+  @apply bg-gradient-to-br from-gray-900 via-black to-gray-900 text-white font-sans antialiased;
 }
 
-/* Marquee auto-scroll effect (in case JS fails) */
-.marquee {
-  display: flex;
-  white-space: nowrap;
-  overflow: hidden;
-  animation: marquee-scroll 15s linear infinite;
-}
-
-@keyframes marquee-scroll {
-  0% {
-    transform: translateX(0%);
-  }
-  100% {
-    transform: translateX(-50%);
-  }
-}
-
-/* Card hover enhancement */
-.project-card {
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
-}
-
-.project-card:hover {
-  transform: translateY(-6px) scale(1.02);
-  box-shadow: 0 12px 24px rgba(0, 0, 0, 0.08);
-}
-
-/* Button hover animation */
-.btn-primary {
-  transition: all 0.3s ease;
-}
-
-.btn-primary:hover {
-  transform: translateY(-2px);
-}
 /* Reveal Animations */
 .reveal {
   opacity: 0;
@@ -62,4 +23,50 @@ body {
 .reveal-visible {
   opacity: 1;
   transform: translateY(0);
+}
+
+/* Scrollbar Styling */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: #111;
+}
+
+::-webkit-scrollbar-thumb {
+  background: linear-gradient(to bottom, #ec4899, #8b5cf6);
+  border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: linear-gradient(to bottom, #f472b6, #a78bfa);
+}
+
+/* Selection highlight */
+::selection {
+  background: #ec4899;
+  color: #fff;
+}
+
+/* Link hover underline effect */
+a {
+  position: relative;
+  transition: color 0.3s ease;
+}
+
+a::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -3px;
+  width: 0;
+  height: 2px;
+  background: linear-gradient(to right, #ec4899, #8b5cf6);
+  transition: width 0.3s ease;
+}
+
+a:hover::after {
+  width: 100%;
 }
