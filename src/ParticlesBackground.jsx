@@ -12,9 +12,10 @@ const ParticlesBackground = () => {
     <Particles
       id="tsparticles"
       init={particlesInit}
+      className="absolute inset-0 -z-10" // 👈 important for layering
       options={{
         background: {
-          color: { value: "transparent" }, // transparent to show gradient
+          color: { value: "transparent" },
         },
         fpsLimit: 60,
         interactivity: {
@@ -24,14 +25,12 @@ const ParticlesBackground = () => {
             resize: true,
           },
           modes: {
-            push: { quantity: 3 },
+            push: { quantity: 2 },
             repulse: { distance: 120, duration: 0.6 },
           },
         },
         particles: {
-          color: {
-            value: ["#ffffff", "#ec4899", "#8b5cf6"], // white + pink + purple
-          },
+          color: { value: ["#ffffff", "#ec4899", "#8b5cf6"] },
           links: {
             color: "#ffffff",
             distance: 130,
@@ -41,17 +40,14 @@ const ParticlesBackground = () => {
           },
           move: {
             enable: true,
-            speed: 0.8, // slower for premium feel
-            direction: "none",
-            random: false,
-            straight: false,
+            speed: 0.6,
             outModes: { default: "out" },
           },
           number: {
-            value: 50,
+            value: 60,
             density: { enable: true, area: 900 },
           },
-          opacity: { value: { min: 0.3, max: 0.7 } }, // subtle glowing effect
+          opacity: { value: { min: 0.3, max: 0.7 } },
           shape: { type: "circle" },
           size: { value: { min: 1, max: 3 } },
         },
