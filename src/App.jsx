@@ -350,6 +350,75 @@ export default function App() {
           </div>
         </section>
 
+        {/* AI Tools Section */}
+        <section id="ai-tools" className="py-20 bg-gradient-to-b from-white/2 to-transparent">
+          <div className="max-w-6xl mx-auto px-6" ref={addToRefs}>
+            <h2 className="text-3xl md:text-4xl font-bold mb-3">AI Tools I Use</h2>
+            <p className="text-gray-300 max-w-3xl mb-10">
+              I enhance my design process with cutting-edge AI-powered tools that speed up workflows,
+              inspire creativity, and bring smarter design solutions to life.
+            </p>
+
+            <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-6">
+              {/* ChatGPT */}
+              <div className="glass-card text-center">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/0/04/ChatGPT_logo.svg" alt="ChatGPT" className="mx-auto w-10 h-10 mb-3" />
+                <div className="font-semibold">ChatGPT</div>
+                <div className="text-sm text-gray-300 mt-2">For design ideas, UX writing, & creative assistance</div>
+              </div>
+
+              {/* Figma AI */}
+              <div className="glass-card text-center">
+                <img src="https://cdn.worldvectorlogo.com/logos/figma-1.svg" alt="Figma AI" className="mx-auto w-10 h-10 mb-3" />
+                <div className="font-semibold">Figma AI</div>
+                <div className="text-sm text-gray-300 mt-2">Auto-layouts, content suggestions & smart fills</div>
+              </div>
+
+              {/* Cursor AI */}
+              <div className="glass-card text-center">
+                <img src="https://seeklogo.com/images/C/cursor-ai-logo-7C93A67FCF-seeklogo.com.png" alt="Cursor AI" className="mx-auto w-10 h-10 mb-3" />
+                <div className="font-semibold">Cursor AI</div>
+                <div className="text-sm text-gray-300 mt-2">AI-powered frontend development & code refinement</div>
+              </div>
+
+              {/* V0 by Vercel */}
+              <div className="glass-card text-center">
+                <img src="https://assets.vercel.com/image/upload/v1685484892/nextui/icons/v0-icon.png" alt="V0" className="mx-auto w-10 h-10 mb-3" />
+                <div className="font-semibold">V0 by Vercel</div>
+                <div className="text-sm text-gray-300 mt-2">Design-to-code automation for React & Tailwind</div>
+              </div>
+
+              {/* Lovable */}
+              <div className="glass-card text-center">
+                <img src="https://assets-global.website-files.com/66a2ee46b41cc5111f2d7a6a/66a2f38f460cfb85d3b9d6e8_lovable-icon.svg" alt="Lovable" className="mx-auto w-10 h-10 mb-3" />
+                <div className="font-semibold">Lovable</div>
+                <div className="text-sm text-gray-300 mt-2">Collaborative AI builder for web & mobile products</div>
+              </div>
+
+              {/* Midjourney */}
+              <div className="glass-card text-center">
+                <img src="https://upload.wikimedia.org/wikipedia/en/6/6d/Midjourney_Logo.png" alt="Midjourney" className="mx-auto w-10 h-10 mb-3" />
+                <div className="font-semibold">Midjourney</div>
+                <div className="text-sm text-gray-300 mt-2">Visual concept generation & creative exploration</div>
+              </div>
+
+              {/* Runway ML */}
+              <div className="glass-card text-center">
+                <img src="https://seeklogo.com/images/R/runway-ml-logo-26D530FBEB-seeklogo.com.png" alt="Runway ML" className="mx-auto w-10 h-10 mb-3" />
+                <div className="font-semibold">Runway ML</div>
+                <div className="text-sm text-gray-300 mt-2">AI video editing, motion design & storytelling</div>
+              </div>
+
+              {/* Notion AI */}
+              <div className="glass-card text-center">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/e/e9/Notion-logo.svg" alt="Notion AI" className="mx-auto w-10 h-10 mb-3" />
+                <div className="font-semibold">Notion AI</div>
+                <div className="text-sm text-gray-300 mt-2">Organizing ideas & project documentation</div>
+              </div>
+            </div>
+          </div>
+        </section>
+
         {/* Projects */}
         <section id="projects" className="py-20 bg-gradient-to-b from-transparent to-white/2">
           <div className="max-w-6xl mx-auto px-6" ref={addToRefs}>
@@ -512,6 +581,10 @@ export default function App() {
         }
         .project-card:hover { transform: translateY(-10px) rotateX(1deg); box-shadow: 0 20px 60px rgba(139,92,246,0.08); }
         .project-media { height: 220px; overflow: hidden; display:flex; align-items:center; justify-content:center; }
+
+        /* AI tools subtle hover glow (keeps visual style consistent) */
+        #ai-tools .glass-card { align-items: center; text-align: center; }
+        #ai-tools .glass-card:hover { box-shadow: 0 20px 60px rgba(139,92,246,0.14); transform: translateY(-8px) scale(1.01); }
 
         /* feedback cards layering handled inline via opacity classes */
 
