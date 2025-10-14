@@ -278,7 +278,16 @@ export default function App() {
                   Contact Me
                 </a>
               </div>
-          
+            {/* Key skills badges */}
+              <div className="mt-8 flex flex-wrap gap-3">
+                <span className="px-3 py-1 rounded bg-white/6 text-sm">Figma</span>
+                <span className="px-3 py-1 rounded bg-white/6 text-sm">Adobe XD</span>
+                <span className="px-3 py-1 rounded bg-white/6 text-sm">Photoshop</span>
+                <span className="px-3 py-1 rounded bg-white/6 text-sm">Canva</span>
+                <span className="px-3 py-1 rounded bg-white/6 text-sm">HTML & CSS</span>
+              </div>
+            </div>
+            
             {/* Right: ID card + floating vector */}
             <div className="md:col-span-5 flex items-center justify-center relative">
               {/* floating vector behind */}
