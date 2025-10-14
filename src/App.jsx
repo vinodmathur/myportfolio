@@ -278,7 +278,7 @@ export default function App() {
                   Contact Me
                 </a>
               </div>
-            
+          
             {/* Right: ID card + floating vector */}
             <div className="md:col-span-5 flex items-center justify-center relative">
               {/* floating vector behind */}
