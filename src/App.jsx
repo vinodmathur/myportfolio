@@ -452,24 +452,48 @@ export default function App() {
         </section>
 
         {/* Feedback */}
-        <section id="feedback" className="py-20">
-          <div className="max-w-4xl mx-auto px-6 text-center" ref={addToRefs}>
-            <h2 className="text-3xl font-bold mb-6">Quick Feedbacks</h2>
+<section id="feedback" className="py-20 bg-gradient-to-b from-transparent to-black/5">
+  <div className="max-w-6xl mx-auto px-6" ref={addToRefs}>
+    <h2 className="text-3xl font-bold mb-12 text-center">Quick Feedbacks</h2>
 
-            <div className="relative">
-              {feedbacks.map((f, i) => (
-                <div key={i} className={`feedback-card absolute inset-0 mx-auto transition-opacity duration-700 ${i === currentFeedback ? "opacity-100 z-10" : "opacity-0 z-0 pointer-events-none"}`}>
-                  <div className="bg-white/6 p-8 rounded-2xl shadow-lg">
-                    <p className="italic text-gray-200 text-lg">"{f.text}"</p>
-                    <h4 className="mt-4 font-semibold text-pink-300">{f.name}</h4>
-                    <p className="text-gray-400 text-sm">{f.company}</p>
-                  </div>
-                </div>
-              ))}
+    <div className="relative flex items-center justify-center overflow-hidden">
+      <div className="flex gap-8 transition-transform duration-1000" style={{
+        transform: `translateX(-${currentFeedback * 35}%)`, 
+        perspective: "1000px"
+      }}>
+        {feedbacks.map((f, i) => (
+          <div key={i} className="flex-none w-64 md:w-80 lg:w-96 transform-gpu">
+            <div className="bg-gradient-to-tr from-purple-700/20 to-pink-500/10 rounded-3xl p-8 shadow-xl flex flex-col items-center text-center gap-4
+                            rotate-y-[0deg] translate-z-0 hover:scale-105 transition-transform"
+            >
+              <img 
+                src={f.img || `https://i.pravatar.cc/100?img=${i + 10}`} 
+                alt={f.name} 
+                className="w-20 h-20 rounded-full border-4 border-white/20 shadow-md object-cover" 
+              />
+              <p className="text-gray-200 italic text-lg">"{f.text}"</p>
+              <h4 className="text-pink-300 font-semibold">{f.name}</h4>
+              <p className="text-gray-400 text-sm">{f.company}</p>
             </div>
-
           </div>
-        </section>
+        ))}
+      </div>
+    </div>
+  </div>
+
+  {/* Optional navigation dots */}
+  <div className="flex justify-center mt-8 gap-2">
+    {feedbacks.map((_, i) => (
+      <button
+        key={i}
+        className={`w-3 h-3 rounded-full ${i === currentFeedback ? 'bg-pink-500' : 'bg-gray-500/40'}`}
+        onClick={() => setCurrentFeedback(i)}
+        aria-label={`Show feedback ${i+1}`}
+      />
+    ))}
+  </div>
+</section>
+
 
         {/* Clients */}
         <section id="clients" className="py-12 bg-black/8">
