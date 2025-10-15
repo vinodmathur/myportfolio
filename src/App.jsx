@@ -350,74 +350,105 @@ export default function App() {
           </div>
         </section>
 
-        {/* AI Tools Section */}
-        <section id="ai-tools" className="py-20 bg-gradient-to-b from-white/2 to-transparent">
-          <div className="max-w-6xl mx-auto px-6" ref={addToRefs}>
-            <h2 className="text-3xl md:text-4xl font-bold mb-3">AI Tools I Use</h2>
-            <p className="text-gray-300 max-w-3xl mb-10">
-              I enhance my design process with cutting-edge AI-powered tools that speed up workflows,
-              inspire creativity, and bring smarter design solutions to life.
-            </p>
+        {/* ===== AI TOOLS ICONS SECTION ===== */}
+<section className="py-16 bg-transparent" id="ai-tools">
+  <h2 className="text-3xl md:text-4xl font-bold text-center mb-10 text-white">
+    AI Tools I Use
+  </h2>
 
-            <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-6">
-              {/* ChatGPT */}
-              <div className="glass-card text-center">
-                <img src="https://upload.wikimedia.org/wikipedia/commons/0/04/ChatGPT_logo.svg" alt="ChatGPT" className="mx-auto w-10 h-10 mb-3" />
-                <div className="font-semibold">ChatGPT</div>
-                <div className="text-sm text-gray-300 mt-2">For design ideas, UX writing, & creative assistance</div>
-              </div>
+  <div className="grid grid-cols-3 sm:grid-cols-4 md:grid-cols-6 gap-6 px-6 md:px-20 place-items-center">
+    
+    {/* ChatGPT */}
+    <div className="p-5 rounded-2xl backdrop-blur-lg bg-white/5 hover:bg-white/10 transition-all duration-300 shadow-lg hover:shadow-pink-500/30">
+      <svg viewBox="0 0 24 24" fill="none" className="w-10 h-10 text-green-400">
+        <path fill="currentColor" d="M12 2a10 10 0 1 0 10 10A10.011 10.011 0 0 0 12 2Zm0 18a8 8 0 1 1 8-8a8.009 8.009 0 0 1-8 8Z"/>
+      </svg>
+    </div>
 
-              {/* Figma AI */}
-              <div className="glass-card text-center">
-                <img src="https://cdn.worldvectorlogo.com/logos/figma-1.svg" alt="Figma AI" className="mx-auto w-10 h-10 mb-3" />
-                <div className="font-semibold">Figma AI</div>
-                <div className="text-sm text-gray-300 mt-2">Auto-layouts, content suggestions & smart fills</div>
-              </div>
+    {/* Cursor */}
+    <div className="p-5 rounded-2xl backdrop-blur-lg bg-white/5 hover:bg-white/10 transition-all duration-300 shadow-lg hover:shadow-purple-500/30">
+      <svg viewBox="0 0 24 24" fill="none" className="w-10 h-10 text-purple-400">
+        <path fill="currentColor" d="M4 2l16 10-8 2-2 8z"/>
+      </svg>
+    </div>
 
-              {/* Cursor AI */}
-              <div className="glass-card text-center">
-                <img src="https://seeklogo.com/images/C/cursor-ai-logo-7C93A67FCF-seeklogo.com.png" alt="Cursor AI" className="mx-auto w-10 h-10 mb-3" />
-                <div className="font-semibold">Cursor AI</div>
-                <div className="text-sm text-gray-300 mt-2">AI-powered frontend development & code refinement</div>
-              </div>
+    {/* V0 */}
+    <div className="p-5 rounded-2xl backdrop-blur-lg bg-white/5 hover:bg-white/10 transition-all duration-300 shadow-lg hover:shadow-blue-500/30">
+      <svg viewBox="0 0 24 24" fill="none" className="w-10 h-10 text-blue-400">
+        <circle cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="2"/>
+        <circle cx="12" cy="12" r="4" fill="currentColor"/>
+      </svg>
+    </div>
 
-              {/* V0 by Vercel */}
-              <div className="glass-card text-center">
-                <img src="https://assets.vercel.com/image/upload/v1685484892/nextui/icons/v0-icon.png" alt="V0" className="mx-auto w-10 h-10 mb-3" />
-                <div className="font-semibold">V0 by Vercel</div>
-                <div className="text-sm text-gray-300 mt-2">Design-to-code automation for React & Tailwind</div>
-              </div>
+    {/* Lovable */}
+    <div className="p-5 rounded-2xl backdrop-blur-lg bg-white/5 hover:bg-white/10 transition-all duration-300 shadow-lg hover:shadow-pink-400/30">
+      <svg viewBox="0 0 24 24" fill="none" className="w-10 h-10 text-pink-400">
+        <path fill="currentColor" d="M12 21s-7-4.35-7-10a5 5 0 0 1 10 0a5 5 0 0 1 10 0c0 5.65-7 10-7 10z"/>
+      </svg>
+    </div>
 
-              {/* Lovable */}
-              <div className="glass-card text-center">
-                <img src="https://assets-global.website-files.com/66a2ee46b41cc5111f2d7a6a/66a2f38f460cfb85d3b9d6e8_lovable-icon.svg" alt="Lovable" className="mx-auto w-10 h-10 mb-3" />
-                <div className="font-semibold">Lovable</div>
-                <div className="text-sm text-gray-300 mt-2">Collaborative AI builder for web & mobile products</div>
-              </div>
+    {/* Midjourney */}
+    <div className="p-5 rounded-2xl backdrop-blur-lg bg-white/5 hover:bg-white/10 transition-all duration-300 shadow-lg hover:shadow-indigo-400/30">
+      <svg viewBox="0 0 24 24" fill="none" className="w-10 h-10 text-indigo-400">
+        <path fill="currentColor" d="M12 2l4 20-4-4-4 4z"/>
+      </svg>
+    </div>
 
-              {/* Midjourney */}
-              <div className="glass-card text-center">
-                <img src="https://upload.wikimedia.org/wikipedia/en/6/6d/Midjourney_Logo.png" alt="Midjourney" className="mx-auto w-10 h-10 mb-3" />
-                <div className="font-semibold">Midjourney</div>
-                <div className="text-sm text-gray-300 mt-2">Visual concept generation & creative exploration</div>
-              </div>
+    {/* Runway */}
+    <div className="p-5 rounded-2xl backdrop-blur-lg bg-white/5 hover:bg-white/10 transition-all duration-300 shadow-lg hover:shadow-yellow-400/30">
+      <svg viewBox="0 0 24 24" fill="none" className="w-10 h-10 text-yellow-400">
+        <path fill="currentColor" d="M4 4h16v2H4zm0 7h16v2H4zm0 7h16v2H4z"/>
+      </svg>
+    </div>
 
-              {/* Runway ML */}
-              <div className="glass-card text-center">
-                <img src="https://seeklogo.com/images/R/runway-ml-logo-26D530FBEB-seeklogo.com.png" alt="Runway ML" className="mx-auto w-10 h-10 mb-3" />
-                <div className="font-semibold">Runway ML</div>
-                <div className="text-sm text-gray-300 mt-2">AI video editing, motion design & storytelling</div>
-              </div>
+    {/* Notion */}
+    <div className="p-5 rounded-2xl backdrop-blur-lg bg-white/5 hover:bg-white/10 transition-all duration-300 shadow-lg hover:shadow-white/30">
+      <svg viewBox="0 0 24 24" fill="none" className="w-10 h-10 text-white">
+        <rect x="4" y="4" width="16" height="16" stroke="currentColor" strokeWidth="2"/>
+        <path fill="currentColor" d="M9 9h2v6H9zm4 0h2v6h-2z"/>
+      </svg>
+    </div>
 
-              {/* Notion AI */}
-              <div className="glass-card text-center">
-                <img src="https://upload.wikimedia.org/wikipedia/commons/e/e9/Notion-logo.svg" alt="Notion AI" className="mx-auto w-10 h-10 mb-3" />
-                <div className="font-semibold">Notion AI</div>
-                <div className="text-sm text-gray-300 mt-2">Organizing ideas & project documentation</div>
-              </div>
-            </div>
-          </div>
-        </section>
+    {/* Figma AI */}
+    <div className="p-5 rounded-2xl backdrop-blur-lg bg-white/5 hover:bg-white/10 transition-all duration-300 shadow-lg hover:shadow-orange-400/30">
+      <svg viewBox="0 0 24 24" fill="none" className="w-10 h-10 text-orange-400">
+        <circle cx="12" cy="6" r="2" fill="currentColor"/>
+        <circle cx="12" cy="12" r="2" fill="currentColor"/>
+        <circle cx="12" cy="18" r="2" fill="currentColor"/>
+      </svg>
+    </div>
+
+    {/* Gemini */}
+    <div className="p-5 rounded-2xl backdrop-blur-lg bg-white/5 hover:bg-white/10 transition-all duration-300 shadow-lg hover:shadow-sky-400/30">
+      <svg viewBox="0 0 24 24" fill="none" className="w-10 h-10 text-sky-400">
+        <path fill="currentColor" d="M6 4h12v2H6zm0 14h12v2H6zm2-12h8v12H8z"/>
+      </svg>
+    </div>
+
+    {/* Perplexity */}
+    <div className="p-5 rounded-2xl backdrop-blur-lg bg-white/5 hover:bg-white/10 transition-all duration-300 shadow-lg hover:shadow-cyan-400/30">
+      <svg viewBox="0 0 24 24" fill="none" className="w-10 h-10 text-cyan-400">
+        <circle cx="12" cy="12" r="9" stroke="currentColor" strokeWidth="2"/>
+        <path fill="currentColor" d="M12 7a5 5 0 0 1 0 10z"/>
+      </svg>
+    </div>
+
+    {/* Canva AI */}
+    <div className="p-5 rounded-2xl backdrop-blur-lg bg-white/5 hover:bg-white/10 transition-all duration-300 shadow-lg hover:shadow-teal-400/30">
+      <svg viewBox="0 0 24 24" fill="none" className="w-10 h-10 text-teal-400">
+        <circle cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="2"/>
+        <path fill="currentColor" d="M8 12a4 4 0 0 0 8 0z"/>
+      </svg>
+    </div>
+
+    {/* Leonardo AI */}
+    <div className="p-5 rounded-2xl backdrop-blur-lg bg-white/5 hover:bg-white/10 transition-all duration-300 shadow-lg hover:shadow-red-400/30">
+      <svg viewBox="0 0 24 24" fill="none" className="w-10 h-10 text-red-400">
+        <polygon fill="currentColor" points="12,2 22,20 2,20"/>
+      </svg>
+    </div>
+  </div>
+</section>
 
         {/* Projects */}
         <section id="projects" className="py-20 bg-gradient-to-b from-transparent to-white/2">
