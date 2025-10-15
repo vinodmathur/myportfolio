@@ -483,17 +483,40 @@ export default function App() {
           </div>
         </section>
 
-        {/* Contact / Footer */}
-        <footer id="contact" className="py-12">
-          <div className="max-w-4xl mx-auto px-6 text-center">
-            <h2 className="text-2xl font-bold mb-3">Contact Me</h2>
-            <p className="text-gray-300 mb-4">Email: <a href="mailto:Vikymathur532@gmail.com" className="text-pink-300">Vikymathur532@gmail.com</a></p>
-            <p className="text-gray-300 mb-6">Phone: <span className="text-pink-300">+91 7976680554</span></p>
+       {/* Contact / Footer */}
+<footer id="contact" className="py-16 bg-gradient-to-t from-[#0b0e1f] to-[#071025] border-t border-white/10">
+  <div className="max-w-6xl mx-auto px-6 text-center">
+    <h2 className="text-3xl font-bold text-white mb-3">Get in Touch</h2>
+    <p className="text-gray-300 mb-6">
+      I’m open to collaborations, freelance projects, or just a friendly chat.
+    </p>
 
-            <div className="text-sm text-gray-400">© 2025 Vinod Mathur. All Rights Reserved.</div>
-          </div>
-        </footer>
-      </main>
+    <div className="flex flex-col md:flex-row justify-center items-center gap-6 mb-6">
+      <a href="mailto:Vikymathur532@gmail.com" className="flex items-center gap-2 px-5 py-3 rounded-lg bg-gradient-to-r from-pink-500 to-purple-500 text-black font-semibold shadow-lg hover:scale-105 transition-transform">
+        Email: Vikymathur532@gmail.com
+      </a>
+      <span className="text-gray-300 text-lg">|</span>
+      <span className="text-gray-300 text-lg">Phone: <span className="text-pink-400">+91 7976680554</span></span>
+    </div>
+
+    <div className="flex justify-center gap-6 mb-6">
+      <a href="https://www.linkedin.com/in/vinod-mathur" target="_blank" rel="noopener noreferrer" className="text-gray-400 hover:text-white transition">
+        LinkedIn
+      </a>
+      <a href="https://github.com/vinodmathur" target="_blank" rel="noopener noreferrer" className="text-gray-400 hover:text-white transition">
+        GitHub
+      </a>
+      <a href="https://twitter.com/vinodmathur" target="_blank" rel="noopener noreferrer" className="text-gray-400 hover:text-white transition">
+        Twitter
+      </a>
+    </div>
+
+    <p className="text-gray-400 text-sm">
+      © 2025 Vinod Mathur. All Rights Reserved.
+    </p>
+  </div>
+</footer>
+
 
       {/* ---- Styles: glassmorphism, cards, animations ---- */}
       <style>{`
