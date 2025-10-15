@@ -350,11 +350,11 @@ export default function App() {
           </div>
         </section>
 
-        {/* === AI Tools Section (Enhanced) === */}
+        {/* === AI Tools Section (Like Expertise) === */}
 <section id="ai-tools" className="py-20 bg-transparent">
   <div className="max-w-6xl mx-auto px-6" ref={addToRefs}>
-    <h2 className="text-3xl md:text-4xl font-bold mb-12 text-white text-center">AI Tools I Use</h2>
-    <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-10">
+    <h2 className="text-3xl md:text-4xl font-bold mb-8 text-white text-center">AI Tools I Use</h2>
+    <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-6">
       {[
         { name: "ChatGPT", use: "Conversational AI & idea assist", img: "https://upload.wikimedia.org/wikipedia/commons/0/04/ChatGPT_logo.svg" },
         { name: "Cursor AI", use: "AI-powered frontend & code refinement", img: "https://seeklogo.com/images/C/cursor-ai-logo-7C93A67FCF-seeklogo.com.png" },
@@ -364,42 +364,19 @@ export default function App() {
         { name: "Runway", use: "AI video & motion design tools", img: "https://seeklogo.com/images/R/runway-ml-logo-26D530FBEB-seeklogo.com.png" },
         { name: "Notion AI", use: "Writing, organization & idea support", img: "https://upload.wikimedia.org/wikipedia/commons/e/e9/Notion-logo.svg" },
         { name: "Figma AI", use: "Smart prototyping & content suggestions", img: "https://cdn.worldvectorlogo.com/logos/figma-1.svg" },
-        { name: "Gemini", use: "Google’s AI assistant & model", img: "https://upload.wikimedia.org/wikipedia/commons/2/26/Google_Gemini_logo.svg" },
-        { name: "Perplexity", use: "AI search & insight engine", img: "https://upload.wikimedia.org/wikipedia/commons/3/38/Perplexity_Logo.svg" },
-        { name: "Canva AI", use: "Design & content generation", img: "https://upload.wikimedia.org/wikipedia/commons/6/6d/Canva_Logo.png" },
-        { name: "Leonardo AI", use: "Art & creative image generation", img: "https://upload.wikimedia.org/wikipedia/commons/3/34/Leonardo_AI_Logo.png" },
       ].map((tool, i) => (
-        <div key={i} className="glass-card flex flex-col items-center p-6 hover:translate-y-[-8px] hover:scale-105 transition-all duration-300 cursor-pointer">
-          <div className="w-24 h-24 mb-4">
+        <div key={i} className="glass-card flex flex-col items-center p-4 text-center">
+          <div className="w-12 h-12 mb-2">
             <img src={tool.img} alt={tool.name + " logo"} className="w-full h-full object-contain" />
           </div>
-          <div className="text-white font-semibold text-lg mb-1">{tool.name}</div>
-          <div className="text-gray-300 text-sm text-center">{tool.use}</div>
+          <div className="font-semibold">{tool.name}</div>
+          <div className="text-gray-300 text-sm mt-1">{tool.use}</div>
         </div>
       ))}
     </div>
   </div>
 </section>
 
-{/* --- Additional AI Tools Styles --- */}
-<style>{`
-  #ai-tools .glass-card {
-    background: linear-gradient(180deg, rgba(255,255,255,0.03), rgba(255,255,255,0.015));
-    border: 1px solid rgba(255,255,255,0.06);
-    border-radius: 14px;
-    box-shadow: 0 8px 28px rgba(2,6,23,0.6);
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 6px;
-    padding: 24px;
-    transition: transform 0.35s ease, box-shadow 0.35s ease;
-  }
-  #ai-tools .glass-card:hover {
-    box-shadow: 0 20px 60px rgba(139,92,246,0.18);
-    transform: translateY(-8px) scale(1.05);
-  }
-`}</style>
 
         {/* Projects */}
         <section id="projects" className="py-20 bg-gradient-to-b from-transparent to-white/2">
