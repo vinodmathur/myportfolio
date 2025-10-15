@@ -350,77 +350,91 @@ export default function App() {
           </div>
         </section>
 
-        {/* AI Tools Section with real SVGs */}
-<section id="ai-tools" className="py-16 bg-transparent">
-  <div className="max-w-6xl mx-auto px-6">
-    <h2 className="text-3xl md:text-4xl font-bold text-center mb-10 text-white">
-      AI Tools I Use
-    </h2>
-    <div className="grid grid-cols-3 sm:grid-cols-4 md:grid-cols-6 gap-6 place-items-center">
-      {/* ChatGPT */}
-      <div className="p-5 rounded-2xl backdrop-blur-lg bg-white/5 hover:bg-white/10 transition-all duration-300 shadow-lg">
-        <svg
-          xmlns="http://www.w3.org/2000/svg"
-          viewBox="0 0 512 512"
-          className="w-12 h-12 text-white"
-          fill="currentColor"
+        {/* === AI Tools Section with images, names & use descriptions === */}
+<section id="ai-tools" className="py-20 bg-transparent">
+  <div className="max-w-6xl mx-auto px-6" ref={addToRefs}>
+    <h2 className="text-3xl md:text-4xl font-bold mb-8 text-white text-center">AI Tools I Use</h2>
+    <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-8">
+      {[
+        {
+          name: "ChatGPT",
+          use: "Conversational AI & idea assist",
+          img: "https://upload.wikimedia.org/wikipedia/commons/0/04/ChatGPT_logo.svg",
+        },
+        {
+          name: "Cursor AI",
+          use: "AI-powered frontend & code refinement",
+          img: "https://seeklogo.com/images/C/cursor-ai-logo-7C93A67FCF-seeklogo.com.png",
+        },
+        {
+          name: "V0 by Vercel",
+          use: "Design-to-code automation",
+          img: "https://assets.vercel.com/image/upload/v1685484892/nextui/icons/v0-icon.png",
+        },
+        {
+          name: "Lovable",
+          use: "Collaborative AI builder",
+          img: "https://assets-global.website-files.com/66a2ee46b41cc5111f2d7a6a/66a2f38f460cfb85d3b9d6e8_lovable-icon.svg",
+        },
+        {
+          name: "Midjourney",
+          use: "Visual and creative image generation",
+          img: "https://upload.wikimedia.org/wikipedia/en/6/6d/Midjourney_Logo.png",
+        },
+        {
+          name: "Runway",
+          use: "AI video & motion design tools",
+          img: "https://seeklogo.com/images/R/runway-ml-logo-26D530FBEB-seeklogo.com.png",
+        },
+        {
+          name: "Notion AI",
+          use: "Writing, organization & idea support",
+          img: "https://upload.wikimedia.org/wikipedia/commons/e/e9/Notion-logo.svg",
+        },
+        {
+          name: "Figma AI",
+          use: "Smart prototyping & content suggestions",
+          img: "https://cdn.worldvectorlogo.com/logos/figma-1.svg",
+        },
+        {
+          name: "Gemini",
+          use: "Google’s AI assistant & model",
+          img: "https://upload.wikimedia.org/wikipedia/commons/2/26/Google_Gemini_logo.svg",
+        },
+        {
+          name: "Perplexity",
+          use: "AI search & insight engine",
+          img: "https://upload.wikimedia.org/wikipedia/commons/3/38/Perplexity_Logo.svg",
+        },
+        {
+          name: "Canva AI",
+          use: "Design & content generation",
+          img: "https://upload.wikimedia.org/wikipedia/commons/6/6d/Canva_Logo.png",
+        },
+        {
+          name: "Leonardo AI",
+          use: "Art & creative image generation",
+          img: "https://upload.wikimedia.org/wikipedia/commons/3/34/Leonardo_AI_Logo.png",
+        },
+      ].map((tool, i) => (
+        <div
+          key={i}
+          className="glass-card flex flex-col items-center p-6 hover:translate-y-[-6px] transition-all duration-300"
         >
-          <path d="M256 16C123.2 16 16 123.2 16 256s107.2 240 240 240 240-107.2 240-240S388.8 16 256 16zm0 448c-114.7 0-208-93.3-208-208S141.3 48 256 48s208 93.3 208 208-93.3 208-208 208z"/>
-          <path d="M355.2 256.6c0 55.5-45 100.5-100.5 100.5s-100.5-45-100.5-100.5S199.2 156 254.7 156 355.2 201.1 355.2 256.6z"/>
-        </svg>
-      </div>
-
-      {/* Notion */}
-      <div className="p-5 rounded-2xl backdrop-blur-lg bg-white/5 hover:bg-white/10 transition-all duration-300 shadow-lg">
-        <svg
-          xmlns="http://www.w3.org/2000/svg"
-          viewBox="0 0 256 256"
-          className="w-12 h-12 text-white"
-          fill="currentColor"
-        >
-          <path d="M213.3,0H42.7A42.7,42.7,0,0,0,0,42.7V213.3A42.7,42.7,0,0,0,42.7,256H213.3A42.7,42.7,0,0,0,256,213.3V42.7A42.7,42.7,0,0,0,213.3,0ZM176,192H139.5L100.6,96h34.7l18.3,58.4,18.4-58.4h30.6L148.9,178l35.1,14Z"/>
-        </svg>
-      </div>
-
-      {/* Midjourney */}
-      <div className="p-5 rounded-2xl backdrop-blur-lg bg-white/5 hover:bg-white/10 transition-all duration-300 shadow-lg">
-        <svg
-          xmlns="http://www.w3.org/2000/svg"
-          viewBox="0 0 1024 1024"
-          className="w-12 h-12 text-white"
-          fill="currentColor"
-        >
-          <path d="M512 0L885.3 1024H138.7L512 0z"/>
-        </svg>
-      </div>
-
-      {/* Placeholder slots for others (Cursor, V0, etc.) */}
-      {/* You can fill these with real SVGs when you find them */}
-      <div className="p-5 rounded-2xl backdrop-blur-lg bg-white/5 transition-all duration-300 shadow-lg">
-        {/* Placeholder icon */}
-        <svg className="w-12 h-12 text-gray-500" fill="currentColor" viewBox="0 0 24 24">
-          <circle cx="12" cy="12" r="10" />
-        </svg>
-      </div>
-      <div className="p-5 rounded-2xl backdrop-blur-lg bg-white/5 transition-all duration-300 shadow-lg">
-        <svg className="w-12 h-12 text-gray-500" fill="currentColor" viewBox="0 0 24 24">
-          <rect x="4" y="4" width="16" height="16" />
-        </svg>
-      </div>
-      <div className="p-5 rounded-2xl backdrop-blur-lg bg-white/5 transition-all duration-300 shadow-lg">
-        <svg className="w-12 h-12 text-gray-500" fill="currentColor" viewBox="0 0 24 24">
-          <path d="M2,12 L22,12" />
-        </svg>
-      </div>
-      <div className="p-5 rounded-2xl backdrop-blur-lg bg-white/5 transition-all duration-300 shadow-lg">
-        <svg className="w-12 h-12 text-gray-500" fill="currentColor" viewBox="0 0 24 24">
-          <polygon points="12,2 22,22 2,22" />
-        </svg>
-      </div>
+          <div className="w-20 h-20 mb-4">
+            <img
+              src={tool.img}
+              alt={tool.name + " logo"}
+              className="w-full h-full object-contain"
+            />
+          </div>
+          <div className="text-white font-semibold text-lg mb-1">{tool.name}</div>
+          <div className="text-gray-300 text-sm text-center">{tool.use}</div>
+        </div>
+      ))}
     </div>
   </div>
 </section>
-
 
         {/* Projects */}
         <section id="projects" className="py-20 bg-gradient-to-b from-transparent to-white/2">
