@@ -350,105 +350,77 @@ export default function App() {
           </div>
         </section>
 
-        {/* ===== AI TOOLS ICONS SECTION ===== */}
-<section className="py-16 bg-transparent" id="ai-tools">
-  <h2 className="text-3xl md:text-4xl font-bold text-center mb-10 text-white">
-    AI Tools I Use
-  </h2>
+        {/* AI Tools Section with real SVGs */}
+<section id="ai-tools" className="py-16 bg-transparent">
+  <div className="max-w-6xl mx-auto px-6">
+    <h2 className="text-3xl md:text-4xl font-bold text-center mb-10 text-white">
+      AI Tools I Use
+    </h2>
+    <div className="grid grid-cols-3 sm:grid-cols-4 md:grid-cols-6 gap-6 place-items-center">
+      {/* ChatGPT */}
+      <div className="p-5 rounded-2xl backdrop-blur-lg bg-white/5 hover:bg-white/10 transition-all duration-300 shadow-lg">
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          viewBox="0 0 512 512"
+          className="w-12 h-12 text-white"
+          fill="currentColor"
+        >
+          <path d="M256 16C123.2 16 16 123.2 16 256s107.2 240 240 240 240-107.2 240-240S388.8 16 256 16zm0 448c-114.7 0-208-93.3-208-208S141.3 48 256 48s208 93.3 208 208-93.3 208-208 208z"/>
+          <path d="M355.2 256.6c0 55.5-45 100.5-100.5 100.5s-100.5-45-100.5-100.5S199.2 156 254.7 156 355.2 201.1 355.2 256.6z"/>
+        </svg>
+      </div>
 
-  <div className="grid grid-cols-3 sm:grid-cols-4 md:grid-cols-6 gap-6 px-6 md:px-20 place-items-center">
-    
-    {/* ChatGPT */}
-    <div className="p-5 rounded-2xl backdrop-blur-lg bg-white/5 hover:bg-white/10 transition-all duration-300 shadow-lg hover:shadow-pink-500/30">
-      <svg viewBox="0 0 24 24" fill="none" className="w-10 h-10 text-green-400">
-        <path fill="currentColor" d="M12 2a10 10 0 1 0 10 10A10.011 10.011 0 0 0 12 2Zm0 18a8 8 0 1 1 8-8a8.009 8.009 0 0 1-8 8Z"/>
-      </svg>
-    </div>
+      {/* Notion */}
+      <div className="p-5 rounded-2xl backdrop-blur-lg bg-white/5 hover:bg-white/10 transition-all duration-300 shadow-lg">
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          viewBox="0 0 256 256"
+          className="w-12 h-12 text-white"
+          fill="currentColor"
+        >
+          <path d="M213.3,0H42.7A42.7,42.7,0,0,0,0,42.7V213.3A42.7,42.7,0,0,0,42.7,256H213.3A42.7,42.7,0,0,0,256,213.3V42.7A42.7,42.7,0,0,0,213.3,0ZM176,192H139.5L100.6,96h34.7l18.3,58.4,18.4-58.4h30.6L148.9,178l35.1,14Z"/>
+        </svg>
+      </div>
 
-    {/* Cursor */}
-    <div className="p-5 rounded-2xl backdrop-blur-lg bg-white/5 hover:bg-white/10 transition-all duration-300 shadow-lg hover:shadow-purple-500/30">
-      <svg viewBox="0 0 24 24" fill="none" className="w-10 h-10 text-purple-400">
-        <path fill="currentColor" d="M4 2l16 10-8 2-2 8z"/>
-      </svg>
-    </div>
+      {/* Midjourney */}
+      <div className="p-5 rounded-2xl backdrop-blur-lg bg-white/5 hover:bg-white/10 transition-all duration-300 shadow-lg">
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          viewBox="0 0 1024 1024"
+          className="w-12 h-12 text-white"
+          fill="currentColor"
+        >
+          <path d="M512 0L885.3 1024H138.7L512 0z"/>
+        </svg>
+      </div>
 
-    {/* V0 */}
-    <div className="p-5 rounded-2xl backdrop-blur-lg bg-white/5 hover:bg-white/10 transition-all duration-300 shadow-lg hover:shadow-blue-500/30">
-      <svg viewBox="0 0 24 24" fill="none" className="w-10 h-10 text-blue-400">
-        <circle cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="2"/>
-        <circle cx="12" cy="12" r="4" fill="currentColor"/>
-      </svg>
-    </div>
-
-    {/* Lovable */}
-    <div className="p-5 rounded-2xl backdrop-blur-lg bg-white/5 hover:bg-white/10 transition-all duration-300 shadow-lg hover:shadow-pink-400/30">
-      <svg viewBox="0 0 24 24" fill="none" className="w-10 h-10 text-pink-400">
-        <path fill="currentColor" d="M12 21s-7-4.35-7-10a5 5 0 0 1 10 0a5 5 0 0 1 10 0c0 5.65-7 10-7 10z"/>
-      </svg>
-    </div>
-
-    {/* Midjourney */}
-    <div className="p-5 rounded-2xl backdrop-blur-lg bg-white/5 hover:bg-white/10 transition-all duration-300 shadow-lg hover:shadow-indigo-400/30">
-      <svg viewBox="0 0 24 24" fill="none" className="w-10 h-10 text-indigo-400">
-        <path fill="currentColor" d="M12 2l4 20-4-4-4 4z"/>
-      </svg>
-    </div>
-
-    {/* Runway */}
-    <div className="p-5 rounded-2xl backdrop-blur-lg bg-white/5 hover:bg-white/10 transition-all duration-300 shadow-lg hover:shadow-yellow-400/30">
-      <svg viewBox="0 0 24 24" fill="none" className="w-10 h-10 text-yellow-400">
-        <path fill="currentColor" d="M4 4h16v2H4zm0 7h16v2H4zm0 7h16v2H4z"/>
-      </svg>
-    </div>
-
-    {/* Notion */}
-    <div className="p-5 rounded-2xl backdrop-blur-lg bg-white/5 hover:bg-white/10 transition-all duration-300 shadow-lg hover:shadow-white/30">
-      <svg viewBox="0 0 24 24" fill="none" className="w-10 h-10 text-white">
-        <rect x="4" y="4" width="16" height="16" stroke="currentColor" strokeWidth="2"/>
-        <path fill="currentColor" d="M9 9h2v6H9zm4 0h2v6h-2z"/>
-      </svg>
-    </div>
-
-    {/* Figma AI */}
-    <div className="p-5 rounded-2xl backdrop-blur-lg bg-white/5 hover:bg-white/10 transition-all duration-300 shadow-lg hover:shadow-orange-400/30">
-      <svg viewBox="0 0 24 24" fill="none" className="w-10 h-10 text-orange-400">
-        <circle cx="12" cy="6" r="2" fill="currentColor"/>
-        <circle cx="12" cy="12" r="2" fill="currentColor"/>
-        <circle cx="12" cy="18" r="2" fill="currentColor"/>
-      </svg>
-    </div>
-
-    {/* Gemini */}
-    <div className="p-5 rounded-2xl backdrop-blur-lg bg-white/5 hover:bg-white/10 transition-all duration-300 shadow-lg hover:shadow-sky-400/30">
-      <svg viewBox="0 0 24 24" fill="none" className="w-10 h-10 text-sky-400">
-        <path fill="currentColor" d="M6 4h12v2H6zm0 14h12v2H6zm2-12h8v12H8z"/>
-      </svg>
-    </div>
-
-    {/* Perplexity */}
-    <div className="p-5 rounded-2xl backdrop-blur-lg bg-white/5 hover:bg-white/10 transition-all duration-300 shadow-lg hover:shadow-cyan-400/30">
-      <svg viewBox="0 0 24 24" fill="none" className="w-10 h-10 text-cyan-400">
-        <circle cx="12" cy="12" r="9" stroke="currentColor" strokeWidth="2"/>
-        <path fill="currentColor" d="M12 7a5 5 0 0 1 0 10z"/>
-      </svg>
-    </div>
-
-    {/* Canva AI */}
-    <div className="p-5 rounded-2xl backdrop-blur-lg bg-white/5 hover:bg-white/10 transition-all duration-300 shadow-lg hover:shadow-teal-400/30">
-      <svg viewBox="0 0 24 24" fill="none" className="w-10 h-10 text-teal-400">
-        <circle cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="2"/>
-        <path fill="currentColor" d="M8 12a4 4 0 0 0 8 0z"/>
-      </svg>
-    </div>
-
-    {/* Leonardo AI */}
-    <div className="p-5 rounded-2xl backdrop-blur-lg bg-white/5 hover:bg-white/10 transition-all duration-300 shadow-lg hover:shadow-red-400/30">
-      <svg viewBox="0 0 24 24" fill="none" className="w-10 h-10 text-red-400">
-        <polygon fill="currentColor" points="12,2 22,20 2,20"/>
-      </svg>
+      {/* Placeholder slots for others (Cursor, V0, etc.) */}
+      {/* You can fill these with real SVGs when you find them */}
+      <div className="p-5 rounded-2xl backdrop-blur-lg bg-white/5 transition-all duration-300 shadow-lg">
+        {/* Placeholder icon */}
+        <svg className="w-12 h-12 text-gray-500" fill="currentColor" viewBox="0 0 24 24">
+          <circle cx="12" cy="12" r="10" />
+        </svg>
+      </div>
+      <div className="p-5 rounded-2xl backdrop-blur-lg bg-white/5 transition-all duration-300 shadow-lg">
+        <svg className="w-12 h-12 text-gray-500" fill="currentColor" viewBox="0 0 24 24">
+          <rect x="4" y="4" width="16" height="16" />
+        </svg>
+      </div>
+      <div className="p-5 rounded-2xl backdrop-blur-lg bg-white/5 transition-all duration-300 shadow-lg">
+        <svg className="w-12 h-12 text-gray-500" fill="currentColor" viewBox="0 0 24 24">
+          <path d="M2,12 L22,12" />
+        </svg>
+      </div>
+      <div className="p-5 rounded-2xl backdrop-blur-lg bg-white/5 transition-all duration-300 shadow-lg">
+        <svg className="w-12 h-12 text-gray-500" fill="currentColor" viewBox="0 0 24 24">
+          <polygon points="12,2 22,22 2,22" />
+        </svg>
+      </div>
     </div>
   </div>
 </section>
+
 
         {/* Projects */}
         <section id="projects" className="py-20 bg-gradient-to-b from-transparent to-white/2">
